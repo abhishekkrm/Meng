@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1251">
+	<TITLE>Live Distributed Objects - Using UnreliableEsbChannel using JBoss ESB</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.0  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Abhishek">
+	<META NAME="CREATED" CONTENT="20090407;20575200">
+	<META NAME="CHANGEDBY" CONTENT="Abhishek">
+	<META NAME="CHANGED" CONTENT="20091103;21075000">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<h1>Live Distributed Objects</h1>
+<h2>Using UnreliableEsbChannel using JBoss ESB</h2>
+<P><FONT SIZE=3><B>Basic Setup and Functionality</B></FONT></P>
+<P STYLE="font-weight: normal"><FONT SIZE=3>The following steps will
+get you started with using a live object to send messages via an ESB 
+channel. As of now, messages only get sent, the receiving part of the 
+communication is under progress. </FONT></P>
+<OL>
+	<LI><P STYLE="font-weight: normal"><FONT SIZE=3>Please ensure you have JDK 5 
+	(v1.5.0_06 is recommended, I am using 1.6.0_13) and Ant (v1.6.5) installed on your system.
+	Start by downloading
+	JBoss ESB 4.5 from <A HREF="http://labs.jboss.com/jbossesb/downloads/">Esb download</A>. Choose
+	to download "jbossesb-4.6.zip". Next download the JBoss ESB App Server from
+	<A HREF="http://www.jboss.org/jbossas/">Esb AS Download</A>. Choose to download "5.1.0.GA". Unzip both
+	of these to say C:\ on windows. So you will end up with folder structres like
+	C:\jbossesb-4.6 (ESB Home) and C:\jboss-5.1.0.GA (AS Home) respectively.</FONT></P>
+	<LI><P STYLE="font-weight: normal"><FONT SIZE=3>Go to C:\jbossesb-4.6\install and edit the
+	deployment.properties by specifying the AS Home at org.jboss.esb.server.home. So basically,
+	the line now reads as "org.jboss.esb.server.home=C:\jboss-5.1.0.GA".</FONT></P>
+	<LI><P><FONT SIZE=3><SPAN STYLE="font-weight: normal">Next, download jms_router_sender.zip from TODO into
+	C:\jbossesb-4.6\samples\quickstarts. So you have the structure C:\jbossesb-4.6\samples\quickstarts\unzip\jms_router_sender.
+	This has the code that listens for requests coming from a live object to disseminate messages through the Esb Channel.
+	</SPAN></FONT></P>
+	<LI><P STYLE="font-weight: normal"><FONT SIZE=3>Now, open a command prompt and 
+	run the bat file run.bat found in C:\jboss-5.1.0.GA\bin. This will start your 
+	JBoss AS. Now, we need to deploy the jms_router_sender code. Open another command prompt
+	and change directory to C:\jbossesb-4.6\samples\quickstarts\unzip\jms_router_sender.
+	Deploy the code by typing in "ant deploy" and see if your build succeeded.
+	After this, type in ant runsender. This will start the code that will be sending messages 
+	to the JMS Message Queue Gateway. In another command prompt window, change directory to 
+	C:\jbossesb-4.6\samples\quickstarts\unzip\jms_router_sender and type in "ant runreceiver".
+	This will simply output all messages received on the receiving Queue. These are the messages
+	that will then be passed on to other liveobject instances using this channel in the second part
+	of my work.</FONT></P>
+	<LI><P STYLE="font-weight: normal"><FONT SIZE=3>Now, open TestEsb.liveobject and type in some text.
+	You should see the same text being received on the 3rd window opened in the step above.</FONT></P>
+</OL>
+</BODY>
+</HTML>

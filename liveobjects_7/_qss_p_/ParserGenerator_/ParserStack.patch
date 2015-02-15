@@ -1,0 +1,4 @@
+13c13
+< namespace Babel.ParserGenerator
+---
+> namespace QS._qss_p_.ParserGenerator_

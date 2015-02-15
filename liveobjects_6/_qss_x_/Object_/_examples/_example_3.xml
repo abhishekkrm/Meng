@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright (c) 2004-2009 Krzysztof Ostrowski (krzys@cs.cornell.edu). All rights reserved.
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+<Object id="mycontrol" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+  <Endpoint id="Control">
+    <EndpointClass id="6A52F02A-B27D-4d1f-9031-A840A41CD531" />
+  </Endpoint>
+  <Component id="SampleControl">
+    <ComponentClass id="AAEA5D55-1B42-4f2a-9016-EBEACF58C04C" />
+  </Component>
+  <Reference id="CentralizedCommunicationChannel">
+    <Namespace id="myfolder" />
+    <Object id="mychannel">
+      <Endpoint name="Channel">
+        <EndpointClass id="5AB199E3-7068-4876-936C-DE9256CCB960" />
+      </Endpoint>
+    </Object>
+  </Reference>
+  <Binding from="Control" to="SampleControl.Control" />
+  <Binding from="SampleControl.Channel" to="CentralizedCommunicationChannel.Channel" />
+</Object>

@@ -1,0 +1,16 @@
+{
+  int A
+  int C
+  set S
+
+  {
+    H := min A
+    G <= H
+    [A]L := G
+  }
+  {
+    D <= C
+    [C]U := D
+  }
+  
+}

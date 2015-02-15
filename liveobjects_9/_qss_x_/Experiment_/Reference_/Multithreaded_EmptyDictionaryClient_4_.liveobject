@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2008-2009 Chuck Sakoda. All rights reserved.
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="0`1:6D740AA124704F1EB14D4BBF00CD338D`0">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Multithreaded_ReplicatedDictionaryClient_4_" />
+    <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="This is a component class based on the .NET type &quot;QS._qss_x_.Experiment_.Component_.Multithreaded_ReplicatedDictionaryClient_4_&quot;." />
+    <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="6D740AA124704F1EB14D4BBF00CD338D" />
+    <ObjectClass id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+    <Parameter id="count">
+      <Value xsi:type="xsd:int">100000</Value>
+    </Parameter>
+    <Parameter id="get burst size">
+      <Value xsi:type="xsd:int">100</Value>
+    </Parameter>
+    <Parameter id="ratio add to get">
+      <Value xsi:type="xsd:double">9</Value>
+    </Parameter>
+    <Parameter id="# of threads">
+      <Value xsi:type="xsd:int">1</Value>
+    </Parameter>
+    <Parameter id="work">
+      <Value xsi:type="ReferenceObject" id="0`1:52ABE30CF73F4C59B75EC6E1DEFB4093`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="EmptyDictionary_" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="This is a component class based on the .NET type &quot;QS._qss_x_.Experiment_.Component_.EmptyDictionary_&quot;." />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="52ABE30CF73F4C59B75EC6E1DEFB4093" />
+        <ObjectClass id="0`1:460FB98164EF44019EDD982ADE27BC8B`0" />
+        <Parameter id="# Iterations">
+          <Value xsi:type="xsd:int">0</Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+  </Object>
+</Root>
+

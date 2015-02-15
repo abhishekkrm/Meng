@@ -1,0 +1,724 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2004-2009 Krzysztof Ostrowski (krzys@cs.cornell.edu). All rights reserved.
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F06CF495-6A41-4E21-8BD7-ECCA7F2C2D2A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QS</RootNamespace>
+    <AssemblyName>liveobjects_1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>liveobjects_1.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;XNA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|AnyCPU' ">
+    <OutputPath>bin\Distribution\</OutputPath>
+    <DefineConstants>TRACE;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|x64' ">
+    <OutputPath>bin\x64\Distribution\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|x86' ">
+    <OutputPath>bin\x86\Distribution\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Simulation\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Simulation\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Simulation\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux|AnyCPU' ">
+    <OutputPath>bin\Linux\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux|x64' ">
+    <OutputPath>bin\x64\Linux\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux|x86' ">
+    <OutputPath>bin\x86\Linux\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|AnyCPU' ">
+    <OutputPath>bin\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_1.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|x64' ">
+    <OutputPath>bin\x64\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_1.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|x86' ">
+    <OutputPath>bin\x86\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_1.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassIDs.cs" />
+    <Compile Include="Fx\Attributes\Attribute.cs" />
+    <Compile Include="Fx\Attributes\AttributeAttribute.cs" />
+    <Compile Include="Fx\Attributes\AttributeClass.cs" />
+    <Compile Include="Fx\Attributes\AttributeClasses.cs" />
+    <Compile Include="Fx\Attributes\Attributes.cs" />
+    <Compile Include="Fx\Attributes\IAttribute.cs" />
+    <Compile Include="Fx\Attributes\IAttributeClass.cs" />
+    <Compile Include="Fx\Attributes\IAttributes.cs" />
+    <Compile Include="Fx\Attributes\IObjectWithAttributes.cs" />
+    <Compile Include="Fx\Attributes\ObjectWithAttributes.cs" />
+    <Compile Include="Fx\Base\Address.cs" />
+    <Compile Include="Fx\Base\Block.cs" />
+    <Compile Include="Fx\Base\Callback.cs" />
+    <Compile Include="Fx\Base\CompletionCallback.cs" />
+    <Compile Include="Fx\Base\ConsumableBlock.cs" />
+    <Compile Include="Fx\Base\ContextCallback.cs" />
+    <Compile Include="Fx\Base\Event.cs" />
+    <Compile Include="Fx\Base\IBlockControl.cs" />
+    <Compile Include="Fx\Base\ID.cs" />
+    <Compile Include="Fx\Base\Identifier.cs" />
+    <Compile Include="Fx\Base\IEvent.cs" />
+    <Compile Include="Fx\Base\IHandler.cs" />
+    <Compile Include="Fx\Base\IIncrementable.cs" />
+    <Compile Include="Fx\Base\Incarnation.cs" />
+    <Compile Include="Fx\Base\Index.cs" />
+    <Compile Include="Fx\Base\InspectableAttribute.cs" />
+    <Compile Include="Fx\Base\IOCompletionCallback.cs" />
+    <Compile Include="Fx\Base\IParameter.cs" />
+    <Compile Include="Fx\Base\IParameterInfo.cs" />
+    <Compile Include="Fx\Base\IParameters.cs" />
+    <Compile Include="Fx\Base\IParametersInfo.cs" />
+    <Compile Include="Fx\Base\IParametrized.cs" />
+    <Compile Include="Fx\Base\MessageIdentifier.cs" />
+    <Compile Include="Fx\Base\TreeConfiguration.cs" />
+    <Compile Include="Fx\Component\Classes\UI_Properties.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fx\Interface\Classes\IAggUpdater.cs" />
+    <Compile Include="Fx\Interface\Classes\IAggUpdaterClient.cs" />
+    <Compile Include="Fx\Interface\Classes\IDataFlowClient.cs" />
+    <Compile Include="Fx\Interface\Classes\IDataFlow.cs" />
+    <Compile Include="Fx\Interface\Classes\IMetadata.cs" />
+    <Compile Include="Fx\Interface\Classes\IMetadataClient.cs" />
+    <Compile Include="Fx\Interface\Classes\IOrder.cs" />
+    <Compile Include="Fx\Interface\Classes\IOrderClient.cs" />
+    <Compile Include="Fx\Interface\Classes\IReliable.cs" />
+    <Compile Include="Fx\Interface\Classes\IReliableClient.cs" />
+    <Compile Include="Fx\Interface\Classes\ITree.cs" />
+    <Compile Include="Fx\Interface\Classes\ITreeClient.cs" />
+    <Compile Include="Fx\Internal\I000011.cs" />
+    <Compile Include="Fx\Object\Classes\IDataFlowExposed.cs" />
+    <Compile Include="Fx\Object\Classes\IDataFlowClient.cs" />
+    <Compile Include="Fx\Object\Classes\IDataFlow.cs" />
+    <Compile Include="Fx\Object\Classes\IOrder.cs" />
+    <Compile Include="Fx\Object\Classes\ICheckpointedCommunicationChannelClient.cs" />
+    <Compile Include="Fx\Object\Classes\IReliable.cs" />
+    <Compile Include="Fx\Object\Classes\IReliableClient.cs" />
+    <Compile Include="Fx\Value\Classes\IExplorableMetadata.cs" />
+    <Compile Include="Fx\Object\Classes\ILogging_UI_Properties.cs" />
+    <Compile Include="Fx\Object\Classes\IProperty.cs" />
+    <Compile Include="Fx\Printing\NonPrintableAttribute.cs" />
+    <Compile Include="Fx\Printing\Printable.cs" />
+    <Compile Include="Fx\Printing\PrintableAttribute.cs" />
+    <Compile Include="Fx\Printing\PrintingStyle.cs" />
+    <Compile Include="Fx\Printing\SelectionOption.cs" />
+    <Compile Include="Fx\Object\Classes\ITree.cs" />
+    <Compile Include="Fx\Replication\IReplicated.cs" />
+    <Compile Include="Fx\Base\Name.cs" />
+    <Compile Include="Fx\Base\ParameterAccess.cs" />
+    <Compile Include="Fx\Base\ParameterAttribute.cs" />
+    <Compile Include="Fx\Base\Synchronization.cs" />
+    <Compile Include="Fx\Base\SynchronizationAttribute.cs" />
+    <Compile Include="Fx\Base\SynchronizationOption.cs" />
+    <Compile Include="Fx\Base\TODO.cs" />
+    <Compile Include="Fx\Base\UINT128.cs" />
+    <Compile Include="Fx\Base\UINT32.cs" />
+    <Compile Include="Fx\Base\UINT64.cs" />
+    <Compile Include="Fx\Base\Int128.cs" />
+    <Compile Include="Fx\Base\UnmanagedObject.cs" />
+    <Compile Include="Fx\Clock\AlarmCallback.cs" />
+    <Compile Include="Fx\Clock\IAlarm.cs" />
+    <Compile Include="Fx\Clock\IAlarmClock.cs" />
+    <Compile Include="Fx\Clock\IClock.cs" />
+    <Compile Include="Fx\Component\Classes\UI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fx\Diagnostics\ComponentClass.cs" />
+    <Compile Include="Fx\Diagnostics\IDiagnosticsComponent.cs" />
+    <Compile Include="Fx\Diagnostics\SelectionOption.cs" />
+    <Compile Include="Fx\Endpoint\ConstraintClasses\Secure.cs" />
+    <Compile Include="Fx\Filesystem\FileFlags.cs" />
+    <Compile Include="Fx\Filesystem\FilesystemObjectType.cs" />
+    <Compile Include="Fx\Filesystem\IFile.cs" />
+    <Compile Include="Fx\Filesystem\IFilesystem.cs" />
+    <Compile Include="Fx\Filesystem\IFilesystemObject.cs" />
+    <Compile Include="Fx\Filesystem\IFolder.cs" />
+    <Compile Include="Fx\Gossip\Frontend\IGORequest.cs" />
+    <Compile Include="Fx\Gossip\Frontend\IGOResponse.cs" />
+    <Compile Include="Fx\Gossip\Frontend\IGOTransport.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Classes_\AbstractBroadcastedMessageEventSink.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Classes_\AbstractServer.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Classes_\Constants.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Classes_\Group.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Classes_\Node.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Classes_\NodeList.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Classes_\PriorityQueue.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Classes_\Rumor.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Classes_\RumorList.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Classes_\SerializableDictionary.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Classes_\Subscription.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Classes_\SubscriptionHandler.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Classes_\UseCaseException.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Classes_\Utils.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Debugging_\DebuggingContext.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Debugging_\SpecialSwitch.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Interfaces_\IGOConnection.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Interfaces_\IGossip.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Interfaces_\IGraphElement.cs" />
+    <Compile Include="Fx\Gossip\GOBaseLibrary\Interfaces_\ISubscription.cs" />
+    <Compile Include="Fx\Inspection\ArrayUnroller.cs" />
+    <Compile Include="Fx\Inspection\AttributeCollection.cs" />
+    <Compile Include="Fx\Inspection\AttributesOf.cs" />
+    <Compile Include="Fx\Inspection\CollectionUnroller.cs" />
+    <Compile Include="Fx\Inspection\DictionaryUnroller.cs" />
+    <Compile Include="Fx\Inspection\FieldWrapper.cs" />
+    <Compile Include="Fx\Inspection\IAttribute.cs" />
+    <Compile Include="Fx\Inspection\IAttributeCollection.cs" />
+    <Compile Include="Fx\Inspection\IgnoreAttribute.cs" />
+    <Compile Include="Fx\Inspection\IInspectable.cs" />
+    <Compile Include="Fx\Inspection\Inspectable.cs" />
+    <Compile Include="Fx\Inspection\IScalarAttribute.cs" />
+    <Compile Include="Fx\Inspection\PropertyWrapper.cs" />
+    <Compile Include="Fx\Inspection\ScalarAttribute.cs" />
+    <Compile Include="Fx\Inspection\Unroller.cs" />
+    <Compile Include="Fx\Interface\Classes\IAggregatorClient.cs" />
+    <Compile Include="Fx\Interface\Classes\IDelegationChannelClient.cs" />
+    <Compile Include="Fx\Interface\Classes\IDiscovery.cs" />
+    <Compile Include="Fx\Interface\Classes\ILog.cs" />
+    <Compile Include="Fx\Interface\Classes\IProperties.cs" />
+    <Compile Include="Fx\Interface\Classes\IDelegationChannel.cs" />
+    <Compile Include="Fx\Interface\Classes\IAggregator.cs" />
+    <Compile Include="Fx\Interface\Classes\IRing.cs" />
+    <Compile Include="Fx\Interface\Classes\IRingClient.cs" />
+    <Compile Include="Fx\Interface\Classes\IAuthenticating.cs" />
+    <Compile Include="Fx\Interface\Classes\IAuthenticatingClient.cs" />
+    <Compile Include="Fx\Interface\Classes\ICommunicationChannel.cs" />
+    <Compile Include="Fx\Interface\Classes\IGroupClient.cs" />
+    <Compile Include="Fx\Interface\Classes\IGroup.cs" />
+    <Compile Include="Fx\Interface\Classes\ISynchronizationChannel.cs" />
+    <Compile Include="Fx\Interface\Classes\ISynchronizationChannelClient.cs" />
+    <Compile Include="Fx\Interface\Classes\ITransportClient.cs" />
+    <Compile Include="Fx\Interface\Classes\IMembershipChannelClient.cs" />
+    <Compile Include="Fx\Interface\Classes\IMembershipChannel.cs" />
+    <Compile Include="Fx\Interface\Classes\ICheckpointed.cs" />
+    <Compile Include="Fx\Internal\I000008.cs" />
+    <Compile Include="Fx\Internal\I000009.cs" />
+    <Compile Include="Fx\Internal\I000010.cs" />
+    <Compile Include="Fx\Logging\IConsole.cs" />
+    <Compile Include="Fx\Logging\IEvent.cs" />
+    <Compile Include="Fx\Logging\IEventClass.cs" />
+    <Compile Include="Fx\Logging\IEventLogger.cs" />
+    <Compile Include="Fx\Logging\ILogger.cs" />
+    <Compile Include="Fx\Network\AsynchronousSend.cs" />
+    <Compile Include="Fx\Network\Data.cs" />
+    <Compile Include="Fx\Network\IListener.cs" />
+    <Compile Include="Fx\Network\INetworkConnection.cs" />
+    <Compile Include="Fx\Network\INetworkInterface.cs" />
+    <Compile Include="Fx\Network\ISender.cs" />
+    <Compile Include="Fx\Network\ISource.cs" />
+    <Compile Include="Fx\Network\NetworkAddress.cs" />
+    <Compile Include="Fx\Network\ReceiveCallback.cs" />
+    <Compile Include="Fx\Object\Classes\IClient.cs" />
+    <Compile Include="Fx\Object\Classes\IDiscovery.cs" />
+    <Compile Include="Fx\Object\Classes\ILogging.cs" />
+    <Compile Include="Fx\Object\Classes\ILogging_UI.cs" />
+    <Compile Include="Fx\Object\Classes\ILogging_UI_X.cs" />
+    <Compile Include="Fx\Object\Classes\IProperties.cs" />
+    <Compile Include="Fx\Object\Classes\IDelegationChannel.cs" />
+    <Compile Include="Fx\Object\Classes\IAggregator.cs" />
+    <Compile Include="Fx\Object\Classes\IRing.cs" />
+    <Compile Include="Fx\Object\Classes\IAuthenticatedObject.cs" />
+    <Compile Include="Fx\Object\Classes\IAuthenticating1.cs" />
+    <Compile Include="Fx\Object\Classes\IAuthenticating2.cs" />
+    <Compile Include="Fx\Object\Classes\IGroup.cs" />
+    <Compile Include="Fx\Object\Classes\IMembership.cs" />
+    <Compile Include="Fx\Object\Classes\IMembershipChannel.cs" />
+    <Compile Include="Fx\Object\Classes\ISecureUI.cs" />
+    <Compile Include="Fx\Object\Classes\IUnidirectionalChannel.cs" />
+    <Compile Include="Fx\Object\Classes\ISynchronizationChannel.cs" />
+    <Compile Include="Fx\Object\Classes\ITransport.cs" />
+    <Compile Include="Fx\Interface\Classes\ITransport.cs" />
+    <Compile Include="Fx\Interface\ConstraintClasses\Some.cs" />
+    <Compile Include="Fx\Object\Classes\ICommunicationChannel.cs" />
+    <Compile Include="Fx\Object\ConstraintClasses\Secure.cs" />
+    <Compile Include="Fx\Endpoint\Classes\IClientOf.cs" />
+    <Compile Include="Fx\Endpoint\Classes\IDualInterface.cs" />
+    <Compile Include="Fx\Endpoint\Classes\IEndpoint.cs" />
+    <Compile Include="Fx\Endpoint\Classes\IImportedInterface.cs" />
+    <Compile Include="Fx\Endpoint\Classes\IExportedInterface.cs" />
+    <Compile Include="Fx\Endpoint\Classes\IExportedUI.cs" />
+    <Compile Include="Fx\Endpoint\Classes\IImportedUI.cs" />
+    <Compile Include="Fx\Endpoint\Classes\IExportedUI_X.cs" />
+    <Compile Include="Fx\Endpoint\Classes\IImportedUI_X.cs" />
+    <Compile Include="Fx\Endpoint\Internal\Create.cs" />
+    <Compile Include="Fx\Endpoint\Internal\ICreate.cs" />
+    <Compile Include="Fx\Endpoint\Internal\IDualInterface.cs" />
+    <Compile Include="Fx\Endpoint\Internal\IEndpoint.cs" />
+    <Compile Include="Fx\Endpoint\IConnection.cs" />
+    <Compile Include="Fx\Endpoint\Internal\IExportedInterface.cs" />
+    <Compile Include="Fx\Endpoint\Internal\IImportedInterface.cs" />
+    <Compile Include="Fx\Endpoint\Internal\IImportedUI.cs" />
+    <Compile Include="Fx\Endpoint\Internal\IImportedUI_X.cs" />
+    <Compile Include="Fx\Endpoint\Internal\Xna\ContentCallback.cs" />
+    <Compile Include="Fx\Endpoint\Internal\Xna\DrawCallback.cs" />
+    <Compile Include="Fx\Endpoint\Internal\Xna\RepositionCallback.cs" />
+    <Compile Include="Fx\Endpoint\Internal\Xna\UpdateCallback.cs" />
+    <Compile Include="Fx\Endpoint\IReference.cs" />
+    <Compile Include="Fx\Endpoint\Internal\IExportedUI.cs" />
+    <Compile Include="Fx\Endpoint\Internal\IExportedUI_X.cs" />
+    <Compile Include="Fx\Interface\Classes\IChannel.cs" />
+    <Compile Include="Fx\Interface\Classes\ICheckpointedCommunicationChannel.cs" />
+    <Compile Include="Fx\Interface\Classes\ICheckpointedCommunicationChannelClient.cs" />
+    <Compile Include="Fx\Interface\Classes\ICommitChannel.cs" />
+    <Compile Include="Fx\Interface\Classes\ICommitChannelClient.cs" />
+    <Compile Include="Fx\Interface\Classes\IDictionary.cs" />
+    <Compile Include="Fx\Interface\Classes\IDictionaryClient.cs" />
+    <Compile Include="Fx\Interface\Classes\IInterface.cs" />
+    <Compile Include="Fx\Interface\Classes\ILibrary.cs" />
+    <Compile Include="Fx\Interface\Classes\ILibraryClient.cs" />
+    <Compile Include="Fx\Interface\Classes\ILoader.cs" />
+    <Compile Include="Fx\Interface\Classes\IValue.cs" />
+    <Compile Include="Fx\Interface\Classes\IValueClient.cs" />
+    <Compile Include="Fx\Internal\I000004.cs" />
+    <Compile Include="Fx\Internal\I000005.cs" />
+    <Compile Include="Fx\Internal\I000003.cs" />
+    <Compile Include="Fx\Internal\I000002.cs" />
+    <Compile Include="Fx\Internal\I000006.cs" />
+    <Compile Include="Fx\Internal\I000007.cs" />
+    <Compile Include="Fx\Object\Classes\ICheckpointedCommunicationChannel.cs" />
+    <Compile Include="Fx\Object\Classes\IDictionary.cs" />
+    <Compile Include="Fx\Object\Classes\IFolder.cs" />
+    <Compile Include="Fx\Object\Classes\IObject.cs" />
+    <Compile Include="Fx\Object\Classes\IChannel.cs" />
+    <Compile Include="Fx\Object\Classes\IService.cs" />
+    <Compile Include="Fx\Object\Classes\IUI.cs" />
+    <Compile Include="Fx\Object\Classes\IUI_X.cs" />
+    <Compile Include="Fx\Object\Classes\IValue.cs" />
+    <Compile Include="Fx\Object\Classes\IValueClient.cs" />
+    <Compile Include="Fx\Object\Classes\IWindow.cs" />
+    <Compile Include="Fx\Object\Classes\IWindow_X.cs" />
+    <Compile Include="Fx\Object\IContext.cs" />
+    <Compile Include="Fx\Object\IInternal.cs" />
+    <Compile Include="Fx\Object\IRuntimeContext.cs" />
+    <Compile Include="Fx\Object\IEmbeddedObject.cs" />
+    <Compile Include="Fx\Object\IReference.cs" />
+    <Compile Include="Fx\Configuration\IParameter.cs" />
+    <Compile Include="Fx\Configuration\IConfiguration.cs" />
+    <Compile Include="Fx\Configuration\Parameter.cs" />
+    <Compile Include="Fx\Configuration\Configuration.cs" />
+    <Compile Include="Fx\Operator\Classes\IOperator.cs" />
+    <Compile Include="Fx\Platform\IPlatform.cs" />
+    <Compile Include="Fx\Reflection\ComponentClassAttribute.cs" />
+    <Compile Include="Fx\Reflection\ComponentClasses.cs" />
+    <Compile Include="Fx\Reflection\ConstraintKind.cs" />
+    <Compile Include="Fx\Reflection\EndpointConstraintAttribute.cs" />
+    <Compile Include="Fx\Reflection\EndpointConstraintClassAttribute.cs" />
+    <Compile Include="Fx\Reflection\EndpointConstraintClasses.cs" />
+    <Compile Include="Fx\Reflection\IEndpointConstraint.cs" />
+    <Compile Include="Fx\Reflection\IEndpointConstraintClass.cs" />
+    <Compile Include="Fx\Reflection\IInterfaceConstraint.cs" />
+    <Compile Include="Fx\Reflection\IInterfaceConstraintClass.cs" />
+    <Compile Include="Fx\Reflection\InterfaceConstraintClassAttribute.cs" />
+    <Compile Include="Fx\Reflection\InterfaceConstraintClasses.cs" />
+    <Compile Include="Fx\Reflection\IObjectConstraintClass.cs" />
+    <Compile Include="Fx\Reflection\ObjectConstraintClassAttribute.cs" />
+    <Compile Include="Fx\Reflection\ObjectConstraintClasses.cs" />
+    <Compile Include="Fx\Reflection\EndpointAttribute.cs" />
+    <Compile Include="Fx\Reflection\EndpointClassAttribute.cs" />
+    <Compile Include="Fx\Reflection\EndpointClasses.cs" />
+    <Compile Include="Fx\Reflection\IClass.cs" />
+    <Compile Include="Fx\Reflection\IComponentClass.cs" />
+    <Compile Include="Fx\Reflection\IEndpoint.cs" />
+    <Compile Include="Fx\Reflection\IEndpointClass.cs" />
+    <Compile Include="Fx\Reflection\IInterfaceClass.cs" />
+    <Compile Include="Fx\Reflection\IMessageClass.cs" />
+    <Compile Include="Fx\Reflection\InterfaceClassAttribute.cs" />
+    <Compile Include="Fx\Reflection\InterfaceClasses.cs" />
+    <Compile Include="Fx\Reflection\IObject.cs" />
+    <Compile Include="Fx\Reflection\IObjectClass.cs" />
+    <Compile Include="Fx\Reflection\IObjectConstraint.cs" />
+    <Compile Include="Fx\Reflection\IOperation.cs" />
+    <Compile Include="Fx\Reflection\IOperationClass.cs" />
+    <Compile Include="Fx\Reflection\IParameter.cs" />
+    <Compile Include="Fx\Reflection\IValue.cs" />
+    <Compile Include="Fx\Reflection\IValueClass.cs" />
+    <Compile Include="Fx\Reflection\LibraryAttribute.cs" />
+    <Compile Include="Fx\Reflection\Library.cs" />
+    <Compile Include="Fx\Reflection\ObjectClasses.cs" />
+    <Compile Include="Fx\Reflection\OperatorAttribute.cs" />
+    <Compile Include="Fx\Reflection\OperatorClassAttribute.cs" />
+    <Compile Include="Fx\Reflection\OperatorClasses.cs" />
+    <Compile Include="Fx\Reflection\Parameter.cs" />
+    <Compile Include="Fx\Reflection\ParameterClass.cs" />
+    <Compile Include="Fx\Reflection\ValueAttribute.cs" />
+    <Compile Include="Fx\Reflection\ValueClasses.cs" />
+    <Compile Include="Fx\Reflection\Xml\Attribute.cs" />
+    <Compile Include="Fx\Reflection\Xml\Class.cs" />
+    <Compile Include="Fx\Reflection\Xml\CompositeObject.cs" />
+    <Compile Include="Fx\Reflection\Xml\EndpointConstraint.cs" />
+    <Compile Include="Fx\Reflection\Xml\EndpointClass.cs" />
+    <Compile Include="Fx\Reflection\ObjectConstraintAttribute.cs" />
+    <Compile Include="Fx\Reflection\Xml\InterfaceClass.cs" />
+    <Compile Include="Fx\Reflection\Xml\Object.cs" />
+    <Compile Include="Fx\Reflection\Xml\ObjectClass.cs" />
+    <Compile Include="Fx\Reflection\Xml\ObjectConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fx\Reflection\Xml\Objects.cs" />
+    <Compile Include="Fx\Reflection\Xml\Parameter.cs" />
+    <Compile Include="Fx\Reflection\Xml\Parameters.cs" />
+    <Compile Include="Fx\Reflection\Xml\ReferenceObject.cs" />
+    <Compile Include="Fx\Reflection\Xml\Root.cs" />
+    <Compile Include="Fx\Reflection\Xml\_TemplateObject.cs" />
+    <Compile Include="Fx\Reflection\Xml\ValueClass.cs" />
+    <Compile Include="Fx\Replication\Policy.cs" />
+    <Compile Include="Fx\Scheduling\IQueue.cs" />
+    <Compile Include="Fx\Scheduling\Policy.cs" />
+    <Compile Include="Fx\Scheduling\SinglethreadedQueue.cs" />
+    <Compile Include="Fx\Scheduling\IScheduler.cs" />
+    <Compile Include="Fx\Serialization\ClassIDAttribute.cs" />
+    <Compile Include="Fx\Serialization\ISerializable.cs" />
+    <Compile Include="Fx\Serialization\ISerializer.cs" />
+    <Compile Include="Fx\Serialization\IStringSerializable.cs" />
+    <Compile Include="Fx\Serialization\Serializable.cs" />
+    <Compile Include="Fx\Serialization\SerializableAttribute.cs" />
+    <Compile Include="Fx\Serialization\SerializableInfo.cs" />
+    <Compile Include="Fx\Internal\I000001.cs" />
+    <Compile Include="Fx\Serialization\Serializer.cs" />
+    <Compile Include="Fx\Value\Classes\Desktop\DesktopObject.cs" />
+    <Compile Include="Fx\Value\Classes\Desktop\DesktopOperationType.cs" />
+    <Compile Include="Fx\Value\Classes\Desktop\DesktopOperation_Add.cs" />
+    <Compile Include="Fx\Value\Classes\Desktop\DesktopOperation_Move.cs" />
+    <Compile Include="Fx\Value\Classes\Desktop\DesktopState.cs" />
+    <Compile Include="Fx\Value\Classes\Desktop\IDesktopObject.cs" />
+    <Compile Include="Fx\Value\Classes\Desktop\IDesktopOperation.cs" />
+    <Compile Include="Fx\Value\Classes\Desktop\IDesktopState.cs" />
+    <Compile Include="Fx\Value\Classes\IColor.cs" />
+    <Compile Include="Fx\Value\Classes\ICoordinates.cs" />
+    <Compile Include="Fx\Value\Classes\IMembership.cs" />
+    <Compile Include="Fx\Value\Classes\IMember.cs" />
+    <Compile Include="Fx\Value\Classes\IPropertyValue.cs" />
+    <Compile Include="Fx\Value\Classes\IPropertyValues.cs" />
+    <Compile Include="Fx\Value\Classes\IPropertyVersion.cs" />
+    <Compile Include="Fx\Value\Classes\IRecord.cs" />
+    <Compile Include="Fx\Value\Classes\ISet.cs" />
+    <Compile Include="Fx\Value\Classes\ISetChange.cs" />
+    <Compile Include="Fx\Value\Classes\IText.cs" />
+    <Compile Include="Fx\Value\Classes\IValue.cs" />
+    <Compile Include="Fx\Value\Classes\IVersioned.cs" />
+    <Compile Include="Fx\Value\Membership.cs" />
+    <Compile Include="Fx\Value\Member.cs" />
+    <Compile Include="Fx\Value\Properties.cs" />
+    <Compile Include="Fx\Value\Property.cs" />
+    <Compile Include="Fx\Value\PropertyBinding.cs" />
+    <Compile Include="Fx\Value\PropertyLocation.cs" />
+    <Compile Include="Fx\Value\PropertyDependencyClass.cs" />
+    <Compile Include="Fx\Value\PropertyValues.cs" />
+    <Compile Include="Fx\Value\PropertyValue.cs" />
+    <Compile Include="Fx\Value\PropertyVersion.cs" />
+    <Compile Include="Fx\Value\SetChange.cs" />
+    <Compile Include="Fx\Value\UnicodeText.cs" />
+    <Compile Include="Fx\Value\Set.cs" />
+    <Compile Include="Fx\Value\Versioned.cs" />
+    <Compile Include="Fx\Xna\Content.cs" />
+    <Compile Include="Fx\Xna\ContentClass.cs" />
+    <Compile Include="Fx\Xna\ContentRef.cs" />
+    <Compile Include="Fx\Xna\IContent.cs" />
+    <Compile Include="Fx\Xna\IContentRef.cs" />
+    <Compile Include="Fx\Reflection\ObjectClassAttribute.cs" />
+    <Compile Include="Fx\Reflection\OperationAttribute.cs" />
+    <Compile Include="Fx\Reflection\ParameterAttribute.cs" />
+    <Compile Include="liveobjects_1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Fx\Reflection\ValueClassAttribute.cs" />
+    <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="liveobjects_1.snk" />
+    <None Include="Migrated rules for liveobjects_1.ruleset" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Fx\Old\Components\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

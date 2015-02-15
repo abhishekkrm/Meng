@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="0`1:517B849D9D5B692D7D7112776A2BEC88`0">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="TextGenerator" />
+    <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="Randomly generate text messages" />
+    <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="517B849D9D5B692D7D7112776A2BEC88" />
+    <ObjectClass id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+    <Parameter id="channel">
+      <Value xsi:type="ReferenceObject" id="0`1:BB7AD27E888163364133F2C091DADD05`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="TimedChannel" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="Timestamp outgoing messages and print propagation delays" />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="BB7AD27E888163364133F2C091DADD05" />
+        <ObjectClass id="0`1:806C71E88E749AA879E52F960F4B881`0">
+          <Parameter id="MessageClass">
+            <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+          </Parameter>
+          <Parameter id="CheckpointClass">
+            <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+          </Parameter>
+        </ObjectClass>
+        <Parameter id="channel">
+          <Value xsi:type="ReferenceObject" id="00000000000000000000000000001032">
+            <ObjectClass id="0`1:806C71E88E749AA879E52F960F4B881`0">
+              <Parameter id="MessageClass">
+                <Value xsi:type="ValueClass" id="0`1:A936CED0B34B85672DEE74F486BBEC8C`0" />
+              </Parameter>
+              <Parameter id="CheckpointClass">
+                <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+              </Parameter>
+            </ObjectClass>
+            <From xsi:type="ReferenceObject" id="011E83FA6A9F426993BB8EF26FF7D7B8">
+              <ObjectClass id="0`1:D111EEF8754D4EB98ABD90B0260AEF93`0">
+                <Parameter id="KeyClass">
+                  <Value xsi:type="ValueClass" id="0`1:2FEB1E028342422CBD38CB074B957973`0" />
+                </Parameter>
+                <Parameter id="ObjectClass">
+                  <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+                </Parameter>
+              </ObjectClass>
+              <From xsi:type="ReferenceObject" id="0`1:E8C9D312C27649F39812B8E99AA67CBC`0">
+                <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Registry" />
+                <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="A collection of services with known names, but with a local customized configuration that could be based on system registry or on configuration files." />
+                <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="E8C9D312C27649F39812B8E99AA67CBC" />
+                <ObjectClass id="0`1:D111EEF8754D4EB98ABD90B0260AEF93`0">
+                  <Parameter id="KeyClass">
+                    <Value xsi:type="ValueClass" id="0`1:2FEB1E028342422CBD38CB074B957973`0" />
+                  </Parameter>
+                  <Parameter id="ObjectClass">
+                    <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+                  </Parameter>
+                </ObjectClass>
+              </From>
+            </From>
+          </Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+    <Parameter id="generator">
+      <Value xsi:type="ReferenceObject" id="0`1:5E0DD08BDD3648779E8F4B36F14501AB`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="ScriptedInterval" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="Reads interval and size data from a file" />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="5E0DD08BDD3648779E8F4B36F14501AB" />
+        <ObjectClass id="0`1:22C1F947A15242D7A9A1A55FE6572349`0" />
+        <Parameter id="file">
+          <Value xsi:type="xsd:string">c:\liveobjects\messages.txt</Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+  </Object>
+</Root>

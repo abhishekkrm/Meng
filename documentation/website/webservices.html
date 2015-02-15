@@ -1,0 +1,213 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 12 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+p.Publishwithline, li.Publishwithline, div.Publishwithline
+	{mso-style-name:"Publish with line";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:16.0pt;
+	font-family:"Cambria","serif";
+	color:#17365D;
+	font-weight:bold;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<title>Live Distributed Objects - Live Objects over Web Services</title>
+
+<div class=Section1>
+
+<p class=Publishwithline><span style='font-size:24.0pt;font-family:"Times New Roman","serif";
+color:black'>Live Distributed Objects</span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black'>&nbsp;</span></p>
+
+<p class=Publishwithline><span style='font-size:22.0pt;font-family:"Times New Roman","serif";
+color:black'>Live Objects over Web Services (v 0.10 Beta)</span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black'>&nbsp;</span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black'>Overview </span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black'>&nbsp;</span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>This component of the Live Objects platform
+will allow users to setup Communication Channel Clients to communicate over Web
+Services protocols, the new Communication Channel, to a central Service running
+locally or in the Cloud.  Client and Service are written using the Windows
+Communication Framework and communicate over a WSDualHTTP binding.  </span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>&nbsp;</span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black'>Limitations</span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>&nbsp;</span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>This version does not handle checkpointing but
+safely carries messages from one client to another.  Version 0.2 will include
+checkpointing support.</span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>&nbsp;</span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black'>Basic Setup and Functionality</span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black'>&nbsp;</span></p>
+
+<p class=Publishwithline style='margin-left:.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";color:black;
+font-weight:normal'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>In this example we will be working with two
+live object reference files:  TextOverWcfChannel.liveobject and WcfChannelControllerForText.liveobject. 
+Please make sure they are in your examples directory.  TextOverWcfChannel will
+serve as the client and as the name entails will be a simple example of a text
+box over the new web services channel.  WcfChannelControllerForText will serve
+as the service process and will handle message exchanges between clients and in
+later versions will include centralized checkpointing support.</span></p>
+
+<p class=Publishwithline style='margin-left:.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";color:black;
+font-weight:normal'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>Configuring the client and service.</span></p>
+
+<p class=Publishwithline style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";color:black;
+font-weight:normal'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>Although this step is not required, you are
+free to choose what address the service runs on and to which the client will
+connect to.  The default is (<a href="http://localhost:1000">http://localhost:1000</a>).</span></p>
+
+<p class=Publishwithline style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";color:black;
+font-weight:normal'>b.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>From TextOverWcfChannel.liveobject</span></p>
+
+<p class=Publishwithline style='margin-left:1.0in'><span style='font-size:12.0pt;
+font-family:"Times New Roman","serif";color:black;font-weight:normal'><img
+border=0 width=812 height=418 id="Picture 0"
+src="webservices_files/image001.gif" alt="wcf_client.gif"></span></p>
+
+<p class=Publishwithline style='margin-left:.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";color:black;
+font-weight:normal'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>Note that although Checkpoints are mentioned
+above, they are not supported in this release.</span></p>
+
+<p class=Publishwithline style='margin-left:.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";color:black;
+font-weight:normal'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>Run the Service (WcfChannelControllerForText.liveobject)
+by opening a command prompt window </span><span style='font-size:12.0pt;
+font-family:"Times New Roman","serif";color:black'>as Administrator</span><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";color:black;
+font-weight:normal'> and then executing the Live Objects reference file as
+usual:  C:\liveobjects\bin\liveobjects.exe %path_for_this_referencefile%\WcfChannelControllerForText.liveobject. 
+*** Note:  You must run as administrator or else the service will not be able
+to bind to the address in the reference file.  The Service must also be run
+before the client (next step).</span></p>
+
+<p class=Publishwithline style='margin-left:.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";color:black;
+font-weight:normal'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>No special care should be required to run the
+client.  You are free to double-click the TextOverWcfChannel.liveobject or run
+it from the command prompt.</span></p>
+
+<p class=Publishwithline style='margin-left:.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";color:black;
+font-weight:normal'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>Open multiple TextOverWcfChannel’s and start
+talking to each other!</span></p>
+
+<p class=Publishwithline style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";color:black;
+font-weight:normal'>a.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>Using the Object Designer you may also
+incorporate this custom channel into your own live object.</span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>&nbsp;</span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black;font-weight:normal'>&nbsp;</span></p>
+
+<p class=Publishwithline><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+color:black'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1251">
+	<TITLE>Live Distributed Objects - Working with Centralized Channel Over TCP Transport2</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.0  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Rinku Agarwal">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<h1>Live Distributed Objects</h1>
+<h2>Version 1: Centralized Channel Over TCP Transport2 Component</h2>
+<P STYLE="font-weight: normal"><FONT SIZE=3> The component is configured to use simple transport like Tcp Transport2 to build centralized server with a checkpointed communication channel (CC), that can accept connections from CC clients. The server can be configured to listen on a know port by passing value to the argument of TcpTransport2_ component. Clients can connect to the server at this port. In version 1 of the component, the server has its own checkpointed component from which it gets the latest checkpoint when the server gets a new client connection. This checkpointed component at server side is of the same type as that at the client side. The server relays messages to everyone connected. 
+<h4><b>Example</b></h4>
+CentalizedChannelOverAbstractTransportServer_1.liveobject is the server object and CentalizedChannelOverAbstractTransportClient_1.liveobjects is the client object.
+&ldquo;CentalizedChannelOverAbstractTransport&rdquo; component uses TcpTransport2_ component to abstract the TCP connection functionality.  TcpTransport2_ typical accept ip:port combinations, but also allows you to specify a subnet you wish to listen on.  For our purposes, anything will do, so we listen on 0.0.0.0/0:42424 (any subnet).  The port is this case is 42424.
+Connect the same checkpointed componented that is connected at the client end. In this example, &ldquo;Text&rdquo; component is connected to &ldquo;CentalizedChannelOverAbstractTransport&rdquo; component for checkpointing. Whenever server gets new connections it ask for checkpoint from "Text" component and relays it to the new connecting client.
+<p class="style1" style="margin-left:0.5in"><img src="CentralizedChannelOverAbstractTransportServer_1.gif"></p>
+
+&ldquo;CentalizedChannelOverAbstractTransportClient1_&rdquo; component also uses TcpTransport2_ component to abstract the TCP connection functionality. In this example, &ldquo;Text&rdquo; component is used to send user messages to the server and to display all the messages received back from the server.
+<p class="style1" style="margin-left:0.5in"><img src="CentralizedChannelOverAbstractTransportClient_1.gif"></p>
+<P><FONT SIZE=3><B>Basic Steps to run</B></FONT></P>
+<OL>
+<LI> Start single instance of CentalizedChannelOverAbstractTransportServer_1.liveobject (server) object.
+<LI> Open multiple instances of CentalizedChannelOverAbstractTransportClient_1.liveobjects (client) object.
+<LI> Message typed in client's Text component is relayed to the server. The server then relays the message to all the other clients connected.
+<LI> Close all the instances of the client.
+<LI> Open new clients. The checkpointed state will be relayed to the new clients. This state is obtained from the checkpointed component connected at the server end.
+</OL>
+</BODY>
+</HTML>

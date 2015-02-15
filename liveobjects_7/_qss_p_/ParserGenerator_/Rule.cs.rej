@@ -1,0 +1,7 @@
+*** /dev/null
+--- /dev/null
+***************
+*** 14
+- namespace Babel.ParserGenerator
+--- 14 -----
++ namespace QS._qss_p_.ParserGenerator_

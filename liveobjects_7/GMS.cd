@@ -1,0 +1,722 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2004-2009 Krzysztof Ostrowski (krzys@cs.cornell.edu). All rights reserved.
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="QS.CMS.Membership3.ServerState.Group" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\Group.cs</FileName>
+      <HashCode>AKAAAAAAAAAAgAAAAEgEAAQYBFAFMAAQAQUAAAABAgA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="currentMembershipView" />
+      <Field Name="currentClientView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="membershipViews" />
+      <Field Name="clientViews" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="membershipViews" Type="QS.CMS.Membership3.ServerState.GroupView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.5" Y="0.75" />
+        <Point X="7.875" Y="0.75" />
+        <Point X="7.875" Y="1.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.381" Y="0.715" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="clientViews" Type="QS.CMS.Membership3.ServerState.ClientView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="0.75" />
+        <Point X="11.375" Y="0.75" />
+        <Point X="11.375" Y="1.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.123" Y="0.925" Height="0.16" Width="1.086" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="currentMembershipView" Type="QS.CMS.Membership3.ServerState.GroupView">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.626" Y="0.414" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="currentClientView" Type="QS.CMS.Membership3.ServerState.ClientView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="0.875" />
+        <Point X="10.75" Y="0.875" />
+        <Point X="10.75" Y="1.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.421" Y="0.435" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.GroupView" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\GroupView.cs</FileName>
+      <HashCode>UAAAACAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="group" />
+      <Field Name="currentRevision" />
+      <Field Name="currentGlobalView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="metanodes" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="group" Type="QS.CMS.Membership3.ServerState.Group" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.25" Y="1.875" />
+        <Point X="9.562" Y="1.875" />
+        <Point X="9.562" Y="1.009" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.117" Y="0.371" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="currentRevision" Type="QS.CMS.Membership3.ServerState.GroupViewRevision" FixedToPoint="true">
+      <Path>
+        <Point X="7.875" Y="2.259" />
+        <Point X="7.875" Y="3" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.232" Y="0.454" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="metanodes" Type="QS.CMS.Membership3.ServerState.MetaNode">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.623" Y="-0.068" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="currentGlobalView" Type="QS.CMS.Membership3.ServerState.GlobalView" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.938" Y="2.259" />
+        <Point X="8.938" Y="4.375" />
+        <Point X="7.75" Y="4.375" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.34" Y="0.54" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.GroupViewRevision" Collapsed="true">
+    <Position X="7" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\GroupViewRevision.cs</FileName>
+      <HashCode>AAABAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAABAQA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="groupView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="metanodeRevisions" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="groupView" Type="QS.CMS.Membership3.ServerState.GroupView" FixedToPoint="true">
+      <Path>
+        <Point X="8.312" Y="3" />
+        <Point X="8.312" Y="2.259" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.471" Y="0.402" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="metanodeRevisions" Type="QS.CMS.Membership3.ServerState.MetaNodeRevision">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.138" Y="0.009" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.Region" Collapsed="true">
+    <Position X="0.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\Region.cs</FileName>
+      <HashCode>AgAAAQACAAAAggAAAAAAAAAAAAAAAAAAAAAAAAIAAgE=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="currentView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="views" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="views" Type="QS.CMS.Membership3.ServerState.RegionView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.25" Y="2.938" />
+        <Point X="2.5" Y="2.938" />
+        <Point X="2.5" Y="4" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.266" Y="0.489" Height="0.16" Width="0.644" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="currentView" Type="QS.CMS.Membership3.ServerState.RegionView" FixedToPoint="true">
+      <Path>
+        <Point X="1.625" Y="3.259" />
+        <Point X="1.625" Y="4" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.388" Y="0.339" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.RegionView" Collapsed="true">
+    <Position X="1.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\RegionView.cs</FileName>
+      <HashCode>AACCAAAAAgAAgAAAAAIAEAAAABAAAAQAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="region" />
+      <Field Name="currentRevision" />
+      <Field Name="currentIncomingView" />
+      <Field Name="currentLocalView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="members" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="region" Type="QS.CMS.Membership3.ServerState.Region" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.5" Y="4.062" />
+        <Point X="1" Y="4.062" />
+        <Point X="1" Y="3.259" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.184" Y="0.503" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="currentRevision" Type="QS.CMS.Membership3.ServerState.RegionViewRevision" FixedToPoint="true">
+      <Path>
+        <Point X="2.438" Y="4.509" />
+        <Point X="2.438" Y="5.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.796" Y="0.491" Height="0.16" Width="1.156" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="currentIncomingView" Type="QS.CMS.Membership3.ServerState.IncomingView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="4.312" />
+        <Point X="3.292" Y="4.312" Type="JumpStart" />
+        <Point X="3.458" Y="4.312" Type="JumpEnd" />
+        <Point X="5.344" Y="4.312" />
+        <Point X="5.344" Y="5.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.161" Y="0.539" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="currentLocalView" Type="QS.CMS.Membership3.ServerState.LocalView" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="4.438" />
+        <Point X="3.292" Y="4.438" Type="JumpStart" />
+        <Point X="3.458" Y="4.438" Type="JumpEnd" />
+        <Point X="4.188" Y="4.438" />
+        <Point X="4.188" Y="6.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.609" Y="0.439" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="members" Type="QS.CMS.Membership3.ServerState.Node" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.5" Y="4.25" />
+        <Point X="0.644" Y="4.25" />
+        <Point X="0.644" Y="8.062" />
+        <Point X="3.75" Y="8.062" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="2.667" Y="1.673" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.RegionViewRevision" Collapsed="true">
+    <Position X="2.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\RegionViewRevision.cs</FileName>
+      <HashCode>AAARIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="regionView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="crashed" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="regionView" Type="QS.CMS.Membership3.ServerState.RegionView" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.25" Y="5.5" />
+        <Point X="1.812" Y="5.5" />
+        <Point X="1.812" Y="4.509" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.597" Y="0.432" Height="0.16" Width="0.914" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="crashed" Type="QS.CMS.Membership3.ServerState.Node" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.438" Y="5.759" />
+        <Point X="2.459" Y="5.759" />
+        <Point X="2.459" Y="7.812" />
+        <Point X="3.75" Y="7.812" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.002" Y="1.739" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.Node" Collapsed="true">
+    <Position X="3.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\Node.cs</FileName>
+      <HashCode>EAaQAAAAgAEAAAAAAAASAAAAAAIAAAACAAAAAAAAEAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="region" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="regionViews" />
+      <Field Name="metanodes" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="region" Type="QS.CMS.Membership3.ServerState.Region" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.75" Y="8.187" />
+        <Point X="0.308" Y="8.187" />
+        <Point X="0.308" Y="3" />
+        <Point X="0.75" Y="3" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-2.212" Y="-5.291" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="regionViews" Type="QS.CMS.Membership3.ServerState.RegionView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.75" Y="7.937" />
+        <Point X="1.125" Y="7.937" />
+        <Point X="1.125" Y="4.375" />
+        <Point X="1.5" Y="4.375" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.255" Y="-2.971" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="metanodes" Type="QS.CMS.Membership3.ServerState.MetaNode" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.312" Y="8.259" />
+        <Point X="4.312" Y="8.689" />
+        <Point X="0.125" Y="8.689" />
+        <Point X="0.125" Y="1.375" />
+        <Point X="4.75" Y="1.375" />
+        <Point X="4.75" Y="1.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.779" Y="-7.004" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.ClientView" Collapsed="true">
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\ClientView.cs</FileName>
+      <HashCode>QAACAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="group" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="clients" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="group" Type="QS.CMS.Membership3.ServerState.Group" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.25" Y="1.875" />
+        <Point X="9.875" Y="1.875" />
+        <Point X="9.875" Y="1.009" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.36" Y="0.553" Height="0.16" Width="0.608" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="clients" Type="QS.CMS.Membership3.ServerState.Node" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.375" Y="2.259" />
+        <Point X="11.375" Y="8.679" />
+        <Point X="4.688" Y="8.679" />
+        <Point X="4.688" Y="8.259" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-6.917" Y="-3.375" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.LocalView" Collapsed="true">
+    <Position X="3" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\LocalView.cs</FileName>
+      <HashCode>AAACAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="regionViewRevision" />
+      <Field Name="incomingView" />
+    </ShowAsAssociation>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="regionViewRevision" Type="QS.CMS.Membership3.ServerState.RegionViewRevision" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.188" Y="6.5" />
+        <Point X="3.188" Y="5.759" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.741" Y="0.492" Height="0.16" Width="1.316" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="incomingView" Type="QS.CMS.Membership3.ServerState.IncomingView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.5" Y="6.75" />
+        <Point X="5.562" Y="6.75" />
+        <Point X="5.562" Y="6.259" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.45" Y="0.224" Height="0.16" Width="1.056" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.GlobalView" Collapsed="true">
+    <Position X="6.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\GlobalView.cs</FileName>
+      <HashCode>AAACAAAAAAAAAQAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="groupViewRevision" />
+      <Field Name="clientView" />
+    </ShowAsAssociation>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="groupViewRevision" Type="QS.CMS.Membership3.ServerState.GroupViewRevision" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="7.312" Y="4.25" />
+        <Point X="7.312" Y="3.509" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.653" Y="0.394" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="clientView" Type="QS.CMS.Membership3.ServerState.ClientView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="4.562" />
+        <Point X="9.483" Y="4.562" Type="JumpStart" />
+        <Point X="9.65" Y="4.562" Type="JumpEnd" />
+        <Point X="9.792" Y="4.562" Type="JumpStart" />
+        <Point X="9.958" Y="4.562" Type="JumpEnd" />
+        <Point X="10.75" Y="4.562" />
+        <Point X="10.75" Y="2.259" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.338" Y="0.477" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.MetaNode" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\MetaNode.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAABAAEAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="groupView" />
+      <Field Name="regionView" />
+      <Field Name="currentMetaNodeRevision" />
+    </ShowAsAssociation>
+    <AssociationLine Name="groupView" Type="QS.CMS.Membership3.ServerState.GroupView">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.704" Y="-0.075" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="regionView" Type="QS.CMS.Membership3.ServerState.RegionView" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="2" />
+        <Point X="2.812" Y="2" />
+        <Point X="2.812" Y="4" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.011" Y="1.936" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="currentMetaNodeRevision" Type="QS.CMS.Membership3.ServerState.MetaNodeRevision" FixedFromPoint="true">
+      <Path>
+        <Point X="5.188" Y="2.259" />
+        <Point X="5.188" Y="3" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.029" Y="0.25" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.MetaNodeRevision" Collapsed="true">
+    <Position X="4" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\MetaNodeRevision.cs</FileName>
+      <HashCode>EAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="metanode" />
+      <Field Name="regionViewRevision" />
+      <Field Name="host" />
+    </ShowAsAssociation>
+    <AssociationLine Name="metanode" Type="QS.CMS.Membership3.ServerState.MetaNode" FixedToPoint="true">
+      <Path>
+        <Point X="4.312" Y="3" />
+        <Point X="4.312" Y="2.259" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.296" Y="0.175" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="regionViewRevision" Type="QS.CMS.Membership3.ServerState.RegionViewRevision" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="3.188" />
+        <Point X="3.375" Y="3.188" />
+        <Point X="3.375" Y="5.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.002" Y="1.544" Height="0.16" Width="1.419" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="host" Type="QS.CMS.Membership3.ServerState.Node" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.724" Y="3.509" />
+        <Point X="4.724" Y="3.825" />
+        <Point X="5.974" Y="3.825" />
+        <Point X="5.974" Y="4.944" />
+        <Point X="9.483" Y="4.944" Type="JumpStart" />
+        <Point X="9.65" Y="4.944" Type="JumpEnd" />
+        <Point X="9.792" Y="4.944" Type="JumpStart" />
+        <Point X="9.958" Y="4.944" Type="JumpEnd" />
+        <Point X="10.724" Y="4.944" />
+        <Point X="10.724" Y="8.478" />
+        <Point X="4.938" Y="8.478" />
+        <Point X="4.938" Y="8.259" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-6.015" Y="-1.169" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.Channel" Collapsed="true">
+    <Position X="8.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\Channel.cs</FileName>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAEABAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="groupView" />
+      <Field Name="client" />
+    </ShowAsAssociation>
+    <AssociationLine Name="groupView" Type="QS.CMS.Membership3.ServerState.GroupView" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.875" Y="7.75" />
+        <Point X="9.875" Y="2" />
+        <Point X="9.25" Y="2" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.235" Y="-4.207" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="client" Type="QS.CMS.Membership3.ServerState.Node" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="8.125" />
+        <Point X="7" Y="8.125" />
+        <Point X="7" Y="8.125" />
+        <Point X="5.25" Y="8.125" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="2.268" Y="-0.076" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.SessionView" Collapsed="true">
+    <Position X="8.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\SessionView.cs</FileName>
+      <HashCode>AAACAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="session" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="channels" />
+    </ShowAsCollectionAssociation>
+    <AssociationLine Name="session" Type="QS.CMS.Membership3.ServerState.Session" FixedFromPoint="true">
+      <Path>
+        <Point X="8.438" Y="6.75" />
+        <Point X="8.438" Y="6.259" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.263" Y="0.235" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="channels" Type="QS.CMS.Membership3.ServerState.Channel" FixedToPoint="true">
+      <Path>
+        <Point X="9.5" Y="7.259" />
+        <Point X="9.5" Y="7.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.236" Y="0.243" Height="0.16" Width="0.724" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.Session" Collapsed="true">
+    <Position X="7.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\Session.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgIAAAAAAgAAAAAAEAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="regionView" />
+      <Field Name="membershipView" />
+      <Field Name="currentSessionView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="synchronized" />
+    </ShowAsCollectionAssociation>
+    <AssociationLine Name="regionView" Type="QS.CMS.Membership3.ServerState.RegionView" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.25" Y="5.75" />
+        <Point X="8.25" Y="5.259" />
+        <Point X="5.76" Y="5.259" />
+        <Point X="5.76" Y="4.062" />
+        <Point X="3.458" Y="4.062" Type="JumpStart" />
+        <Point X="3.292" Y="4.062" Type="JumpEnd" />
+        <Point X="3" Y="4.062" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="3.31" Y="-1.286" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="membershipView" Type="QS.CMS.Membership3.ServerState.GroupView" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.25" Y="6.005" />
+        <Point X="9.566" Y="6.005" />
+        <Point X="9.566" Y="2.188" />
+        <Point X="9.25" Y="2.188" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.565" Y="-3.077" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="synchronized" Type="QS.CMS.Membership3.ServerState.Node" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8" Y="6.259" />
+        <Point X="8" Y="7.938" />
+        <Point X="5.25" Y="7.938" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.352" Y="-0.078" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="currentSessionView" Type="QS.CMS.Membership3.ServerState.SessionView" FixedFromPoint="true">
+      <Path>
+        <Point X="9.062" Y="6.259" />
+        <Point X="9.062" Y="6.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.765" Y="0.268" Height="0.16" Width="1.308" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+  <Class Name="QS.CMS.Membership3.ServerState.IncomingView" Collapsed="true">
+    <Position X="5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Membership3\ServerState\IncomingView.cs</FileName>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="regionView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="sessions" />
+    </ShowAsCollectionAssociation>
+    <AssociationLine Name="regionView" Type="QS.CMS.Membership3.ServerState.RegionView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.562" Y="5.75" />
+        <Point X="5.562" Y="4.188" />
+        <Point X="3.458" Y="4.188" Type="JumpStart" />
+        <Point X="3.292" Y="4.188" Type="JumpEnd" />
+        <Point X="3" Y="4.188" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.362" Y="-0.098" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="sessions" Type="QS.CMS.Membership3.ServerState.Session" FixedFromPoint="true">
+      <Path>
+        <Point X="6.5" Y="6" />
+        <Point X="7.75" Y="6" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.329" Y="-0.065" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Class>
+</ClassDiagram>

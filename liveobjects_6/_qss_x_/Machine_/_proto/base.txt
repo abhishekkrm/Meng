@@ -1,0 +1,26 @@
+﻿protocol Base
+{
+	interface
+	{
+		callback Discovered(ID id);
+	}
+	
+	properties
+	{
+		local persistent VIEW View = empty<VIEW>();
+				
+	}
+	
+	bindings
+	{
+		on Discovered(ID id) :
+		{
+			
+		}
+	}
+	
+	rules
+	{
+	
+	}
+}

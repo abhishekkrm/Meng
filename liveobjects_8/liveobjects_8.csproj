@@ -1,0 +1,948 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{26D7B6AB-2E7D-4666-8B25-90F25F1589E5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>liveobjects_8</RootNamespace>
+    <AssemblyName>liveobjects_8</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>liveobjects_8.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|AnyCPU' ">
+    <OutputPath>bin\Distribution\</OutputPath>
+    <DefineConstants>TRACE;XNA</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|x64' ">
+    <OutputPath>bin\x64\Distribution\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Simulation\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Simulation\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <Optimize>true</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|x86' ">
+    <OutputPath>bin\x86\Distribution\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA RELEASE2</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Simulation\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux Distribution|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Linux Distribution\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux Distribution|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Linux Distribution\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux Distribution|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Linux Distribution\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux|AnyCPU' ">
+    <OutputPath>bin\Linux\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux|x64' ">
+    <OutputPath>bin\x64\Linux\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux|x86' ">
+    <OutputPath>bin\x86\Linux\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|AnyCPU' ">
+    <OutputPath>bin\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_8.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|x64' ">
+    <OutputPath>bin\x64\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_8.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|x86' ">
+    <OutputPath>bin\x86\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_8.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LzmaSharp">
+      <HintPath>C:\Users\Herat\Desktop\nuclex-framework-r1404-binaries\xna-4.0-x86\LzmaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Engine" />
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="NMock.StrongNamed">
+      <HintPath>C:\Users\Herat\Desktop\nuclex-framework-r1404-binaries\xna-4.0-x86\NMock.StrongNamed.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>C:\Users\Herat\Desktop\nuclex-framework-r1404-binaries\xna-4.0-x86\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="SlimDX.DirectInput">
+      <HintPath>C:\Users\Herat\Desktop\nuclex-framework-r1404-binaries\xna-4.0-x86\SlimDX.DirectInput.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Generator\IIntervalInterface.cs" />
+    <Compile Include="Generator\IIntervalObject.cs" />
+    <Compile Include="Generator\ScriptedInterval.cs" />
+    <Compile Include="Generator\TextGenerator.cs" />
+    <Compile Include="Generator\TimedChannel.cs" />
+    <Compile Include="Generator\TimedMessage.cs" />
+    <Compile Include="Generator\UniformInterval.cs" />
+    <Compile Include="Nuclex\ControlInputPublisher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Nuclex\DrawOrderComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Nuclex\GameClock.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Nuclex\GameComponentCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Nuclex\GameControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nuclex\GameControl.Designer.cs">
+      <DependentUpon>GameControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nuclex\GameHost.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Nuclex\GraphicsDeviceInformationComparer.cs" />
+    <Compile Include="Nuclex\GraphicsDeviceManager.cs" />
+    <Compile Include="Nuclex\NativeMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Nuclex\UpdateOrderComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Nuclex\WindowsGameHost.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Quilt\Bootstrap\BootstrapAlive.cs" />
+    <Compile Include="Quilt\Bootstrap\BootstrapLeave.cs" />
+    <Compile Include="Components_\AggregationUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components_\AggregationUI.Designer.cs">
+      <DependentUpon>AggregationUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components_\AppAzureBacking.cs" />
+    <Compile Include="Components_\CentralizedChannelOverAbstractTransportClient1_.cs" />
+    <Compile Include="Components_\CentralizedChannelOverAbstractTransportSwitchClient.cs" />
+    <Compile Include="Components_\CentralizedChannelOverAbstractTransportClient_2.cs" />
+    <Compile Include="Components_\CentralizedChannelOverAbstractTransport_2.cs" />
+    <Compile Include="Components_\ChannelFolder.cs" />
+    <Compile Include="Components_\ChannelTester.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components_\ChannelTester.Designer.cs">
+      <DependentUpon>ChannelTester.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components_\DataFlow.cs" />
+    <Compile Include="Components_\Orderer.cs" />
+    <Compile Include="Components_\Mshiproot.cs" />
+    <Compile Include="Components_\Reliable_.cs" />
+    <Compile Include="Components_\Switch.cs" />
+    <Compile Include="Components_\TextTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components_\TextTest.Designer.cs">
+      <DependentUpon>TextTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components_\State_.cs">
+    </Compile>
+    <Compile Include="Components_\Whatever_.cs" />
+    <Compile Include="Components_\YahooMaps.cs" />
+    <Compile Include="Interfaces_\IChannelFolder.cs" />
+    <Compile Include="Interfaces_\IIncoming.cs" />
+    <Compile Include="Interfaces_\IOutgoing.cs" />
+    <Compile Include="Interfaces_\IWhateverObject_.cs" />
+    <Compile Include="Interfaces_\IWhatever_.cs" />
+    <Compile Include="Components_\AppFileBacking.cs" />
+    <Compile Include="Components_\AppMulticast.cs" />
+    <Compile Include="Components_\BounceMessage.cs" />
+    <Compile Include="Components_\Box_3D.cs" />
+    <Compile Include="Components_\Camera.cs" />
+    <Compile Include="Components_\CCFactory.cs" />
+    <Compile Include="Components_\CensusData.cs" />
+    <Compile Include="Components_\Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components_\Control.designer.cs">
+      <DependentUpon>Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components_\Discovery.cs" />
+    <Compile Include="Components_\DiscoveryTest.cs" />
+    <Compile Include="Components_\GeoDiscoveryEvent.cs" />
+    <Compile Include="Components_\GeoDiscoveryObjects.cs" />
+    <Compile Include="Components_\GoogleWeather.cs" />
+    <Compile Include="Components_\MCexp1.cs" />
+    <Compile Include="Components_\MCexp5_recvr.cs" />
+    <Compile Include="Components_\MCexp7.cs" />
+    <Compile Include="Components_\MCexp8.cs" />
+    <Compile Include="Components_\Model_3D.cs" />
+    <Compile Include="Components_\GeoDiscoveryClient.cs" />
+    <Compile Include="Components_\GeoDiscoveryServer.cs" />
+    <Compile Include="Components_\CentralizedChannelOverAsbtractTransport_.cs" />
+    <Compile Include="Components_\Mship.cs" />
+    <Compile Include="Components_\ObjectExplorer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components_\ObjectExplorer.designer.cs">
+      <DependentUpon>ObjectExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components_\ObjectExplorerHandler.cs" />
+    <Compile Include="Components_\ReliableCommunicationChannel.cs" />
+    <Compile Include="Components_\SharedTextRendererClient.cs" />
+    <Compile Include="Components_\STUNAddress.cs" />
+    <Compile Include="Components_\STUNServer.cs" />
+    <Compile Include="Components_\STUNTransportClient_simple.cs" />
+    <Compile Include="Components_\STUNTransport_.cs" />
+    <Compile Include="Components_\TextRenderer.cs" />
+    <Compile Include="Components_\TcpTransport2_.cs" />
+    <Compile Include="Components_\UdpTransport_.cs" />
+    <Compile Include="Components_\WcfChannelController_.cs" />
+    <Compile Include="Components_\WcfChannel_.cs" />
+    <Compile Include="Components_\Weather.cs" />
+    <Compile Include="Components_\WeatherRenderer.cs" />
+    <Compile Include="Components_\XNAWindowHandler.cs" />
+    <Compile Include="Components_\XNAWindow_UI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components_\XNAWindow_UI.Designer.cs">
+      <DependentUpon>XNAWindow_UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GossipPlatform\Core_\ContentSelectorContext.cs" />
+    <Compile Include="GossipPlatform\Core_\GravitationalSelector.cs" />
+    <Compile Include="GossipPlatform\Core_\GroupObjectGraph.cs" />
+    <Compile Include="GossipPlatform\Core_\GroupOverlapGraph.cs" />
+    <Compile Include="GossipPlatform\Core_\NodeAdaptor.cs" />
+    <Compile Include="GossipPlatform\Core_\PlatformWorkerThread.cs" />
+    <Compile Include="GossipPlatform\Core_\PlatformWorkerThreadHelper.cs" />
+    <Compile Include="GossipPlatform\Core_\Prioritizer.cs" />
+    <Compile Include="GossipPlatform\Core_\RandomContentSelector.cs" />
+    <Compile Include="GossipPlatform\Core_\RandomRecepientSelector.cs" />
+    <Compile Include="GossipPlatform\Core_\ReceiverAdaptor.cs" />
+    <Compile Include="GossipPlatform\Core_\RecepientSelectorContext.cs" />
+    <Compile Include="GossipPlatform\Core_\RumorBuffer.cs" />
+    <Compile Include="GossipPlatform\Core_\ServiceContext.cs" />
+    <Compile Include="GossipPlatform\Examples\GOInitializer.cs" />
+    <Compile Include="GossipPlatform\Frontend_\AppConfigReader.cs" />
+    <Compile Include="GossipPlatform\Frontend_\ConfigReader.cs" />
+    <Compile Include="GossipPlatform\Frontend_\Dummy.cs" />
+    <Compile Include="GossipPlatform\Frontend_\GOConnection.cs" />
+    <Compile Include="GossipPlatform\Frontend_\GOServiceRequest.cs" />
+    <Compile Include="GossipPlatform\Frontend_\GOServiceResponse.cs" />
+    <Compile Include="GossipPlatform\Frontend_\GOTransport.cs" />
+    <Compile Include="GossipPlatform\Frontend_\GraphElementComparer.cs" />
+    <Compile Include="GossipPlatform\Frontend_\InstanceContainer.cs" />
+    <Compile Include="GossipPlatform\Interfaces_\IContentSelector.cs" />
+    <Compile Include="GossipPlatform\Interfaces_\IGossipTransport.cs" />
+    <Compile Include="GossipPlatform\Interfaces_\IRecepientSelector.cs" />
+    <Compile Include="GossipPlatform\Transport_\TCPGossipTransport.cs" />
+    <Compile Include="GossipPlatform\Transport_\UDPGossipTransport.cs" />
+    <Compile Include="Quilt\Bootstrap\BootstrapJoin.cs" />
+    <Compile Include="Quilt\Bootstrap\BootstrapMember.cs" />
+    <Compile Include="Quilt\Bootstrap\BootstrapMembership.cs" />
+    <Compile Include="Interfaces_\IBootstrap.cs" />
+    <Compile Include="Interfaces_\IBootstrapClient.cs" />
+    <Compile Include="Interfaces_\IBootstrapOps.cs" />
+    <Compile Include="Interfaces_\IAddressCollection.cs" />
+    <Compile Include="Interfaces_\IDiscovery.cs" />
+    <Compile Include="Interfaces_\IDiscoveryClient.cs" />
+    <Compile Include="Interfaces_\IDiscoveryOps.cs" />
+    <Compile Include="Interfaces_\IGeoDiscoveryClient.cs" />
+    <Compile Include="Interfaces_\IGeoDiscoveryClientOps.cs" />
+    <Compile Include="Interfaces_\IGeoDiscoveryServer.cs" />
+    <Compile Include="Interfaces_\IGeoDiscoveryServerOps.cs" />
+    <Compile Include="Interfaces_\IGeoPositioned.cs" />
+    <Compile Include="Interfaces_\IGeoPositionedOps.cs" />
+    <Compile Include="Interfaces_\ITextRendererClient.cs" />
+    <Compile Include="Interfaces_\ITextRendererClientOps.cs" />
+    <Compile Include="Interfaces_\ITextRendererOps.cs" />
+    <Compile Include="Interfaces_\IWcfChannel.cs" />
+    <Compile Include="Interfaces_\IWeatherRendererOps.cs" />
+    <Compile Include="Interfaces_\IWeatherSource.cs" />
+    <Compile Include="Interfaces_\IWeatherSourceOps.cs" />
+    <Compile Include="MCexp\IMCexp_N.cs" />
+    <Compile Include="MCexp\MCexp9_A.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MCexp\MCexp9_B.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MCexp\MCexp9_C.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MCexp\MCexp9_D.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MCexp\MCexp9_E.cs" />
+    <Compile Include="MCexp\MCexp9_F.cs" />
+    <Compile Include="MCexp\Tuple_.cs" />
+    <Compile Include="Components_\UnreliableEsbChannel_.cs" />
+    <Compile Include="Quilt\Bootstrap\Bootstrap.cs" />
+    <Compile Include="Quilt\Heuristic\CSHeuristic.cs" />
+    <Compile Include="Quilt\Bootstrap\GroupManager.cs" />
+    <Compile Include="Quilt\Bootstrap\IGroupManager.cs" />
+    <Compile Include="Quilt\Bootstrap\MultiGroupManager.cs" />
+    <Compile Include="Quilt\Bootstrap\PatchInfo.cs" />
+    <Compile Include="Quilt\Bootstrap\BootstrapServer.cs" />
+    <Compile Include="Quilt\Components_\EUIDAddress.cs" />
+    <Compile Include="Quilt\Components_\EUIDTransport_.cs" />
+    <Compile Include="Quilt\Core\BloomFilter.cs" />
+    <Compile Include="Quilt\Core\DataBuffer.cs" />
+    <Compile Include="Quilt\Core\GradientPeer.cs" />
+    <Compile Include="Quilt\Core\GradientSession.cs" />
+    <Compile Include="Quilt\Core\PriorityQueue.cs" />
+    <Compile Include="Quilt\Core\QuiltPeer.cs" />
+    <Compile Include="Quilt\Heuristic\DijkstraSP.cs" />
+    <Compile Include="Quilt\Heuristic\IHeuristic.cs" />
+    <Compile Include="Quilt\Heuristic\MulticastHeuristic.cs" />
+    <Compile Include="Quilt\Heuristic\NetInfos.cs" />
+    <Compile Include="Quilt\Heuristic\PrimalDualHeuristic.cs" />
+    <Compile Include="Quilt\Heuristic\SimpleHeuristic.cs" />
+    <Compile Include="Quilt\Heuristic\SubInfos.cs" />
+    <Compile Include="Quilt\HostDetector\DetectResult.cs" />
+    <Compile Include="Quilt\HostDetector\HostDetector.cs" />
+    <Compile Include="Quilt\HostDetector\ICMPTest\ICMPTest.cs" />
+    <Compile Include="Quilt\HostDetector\IGMPTest\IGMPTest.cs" />
+    <Compile Include="Quilt\HostDetector\IGMPTest\ProtocolHeader.cs" />
+    <Compile Include="Quilt\HostDetector\NATCheck\ChangeRequest.cs" />
+    <Compile Include="Quilt\HostDetector\NATCheck\CheckMessage.cs" />
+    <Compile Include="Quilt\HostDetector\NATCheck\Direction.cs" />
+    <Compile Include="Quilt\HostDetector\NATCheck\ErrorCode.cs" />
+    <Compile Include="Quilt\HostDetector\NATCheck\MessageType.cs" />
+    <Compile Include="Quilt\HostDetector\NATCheck\NATCheck.cs" />
+    <Compile Include="Quilt\HostDetector\NATCheck\NATType.cs" />
+    <Compile Include="Quilt\HostDetector\Traceroute\ICMP.cs" />
+    <Compile Include="Quilt\HostDetector\Traceroute\Tracetoute.cs" />
+    <Compile Include="Quilt\Multicast\GradientData.cs" />
+    <Compile Include="Quilt\PubsubApp\DataFilter.cs" />
+    <Compile Include="Quilt\PubsubApp\PubSubClient.cs" />
+    <Compile Include="Quilt\Interfaces_\IPubSub.cs" />
+    <Compile Include="Quilt\Interfaces_\IPubSubClient.cs" />
+    <Compile Include="Quilt\Interfaces_\IPubSubOps.cs" />
+    <Compile Include="Quilt\MulticastRules\DONetRule.cs" />
+    <Compile Include="Quilt\MulticastRules\IPMCRule.cs" />
+    <Compile Include="Quilt\MulticastRules\IRule.cs" />
+    <Compile Include="Quilt\MulticastRules\OMNIRule.cs" />
+    <Compile Include="Quilt\Multicast\DONetBuffermap.cs" />
+    <Compile Include="Quilt\Multicast\DONetData.cs" />
+    <Compile Include="Quilt\Multicast\DONetMembership.cs" />
+    <Compile Include="Quilt\Multicast\DONetProtocol.cs" />
+    <Compile Include="Quilt\Multicast\DONetRequest.cs" />
+    <Compile Include="Quilt\Multicast\GradientProtocol.cs" />
+    <Compile Include="Quilt\Multicast\HeartbeatMember.cs" />
+    <Compile Include="Quilt\Multicast\IMulticast.cs" />
+    <Compile Include="Quilt\Multicast\IPMCAcclaim.cs" />
+    <Compile Include="Quilt\Multicast\IPMCData.cs" />
+    <Compile Include="Quilt\Multicast\IPMCGossip.cs" />
+    <Compile Include="Quilt\Multicast\IPMCProtocol.cs" />
+    <Compile Include="Quilt\Multicast\OMNIData.cs" />
+    <Compile Include="Quilt\Multicast\OMNIJoin.cs" />
+    <Compile Include="Quilt\Multicast\OMNIJoinAck.cs" />
+    <Compile Include="Quilt\Multicast\OMNIMaintain.cs" />
+    <Compile Include="Quilt\Multicast\OMNIMaintainAck.cs" />
+    <Compile Include="Quilt\Multicast\OMNIProtocol.cs" />
+    <Compile Include="Quilt\Multicast\OMNIRedirect.cs" />
+    <Compile Include="Quilt\Multicast\ProtolType.cs" />
+    <Compile Include="Quilt\PubsubApp\PubSubData.cs" />
+    <Compile Include="Quilt\PubsubApp\PubSubOpsSample.cs" />
+    <Compile Include="Quilt\TcpDetectSvr\TcpDetectSvr.cs" />
+    <Compile Include="Quilt\Test\EUIDTransportClient.cs" />
+    <Compile Include="Quilt\Test\TransmitterTest.cs" />
+    <Compile Include="Quilt\Transmitter\ChannelHandler.cs" />
+    <Compile Include="Quilt\Transmitter\IEUIDable.cs" />
+    <Compile Include="Quilt\Transmitter\IGrouped.cs" />
+    <Compile Include="Quilt\Transmitter\Transmitter.cs" />
+    <Compile Include="Quilt\Transmitter\TransmitterMsg.cs" />
+    <Compile Include="Utility\ObjectTree.cs" />
+    <Compile Include="Utility\WcfService.cs" />
+    <Compile Include="Utility\WorldConfiguration.cs" />
+    <Compile Include="Components_\FileSystemCache.cs" />
+    <Compile Include="Components_\Content.cs" />
+    <Compile Include="Components_\FreeStyleCameraManager.cs" />
+    <Compile Include="Utility\GridTranslator.cs" />
+    <Compile Include="Components_\ImageRenderer.cs" />
+    <Compile Include="Utility\InputState.cs" />
+    <Compile Include="Utility\Location.cs" />
+    <Compile Include="Components_\LocationManager.cs">
+    </Compile>
+    <Compile Include="Components_\LocationManager.designer.cs">
+      <DependentUpon>LocationManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components_\MSNVEarth.cs" />
+    <Compile Include="Components_\PassengerCameraManager.cs" />
+    <Compile Include="Components_\PilotCameraManager.cs" />
+    <Compile Include="Components_\SlaveCameraManager.cs" />
+    <Compile Include="Components_\TcpTransportClient_simple_.cs" />
+    <Compile Include="Components_\TcpTransportClient_eval_.cs" />
+    <Compile Include="Components_\TiledMapManager.cs" />
+    <Compile Include="Components_\UpdateWindowEvent.cs" />
+    <Compile Include="Utility\Vector3.cs" />
+    <Compile Include="Components_\Window_XStateEvent.cs" />
+    <Compile Include="Components_\XNAWindow.cs" />
+    <Compile Include="Interfaces_\ICache.cs" />
+    <Compile Include="Interfaces_\ICacheOps.cs" />
+    <Compile Include="Interfaces_\ICamera.cs" />
+    <Compile Include="Interfaces_\ICameraManager.cs" />
+    <Compile Include="Interfaces_\ICameraManagerOps.cs" />
+    <Compile Include="Interfaces_\ICameraOps.cs" />
+    <Compile Include="Interfaces_\IContentRenderer.cs" />
+    <Compile Include="Interfaces_\IContentRendererOps.cs" />
+    <Compile Include="Interfaces_\IMapManager.cs" />
+    <Compile Include="Interfaces_\IMapManagerOps.cs" />
+    <Compile Include="Interfaces_\IMapSource.cs" />
+    <Compile Include="Interfaces_\IMapSourceOps.cs" />
+    <Compile Include="Interfaces_\IMembership__.cs" />
+    <Compile Include="Interfaces_\IMembershipClient__.cs" />
+    <Compile Include="Interfaces_\IMembershipObject__.cs" />
+    <Compile Include="Interfaces_\IMembershipView__.cs" />
+    <Compile Include="Interfaces_\IMember__.cs" />
+    <Compile Include="Components_\TcpTransport_.cs" />
+    <Compile Include="liveobjects_8.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VEGeocodingService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VEImageryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VERoutingService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VESearchService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Values_\Channel.cs" />
+    <Compile Include="Values_\Channels.cs" />
+    <Compile Include="Values_\Folder_.cs" />
+    <Compile Include="Values_\SwitchMessage_.cs" />
+    <Compile Include="Values_\TransportMessage_.cs" />
+    <Compile Include="Values_\TransportMessage_1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="metadata.xml" />
+    <Content Include="Nuclex\LICENSE.txt" />
+    <Content Include="Objects\foo.liveobject" />
+    <None Include="Migrated rules for liveobjects_8.ruleset" />
+    <None Include="Service References\VESearchService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VESearchService\configuration.svcinfo" />
+    <None Include="Service References\VERoutingService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VERoutingService\configuration.svcinfo" />
+    <None Include="Service References\VEImageryService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VEImageryService\configuration.svcinfo" />
+    <None Include="Service References\VEGeocodingService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VEGeocodingService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="GossipPlatform\Examples\GOInitializer.liveobject" />
+    <None Include="liveobjects.config">
+    </None>
+    <None Include="liveobjects_8.snk" />
+    <Content Include="images\pinpoint.png" />
+    <Content Include="images\weather\chance_of_snow.bmp" />
+    <Content Include="images\weather\cloudy.bmp" />
+    <Content Include="images\weather\flurries.bmp" />
+    <Content Include="images\weather\fog.bmp" />
+    <Content Include="images\weather\haze.bmp" />
+    <Content Include="images\weather\icy.bmp" />
+    <Content Include="images\weather\mist.bmp" />
+    <Content Include="images\weather\mostly_cloudy.bmp" />
+    <Content Include="images\weather\partly_cloudy.bmp" />
+    <Content Include="images\weather\rain.bmp" />
+    <Content Include="images\weather\snow.bmp" />
+    <Content Include="images\weather\sunny.bmp" />
+    <Content Include="images\weather\thunderstorm.bmp" />
+    <Content Include="Objects\CentralizedChannelOverAbstractTransportClient_1.liveobject" />
+    <Content Include="Objects\CentralizedChannelOverAbstractTransportClient_2_42424.liveobject" />
+    <Content Include="Objects\CentralizedChannelOverAbstractTransportClient_2_42434.liveobject" />
+    <Content Include="Objects\CentralizedChannelOverAbstractTransportServer_1.liveobject" />
+    <Content Include="Objects\CentralizedChannelOverAbstractTransportServer_2.liveobject" />
+    <Content Include="Objects\CentralizedChannelOverAbstractTransportServer_2_42424.liveobject" />
+    <Content Include="Objects\CentralizedChannelOverAbstractTransportServer_2_42434.liveobject" />
+    <Content Include="Objects\CentralizedChannelOverAbstractTransportClient.liveobject" />
+    <Content Include="Objects\CentralizedChannelOverAbstractTransportServer.liveobject" />
+    <Content Include="Objects\ChannelControl.liveobject" />
+    <Content Include="Objects\demo2\demo2_airplane_1.liveobject" />
+    <Content Include="Objects\demo2\demo2_airplane_2.liveobject" />
+    <Content Include="Objects\demo2\demo2_airplane_3.liveobject" />
+    <Content Include="Objects\demo2\demo2_building_1_publisher.liveobject" />
+    <Content Include="Objects\demo2\demo2_building_1_subscriber.liveobject" />
+    <Content Include="Objects\demo2\demo2_building_2.liveobject" />
+    <Content Include="Objects\demo2\demo2_building_3.liveobject" />
+    <Content Include="Objects\demo2\demo2_census_data_nyc.liveobject" />
+    <Content Include="Objects\demo2\demo2_map_aerial.liveobject" />
+    <Content Include="Objects\demo2\demo2_map_road.liveobject" />
+    <Content Include="Objects\demo2\demo2_map_traffic.liveobject" />
+    <Content Include="Objects\demo2\demo2_shared_text_1_renderer.liveobject" />
+    <Content Include="Objects\demo2\demo2_weather_3x3_internet.liveobject" />
+    <Content Include="Objects\demo2\demo2_weather_3x3_no_internet.liveobject" />
+    <Content Include="Objects\demo2\demo2_weather_internet.liveobject" />
+    <Content Include="Objects\demo2\demo2_weather_no_internet.liveobject" />
+    <Content Include="Objects\demo2\demo2_xna_window_freestyle.liveobject" />
+    <Content Include="Objects\demo2\demo2_xna_window_passenger.liveobject" />
+    <Content Include="Objects\demo2\demo2_xna_window_slave.liveobject" />
+    <Content Include="Objects\fbfactory.liveobject" />
+    <Content Include="Objects\FBFactoryTest.liveobject" />
+    <Content Include="Objects\FolderControl.liveobject" />
+    <Content Include="Objects\Membership Channel2 %28Server%29.liveobject" />
+    <Content Include="Objects\Membership Channel %28Server%29_TCP.liveobject" />
+    <Content Include="Objects\multicastfactory.liveobject" />
+    <Content Include="Objects\MulticastFactTest.liveobject" />
+    <Content Include="Objects\ReliableChannelTesterListener.liveobject" />
+    <Content Include="Objects\ReliableChannelTesterSender.liveobject" />
+    <Content Include="Objects\STUNServer.liveobject" />
+    <Content Include="Objects\STUNTransportClient.liveobject" />
+    <Content Include="Objects\Switch.liveobject" />
+    <Content Include="Objects\TCPMembershipChannel.liveobject" />
+    <Content Include="Objects\TCPMembershipChannel2.liveobject" />
+    <Content Include="Objects\TCPMembershipChannel3.liveobject" />
+    <Content Include="Objects\TestAppMC_Listener.liveobject" />
+    <Content Include="Objects\TestAppMC_Sender.liveobject" />
+    <Content Include="Objects\TextFileBacking.liveobject" />
+    <Content Include="Objects\TextMC.liveobject" />
+    <Content Include="Objects\TextMC_TCP.liveobject" />
+    <Content Include="Objects\TextOverWcfChannel.liveobject" />
+    <Content Include="Objects\WcfChannelControllerForText.liveobject" />
+    <None Include="Objects\Aggregation_UI.liveobject" />
+    <Content Include="Objects\ObjectExplorer.liveobject" />
+    <Content Include="Objects\WcfController_TextReplica.liveobject" />
+    <None Include="Service References\VEGeocodingService\liveobjects_8.VEGeocodingService.GeocodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VEImageryService\liveobjects_8.VEImageryService.ImageryMetadataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VEImageryService\liveobjects_8.VEImageryService.MapUriResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VERoutingService\configuration91.svcinfo" />
+    <None Include="Service References\VEImageryService\configuration91.svcinfo" />
+    <None Include="Service References\VEImageryService\imageryservice11.wsdl" />
+    <None Include="Service References\VEImageryService\ImageryService11.xsd" />
+    <None Include="Service References\VEImageryService\ImageryService2.wsdl" />
+    <None Include="Service References\VEImageryService\ImageryService21.xsd" />
+    <None Include="Service References\VEImageryService\ImageryService31.xsd" />
+    <None Include="Service References\VEImageryService\ImageryService41.xsd" />
+    <None Include="Service References\VEImageryService\ImageryService5.xsd" />
+    <None Include="Service References\VEImageryService\ImageryService51.xsd" />
+    <None Include="Service References\VERoutingService\liveobjects_8.VERoutingService.MajorRoutesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VERoutingService\liveobjects_8.VERoutingService.RouteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VERoutingService\routeservice11.wsdl" />
+    <None Include="Service References\VERoutingService\routeservice11.xsd" />
+    <None Include="Service References\VERoutingService\RouteService2.wsdl" />
+    <None Include="Service References\VERoutingService\routeservice21.xsd" />
+    <None Include="Service References\VERoutingService\routeservice31.xsd" />
+    <None Include="Service References\VERoutingService\routeservice4.xsd" />
+    <None Include="Service References\VESearchService\configuration91.svcinfo" />
+    <None Include="Service References\VEGeocodingService\configuration91.svcinfo" />
+    <None Include="Objects\TcpTransportClient_simple.liveobject" />
+    <None Include="Objects\Test.liveobject" />
+    <None Include="Objects\TestEsb.liveobject" />
+    <None Include="Objects\TextTest.liveobject" />
+    <None Include="Objects\WcfControllerWithAzureBacking.liveobject" />
+    <None Include="Objects\WcfControllerWithFileBacking.liveobject" />
+    <None Include="Objects\WcfControllerWithStateComponent.liveobject" />
+    <None Include="Objects\Whatever_.liveobject" />
+    <None Include="postbuild.bat" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Quilt\Test\Bootstrap_4.liveobject" />
+    <None Include="Quilt\Test\Bootstrap_5.liveobject" />
+    <None Include="Quilt\Test\Bootstrap_6.liveobject" />
+    <None Include="Quilt\Test\EUIDTransportClient.liveobject" />
+    <None Include="Quilt\Test\Publisher.liveobject" />
+    <None Include="Quilt\Test\Quilt_Bootstrap_Server_0.liveobject" />
+    <None Include="Quilt\Test\Quilt_Bootstrap_Server_1.liveobject" />
+    <None Include="Quilt\Test\Quilt_Bootstrap_Server_2.liveobject" />
+    <None Include="Quilt\Test\Quilt_Bootstrap_Server_3.liveobject" />
+    <None Include="Quilt\Test\Quilt_Peer.liveobject" />
+    <None Include="Quilt\Test\Quilt_Transmitter_Test.liveobject" />
+    <None Include="Quilt\Test\Subscriber.liveobject" />
+    <None Include="Quilt\Test\TcpDetectSvr.liveobject" />
+    <None Include="Service References\VEGeocodingService\GeocodeService11.wsdl" />
+    <None Include="Service References\VEGeocodingService\GeocodeService11.xsd" />
+    <None Include="Service References\VEGeocodingService\GeocodeService2.wsdl" />
+    <None Include="Service References\VEGeocodingService\GeocodeService21.xsd" />
+    <None Include="Service References\VEGeocodingService\GeocodeService31.xsd" />
+    <None Include="Service References\VEGeocodingService\GeocodeService41.xsd" />
+    <None Include="Service References\VEGeocodingService\GeocodeService5.xsd" />
+    <None Include="Service References\VESearchService\dev.wsdl" />
+    <None Include="Service References\VESearchService\dev.xsd" />
+    <None Include="Service References\VESearchService\dev1.xsd" />
+    <None Include="Service References\VESearchService\dev2.xsd" />
+    <None Include="Service References\VESearchService\liveobjects_8.VESearchService.SearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VESearchService\schemas.xsd" />
+    <None Include="Service References\VESearchService\schemas1.xsd" />
+    <None Include="Service References\VESearchService\SearchService2.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\liveobjects_1\liveobjects_1.csproj">
+      <Project>{F06CF495-6A41-4E21-8BD7-ECCA7F2C2D2A}</Project>
+      <Name>liveobjects_1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\liveobjects_4\liveobjects_4.csproj">
+      <Project>{F31A380F-1CE2-4F4A-96E9-5043C131C6EE}</Project>
+      <Name>liveobjects_4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\liveobjects_6\liveobjects_6.csproj">
+      <Project>{A17EE7A5-3A05-4CAB-A5B4-249BCCD3C604}</Project>
+      <Name>liveobjects_6</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\liveobjects_7\liveobjects_7.csproj">
+      <Project>{8B85A998-9E96-4AEA-8358-392CB8440ABE}</Project>
+      <Name>liveobjects_7</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Components_\AggregationUI.resx">
+      <DependentUpon>AggregationUI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components_\ChannelTester.resx">
+      <DependentUpon>ChannelTester.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components_\Control.resx">
+      <DependentUpon>Control.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components_\LocationManager.resx">
+      <DependentUpon>LocationManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components_\ObjectExplorer.resx">
+      <DependentUpon>ObjectExplorer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components_\TextTest.resx">
+      <DependentUpon>TextTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\VEGeocodingService\" />
+    <WCFMetadataStorage Include="Service References\VEImageryService\" />
+    <WCFMetadataStorage Include="Service References\VERoutingService\" />
+    <WCFMetadataStorage Include="Service References\VESearchService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Objects\Nuclex\" />
+    <Folder Include="Xna_\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>"$(ProjectDir)postbuild.bat" "$(ProjectDir)" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

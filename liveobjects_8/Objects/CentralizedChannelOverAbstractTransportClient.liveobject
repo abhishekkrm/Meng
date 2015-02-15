@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+Copyright (c) 2009 Rinku Agarwal. All rights reserved.
+
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+-->
+
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="0`1:E3EA16F4ECC84B3B998E01F3B78E9AC9`0">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Text" />
+    <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="A simple plain text note with a graphical user interface." />
+    <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="E3EA16F4ECC84B3B998E01F3B78E9AC9" />
+    <ObjectClass id="0`1:DD0FCDFD36F8403F8CF55EB1FDA22ECB`0" />
+    <Parameter id="channel">
+      <Value xsi:type="ReferenceObject" id="0`1:59D92C9DD1934C70894012978D789C45`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="CentralizedChannelOverAsbtractTransportClient" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="" />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="59D92C9DD1934C70894012978D789C45" />
+        <ObjectClass id="0`1:806C71E88E749AA879E52F960F4B881`0">
+          <Parameter id="MessageClass">
+            <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+          </Parameter>
+          <Parameter id="CheckpointClass">
+            <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+          </Parameter>
+        </ObjectClass>
+        <Parameter id="MessageClass">
+          <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+        </Parameter>
+        <Parameter id="CheckpointClass">
+          <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+        </Parameter>
+        <Parameter id="transport">
+          <Value xsi:type="ReferenceObject" id="0`1:802BA69E43AB4689B3BC45FB50E492A0`0">
+            <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="TcpTransport2_" />
+            <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="This is a component class based on the .NET type &quot;QS._qss_x_.Properties_.Component_.TcpTransport2_`1&quot;." />
+            <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="802BA69E43AB4689B3BC45FB50E492A0" />
+            <ObjectClass id="0`1:336CDD8D1B8E42C99295E5D8DD386727`0">
+              <Parameter id="AddressClass">
+                <Value xsi:type="ValueClass" id="0`1:4BD58FAE1AEB4537B42CE0C2640528F9`0" />
+              </Parameter>
+              <Parameter id="MessageClass">
+                <Value xsi:type="ValueClass" id="0`1:F36658F31BD743719FF637FB82FE49CC`0" />
+              </Parameter>
+            </ObjectClass>
+            <Parameter id="MessageClass">
+              <Value xsi:type="ValueClass" id="0`1:F36658F31BD743719FF637FB82FE49CC`0" />
+            </Parameter>
+            <Parameter id="address">
+              <Value xsi:type="xsd:string">0.0.0.0/0</Value>
+            </Parameter>
+            <Parameter id="debug">
+              <Value xsi:type="xsd:boolean">true</Value>
+            </Parameter>
+          </Value>
+        </Parameter>
+        <Parameter id="server_address">
+          <Value xsi:type="Address" value="0.0.0.0/0:42424" />
+        </Parameter>
+      </Value>
+    </Parameter>
+  </Object>
+</Root>

@@ -1,0 +1,459 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly liveobjects_5, Version=1.0.0.0, Culture=neutral, PublicKeyToken=754c69c12f72dcf2: 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly liveobjects_1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0f84102260c4a1aa: 
+	hash=None, flags=None
+Assembly liveobjects_4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8bbbd2e3ddcb36ea: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Struct QS._core_c_.Core.Buffer: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+Struct QS._core_c_.Core.MyOverlapped: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+Struct QS._core_c_.Core.MyOverlapped+Operation: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+Struct QS._core_c_.Core.Header: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+Class QS._core_c_.Core.Channel: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(QS._core_c_.Core.ICore, System.String, System.String, Int32, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, QS._core_c_.Core.IChannel, Boolean, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    QS._core_c_.Core.IChannel
+    System.IDisposable
+  Methods:
+    Incoming(): PrivateScope, Public, HideBySig
+    Outgoing(): PrivateScope, Public, HideBySig
+    Handle(ChannelObject): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class QS._core_c_.Core.Clock: AutoLayout, AnsiClass, Class, Public
+  :QS.Fx.Inspection.Inspectable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    QS.Fx.Clock.IClock
+  Properties:
+    Double Time 'get ' : 
+    QS._core_c_.Core.Clock SharedClock 'get ' : 
+  Methods:
+    get_SharedClock(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_Time(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Adjust(Double): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Correct(): PrivateScope, Public, HideBySig
+    Correct(Double, Double): PrivateScope, Public, HideBySig
+Class QS._core_c_.Core.ReceiveBuffer: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  Interfaces:
+    QS.Fx.Base.IBlockControl
+    System.IDisposable
+  Properties:
+    UInt64 Identifier 'get ' : 
+    Int32 NumReferences 'get set' : 
+    IntPtr Address 'get ' : 
+    Byte[] Buffer 'get ' : 
+    Int32 ID   'get ' : 
+  Methods:
+    get_ID(): PrivateScope, Public, HideBySig, SpecialName
+    get_Buffer(): PrivateScope, Public, HideBySig, SpecialName
+    get_Address(): PrivateScope, Public, HideBySig, SpecialName
+    get_NumReferences(): PrivateScope, Public, HideBySig, SpecialName
+    set_NumReferences(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AddReference(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Release(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_Identifier(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class QS._core_c_.Core.ReceiveBuffer+Controller: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+    Void .ctor(UInt32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Allocate(): PrivateScope, Public, HideBySig
+    Release(ReceiveBuffer): PrivateScope, Public, HideBySig
+    Lookup(Int32): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class QS._core_c_.Core.Listener: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :QS.Fx.Inspection.Inspectable
+    Void .ctor(QS._core_c_.Core.IListenerController, UInt32, QS._core_c_.Core.Address, System.Net.Sockets.Socket, QS.Fx.Network.ReceiveCallback, System.Object, Int32, Int32, Boolean, QS._core_c_.Statistics.IStatisticsController, Boolean, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    QS._core_c_.Core.IListener
+    QS.Fx.Network.IListener
+    System.IDisposable
+    QS.Fx.Base.IParametrized
+    QS._core_c_.Diagnostics2.IModule
+  Properties:
+    QS._core_c_.Diagnostics2.IComponent DiagnosticsComponent 'get ' : 
+    QS.Fx.Base.IParameters Parameters 'get ' : 
+    Int32 AdfBufferSize 'get set' : 
+    Controller BufferController 'get ' : 
+    Boolean DrainSynchronously 'get ' : 
+    Int32 NumberOfBuffers 'get ' : 
+    Boolean Active 'get ' : 
+    QS.Fx.Network.ReceiveCallback Callback 'get ' : 
+    System.Net.Sockets.Socket Socket 'get ' : 
+    Int32 BufferSize 'get ' : 
+    System.Object Context 'get ' : 
+    QS._core_c_.Core.Address CoreAddress 'get ' : 
+    QS.Fx.Network.NetworkAddress NetworkAddress 'get ' : 
+    System.Net.IPAddress InterfaceAddress 'get ' : 
+    QS._core_c_.Core.Address CombinedAddress 'get ' : 
+    Boolean HighPriority 'get ' : 
+    Boolean Disposed 'get ' : 
+  Methods:
+    get_Disposed(): PrivateScope, Public, HideBySig, SpecialName
+    get_HighPriority(): PrivateScope, Public, HideBySig, SpecialName
+    get_CombinedAddress(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_InterfaceAddress(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_NetworkAddress(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_CoreAddress(): PrivateScope, Public, HideBySig, SpecialName
+    get_Context(): PrivateScope, Public, HideBySig, SpecialName
+    get_BufferSize(): PrivateScope, Public, HideBySig, SpecialName
+    get_Socket(): PrivateScope, Public, HideBySig, SpecialName
+    get_Callback(): PrivateScope, Public, HideBySig, SpecialName
+    get_Active(): PrivateScope, Public, HideBySig, SpecialName
+    get_NumberOfBuffers(): PrivateScope, Public, HideBySig, SpecialName
+    get_DrainSynchronously(): PrivateScope, Public, HideBySig, SpecialName
+    get_BufferController(): PrivateScope, Public, HideBySig, SpecialName
+    get_AdfBufferSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_AdfBufferSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Start(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Stop(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_Parameters(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    LogOverhead(Double, Double): PrivateScope, Public, HideBySig
+    get_DiagnosticsComponent(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class QS._core_c_.Core.Transmitter: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :QS.Fx.Inspection.Inspectable
+    Void .ctor(QS._core_c_.Core.ITransmitterController, QS.Fx.Logging.ILogger, QS.Fx.Clock.IClock, System.Net.Sockets.Socket, Void*, QS._core_c_.Core.ErrorCallback, Int32, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    QS._core_c_.Core.ITransmitter
+  Fields:
+    Boolean TaggingOutgoingStreams IsConst : Public, Static, HasDefault
+  Properties:
+    QS._core_c_.Core.ITransmitterController Controller 'get ' : 
+    Boolean HighPriority 'get ' : 
+    System.Net.Sockets.Socket Socket 'get ' : 
+  Methods:
+    Transmit(AsynchronousSend, Int32): PrivateScope, Public, HideBySig
+    Completed(): PrivateScope, Public, HideBySig
+    get_Socket(): PrivateScope, Public, HideBySig, SpecialName
+    get_HighPriority(): PrivateScope, Public, HideBySig, SpecialName
+    get_Controller(): PrivateScope, Public, HideBySig, SpecialName
+Class QS._core_c_.Core.Sender: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :QS.Fx.Inspection.Inspectable
+    Void .ctor(QS._core_c_.Core.ISenderController, QS._core_c_.Core.IIOController, QS._core_c_.Core.ICore, QS.Fx.Clock.IClock, QS._core_c_.Core.ErrorCallback, QS._core_c_.Core.Address, IntPtr, Int32, Int32, QS._core_c_.RateControl.IRateController, QS.Fx.Logging.ILogger, QS.Fx.Logging.IEventLogger, Int32, QS._core_c_.Statistics.IStatisticsController, Int32, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    QS._core_c_.Core.ISender
+    QS._core_c_.FlowControl3.IRateControlled
+    QS.Fx.Network.ISender
+    QS.Fx.Base.IParametrized
+    QS._core_c_.Core.ITransmitterController
+    QS._core_c_.Diagnostics2.IModule
+    System.IDisposable
+  Properties:
+    Int32 AdfBufferSize 'get set' : 
+    QS._core_c_.Diagnostics2.IComponent DiagnosticsComponent 'get ' : 
+    Double MaximumRate 'get set' : 
+    QS.Fx.Base.IParameters Parameters 'get ' : 
+    QS._core_c_.RateControl.IRateController RateController 'get set' : 
+    Int32 MaximumConcurrency 'get set' : 
+    Int32 MTU  'get set' : 
+    QS.Fx.Network.NetworkAddress NetworkAddress 'get ' : 
+    System.Net.IPAddress InterfaceAddress 'get ' : 
+    QS._core_c_.Core.Address CombinedAddress 'get ' : 
+  Methods:
+    get_CombinedAddress(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_InterfaceAddress(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_NetworkAddress(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_MTU(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_MTU(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_MaximumConcurrency(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_MaximumConcurrency(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_RateController(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_RateController(IRateController): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Parameters(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Send(ISource): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Send(Data, ContextCallback, Object): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Send(Data): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    AllowTransmission(Int32, Int32, Int32* IsImplicitlyDereferenced, Int32* IsImplicitlyDereferenced, Boolean* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    RecycleTransmitter(ITransmitter, Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    LogTransmitOverheads(ITransmitter, Double, Double, Double, Double, Double): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    LogTransmitCompletionOverheads(ITransmitter, Double, Double, Double, Double): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_MaximumRate(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_MaximumRate(Double): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_DiagnosticsComponent(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_AdfBufferSize(): PrivateScope, Public, HideBySig, SpecialName
+    set_AdfBufferSize(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class QS._core_c_.Core.InterlockedQueue`1[C]: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  Type parameter: C, QS._core_c_.Core.ISLLNode`1[C],  ReferenceType
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    QS._core_c_.Core.IQueue`1[C]
+    System.IDisposable
+  Properties:
+    Boolean IsEmpty 'get ' : 
+    Int32 Count 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_IsEmpty(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    Enqueue(C): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Dequeue(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class QS._core_c_.Core.File: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(IntPtr, Int32, System.String, System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare, QS._core_c_.Core.FileFlagsAndAttributes): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(IntPtr, Int32, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    QS._core_c_.Core.IFile
+    System.IDisposable
+  Properties:
+    Int64 Length 'get ' : 
+    System.String Name 'get ' : 
+  Methods:
+    Write(Int64, ArraySegment`1, IOCompletionCallback, Object): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Write(Int64, Object, Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Write(Int64, IntPtr, Int32, IOCompletionCallback, Object): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Read(Int64, ArraySegment`1, IOCompletionCallback, Object): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    BeginWrite(Int64, ArraySegment`1, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    EndWrite(IAsyncResult): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    BeginRead(Int64, ArraySegment`1, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    EndRead(IAsyncResult): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_Name(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Length(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    CompletedFileIO(MyOverlapped*, UInt32, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class QS._core_c_.Core.Core: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :QS.Fx.Inspection.Inspectable
+    Void .ctor(System.String, QS.Fx.Scheduling.IQueue, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    QS._core_c_.Core.ICore
+    System.IDisposable
+    QS.Fx.Clock.IAlarmClock
+    QS.Fx.Clock.IClock
+    QS.Fx.Scheduling.IScheduler
+    QS._core_c_.Core.IFileController
+    QS._core_c_.Core.IChannelController
+    QS._core_c_.Core.IListenerController
+    QS._core_c_.Core.IAlarmController
+    QS._core_c_.Core.ISenderController
+    QS._core_c_.Core.IIOController
+    QS.Fx.Logging.ILogger
+    QS.Fx.Logging.IConsole
+    QS.Fx.Logging.IEventLogger
+    QS.Fx.Diagnostics.IDiagnosticsComponent
+    QS._core_c_.Diagnostics2.IModule
+  Fields:
+    Boolean UntaggingIncomingStreams IsConst : Public, Static, HasDefault
+    Int32 default_MaximumConcurrency IsConst : Public, Static, HasDefault
+    Int32 default_MinimumTransmitted IsConst : Public, Static, HasDefault
+    Int32 default_MaximumTransmitted IsConst : Public, Static, HasDefault
+    Int32 default_SenderMTU IsConst : Public, Static, HasDefault
+    Int32 default_SenderMaximumConcurrency IsConst : Public, Static, HasDefault
+    Double default_SenderMaximumUnicastRate IsConst : Public, Static
+    Double default_SenderMaximumMulticastRate IsConst : Public, Static
+    Double default_SenderMaximumUnicastCredits IsConst : Public, Static
+    Double default_SenderMaximumMulticastCredits IsConst : Public, Static
+    Double default_maximumQuantumForAlarms IsConst : Public, Static
+    Double default_maximumQuantumForCompletionPort IsConst : Public, Static
+    Double default_timeWarpThresholdForAlarms IsConst : Public, Static
+    Double default_timeWarpThresholdForIO IsConst : Public, Static
+    Int32 DefaultSizeOfTheMemoryChannel IsConst : Public, Static, HasDefault
+  Properties:
+    QS._core_x_.Unmanaged.OutgoingMsgCallback OutgoingMsgCallback 'get set' : 
+    IntPtr OutgoingChannel 'get ' : 
+    IntPtr IncomingChannel 'get ' : 
+    Boolean DiscardIncomingIO 'get set' : 
+    QS._core_c_.Diagnostics2.IComponent DiagnosticsComponent 'get ' : 
+    QS.Fx.Clock.IClock PhysicalClock 'get ' : 
+    Boolean ContinueIOOnTimeWarps 'get set' : 
+    Double DefaultMaximumSenderMulticastCredits 'get set' : 
+    Double DefaultMaximumSenderUnicastCredits 'get set' : 
+    Double DefaultMaximumSenderMulticastRate 'get set' : 
+    Double DefaultMaximumSenderUnicastRate 'get set' : 
+    Int32 DefaultMaximumSenderConcurrency 'get set' : 
+    Int32 DefaultMTU 'get set' : 
+    Int32 MaximumTransmitted 'get set' : 
+    Int32 MinimumTransmitted 'get set' : 
+    Int32 MaximumConcurrency 'get set' : 
+    Double MaximumQuantumForCompletionPorts 'get set' : 
+    Double MaximumQuantumForAlarms 'get set' : 
+    QS._core_c_.RateControl.IRateControllerClass DefaultMulticastRateControllerClass 'get set' : 
+    QS._core_c_.RateControl.IRateControllerClass DefaultUnicastRateControllerClass 'get set' : 
+    Int32 AllocateReference 'get ' : 
+    Boolean Enabled_AsDiagnosticsComponent 'get set' : 
+    QS.Fx.Diagnostics.ComponentClass Class_AsDiagnosticsComponent 'get ' : 
+    QS._core_c_.Statistics.IStatisticsController StatisticsController 'get ' : 
+    QS.Fx.Logging.IEventLogger EventLogger 'set' : 
+    QS.Fx.Logging.ILogger Logger 'set' : 
+    Double Time 'get ' : 
+    Boolean Running 'get ' : 
+    Int32 ChannelCapacityIncomingControl 'get set' : 
+    Int32 ChannelCapacityOutgoingControl 'get set' : 
+    Int32 ChannelCapacityIncoming 'get set' : 
+    Int32 ChannelCapacityOutgoing 'get set' : 
+    Boolean ChannelController 'get set' : 
+  Events:
+    QS._core_c_.Core.ErrorCallback OnError: SpecialName
+    QS.Fx.Base.Callback OnCleanup: SpecialName
+    QS.Fx.Base.Callback OnInitialization: SpecialName
+  Methods:
+    Drop(Double, Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    Drop(Double, Double, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    get_IncomingChannel(): PrivateScope, Public, HideBySig, SpecialName
+    get_OutgoingChannel(): PrivateScope, Public, HideBySig, SpecialName
+    get_OutgoingMsgCallback(): PrivateScope, Public, HideBySig, SpecialName
+    set_OutgoingMsgCallback(OutgoingMsgCallback): PrivateScope, Public, HideBySig, SpecialName
+    AcknowledgeOutgoingMsg(OutgoingMsg): PrivateScope, Public, HideBySig
+    UnmanagedLoopback(OutgoingMsg): PrivateScope, Public, HideBySig
+    ProcessIncomingMsg(IncomingMsg): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+    OpenChannel(String, String, IChannel): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    CloseChannel(String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_ChannelController(): PrivateScope, Public, HideBySig, SpecialName
+    set_ChannelController(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_ChannelCapacityOutgoing(): PrivateScope, Public, HideBySig, SpecialName
+    set_ChannelCapacityOutgoing(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ChannelCapacityIncoming(): PrivateScope, Public, HideBySig, SpecialName
+    set_ChannelCapacityIncoming(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ChannelCapacityOutgoingControl(): PrivateScope, Public, HideBySig, SpecialName
+    set_ChannelCapacityOutgoingControl(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_ChannelCapacityIncomingControl(): PrivateScope, Public, HideBySig, SpecialName
+    set_ChannelCapacityIncomingControl(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Schedule(Double, AlarmCallback, Object): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Schedule(IEvent): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    BeginExecute(AsyncCallback, Object): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    EndExecute(IAsyncResult): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Execute(AsyncCallback, Object): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Listen(Address, ReceiveCallback, Object, Int32, Int32, Boolean(HasFieldMarshal), Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Start(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Stop(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_Running(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Time(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    add_OnInitialization(Callback): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_OnInitialization(Callback): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    add_OnCleanup(Callback): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_OnCleanup(Callback): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    add_OnError(ErrorCallback): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_OnError(ErrorCallback): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_Logger(ILogger): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_EventLogger(IEventLogger): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    GetSender(Address, Int32, Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    OpenFile(String, FileMode, FileAccess, FileShare, FileFlagsAndAttributes): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    OpenFile(String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_StatisticsController(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    writeLine(String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    clear(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    logMessage(Object, String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Log(IEvent): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_Class_AsDiagnosticsComponent(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Enabled_AsDiagnosticsComponent(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_Enabled_AsDiagnosticsComponent(Boolean(HasFieldMarshal)): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    ResetComponent(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Unregister(IAlarm): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Unregister(IListener): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Register(IAlarm): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ScheduleSender(ISender): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ReleaseResources(Int32, Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_AllocateReference(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    RegisterReference(Int32, Object): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_DefaultUnicastRateControllerClass(): PrivateScope, Public, HideBySig, SpecialName
+    set_DefaultUnicastRateControllerClass(IRateControllerClass): PrivateScope, Public, HideBySig, SpecialName
+    get_DefaultMulticastRateControllerClass(): PrivateScope, Public, HideBySig, SpecialName
+    set_DefaultMulticastRateControllerClass(IRateControllerClass): PrivateScope, Public, HideBySig, SpecialName
+    get_MaximumQuantumForAlarms(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaximumQuantumForAlarms(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_MaximumQuantumForCompletionPorts(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaximumQuantumForCompletionPorts(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_MaximumConcurrency(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaximumConcurrency(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MinimumTransmitted(): PrivateScope, Public, HideBySig, SpecialName
+    set_MinimumTransmitted(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MaximumTransmitted(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaximumTransmitted(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_DefaultMTU(): PrivateScope, Public, HideBySig, SpecialName
+    set_DefaultMTU(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_DefaultMaximumSenderConcurrency(): PrivateScope, Public, HideBySig, SpecialName
+    set_DefaultMaximumSenderConcurrency(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_DefaultMaximumSenderUnicastRate(): PrivateScope, Public, HideBySig, SpecialName
+    set_DefaultMaximumSenderUnicastRate(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_DefaultMaximumSenderMulticastRate(): PrivateScope, Public, HideBySig, SpecialName
+    set_DefaultMaximumSenderMulticastRate(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_DefaultMaximumSenderUnicastCredits(): PrivateScope, Public, HideBySig, SpecialName
+    set_DefaultMaximumSenderUnicastCredits(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_DefaultMaximumSenderMulticastCredits(): PrivateScope, Public, HideBySig, SpecialName
+    set_DefaultMaximumSenderMulticastCredits(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_ContinueIOOnTimeWarps(): PrivateScope, Public, HideBySig, SpecialName
+    set_ContinueIOOnTimeWarps(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_PhysicalClock(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_DiagnosticsComponent(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_DiscardIncomingIO(): PrivateScope, Public, HideBySig, SpecialName
+    set_DiscardIncomingIO(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+Class QS._core_x_.Reflection.Library: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    IsManaged(String): PrivateScope, Public, Static, HideBySig
+Class QS._core_c_.ClockSynchronization.Client: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Accept(ILogger, IPAddress, IPAddress, Int32, Int32, Int32): PrivateScope, Public, Static, HideBySig
+Class QS._core_c_.ClockSynchronization.Coordinator: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Synchronize(IPAddress, IPAddress, Int32, Int32, Int32): PrivateScope, Public, Static, HideBySig
+Class QS._assembly_liveobjects_5: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    _initialize(): PrivateScope, Public, Static, HideBySig
+Class QS._core_x_.Component.Classes.Movie_UI: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :QS.Fx.Component.Classes.UI
+    Void .ctor(QS.Fx.Object.IContext): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class QS.Fx.Scheduling.MultithreadedQueue: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :QS.Fx.Inspection.Inspectable
+    Void .ctor(Int32, QS.Fx.Scheduling.Policy, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    QS.Fx.Scheduling.IQueue
+    System.IDisposable
+  Properties:
+    Boolean Blocked 'get ' : 
+  Methods:
+    Enqueue(IEvent): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Dequeue(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_Blocked(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class QS._core_x_.Video.Video: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(IntPtr, System.Drawing.Rectangle, QS._core_x_.Video.VideoType, Int64): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    QS._core_x_.Video.IVideo
+    System.IDisposable
+  Properties:
+    Int64 MaxBuffered 'get ' : 
+    Int64 MinBuffered 'get ' : 
+    Int64 Position 'get ' : 
+    Int64 Length 'get ' : 
+    QS._core_x_.Video.VideoType Type 'get ' : 
+    System.Drawing.Rectangle Rectangle 'get set' : 
+    IntPtr Window 'get ' : 
+  Methods:
+    get_Window(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Rectangle(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_Rectangle(Rectangle): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Type(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Length(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Position(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_MinBuffered(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_MaxBuffered(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Start(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Stop(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Append(Block): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig

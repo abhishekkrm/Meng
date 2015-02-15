@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2004-2009 Krzysztof Ostrowski (krzys@cs.cornell.edu). All rights reserved.
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="911AE0A710BE4972A193FB6EE81D680F">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Properties Framework Token Ring" />
+    <Parameter id="MessageClass">
+      <Value xsi:type="ValueClass" id="148B8C6B886A49029CD81610CB75EEE6" />
+    </Parameter>
+    <Parameter id="group">
+      <Value xsi:type="ReferenceObject" id="48FFA2291DC84359A24C17149B6177AA">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Properties Framework Group" />
+        <Parameter id="IdentifierClass">
+          <Value xsi:type="ValueClass" id="24D8914967A443BE93FD68B4F3CE82A5" />
+        </Parameter>
+        <Parameter id="IncarnationClass">
+          <Value xsi:type="ValueClass" id="FF88E580C97A40B99DA71B6FA38F1354" />
+        </Parameter>
+        <Parameter id="NameClass">
+          <Value xsi:type="ValueClass" id="F864A06B836844EDBA7D392899627DED" />
+        </Parameter>
+        <Parameter id="AddressClass">
+          <Value xsi:type="ValueClass" id="4BD58FAE1AEB4537B42CE0C2640528F9" />
+        </Parameter>
+        <Parameter id="MessageClass">
+          <Value xsi:type="ValueClass" id="148B8C6B886A49029CD81610CB75EEE6" />
+        </Parameter>
+        <Parameter id="membership">
+          <Value xsi:type="ReferenceObject" id="89539B824D2D49F39035934AE5B6C9F1">
+            <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Properties Framework Membership Channel" />
+            <Parameter id="IdentifierClass">
+              <Value xsi:type="ValueClass" id="24D8914967A443BE93FD68B4F3CE82A5" />
+            </Parameter>
+            <Parameter id="IncarnationClass">
+              <Value xsi:type="ValueClass" id="FF88E580C97A40B99DA71B6FA38F1354" />
+            </Parameter>
+            <Parameter id="NameClass">
+              <Value xsi:type="ValueClass" id="F864A06B836844EDBA7D392899627DED" />
+            </Parameter>
+            <Parameter id="AddressClass">
+              <Value xsi:type="ValueClass" id="4BD58FAE1AEB4537B42CE0C2640528F9" />
+            </Parameter>
+            <Parameter id="transport">
+              <Value xsi:type="ReferenceObject" id="BF27E90F0C82437DA1B6686ABE1EBFBD">
+                <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Properties Framework Unreliable Transport" />
+                <Parameter id="MessageClass">
+                  <Value xsi:type="ValueClass" id="148B8C6B886A49029CD81610CB75EEE6" />
+                </Parameter>
+                <Parameter id="subnet">
+                  <Value xsi:type="xsd:string">0.0.0.0/0</Value>
+                </Parameter>
+                <Parameter id="port">
+                  <Value xsi:type="xsd:int">0</Value>
+                </Parameter>
+                <Parameter id="debug">
+                  <Value xsi:type="xsd:boolean">false</Value>
+                </Parameter>
+              </Value>
+            </Parameter>
+            <Parameter id="address">
+              <Value xsi:type="Address" value="bootstrap:1000" />
+            </Parameter>
+            <Parameter id="memory">
+              <Value xsi:type="ReferenceObject" xsi:nil="true" />
+            </Parameter>
+            <Parameter id="batching">
+              <Value xsi:type="xsd:double">0</Value>
+            </Parameter>
+            <Parameter id="debug">
+              <Value xsi:type="xsd:boolean">false</Value>
+            </Parameter>
+          </Value>
+        </Parameter>
+        <Parameter id="transport">
+          <Value xsi:type="ReferenceObject" id="BF27E90F0C82437DA1B6686ABE1EBFBD">
+            <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Properties Framework Unreliable Transport" />
+            <Parameter id="MessageClass">
+              <Value xsi:type="ValueClass" id="148B8C6B886A49029CD81610CB75EEE6" />
+            </Parameter>
+            <Parameter id="subnet">
+              <Value xsi:type="xsd:string">0.0.0.0/0</Value>
+            </Parameter>
+            <Parameter id="port">
+              <Value xsi:type="xsd:int">0</Value>
+            </Parameter>
+            <Parameter id="debug">
+              <Value xsi:type="xsd:boolean">false</Value>
+            </Parameter>
+          </Value>
+        </Parameter>
+        <Parameter id="debug">
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+    <Parameter id="rate">
+      <Value xsi:type="xsd:double">1</Value>
+    </Parameter>
+    <Parameter id="MTTA">
+      <Value xsi:type="xsd:double">0.2</Value>
+    </Parameter>
+    <Parameter id="MTTB">
+      <Value xsi:type="xsd:double">1</Value>
+    </Parameter>
+    <Parameter id="debug">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Parameter>
+  </Object>
+</Root>
+
+

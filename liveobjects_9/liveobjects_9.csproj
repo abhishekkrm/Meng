@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9FE2D3E9-8C80-4AD0-AE11-E98CC6D790E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QS</RootNamespace>
+    <AssemblyName>liveobjects_9</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;PAIR</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Distribution\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Distribution\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Distribution\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|AnyCPU' ">
+    <OutputPath>bin\Simulation\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|x64' ">
+    <OutputPath>bin\x64\Simulation\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|x86' ">
+    <OutputPath>bin\x86\Simulation\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|AnyCPU' ">
+    <OutputPath>bin\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_9.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|x64' ">
+    <OutputPath>bin\x64\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE;PAIR</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_9.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|x86' ">
+    <OutputPath>bin\x86\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_9.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="liveobjects_9.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_qss_x_\Azure_\AzureChannelController_.cs" />
+    <Compile Include="_qss_x_\Azure_\AzureClientTest_.cs" />
+    <Compile Include="_qss_x_\Azure_\AzureTest_1_.cs" />
+    <Compile Include="_qss_x_\Azure_\AzureTest_2_.cs" />
+    <Compile Include="_qss_x_\Azure_\AzureWorker_.cs" />
+    <Compile Include="_qss_x_\Azure_\CCStringMatch_.cs" />
+    <Compile Include="_qss_x_\Azure_\IAzureWorker_.cs" />
+    <Compile Include="_qss_x_\Azure_\Interface_\AzureCC_.cs" />
+    <Compile Include="_qss_x_\Azure_\Interface_\IAzureWorkerChannelClient_.cs" />
+    <Compile Include="_qss_x_\Azure_\Interface_\IAzureWorkerChannel_.cs" />
+    <Compile Include="_qss_x_\Azure_\Object_\IAzureWorkerChannel_.cs" />
+    <Compile Include="_qss_x_\Azure_\Values_\WorkerMessage_.cs" />
+    <Compile Include="_qss_x_\Demo_\Component_\TransportDemo_.cs" />
+    <Compile Include="_qss_x_\Demo_\Component_\WebServiceRelay_.cs" />
+    <Compile Include="_qss_x_\Demo_\Interface_\ILog.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\BenchmarkClient_2_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\BenchmarkClient_3_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_01_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\BenchmarkClient_1_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_02_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_03_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_04_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_05_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_06_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_07_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_08_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_09_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_10.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_11_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_12_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_13_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_14_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Benchmark_15_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Histogram_Standalone_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\DictionaryClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Dictionary_1_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Dictionary_2_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\EmptyDictionary.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\HistogramClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Histogram_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\KMeansClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\KMeans_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\KMeans_Standalone_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\LinearRegressionClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\LinearRegression_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\MatrixMultiplyClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\MatrixMultiply_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\MembershipClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Multihreaded_ReplicatedDictionaryClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Multithreaded_1_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Multithreaded_2.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Multithreaded_ReplicatedDictionaryClient_2.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Multithreaded_ReplicatedDictionaryClient_3_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Multithreaded_ReplicatedDictionaryClient_4_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Multithreaded_ReplicatedDictionaryClient_5_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\PCAClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\PCA_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\PriorityQueueClient_1_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\PriorityQueueClient_2_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\PriorityQueueClient_3_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\PriorityQueue_1_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\PriorityQueue_2_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ProfileSimpleTasks_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ReplicatedDictionaryClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ReplicatedDictionaryClient_4_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ReplicatedDictionary_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ReverseIndexClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ReverseIndex_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Membership_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ReverseIndex_Standalone.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\SerializerClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Serializer_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\SplayTreeDictionary_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\SplayTreeStandalone_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\StringMatchClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\StringMatch_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\StringMatch_Standalone_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Tester_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\WebCrawlerClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\WebCrawler_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\WordCountClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\WordCount_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\WordCount_Standalone_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\WorkerClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ComponentClass_03_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ComponentClass_04_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ComponentClass_05_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ComponentClass_06_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ComponentClass_07_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ComponentClass_08_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ComponentClass_09_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ComponentClass_10_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ComponentClass_11_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\MapReduce_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Encryptor_1_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Experiment_1_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Map_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Objects_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Ping_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Pong_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Reader_1_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Reduce_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Terminator_1_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ComponentClass_01_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\ComponentClass_02_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Worker_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Writer_1_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Component_\Zeroes_1_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IBenchmarkClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IBenchmark_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IDictionaryClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IDictionary_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IHistogramClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IHistogram_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IInterfaceClass_01_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IInterfaceClass_02_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IInterfaceClass_03_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IInterfaceClass_04_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IInterfaceClass_05_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IInterfaceClass_06_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IKMeansClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IKMeans_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\ILinearRegressionClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\ILinearRegression_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IMap2Client_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IMap2_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IMap_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IMatrixMultiplyClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IMatrixMultiply_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IMembershipClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IMembership_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IPCAClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IPCA_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IPing_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IPong_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IPriorityQueueClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IPriorityQueue_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IReduce2Client_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IReduce2_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IReduce_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IReverseIndexClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IReverseIndex_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\ISerializerClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\ISerializer_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IBenchmark_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IMembership_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IPriorityQueue_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\ISerializer_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Utiliity_\ClipboardThread_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Utiliity_\CoreUtil_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Utiliity_\CPUUtil_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Utiliity_\GCUtil_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Utiliity_\IStat_Logger.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IStringMatchClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IStringMatch_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IWebCrawlerClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IWebCrawler_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IWordCountClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IWorkerClient_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IWorker_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Interface_\IWordCount_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IDictionary_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IHistogram_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IKMeans_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\ILinearRegression_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IMap2_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IMap_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IMatrixMultiply_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IObjectClass_01_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IObjectClass_02_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IObjectClass_03_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IObjectClass_04_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IObjectClass_05_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IObjectClass_06_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IObjectClass_07_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IObjectClass_08_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IPCA_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IPong_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IReduce2_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IReduce_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IReverseIndex_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IStringMatch_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IWebCrawler_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IWordCount_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IPing_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Object_\IWorker_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Utiliity_\LockingUtil_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Utiliity_\MemoryAllocUtil_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Utiliity_\PerformanceCounters_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Utiliity_\PerformanceCounter_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Utiliity_\Sample2D_Merger_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Utiliity_\Serializable_Sample2D_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Utiliity_\Stat_Logger.cs" />
+    <Compile Include="_qss_x_\Experiment_\Utiliity_\ThreadUtil_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Utiliity_\TimelineCopyPrep_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Value_\MapReduce_Dict_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Value_\ValueClass_01_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Value_\ValueClass_02_.cs" />
+    <Compile Include="_qss_x_\Experiment_\Value_\WordCount_.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\liveobjects_1\liveobjects_1.csproj">
+      <Project>{F06CF495-6A41-4E21-8BD7-ECCA7F2C2D2A}</Project>
+      <Name>liveobjects_1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\liveobjects_4\liveobjects_4.csproj">
+      <Project>{F31A380F-1CE2-4F4A-96E9-5043C131C6EE}</Project>
+      <Name>liveobjects_4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\liveobjects_6\liveobjects_6.csproj">
+      <Project>{A17EE7A5-3A05-4CAB-A5B4-249BCCD3C604}</Project>
+      <Name>liveobjects_6</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\liveobjects_8\liveobjects_8.csproj">
+      <Project>{26D7B6AB-2E7D-4666-8B25-90F25F1589E5}</Project>
+      <Name>liveobjects_8</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Migrated rules for liveobjects_9.ruleset" />
+    <None Include="postbuild.bat" />
+    <None Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_001_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_01_v2_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_01_v3_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_05_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_05_v2_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_05_v3_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_06_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_07_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_07_v2_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_07_v3_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_08_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_09_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_10_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_11_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_12_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_13_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_14_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Benchmark_15_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Histogram_Standalone_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Membership_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\PriorityQueue_v2_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\PriorityQueue_v3_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Serializer_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Test_Q_.liveobject" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_qss_x_\Demo_\Reference_\client.liveobject" />
+    <Content Include="_qss_x_\Demo_\Reference_\server.liveobject" />
+    <Content Include="_qss_x_\Demo_\Reference_\Text_WebServiceRelay_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Benchmark_01_v1_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Benchmark_02_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Benchmark_03_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Benchmark_04_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Benchmark_07_v2_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Benchmark_07_v3_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\EmptyDictionary_4_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\KMeans_Standalone_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Multithreaded_EmptyDictionaryClient_4_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Dictionary_1.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Dictionary_2.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\KMeans %28broken%29.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\KMeans %28M%29.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\KMeans %28S%29.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\LinearRegression.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\MapReduce_C_16.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\MapReduce_C_250.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\MapReduce_S_16.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\MapReduce_S_250.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\MatrixMultiply.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\MSRaytracer_16_F.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\MSRaytracer_16_T.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\MSRaytracer_1_F.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\MSRaytracer_1_T.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\MSRaytracer_8_F.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\MSRaytracer_8_T.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\MSRaytracer_FFF.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Multithreaded_1.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Multithreaded_2.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Multithreaded_ReplicatedDictionaryClient_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Multithreaded_ReplicatedDictionaryClient_2.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Multithreaded_ReplicatedDictionaryClient_3_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Multithreaded_ReplicatedDictionaryClient_4_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Multithreaded_ReplicatedDictionaryClient_5_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Multithreaded_SplayTreeDictionaryClient_4_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\PCA.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\PriorityQueue_v1_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\ProfileSimpleTasks_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\RayTracer_UI.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_000_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_002_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_003_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_004_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_005_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_006_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_007_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_008_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_009_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_010_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_011_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_012_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_013_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_014_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_015_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\000_099_\Experiment_016_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\500_599_\Experiment_501_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\500_599_\Experiment_502_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\500_599_\Experiment_503_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\500_599_\Experiment_504_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\500_599_\Experiment_505_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\500_599_\Experiment_506_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Histogram.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Ping.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\ReplicatedDictionary %28broken%29.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\ReplicatedDictionary.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\ReplicatedDictionary_4_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\ReverseIndex %28M%29.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\ReverseIndex.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\SplayTreeStandalone_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\StringMatch %28M%29.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\StringMatch.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\StringMatch_Standalone_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\WebCrawler.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\WordCount %28debug%29.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\WordCount %28long%29.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Test_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Test_B_.liveobject" />
+    <None Include="_qss_x_\Experiment_\Reference_\Test_S_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\WordCount_Standalone_.liveobject" />
+    <Content Include="_qss_x_\Experiment_\Reference_\Work.liveobject" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>"$(ProjectDir)postbuild.bat" "$(ProjectDir)" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2004-2009 Krzysztof Ostrowski (krzys@cs.cornell.edu). All rights reserved.
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.IPeer" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\IPeer.cs</FileName>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Context" />
+    </ShowAsAssociation>
+    <AssociationLine Name="Context" Type="QS.CMS.Infrastructure.Interfaces.IPeerContext">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.346" Y="0.339" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Interface>
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.IController" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\IController.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.ICluster" Collapsed="true">
+    <Position X="3" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\ICluster.cs</FileName>
+      <HashCode>AgAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrentView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Members" />
+      <Property Name="Views" />
+    </ShowAsCollectionAssociation>
+    <AssociationLine Name="Members" Type="QS.CMS.Infrastructure.Interfaces.IMember">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.45" Y="0.36" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="CurrentView" Type="QS.CMS.Infrastructure.Interfaces.IClusterView">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.44" Y="0.391" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Views" Type="QS.CMS.Infrastructure.Interfaces.IClusterView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.5" Y="4.5" />
+        <Point X="5" Y="4.5" />
+        <Point X="5" Y="5.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.15" Y="0.664" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Interface>
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.IMember" Collapsed="true">
+    <Position X="3" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\IMember.cs</FileName>
+      <HashCode>AgAAAAACAAAAAAAAAEAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrentView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Views" />
+    </ShowAsCollectionAssociation>
+    <AssociationLine Name="CurrentView" Type="QS.CMS.Infrastructure.Interfaces.IMemberView" FixedFromPoint="true">
+      <Path>
+        <Point X="4.188" Y="7.259" />
+        <Point X="4.188" Y="8" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.297" Y="0.247" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Views" Type="QS.CMS.Infrastructure.Interfaces.IMemberView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.5" Y="7" />
+        <Point X="5" Y="7" />
+        <Point X="5" Y="8" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.161" Y="0.737" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Interface>
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.IPeerContext" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\IPeerContext.cs</FileName>
+      <HashCode>AgEAAAACAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Controller" />
+      <Property Name="Cluster" />
+      <Property Name="Source" />
+      <Property Name="CurrentView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Views" />
+    </ShowAsCollectionAssociation>
+    <AssociationLine Name="Cluster" Type="QS.CMS.Infrastructure.Interfaces.ICluster" FixedToPoint="true">
+      <Path>
+        <Point X="3.25" Y="2.259" />
+        <Point X="3.25" Y="4.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.2" Y="0.36" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Source" Type="QS.CMS.Infrastructure.Interfaces.ISource" FixedToPoint="true">
+      <Path>
+        <Point X="4.5" Y="2" />
+        <Point X="6.5" Y="2" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="CurrentView" Type="QS.CMS.Infrastructure.Interfaces.IPeerContextView" FixedFromPoint="true">
+      <Path>
+        <Point X="4.25" Y="2.259" />
+        <Point X="4.25" Y="3" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.63" Y="0.32" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Views" Type="QS.CMS.Infrastructure.Interfaces.IPeerContextView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.5" Y="2.125" />
+        <Point X="5" Y="2.125" />
+        <Point X="5" Y="3" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.255" Y="0.633" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Interface>
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.IClusterView" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\IClusterView.cs</FileName>
+      <HashCode>AAEAAAAAAgAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Cluster" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="MemberViews" />
+    </ShowAsCollectionAssociation>
+    <AssociationLine Name="Cluster" Type="QS.CMS.Infrastructure.Interfaces.ICluster" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="5.75" />
+        <Point X="3.5" Y="5.75" />
+        <Point X="3.5" Y="4.759" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.346" Y="0.537" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="MemberViews" Type="QS.CMS.Infrastructure.Interfaces.IMemberView" FixedFromPoint="true">
+      <Path>
+        <Point X="5.312" Y="6.009" />
+        <Point X="5.312" Y="8" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.452" Y="1.643" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Interface>
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.IAggregator" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\IAggregator.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.IAggregatorRef" Collapsed="true">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\IAggregatorRef.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.ISession" Collapsed="true">
+    <Position X="6.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\ISession.cs</FileName>
+      <HashCode>AgAAAAACAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrentView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Views" />
+      <Property Name="Channels" />
+    </ShowAsCollectionAssociation>
+    <AssociationLine Name="CurrentView" Type="QS.CMS.Infrastructure.Interfaces.ISessionView" FixedFromPoint="true">
+      <Path>
+        <Point X="7.875" Y="4.759" />
+        <Point X="7.875" Y="5.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.411" Y="0.258" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Views" Type="QS.CMS.Infrastructure.Interfaces.ISessionView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.25" Y="4.5" />
+        <Point X="8.5" Y="4.5" />
+        <Point X="8.5" Y="5.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.286" Y="0.529" Height="0.16" Width="0.631" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Channels" Type="QS.CMS.Infrastructure.Interfaces.IChannel" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.75" Y="4.625" />
+        <Point X="6.375" Y="4.625" />
+        <Point X="6.375" Y="7.125" />
+        <Point X="8.75" Y="7.125" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="2.1" Y="1.445" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Interface>
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.ISessionView" Collapsed="true">
+    <Position X="7.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\ISessionView.cs</FileName>
+      <HashCode>AAAAAAAAAgAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Session" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Channels" />
+    </ShowAsCollectionAssociation>
+    <AssociationLine Name="Session" Type="QS.CMS.Infrastructure.Interfaces.ISession" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="5.75" />
+        <Point X="7.25" Y="5.75" />
+        <Point X="7.25" Y="4.759" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.484" Y="1.05" Height="0.16" Width="0.67" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Channels" Type="QS.CMS.Infrastructure.Interfaces.IChannel">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.244" Y="0.352" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Interface>
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.IChannel" Collapsed="true">
+    <Position X="8.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\IChannel.cs</FileName>
+      <HashCode>AAAAAAAAAAAAgQAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Session" />
+    </ShowAsAssociation>
+    <AssociationLine Name="Session" Type="QS.CMS.Infrastructure.Interfaces.ISession" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="6.875" />
+        <Point X="6.938" Y="6.875" />
+        <Point X="6.938" Y="4.759" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.284" Y="1.568" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Interface>
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.IPeerContextView" Collapsed="true">
+    <Position X="4" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\IPeerContextView.cs</FileName>
+      <HashCode>AAAAAAAAAgAAAAQAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Context" />
+      <Property Name="ClusterView" />
+      <Property Name="SourceView" />
+    </ShowAsAssociation>
+    <AssociationLine Name="Context" Type="QS.CMS.Infrastructure.Interfaces.IPeerContext" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="3.255" />
+        <Point X="3.562" Y="3.255" />
+        <Point X="3.562" Y="2.259" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.421" Y="0.539" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="ClusterView" Type="QS.CMS.Infrastructure.Interfaces.IClusterView" FixedFromPoint="true">
+      <Path>
+        <Point X="5.312" Y="3.509" />
+        <Point X="5.312" Y="5.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.775" Y="1.675" Height="0.16" Width="1.055" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="SourceView" Type="QS.CMS.Infrastructure.Interfaces.ISourceView" FixedFromPoint="true">
+      <Path>
+        <Point X="5.5" Y="3.25" />
+        <Point X="6.917" Y="3.25" Type="JumpStart" />
+        <Point X="7.083" Y="3.25" Type="JumpEnd" />
+        <Point X="7.5" Y="3.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.006" Y="-0.096" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Interface>
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.ISourceView" Collapsed="true">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\ISourceView.cs</FileName>
+      <HashCode>AAACAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="SessionViews" />
+    </ShowAsCollectionAssociation>
+    <AssociationLine Name="SessionViews" Type="QS.CMS.Infrastructure.Interfaces.ISessionView" FixedFromPoint="true">
+      <Path>
+        <Point X="8.875" Y="3.509" />
+        <Point X="8.875" Y="5.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.492" Y="1.485" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Interface>
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.ISource" Collapsed="true">
+    <Position X="6.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\ISource.cs</FileName>
+      <HashCode>AgAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrentView" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Views" />
+      <Property Name="Sessions" />
+    </ShowAsCollectionAssociation>
+    <AssociationLine Name="CurrentView" Type="QS.CMS.Infrastructure.Interfaces.ISourceView">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.369" Y="0.341" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Views" Type="QS.CMS.Infrastructure.Interfaces.ISourceView" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8" Y="2.125" />
+        <Point X="8.5" Y="2.125" />
+        <Point X="8.5" Y="3" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.275" Y="0.602" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Sessions" Type="QS.CMS.Infrastructure.Interfaces.ISession" FixedFromPoint="true">
+      <Path>
+        <Point X="7" Y="2.259" />
+        <Point X="7" Y="4.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.325" Y="1.339" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Interface>
+  <Interface Name="QS.CMS.Infrastructure.Interfaces.IMemberView" Collapsed="true">
+    <Position X="4" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>CMS\Infrastructure\Interfaces\IMemberView.cs</FileName>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Member" />
+    </ShowAsAssociation>
+    <AssociationLine Name="Member" Type="QS.CMS.Infrastructure.Interfaces.IMember" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="8.255" />
+        <Point X="3.188" Y="8.255" />
+        <Point X="3.188" Y="7.259" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.306" Y="0.237" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Interface>
+</ClassDiagram>

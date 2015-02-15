@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright (c) 2010 Krzysztof Ostrowski. All rights reserved.
+
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the
+following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+  copyright notice, this list of conditions and the following
+  disclaimer in the documentation and/or other materials provided
+  with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="21303BB83BD041F5AB36034A3637CAD5" >
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Secure Tcp Connection Controller"/>
+    <Parameter id="MessageClass">
+      <Value xsi:type="ValueClass" id="8AF1AFAF193F41668B4E9915DD4CEEE6" />
+    </Parameter>
+    <Parameter id="address">
+      <Value xsi:type="xsd:string">http://localhost:50000</Value>
+    </Parameter>
+    <Parameter id="network">
+      <Value xsi:type="xsd:string">0.0.0.0/0</Value>
+    </Parameter>
+    <Parameter id="mainport">
+      <Value xsi:type="xsd:int">60000</Value>
+    </Parameter>
+    <Parameter id="servicefactory">
+      <Value xsi:type="ReferenceObject" id="5356357BBA5244009D3094BEBBB3A8B4">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Centralized Comm. Channel Controller"/>
+        <ObjectClass id="AAA94531EF1E4772A533CCEA5A109DC0">
+          <Parameter id="EndpointClass">
+            <Value xsi:type="EndpointClass" id="38F6531560434F3F964D33D9DA0094EC">
+              <Parameter id="ImportedInterface">
+                <Value xsi:type="InterfaceClass" id="90CCA3B9282B44D38C232FCE10DE0E98">
+                  <Parameter id="MessageClass">
+                    <Value xsi:type="ValueClass" id="8AF1AFAF193F41668B4E9915DD4CEEE6" />
+                  </Parameter>
+                </Value>
+              </Parameter>
+              <Parameter id="ExportedInterface">
+                <Value xsi:type="InterfaceClass" id="1E275C2A1EF045CB8AEEF062FB46F289">
+                  <Parameter id="MessageClass">
+                    <Value xsi:type="ValueClass" id="8AF1AFAF193F41668B4E9915DD4CEEE6" />
+                  </Parameter>
+                </Value>
+              </Parameter>
+            </Value>
+          </Parameter>
+        </ObjectClass>
+        <From xsi:type="ReferenceObject" id="E8C9D312C27649F39812B8E99AA67CBC" />
+      </Value>
+    </Parameter>
+  </Object>
+</Root>

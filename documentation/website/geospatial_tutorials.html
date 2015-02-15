@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 8.0">
+<TITLE>Live Distributed Objects - Geo-Spatial Video Tutorials</TITLE>
+</HEAD>
+<BODY>
+
+<h1>Live Distributed Objects</h1>
+<h2>Geo-Spatial Video Tutorials</h2>
+<P><FONT SIZE=3><B>Inputting your MSN Virtual Earth Credentials</B></FONT></P>
+<P STYLE="font-weight: normal"><FONT SIZE=3>The following video will walk you
+through the steps needed to input your credentials into the Virtual Earth
+LiveObjects used in the demo.  It assumes that you have already obtained
+your credentials from Microsoft.  If not, <A HREF="https://mappoint-css.live.com/MwsSignup/">
+click here</A> to sign up. The steps followed in the video are written below for reference.</FONT></P>
+<p>
+<object 
+  width="800" 
+  height="560"
+  classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+  codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" >
+  <param name="movie" value="http://liveobjects.cs.cornell.edu:55996/player.swf" />
+  <param name="flashvars" value="file=http://liveobjects.cs.cornell.edu:55996/0009/setup_msnve_credentials.flv&autoStart=false" />
+  <embed  
+    src="http://liveobjects.cs.cornell.edu:55996/player.swf"
+    flashvars="file=http://liveobjects.cs.cornell.edu:55996/0009/setup_msnve_credentials.flv&autoStart=false"
+    width="776" 
+    height="600"
+    type="application/x-shockwave-flash" 
+    pluginspage="http://www.macromedia.com/go/getflashplayer" /> 
+</object>
+</p>
+
+<P STYLE="font-weight: normal"><FONT SIZE=3>C:/liveobjects/examples2 contains 3 files that need
+credentials to use them: map_aerial.liveobject, map_road.liveobject, and map_traffic.liveobject.
+This is because they use Microsoft's <A href="http://msdn.microsoft.com/en-us/library/bb507684.aspx">
+Virtual Earth</A> service, which requires that all users have valid credentials.  We have our own
+account for development, but for now all users need separate accounts.  Once you have an account, follow
+these steps to setup the Liveobjects:</FONT></P>
+<P STYLE="font-weight: normal"><FONT SIZE=3>1. Open <b>c:/liveobjects/examples</b> and
+<b>c:/liveobjects/examples2</b>.  These folders contain the necessary Liveobjects.</FONT></P>
+<P STYLE="font-weight: normal"><FONT SIZE=3>2. From <b>examples</b>, double click on 
+<b>object_designer.liveobject</b> to open the object designer.</FONT></P>
+<P STYLE="font-weight: normal"><FONT SIZE=3>3. Drag 1 of the 3 objects (map_aerial, map_road, or map_traffic)
+into the center panel of the object designer.  The designer should now show a rectangle in the center
+panel, as well as some text in the left panel.  If you double click on the rectangle in the center
+panel, VE Aerial Map, you should see another rectangle, Tiled Map Manager.  Each of these rectangles
+defines a different Liveobject.  The lines connecting them indicate communication through interfaces.
+Finally, double click on <b>Tiled Map Manager</b> and two new rectangles should appear.</FONT></P>
+<P STYLE="font-weight: normal"><FONT SIZE=3>4. Click on the leftmost object, MSN Virtual Earth.</FONT></P>
+<P STYLE="font-weight: normal"><FONT SIZE=3>5. You should see a tree of objects/properties in the left
+panel.  One item should be highlighted in yellow.  This is the currently selected object-- in our case
+, the MSN Virtual Earth object.  It is responsible for communication with Microsoft's servers and is
+also the object that requires credentials.</FONT></P>
+<P STYLE="font-weight: normal"><FONT SIZE=3>6. Expand the highlited entry, <b>Predefined Object "MSN Virtual Earth"</b>.</FONT></P>
+<P STYLE="font-weight: normal"><FONT SIZE=3>7. Right-click on <b>Parameter "MSN VEarth Username"</b> and click <b>Change Value</b>.</FONT></P>
+<P STYLE="font-weight: normal"><FONT SIZE=3>8. In the box that appears, enter your MSN username and hit <b>Enter</b>.</FONT></P>
+<P STYLE="font-weight: normal"><FONT SIZE=3>9. Now right-click on <b>Parameter "MSN VEarth Password"</b> and click <b>Change Value</b>.</FONT></P>
+<P STYLE="font-weight: normal"><FONT SIZE=3>10. In the box that appears, enter your MSN password and hit <b>Enter</b>.</FONT></P>
+<P STYLE="font-weight: normal"><FONT SIZE=3>11. You're done.  All that is necessary now is to save the file.  
+This is done in a slightly unique way.  You must click on the root of the tree, <b>Predefined Object "VE Aerial Maps"</b>
+and drag it to a  folder of your choice.  The video above uses the desktop for convenience.  You may then
+rename the file to something more convenient. <b>NOTE:</b> Be sure to leave the .liveobject extension or
+your Operating System may not recognize the file.</FONT></P>
+
+
+</BODY>
+</HTML>

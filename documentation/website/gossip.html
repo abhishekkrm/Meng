@@ -1,0 +1,288 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Live Distributed Objects - Gossip communication platform</title>
+	    <style type="text/css">
+
+.style3 {
+	color: #FF0000;
+}
+        </style>
+	</head>
+	<body>
+	
+	    <h1>
+            Live Distributed Objects</h1>
+        <h2>
+            Gossip communication platform</h2>
+        <p>
+            <span class="style3">Note: Contents of this tutorial may depend on code that has 
+            been written, debugged, or extended 5 minutes ago. If something doesn&#39;t work, 
+            make sure you&#39;re running the latest version of the platform. To update your 
+            installation without reinstalling everything, follow these
+            <a href="installation.html#incremental">
+            easy manual steps</a>, or configure an
+            <a href="installation.html#auto">
+            automatic update</a>.</span></p>
+        <p>
+            <a href="#introduction">Introduction</a><br />
+            <a href="#example">Getting started with an example</a><br />
+&nbsp;&nbsp;&nbsp; <a href="#example_config">Configuration</a><br />
+&nbsp;&nbsp;&nbsp; <a href="#example_run">Running gossip for 3 node configuration </a>
+            <br />
+            <a href="#custom">Building custom applications </a>
+            <br />
+&nbsp;&nbsp;&nbsp; <a href="#custom_ep">Get the endpoint and start working 
+            with gossip platform</a><br />
+&nbsp;&nbsp;&nbsp; <a href="#custom_config">Custom node/group configurations </a>
+<br />
+            <a href="#start_multiple">Starting multiple instances of the platform on a single machine</a><br />
+            </p>
+        <h3>
+            <strong><a name="introduction"></a></strong>Introduction</h3>
+        <p>
+            This distribution of live objects includes a platform for enabling applications 
+            to use gossip style of communication.&nbsp; As we recall, gossip protocol 
+            involves periodic pairwise exhange of bounded-size messages between the 
+            interested nodes, the exchange of messages being either push-based (information 
+            flows from calling-node to called-node) or pull-based (information flows from 
+            called-node to calling-node).&nbsp; The current version of the platform only 
+            supports the push protocol. </p>
+        <p>
+            In each round of gossip, two decisions have to be made - (1). Selecting a 
+            destination node for the next hop (recepient selection) (2). Selecting the rumors 
+            which have to be gossiped for the current gossip round (content selection).&nbsp; The current 
+            version of recepient selection involves selecting a peer-node (<a href="#peer_definition">described later</a>) 
+            at random.&nbsp; The content selection is based on the computed value of a 
+            utility function.&nbsp; The utility of a rumor indicates the usefulness of 
+            including it in current gossip interval, taking into account the rumor&#39;s 
+            ultimate destination, and the overlaps in group/node memberships.</p>
+        <h3>
+            <strong><a name="example"></a>Getting started with an example</strong></h3>
+        <p>
+            An example application that uses the gossip platform is included along with the 
+            distribution.&nbsp; The example application is precompiled and the libraries 
+            required to run them would be installed as part of liveobjects setup process.&nbsp; 
+            The two liveobjects that we use as examples are GOUser_send.liveobject and 
+            GOUser_receive.liveobject, both located under the examples folder of the 
+            distribution.&nbsp; </p>
+        <p>
+            The graph that the example application establishes and uses is depicted below:</p>
+        <p align="center">
+            <img alt="" src="go_img_1.jpg" /></p>
+        <p>
+            <strong><a name="example_config"></a>Configuration</strong></p>
+        <p>
+            The example application uses local IP address with three different unique port 
+            numbers to identify each of the above said node.&nbsp; To make the platform use 
+            localhost (for the purpose of this example), update the 
+            GOUser_send.liveobject with the IP address of your machine (use ipconfig to 
+            learn the assigned address).&nbsp; This is depicted below:</p>
+        <p align="center">
+            <img alt="" src="go_img_2.jpg" /></p>
+        <p>
+            <strong><a name="example_run">R</a>unning gossip for 3 node configuration</strong></p>
+        <p>
+            Start the &#39;Live Distributed Objects&#39; service if its not running. You should 
+            now be able to run 
+            both GOUser_send.liveobject and GOUser_receive.liveobject successfully.</p>
+        <p>
+            The screen shots of both liveobjects are depicted below:</p>
+        <p align="center">
+            <img alt="" src="go_img_3.jpg" /></p>
+        <p>
+            For those interested in getting to build applications that use the Gossip 
+            platform, the source code of the example application is available for <a href="TryGo.zip">download</a>.  Make sure that the 
+            references in the project include the correct references to liveobjects_1.dll (usually under <a href="file:///C:/liveobjects/bin">
+            C:\liveobjects\bin</a> folder).&nbsp; Also you should include a postbuild 
+            script to install the libraries required to run the application (TryGO.dll)</p>
+        <p>
+            The application establishes a network graph containing three nodes and then 
+            initiates gossip at one of the nodes (call it Node_1).&nbsp;When the user clicks 
+            &#39;Gossip&#39; button on the GOUser_send, it infects Node_1 with 10 rumors, which 
+            eventually spread to rest of the two nodes (Node_2 and Node_3).&nbsp; At Node_2, 
+            the application gathers the incoming gossip messages and shows the results.&nbsp; 
+            The network graph is depicted on 
+            GOUser_receive live object and is shown below.&nbsp; This collects all rumors received on Node_2.&nbsp; 
+            When the user clicks on &#39;Refresh&#39; button on GOUser_receive, the progress bar should go to completion and box containing Node_2 turns blue to 
+            indicate that all 10 rumors that were initiated at Node_1 were received by 
+            Node_2.&nbsp; You could click on a particular rumor to see its details.&nbsp; 
+            [Troubleshooting tip: If the GOUserReceive does not receive any messages, try 
+            restarting the &#39;Live Distributed Objects&#39; service, and then run the GOUser_send 
+            and GOUser_receive applications.&nbsp; This would refresh the graph information 
+            in the platform, which would be wrong in the first place if GOUser_send was run 
+            before making the changes described under &#39;Configuration&#39; section above]</p>
+        <p align="center">
+            <img alt="" src="go_img_4.jpg" /></p>
+        <h3>
+            <strong><a name="custom"></a>Building custom applications</strong></h3>
+        <p>
+            <strong><a name="custom_ep"></a>Get the endpoint and start working 
+            with gossip platform</strong></p>
+        <p>
+            The constructor of an application that intends to use the gossip platform is 
+            likely to be similar to that of GOUserSend application, which is illustrated 
+            below:</p>
+        <p>
+            <img alt="" src="go_img_5.jpg" /></p>
+        <p>
+            Any application that intends to use the gossip platform should have the 
+            QS.Fx.Object.IReference&lt;IGOTransport&gt; GOTransport parameter.&nbsp; Other 
+            parameters used by GOUserSend are used for bootstrapping the above said three 
+            node connectivity/membership graph.</p>
+        <p>
+            GOTransport is the channel through which Gossip messages are sent and received 
+            by the application.&nbsp; We need to get the endpoint to this channel.</p>
+        <p>
+            First, declare the variable in the class scope, through we could access the 
+            gossip platform</p>
+        <p style="margin-left: 80px">
+            static private QS.Fx.Endpoint.Internal.IDualInterface<IGORequest, IGOResponse> 
+            goTransportEndpoint = null;</p>
+        <p>
+            Next, use the following code in the constructor to get the reference to the required channel.</p>
+        <p style="margin-left: 80px">
+            goTransportEndpoint = _mycontext.DualInterface<IGORequest, IGOResponse>(this);</p>
+        <p>
+            The goTransportEndpoint can now be used to work with the gossip platform.&nbsp; 
+            The operations that could be performed through it are described below:</p>
+        <p style="font-weight: 700">
+            void IGORequest.SetWorkingContext(String _port)</p>
+        <p style="margin-left: 40px">
+            The platform is built in such a way that multple Gossip platform instances could 
+            be started on a single machine (described later).&nbsp; This method sets the 
+            instance of the platform that we are interested to work upon.</p>
+        <p style="font-weight: 700">
+            void IGORequest.InitializationComplete()</p>
+        <p style="margin-left: 40px">
+            This indicates that we are done with initializing for the instance set 
+            previously using SetWorkingContext() method.</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            To construct the network graph, we need to first create the respective &#39;Group&#39; 
+            objects and &#39;Node&#39; objects.&nbsp; Then, we could use the operations provided by 
+            goTransportEndpoint to establish group memberships and node connectivity.</p>
+        <p>
+            To create a new group with id groupId, use</p>
+        <p style="margin-left: 40px">
+            Group group = new Group(groupId, maxMessageSizePerInterval);</p>
+        <p>
+            groupId is a string which serves as an identifier for the group.&nbsp; 
+            maxMessageSizePerInterval is an integer parameter which dictates the maximum 
+            allowed size of messages (in bytes) between the nodes in the group.</p>
+        <p>
+            To create a new node with id nodeId, use</p>
+        <p style="margin-left: 40px">
+            Node node = new Node(nodeId)</p>
+        <p>
+            <b>void IGORequest.AddNode(IGraphElement _group, IGraphElement _node)</b></p>
+        <p style="margin-left: 40px">
+            Add the node _node to the group _group</p>
+        <p style="font-weight: 700">
+            void IGORequest.AddNodeList(IGraphElement _group, NodeList _nodeList)</p>
+        <p style="margin-left: 40px">
+            Add the list of nodes contained in _nodeList to the group _group</p>
+        <p style="font-weight: 700">
+            void IGORequest.RemoveNode(IGraphElement _group, IGraphElement _node)</p>
+        <p style="margin-left: 40px">
+            Remove the node _node from group _group</p>
+        <p>
+            <b>void IGORequest.RemoveNodeList(IGraphElement _group, NodeList _nodeList)</b></p>
+        <p style="margin-left: 40px">
+            Remove the list of nodes contained in _nodeList from the group _group</p>
+        <p>
+            <b><a name="peer_definition"> </a>void IGORequest.Connect(IGraphElement _node1, IGraphElement _node2, double 
+            _cost)</b></p>
+        <p style="margin-left: 40px">
+            Establish a connection between _node1 and _node2.&nbsp; Once connected, _node1 
+            and _node2 would become peers and each one could use the other as next hop 
+            destination for a rumor.</p>
+        <p style="font-weight: 700">
+            void IGORequest.DisConnect(IGraphElement _node1, IGraphElement _node2)</p>
+        <p style="margin-left: 40px">
+            Remove the connection established using Connect().</p>
+        <p>
+            <b>void IGORequest.Send(IGossip _gossip)</b></p>
+        <p style="margin-left: 40px">
+            Infect the current working instance of the platform with a rumor _gossip.</p>
+        <p>
+            <b>IGossip IGORequest.Receive()</b></p>
+        <p style="margin-left: 40px">
+            Receive a gossip message received on the current working instance of the 
+            platform.</p>
+        <p>
+            <strong><a name="custom_config"></a>Custom node/group configurations </strong></p>
+        <p>
+            &nbsp;AddNode/RemoveNode, AddNodeList/RemoveNodeList, and Connect/Disconnect methods allow 
+            us to establish arbitrary group memberships and connectivity amongst them.&nbsp; 
+            On one extreme all the nodes in the graph could have complete information about 
+            rest of the network.&nbsp; On the other extreme we could imagine nodes having 
+            only the information about the next hop destination nodes.&nbsp; Between these 
+            two extremes, various combinations of partial views could be established which 
+            could be distinct to each node.</p>
+        <p>
+            &nbsp;</p>
+        <h3>
+            <strong><a name="start_multiple"></a>Starting multiple instances of the platform on a single machine</strong></h3>
+        <p>
+            GOInitializer initializes the gossip platform instances based on the 
+            configuration specified in GOInitializer.liveobject.&nbsp; Some of the key 
+            configuration parameters are described below:</p>
+        <p style="font-weight: 700">
+            OUT_PORTS</p>
+        <p style="margin-left: 40px">
+            Specifies the port associated with an instance of the gossip platform.&nbsp; The 
+            GOInitializer brings up one instance per specified port.</p>
+        <p style="font-weight: 700">
+            GOSSIP_INTERVALS</p>
+        <p style="margin-left: 40px">
+            Specifies the gossip frequency.&nbsp; The value specified is the interval for 
+            which the corresponding gossip platform instance would be idle (in milliseconds) 
+            between each gossip round.</p>
+        <p style="font-weight: 700">
+            RUMOR_TIMEOUTS</p>
+        <p style="margin-left: 40px">
+            Specifies how long (in milliseconds) a rumor could stay in the rumor buffer of 
+            the corresponding gossip platform instance.</p>
+        <p>
+            Hence, to start multiple instances, specify the required number of unique unused 
+            port (under OUT_PORTS) for each platform instance that you wish to start and 
+            specify the corresponding values for GOSSIP_INTERVALS, and RUMOR_TIMEOUTS under 
+            the respective XML tags.</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="0`1:21244D6977BE46C09FC206C8F9CA4027`0">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Quilt Bootstrap Server" />
+    <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="This is a component class based on the .NET type &quot;Quilt.Bootstrap.BootstrapServer&quot;." />
+    <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="21244D6977BE46C09FC206C8F9CA4027" />
+    <ObjectClass id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+    <Parameter id="Experiment mode, default 0, ipmc 1, donet 2, omni 3, gradient 4">
+      <Value xsi:type="xsd:int">6</Value>
+    </Parameter>
+    <Parameter id="EUIDTransport">
+      <Value xsi:type="ReferenceObject" id="0`1:79FEB8EB499F4261ADA93A031FDE8E17`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="EUIDTransport" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="This is a component class based on the .NET type &quot;QS._qss_x_.Properties_.EUIDTransport_`1&quot;." />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="79FEB8EB499F4261ADA93A031FDE8E17" />
+        <ObjectClass id="0`1:336CDD8D1B8E42C99295E5D8DD386727`0">
+          <Parameter id="AddressClass">
+            <Value xsi:type="ValueClass" id="0`1:633A4944C4E440DC91F5417D09D61C45`0" />
+          </Parameter>
+          <Parameter id="MessageClass">
+            <Value xsi:type="ValueClass" id="0`1:A37F160CE3EA401BA6EB8E732B3566B7`0" />
+          </Parameter>
+        </ObjectClass>
+        <Parameter id="MessageClass">
+          <Value xsi:type="ValueClass" id="0`1:A37F160CE3EA401BA6EB8E732B3566B7`0" />
+        </Parameter>
+        <Parameter id="Subnet, formatted as X.Y.Z.W/V">
+          <Value xsi:type="xsd:string">10.1.0.0/16</Value>
+        </Parameter>
+        <Parameter id="Preferred Protocol, TCP or UDP, TCP by default">
+          <Value xsi:type="xsd:string">UDP</Value>
+        </Parameter>
+        <Parameter id="TCP Port">
+          <Value xsi:type="xsd:string">12300</Value>
+        </Parameter>
+        <Parameter id="UDP Port">
+          <Value xsi:type="xsd:string">12400</Value>
+        </Parameter>
+        <Parameter id="UDP Packet Size Limit, 4096 by default">
+          <Value xsi:type="xsd:string">4096</Value>
+        </Parameter>
+        <Parameter id="STUN Server Address, if you want support for NAT traverse" />
+        <Parameter id="Traverse Timout Seconds, 60 By Default" />
+        <Parameter id="debug">
+          <Value xsi:type="xsd:boolean">true</Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+  </Object>
+</Root>

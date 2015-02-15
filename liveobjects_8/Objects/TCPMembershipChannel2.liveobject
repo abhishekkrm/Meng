@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+Copyright (c) 2010 Colin Barth. All rights reserved.
+
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+-->
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="0`1:89539B824D2D49F39035934AE5B6C9F1`0">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Properties Framework Membership Channel" />
+    <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="This is a component class based on the .NET type &quot;QS._qss_x_.Properties_.Component_.MembershipChannel_`4&quot;." />
+    <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="89539B824D2D49F39035934AE5B6C9F1" />
+    <ObjectClass id="0`1:F90B11BBB95C4F93813CB0442C600CDA`0">
+      <Parameter id="IncarnationClass">
+        <Value xsi:type="ValueClass" id="0`1:FF88E580C97A40B99DA71B6FA38F1354`0" />
+      </Parameter>
+      <Parameter id="MemberClass">
+        <Value xsi:type="ValueClass" id="0`1:D7BD9C74F130404290EA3FE7849391F4`0">
+          <Parameter id="IdentifierClass">
+            <Value xsi:type="ValueClass" id="0`1:24D8914967A443BE93FD68B4F3CE82A5`0" />
+          </Parameter>
+          <Parameter id="IncarnationClass">
+            <Value xsi:type="ValueClass" id="0`1:FF88E580C97A40B99DA71B6FA38F1354`0" />
+          </Parameter>
+          <Parameter id="NameClass">
+            <Value xsi:type="ValueClass" id="0`1:F864A06B836844EDBA7D392899627DED`0" />
+          </Parameter>
+          <Parameter id="AddressClass">
+            <Value xsi:type="ValueClass" id="0`1:148B8C6B886A49029CD81610CB75EEE6`0" />
+          </Parameter>
+        </Value>
+      </Parameter>
+    </ObjectClass>
+    <Parameter id="IdentifierClass">
+      <Value xsi:type="ValueClass" id="0`1:24D8914967A443BE93FD68B4F3CE82A5`0" />
+    </Parameter>
+    <Parameter id="IncarnationClass">
+      <Value xsi:type="ValueClass" id="0`1:FF88E580C97A40B99DA71B6FA38F1354`0" />
+    </Parameter>
+    <Parameter id="NameClass">
+      <Value xsi:type="ValueClass" id="0`1:F864A06B836844EDBA7D392899627DED`0" />
+    </Parameter>
+    <Parameter id="AddressClass">
+      <Value xsi:type="ValueClass" id="0`1:148B8C6B886A49029CD81610CB75EEE6`0" />
+    </Parameter>
+    <Parameter id="transport">
+      <Value xsi:type="ReferenceObject" id="0`1:802BA69E43AB4689B3BC45FB50E492A0`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="TcpTransport2_" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="This is a component class based on the .NET type &quot;QS._qss_x_.Properties_.Component_.TcpTransport2_`1&quot;." />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="802BA69E43AB4689B3BC45FB50E492A0" />
+        <ObjectClass id="0`1:336CDD8D1B8E42C99295E5D8DD386727`0">
+          <Parameter id="AddressClass">
+            <Value xsi:type="ValueClass" id="0`1:4BD58FAE1AEB4537B42CE0C2640528F9`0" />
+          </Parameter>
+          <Parameter id="MessageClass">
+            <Value xsi:type="ValueClass" id="0`1:148B8C6B886A49029CD81610CB75EEE6`0" />
+          </Parameter>
+        </ObjectClass>
+        <Parameter id="MessageClass">
+          <Value xsi:type="ValueClass" id="0`1:148B8C6B886A49029CD81610CB75EEE6`0" />
+        </Parameter>
+        <Parameter id="address">
+          <Value xsi:type="xsd:string">127.0.0.1/0:55003</Value>
+        </Parameter>
+        <Parameter id="debug" />
+      </Value>
+    </Parameter>
+    <Parameter id="address" />
+    <Parameter id="memory">
+      <Value xsi:type="ReferenceObject" id="0`1:4FF15AA1A8BD458BA3847691DF96D289`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="LocalCommunicationChannel" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="A simple communication channel with checkpointing that is local to the object using it, useful for debugging." />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="4FF15AA1A8BD458BA3847691DF96D289" />
+        <ObjectClass id="0`1:806C71E88E749AA879E52F960F4B881`0">
+          <Parameter id="MessageClass">
+            <Value xsi:type="ValueClass" id="0`1:148B8C6B886A49029CD81610CB75EEE6`0" />
+          </Parameter>
+          <Parameter id="CheckpointClass">
+            <Value xsi:type="ValueClass" id="0`1:148B8C6B886A49029CD81610CB75EEE6`0" />
+          </Parameter>
+        </ObjectClass>
+        <Parameter id="MessageClass">
+          <Value xsi:type="ValueClass" id="0`1:148B8C6B886A49029CD81610CB75EEE6`0" />
+        </Parameter>
+        <Parameter id="CheckpointClass">
+          <Value xsi:type="ValueClass" id="0`1:148B8C6B886A49029CD81610CB75EEE6`0" />
+        </Parameter>
+        <Parameter id="address" />
+        <Parameter id="debugging" />
+      </Value>
+    </Parameter>
+    <Parameter id="batching" />
+    <Parameter id="debug" />
+  </Object>
+</Root>

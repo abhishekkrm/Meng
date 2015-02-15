@@ -1,0 +1,303 @@
+/*
+
+Copyright (c) 2004-2009 Krzysztof Ostrowski. All rights reserved.
+
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+*/
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace QS._qss_c_.Rings6
+{
+    [QS.Fx.Printing.Printable(QS.Fx.Printing.PrintingStyle.Expanded, QS.Fx.Printing.SelectionOption.Explicit)]
+    [QS.Fx.Serialization.ClassID(ClassID.Rings6_ReceivingAgent1_Receiver_IntraPartitionToken)]
+    public class ReceiverIntraPartitionToken : QS.Fx.Serialization.ISerializable
+    {
+        public ReceiverIntraPartitionToken()
+        {
+        }
+
+        [QS.Fx.Printing.Printable]
+        private uint maximumSeen, cutOff, maxContiguous, partitionMaximumSeen, partitionCutOff, partitionCovered,
+            partitionCleanup, partitionMaxContiguous, partitionAggregatedCovered, maximumToClean;
+        [QS.Fx.Printing.Printable]
+        private IList<Base1_.Range<uint>> partitionNaks = new List<QS._qss_c_.Base1_.Range<uint>>(),
+            partitionAggregatedNaks = new List<QS._qss_c_.Base1_.Range<uint>>();
+        [QS.Fx.Printing.Printable]
+        private uint[] tableOfCutOffs, tableOfMaxContiguous;
+        [QS.Fx.Printing.Printable]
+        private double minimumReceiveRate, cumulatedReceiveRate, maximumReceiveRate;
+        [QS.Fx.Printing.Printable]
+        private int memberCount;
+
+        #region Accessors
+
+        public double MinimumReceiveRate
+        {
+            get { return minimumReceiveRate; }
+            set { minimumReceiveRate = value; }
+        }
+
+        public double CumulatedReceiveRate
+        {
+            get { return cumulatedReceiveRate; }
+            set { cumulatedReceiveRate = value; }
+        }
+
+        public int MemberCount
+        {
+            get { return memberCount; }
+            set { memberCount = value; }
+        }
+
+        public double MaximumReceiveRate
+        {
+            get { return maximumReceiveRate; }
+            set { maximumReceiveRate = value; }
+        }
+
+        public uint[] TableOfMaxContiguous
+        {
+            get { return tableOfMaxContiguous; }
+            set { tableOfMaxContiguous = value; }
+        }
+
+        public uint[] TableOfCutOffs
+        {
+            get { return tableOfCutOffs; }
+            set { tableOfCutOffs = value; }
+        }
+
+        public uint MaximumToClean
+        {
+            get { return maximumToClean; }
+            set { maximumToClean = value; }
+        }
+
+        public uint MaximumSeen
+        {
+            get { return maximumSeen; }
+            set { maximumSeen = value; }
+        }
+
+        public uint PartitionMaximumSeen
+        {
+            get { return partitionMaximumSeen; }
+            set { partitionMaximumSeen = value; }
+        }
+
+        public uint CutOff
+        {
+            get { return cutOff; }
+            set { cutOff = value; }
+        }
+
+        public uint PartitionCutOff
+        {
+            get { return partitionCutOff; }
+            set { partitionCutOff = value; }
+        }
+
+        public uint PartitionCovered
+        {
+            get { return partitionCovered; }
+            set { partitionCovered = value; }
+        }
+
+        public IList<Base1_.Range<uint>> PartitionNaks
+        {
+            get { return partitionNaks; }
+        }
+
+        public IList<Base1_.Range<uint>> PartitionAggregatedNaks
+        {
+            get { return partitionAggregatedNaks; }
+        }
+
+        public uint PartitionCleanup
+        {
+            get { return partitionCleanup; }
+            set { partitionCleanup = value; }
+        }
+
+        public uint PartitionMaxContiguous
+        {
+            get { return partitionMaxContiguous; }
+            set { partitionMaxContiguous = value; }
+        }
+
+        public uint MaxContiguous
+        {
+            get { return maxContiguous; }
+            set { maxContiguous = value; }
+        }
+
+        public uint PartitionAggregatedCovered
+        {
+            get { return partitionAggregatedCovered; }
+            set { partitionAggregatedCovered = value; }
+        }
+
+        #endregion
+
+        #region ISerializable Members
+
+        QS.Fx.Serialization.SerializableInfo QS.Fx.Serialization.ISerializable.SerializableInfo
+        {
+            get
+            {
+                int size = (11 + tableOfCutOffs.Length + tableOfMaxContiguous.Length +
+                    2 * (partitionNaks.Count + partitionAggregatedNaks.Count)) * sizeof(uint) + 4 * sizeof(ushort) + 3 * sizeof(float);
+                return new QS.Fx.Serialization.SerializableInfo(
+                    (ushort)ClassID.Rings6_ReceivingAgent1_Receiver_IntraPartitionToken, (ushort)size, size, 0);
+            }
+        }
+
+        unsafe void QS.Fx.Serialization.ISerializable.SerializeTo(ref QS.Fx.Base.ConsumableBlock header, ref IList<QS.Fx.Base.Block> data)
+        {
+            fixed (byte* pbuffer = header.Array)
+            {
+                byte* pheader = pbuffer + header.Offset;
+                *((uint*)pheader) = maximumSeen;
+                *((uint*)(pheader + sizeof(uint))) = cutOff;
+                *((uint*)(pheader + 2 * sizeof(uint))) = partitionMaximumSeen;
+                *((uint*)(pheader + 3 * sizeof(uint))) = partitionCutOff;
+                *((uint*)(pheader + 4 * sizeof(uint))) = partitionCovered;
+                *((uint*)(pheader + 5 * sizeof(uint))) = partitionCleanup;
+                *((uint*)(pheader + 6 * sizeof(uint))) = partitionMaxContiguous;
+                *((uint*)(pheader + 7 * sizeof(uint))) = maxContiguous;
+                *((uint*)(pheader + 8 * sizeof(uint))) = partitionAggregatedCovered;
+                *((uint*)(pheader + 9 * sizeof(uint))) = maximumToClean;
+                *((ushort*)(pheader + 10 * sizeof(uint))) = (ushort)partitionNaks.Count;
+                *((ushort*)(pheader + 10 * sizeof(uint) + sizeof(ushort))) = (ushort)partitionAggregatedNaks.Count;
+                *((ushort*)(pheader + 10 * sizeof(uint) + 2 * sizeof(ushort))) = (ushort)tableOfCutOffs.Length;
+                *((ushort*)(pheader + 10 * sizeof(uint) + 3 * sizeof(ushort))) = (ushort)tableOfMaxContiguous.Length;
+                *((float*)(pheader + 10 * sizeof(uint) + 4 * sizeof(ushort))) = (float) minimumReceiveRate;
+                *((float*)(pheader + 10 * sizeof(uint) + 4 * sizeof(ushort) + sizeof(float))) = (float) cumulatedReceiveRate;
+                *((int*)(pheader + 10 * sizeof(uint) + 4 * sizeof(ushort) + 2 * sizeof(float))) = memberCount;
+                *((float*)(pheader + 11 * sizeof(uint) + 4 * sizeof(ushort) + 2 * sizeof(float))) = (float)maximumReceiveRate;
+                pheader += 11 * sizeof(uint) + 4 * sizeof(ushort) + 3 * sizeof(float);
+
+                foreach (Base1_.Range<uint> range in partitionNaks)
+                {
+                    *((uint*)pheader) = range.From;
+                    *((uint*)(pheader + sizeof(uint))) = range.To;
+                    pheader += 2 * sizeof(uint);
+                }
+
+                foreach (Base1_.Range<uint> range in partitionAggregatedNaks)
+                {
+                    *((uint*)pheader) = range.From;
+                    *((uint*)(pheader + sizeof(uint))) = range.To;
+                    pheader += 2 * sizeof(uint);
+                }
+
+                for (int ind = 0; ind < tableOfCutOffs.Length; ind++)
+                {
+                    *((uint*)pheader) = tableOfCutOffs[ind];
+                    pheader += sizeof(uint);
+                }
+
+                for (int ind = 0; ind < tableOfMaxContiguous.Length; ind++)
+                {
+                    *((uint*)pheader) = tableOfMaxContiguous[ind];
+                    pheader += sizeof(uint);
+                }
+            }
+            header.consume((11 + tableOfCutOffs.Length + tableOfMaxContiguous.Length +
+                2 * (partitionNaks.Count + partitionAggregatedNaks.Count)) * sizeof(uint) + 4 * sizeof(ushort) + 3 * sizeof(float));
+        }
+
+        unsafe void QS.Fx.Serialization.ISerializable.DeserializeFrom(ref QS.Fx.Base.ConsumableBlock header, ref QS.Fx.Base.ConsumableBlock data)
+        {
+            fixed (byte* pbuffer = header.Array)
+            {
+                byte* pheader = pbuffer + header.Offset;
+                maximumSeen = *((uint*)pheader);
+                cutOff = *((uint*)(pheader + sizeof(uint)));
+                partitionMaximumSeen = *((uint*)(pheader + 2 * sizeof(uint)));
+                partitionCutOff = *((uint*)(pheader + 3 * sizeof(uint)));
+                partitionCovered = *((uint*)(pheader + 4 * sizeof(uint)));
+                partitionCleanup = *((uint*)(pheader + 5 * sizeof(uint)));
+                partitionMaxContiguous = *((uint*)(pheader + 6 * sizeof(uint)));
+                maxContiguous = *((uint*)(pheader + 7 * sizeof(uint)));
+                partitionAggregatedCovered = *((uint*)(pheader + 8 * sizeof(uint)));
+                maximumToClean = *((uint*)(pheader + 9 * sizeof(uint)));
+                int nrCount = (int)(*((ushort*)(pheader + 10 * sizeof(uint))));
+                int nrAggregatedCount = (int)(*((ushort*)(pheader + 10 * sizeof(uint) + sizeof(ushort))));
+                tableOfCutOffs = new uint[(int)(*((ushort*)(pheader + 10 * sizeof(uint) + 2 * sizeof(ushort))))];
+                tableOfMaxContiguous = new uint[(int)(*((ushort*)(pheader + 10 * sizeof(uint) + 3 * sizeof(ushort))))];
+                minimumReceiveRate = (double)(*((float*)(pheader + 10 * sizeof(uint) + 4 * sizeof(ushort))));
+                cumulatedReceiveRate = (double)(*((float*)(pheader + 10 * sizeof(uint) + 4 * sizeof(ushort) + sizeof(float))));
+                memberCount = (*((int*)(pheader + 10 * sizeof(uint) + 4 * sizeof(ushort) + 2 * sizeof(float))));
+                maximumReceiveRate = (double)(*((float*)(pheader + 11 * sizeof(uint) + 4 * sizeof(ushort) + 2 * sizeof(float))));
+                pheader += 11 * sizeof(uint) + 4 * sizeof(ushort) + 3 * sizeof(float);
+
+                while (nrCount-- > 0)
+                {
+                    partitionNaks.Add(new QS._qss_c_.Base1_.Range<uint>(*((uint*)pheader), *((uint*)(pheader + sizeof(uint)))));
+                    pheader += 2 * sizeof(uint);
+                }
+
+                while (nrAggregatedCount-- > 0)
+                {
+                    partitionAggregatedNaks.Add(
+                        new QS._qss_c_.Base1_.Range<uint>(*((uint*)pheader), *((uint*)(pheader + sizeof(uint)))));
+                    pheader += 2 * sizeof(uint);
+                }
+
+                for (int ind = 0; ind < tableOfCutOffs.Length; ind++)
+                {
+                    tableOfCutOffs[ind] = *((uint*)pheader);
+                    pheader += sizeof(uint);
+                }
+
+                for (int ind = 0; ind < tableOfMaxContiguous.Length; ind++)
+                {
+                    tableOfMaxContiguous[ind] = *((uint*)pheader);
+                    pheader += sizeof(uint);
+                }
+            }
+            header.consume((11 + tableOfCutOffs.Length + tableOfMaxContiguous.Length +
+                2 * (partitionNaks.Count + partitionAggregatedNaks.Count)) * sizeof(uint) + 4 * sizeof(ushort) + 3 * sizeof(float));
+        }
+
+        #endregion
+
+        #region ToString
+
+        public override string ToString()
+        {
+            return QS.Fx.Printing.Printable.ToString(this);
+        }
+
+        #endregion
+    }
+}

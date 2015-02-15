@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+<meta http-equiv="Content-Language" content="en-us" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Live Distributed Objects</title>
+<style type="text/css">
+.style1 {
+	font-size: xx-large;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Live Distributed Objects</h1>
+<h2>Linux Distribution</h2>
+<h3>0. Introduction</h3>
+<p>This document describes how to install the liveobjects-linux distribution on 
+your system, as well as any other pertinent information for trying to experiment 
+with this release of liveobjects.&nbsp; You should know that Linux support of 
+liveobjects is 100% experimental, and only a fraction of the features in the 
+full liveobjects distribution are available for use here.&nbsp; This stems from 
+a variety of reasons, the biggest being the lack of .NET library availability on 
+Linux, the next biggest being that the Mono project is a community run project 
+(through supported financially by Novell) and as such is always finding and 
+fixing bugs.&nbsp; Liveobjects tends to use whatever cutting edge language and 
+library features are offered by .NET, so we find ourselves hitting bugs with the 
+newer and cooler features of .NET, but all of the core functionality of 
+Liveobjects is already functional in this release.&nbsp; We plan for upcoming 
+releases to include a port of the Quick Silver Messenger Service.</p>
+<h2>Install Liveobjects-Linux</h2>
+<h3>1. Prerequisites</h3>
+<p>You need a version of mono that has various experimental libraries such as 
+System.ServiceModel and System.Runtime.Serialization, and in general these are 
+not included by default by most mainstream Linux distributions (Ubuntu/Debian in 
+particular).&nbsp; Check with your chosen distribution&#39;s packages website to 
+learn whether these .dll&#39;s are available from any package.&nbsp; In Ubuntu they 
+are not, so we describe the basic instructions for building yourself a mono 
+install that does use these experimental libraries.&nbsp; In order to build 
+mono, first you&#39;ll need a build environment, specifically these packages:</p>
+<ul>
+	<li>subversion</li>
+	<li>mono-devel</li>
+	<li>autoconf</li>
+	<li>libtool</li>
+	<li>automake</li>
+	<li>bison</li>
+	<li>gettext</li>
+	<li>gcc/g++ and associated dependencies (in Ubuntu these can be installed 
+	with the build-essential package)</li>
+</ul>
+<p>To install these packages in Ubuntu:</p>
+<pre>apt-get install subversion mono-devel autoconf libtool automake bison gettext build-essential</pre>
+<h3>2. Compiling from SVN</h3>
+<p>For the latest instructions on how to compile mono from subversion, check
+<a href="http://mono-project.com/Compiling_Mono_From_SVN">
+http://mono-project.com/Compiling_Mono_From_SVN</a></p>
+<p>The abridged instructions follow:</p>
+<pre>$ svn co http://anonsvn.mono-project.com/source/trunk/mono
+$ svn co http://anonsvn.mono-project.com/source/trunk/mcs
+$ svn co http://anonsvn.mono-project.com/source/trunk/libgdiplus
+$ svn co svn://anonsvn.mono-project.com/source/trunk/olive 
+$ cd mono
+$ ./autogen.sh --prefix=/usr/local
+$ make
+$ make install</pre>
+<p>Mono compilation has a lot of neat features, but the defaults should set you 
+up just fine.&nbsp; If you are curious, you should read
+<a href="http://mono-project.com/Advanced_Mono_Compile_Options">
+http://mono-project.com/Advanced_Mono_Compile_Options</a> and
+<a href="http://mono-project.com/Unsupported_Advanced_Mono_Compile_Options">
+http://mono-project.com/Unsupported_Advanced_Mono_Compile_Options</a></p>
+<p><strong>IMPORTANT NOTE : You must build the olive package as well, which is 
+not defaultly recommended by the linked guide, so make sure to check out the 
+olive package <span class="style1">BEFORE</span> building Mono!</strong></p>
+<h3>3. Install liveobjects (optional)</h3>
+<p>The install-sh script include in this distribution copies all relevant files 
+to your system, and attempts to associate the .liveobject file extension with 
+the liveobjects runtime.&nbsp; You should note you do not need to install 
+liveobjects, you can start running it from the directory created by the tarball.&nbsp; 
+To use the installer:</p>
+<pre>./install-sh --target=/path/to/install/dir </pre>
+<pre>&nbsp;</pre>
+<p>Version .1 of this document.&nbsp; Please contact
+<a href="mailto:cms235@cornell.edu">cms235@cornell.edu</a> and
+<a href="mailto:krzys@cs.cornell.edu">krzys@cs.cornell.edu</a> with comments or 
+issues.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+
+Copyright (c) 2004-2009 Petko Nikolov. All rights reserved.
+
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+-->
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="0`1:7EF14D00333343DA8E09A71AB6C4491C`0">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Shared Text 1" />
+    <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="Implements an XNA renderer for text" />
+    <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="7EF14D00333343DA8E09A71AB6C4491C" />
+    <ObjectClass id="0`1:D80E49C5D5449A0889BD04146CDAA8E`0" />
+    <Parameter id="TextProvider">
+      <Value xsi:type="ReferenceObject" id="0`1:C363B7E7BB5142A58110D7ABC71C4F67`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="SharedTextRendererClient" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="Sends text from a channel to the TextRenderer" />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="C363B7E7BB5142A58110D7ABC71C4F67" />
+        <ObjectClass id="0`1:AABEAB1181BB4F4EAFC0366973DAAA78`0" />
+        <Parameter id="channel">
+          <Value xsi:type="ReferenceObject" id="00000000000000000000000000000001">
+            <ObjectClass id="0`1:806C71E88E749AA879E52F960F4B881`0">
+              <Parameter id="MessageClass">
+                <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+              </Parameter>
+              <Parameter id="CheckpointClass">
+                <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+              </Parameter>
+            </ObjectClass>
+            <From xsi:type="ReferenceObject" id="011E83FA6A9F426993BB8EF26FF7D7B8">
+              <ObjectClass id="0`1:D111EEF8754D4EB98ABD90B0260AEF93`0">
+                <Parameter id="KeyClass">
+                  <Value xsi:type="ValueClass" id="0`1:2FEB1E028342422CBD38CB074B957973`0" />
+                </Parameter>
+                <Parameter id="ObjectClass">
+                  <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+                </Parameter>
+              </ObjectClass>
+              <From xsi:type="ReferenceObject" id="0`1:E8C9D312C27649F39812B8E99AA67CBC`0">
+                <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Registry" />
+                <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="A collection of services with known names, but with a local customized configuration that could be based on system registry or on configuration files." />
+                <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="E8C9D312C27649F39812B8E99AA67CBC" />
+                <ObjectClass id="0`1:D111EEF8754D4EB98ABD90B0260AEF93`0">
+                  <Parameter id="KeyClass">
+                    <Value xsi:type="ValueClass" id="0`1:2FEB1E028342422CBD38CB074B957973`0" />
+                  </Parameter>
+                  <Parameter id="ObjectClass">
+                    <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+                  </Parameter>
+                </ObjectClass>
+              </From>
+            </From>
+          </Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+  </Object>
+</Root>

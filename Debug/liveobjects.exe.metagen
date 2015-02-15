@@ -1,0 +1,36 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly liveobjects, Version=1.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly liveobjects_1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0f84102260c4a1aa: 
+	hash=None, flags=None
+Assembly liveobjects_4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8bbbd2e3ddcb36ea: 
+	hash=None, flags=None
+Assembly liveobjects_5, Version=1.0.0.0, Culture=neutral, PublicKeyToken=754c69c12f72dcf2: 
+	hash=None, flags=None
+Assembly liveobjects_6, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c3e58573a235d62f: 
+	hash=None, flags=None
+Assembly liveobjects_7, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ff90caae4d8eafe5: 
+	hash=None, flags=None
+Assembly liveobjects_8, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ac8e353d865516aa: 
+	hash=None, flags=None
+Assembly System.Configuration.Install, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.ServiceProcess, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class QuickSilver._Installer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Configuration.Install.Installer
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

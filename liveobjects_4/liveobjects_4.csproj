@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2004-2009 Krzysztof Ostrowski (krzys@cs.cornell.edu). All rights reserved.
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F31A380F-1CE2-4F4A-96E9-5043C131C6EE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>liveobjects_4</RootNamespace>
+    <AssemblyName>liveobjects_4</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>liveobjects_4.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|AnyCPU' ">
+    <OutputPath>bin\Distribution\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|x64' ">
+    <OutputPath>bin\x64\Distribution\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Simulation\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Simulation\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|x86' ">
+    <OutputPath>bin\x86\Distribution\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Simulation\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux|AnyCPU' ">
+    <OutputPath>bin\Linux\</OutputPath>
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE</DefineConstants>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux|x64' ">
+    <OutputPath>bin\x64\Linux\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux|x86' ">
+    <OutputPath>bin\x86\Linux\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|AnyCPU' ">
+    <OutputPath>bin\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_4.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|x64' ">
+    <OutputPath>bin\x64\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_4.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|x86' ">
+    <OutputPath>bin\x86\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_4.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fx\Object\Runtime4.cs" />
+    <Compile Include="_core_c_\Base2\BlockOfData.cs" />
+    <Compile Include="_core_c_\Base2\IBase2Serializable.cs" />
+    <Compile Include="_core_c_\Base2\IOutgoingData.cs" />
+    <Compile Include="_core_c_\Base2\PreciseClock.cs" />
+    <Compile Include="_core_c_\Base2\Serializer.cs" />
+    <Compile Include="_core_c_\Base2\SizeOf.cs" />
+    <Compile Include="_core_c_\Base2\StringWrapper.cs" />
+    <Compile Include="_core_c_\Base3\Incarnation.cs" />
+    <Compile Include="_core_c_\Base3\InstanceID.cs" />
+    <Compile Include="_core_c_\Base3\Message.cs" />
+    <Compile Include="_core_c_\Base3\SerializableWrapper.cs" />
+    <Compile Include="_core_c_\Base3\Serializer.cs" />
+    <Compile Include="_core_c_\Base6\CompletionCallback.cs" />
+    <Compile Include="_core_c_\Base6\GetObjectsCallback.cs" />
+    <Compile Include="_core_c_\Base6\IAsynchronous.cs" />
+    <Compile Include="_core_c_\Base6\ISink.cs" />
+    <Compile Include="_core_c_\Base\ConsoleWrapper.cs" />
+    <Compile Include="_core_c_\Base\IBase1Serializable.cs" />
+    <Compile Include="_core_c_\Base\IMessage.cs" />
+    <Compile Include="_core_c_\Base\IOutputReader.cs" />
+    <Compile Include="_core_c_\Base\IReadableLogger.cs" />
+    <Compile Include="_core_c_\Base\ISerializer.cs" />
+    <Compile Include="_core_c_\Base\Logger.cs" />
+    <Compile Include="_core_c_\Base\XmlObject.cs" />
+    <Compile Include="_core_c_\Collections\Dictionary.cs" />
+    <Compile Include="_core_c_\Collections\Hashtable.cs" />
+    <Compile Include="_core_c_\Collections\IDictionary.cs" />
+    <Compile Include="_core_c_\Collections\XmlAssociation.cs" />
+    <Compile Include="_core_c_\Components\Attribute.cs" />
+    <Compile Include="_core_c_\Components\AttributeSet.cs" />
+    <Compile Include="_core_c_\Components\IAttributeSet.cs" />
+    <Compile Include="_core_c_\Core\Address.cs" />
+    <Compile Include="_core_c_\Core\Alarm.cs" />
+    <Compile Include="_core_c_\Core\AsynchronousCall.cs" />
+    <Compile Include="_core_c_\Core\BST.cs" />
+    <Compile Include="_core_c_\Core\BSTNode.cs" />
+    <Compile Include="_core_c_\Core\ByteStream.cs" />
+    <Compile Include="_core_c_\Core\ChannelObject.cs" />
+    <Compile Include="_core_c_\Core\ErrorCallback.cs" />
+    <Compile Include="_core_c_\Core\FileFlagsAndAttributes.cs" />
+    <Compile Include="_core_c_\Core\FileStream.cs" />
+    <Compile Include="_core_c_\Core\IAlarmController.cs" />
+    <Compile Include="_core_c_\Core\IBST.cs" />
+    <Compile Include="_core_c_\Core\IBSTNode.cs" />
+    <Compile Include="_core_c_\Core\IBTNode.cs" />
+    <Compile Include="_core_c_\Core\IByteStream.cs" />
+    <Compile Include="_core_c_\Core\IChannel.cs" />
+    <Compile Include="_core_c_\Core\IChannelController.cs" />
+    <Compile Include="_core_c_\Core\ICore.cs" />
+    <Compile Include="_core_c_\Core\IFile.cs" />
+    <Compile Include="_core_c_\Core\IFileController.cs" />
+    <Compile Include="_core_c_\Core\IIOController.cs" />
+    <Compile Include="_core_c_\Core\IListener.cs" />
+    <Compile Include="_core_c_\Core\IListenerController.cs" />
+    <Compile Include="_core_c_\Core\IncomingObject.cs" />
+    <Compile Include="_core_c_\Core\InOrderWalker.cs" />
+    <Compile Include="_core_c_\Core\IPriorityQueue.cs" />
+    <Compile Include="_core_c_\Core\IQueue.cs" />
+    <Compile Include="_core_c_\Core\___IRequest.cs" />
+    <Compile Include="_core_c_\Core\ISender.cs" />
+    <Compile Include="_core_c_\Core\ISenderController.cs" />
+    <Compile Include="_core_c_\Core\ISLLNode.cs" />
+    <Compile Include="_core_c_\Core\ISNode.cs" />
+    <Compile Include="_core_c_\Core\ITransmitter.cs" />
+    <Compile Include="_core_c_\Core\ITransmitterController.cs" />
+    <Compile Include="_core_c_\Core\ListenerInfo.cs" />
+    <Compile Include="_core_c_\Core\OutgoingObject.cs" />
+    <Compile Include="_core_c_\Core\Request.cs" />
+    <Compile Include="_core_c_\Core\SenderInfo.cs" />
+    <Compile Include="_core_c_\Core\SLLNode.cs" />
+    <Compile Include="_core_c_\Core\Sockets.cs" />
+    <Compile Include="_core_c_\Core\SplayTree.cs" />
+    <Compile Include="_core_c_\Diagnostics2\Component.cs" />
+    <Compile Include="_core_c_\Diagnostics2\ComponentClass.cs" />
+    <Compile Include="_core_c_\Diagnostics2\Container.cs" />
+    <Compile Include="_core_c_\Diagnostics2\Helper.cs" />
+    <Compile Include="_core_c_\Diagnostics2\IComponent.cs" />
+    <Compile Include="_core_c_\Diagnostics2\IContainer.cs" />
+    <Compile Include="_core_c_\Diagnostics2\IModule.cs" />
+    <Compile Include="_core_c_\Diagnostics2\IProperty.cs" />
+    <Compile Include="_core_c_\Diagnostics2\ModuleAttribute.cs" />
+    <Compile Include="_core_c_\Diagnostics2\Property.cs" />
+    <Compile Include="_core_c_\Diagnostics2\PropertyAttribute.cs" />
+    <Compile Include="_core_c_\Diagnostics\ComponentAttribute.cs" />
+    <Compile Include="_core_c_\Diagnostics\ComponentCollectionAttribute.cs" />
+    <Compile Include="_core_c_\Diagnostics\ComponentContainerAttribute.cs" />
+    <Compile Include="_core_c_\Diagnostics\IComponentContainer.cs" />
+    <Compile Include="_core_c_\Diagnostics\IDataCollector.cs" />
+    <Compile Include="_core_c_\Diagnostics\IgnoreAttribute.cs" />
+    <Compile Include="_core_c_\FlowControl3\IRateControlled.cs" />
+    <Compile Include="_core_c_\Helpers\CollectionHelper.cs" />
+    <Compile Include="_core_c_\Helpers\Path.cs" />
+    <Compile Include="_core_c_\Helpers\ToString.cs" />
+    <Compile Include="_core_c_\RateControl\IRateController.cs" />
+    <Compile Include="_core_c_\RateControl\IRateControllerClass.cs" />
+    <Compile Include="_core_c_\RateControl\RateController1.cs" />
+    <Compile Include="_core_c_\Serialization\BLOBAttribute.cs" />
+    <Compile Include="_core_c_\Serialization\ISerializer.cs" />
+    <Compile Include="_core_c_\Serialization\NonSerializedAttribute.cs" />
+    <Compile Include="_core_c_\Serialization\Serializer1.cs" />
+    <Compile Include="_core_c_\Statistics\File1D.cs" />
+    <Compile Include="_core_c_\Statistics\File2D.cs" />
+    <Compile Include="_core_c_\Statistics\FileController.cs" />
+    <Compile Include="_core_c_\Statistics\IFileOutput.cs" />
+    <Compile Include="_core_c_\Statistics\ISamples1D.cs" />
+    <Compile Include="_core_c_\Statistics\ISamples2D.cs" />
+    <Compile Include="_core_c_\Statistics\IStatisticsController.cs" />
+    <Compile Include="_core_c_\Synchronization\IItem.cs" />
+    <Compile Include="_core_c_\Synchronization\ILinkable.cs" />
+    <Compile Include="_core_c_\Serialization\SerializationClass.cs" />
+    <Compile Include="_core_c_\Synchronization\INonblockingWorker.cs" />
+    <Compile Include="_core_c_\Synchronization\NonblockingLock.cs" />
+    <Compile Include="_core_c_\Synchronization\NonblockingQueue.cs" />
+    <Compile Include="_core_x_\Base\GetCallback.cs" />
+    <Compile Include="_core_x_\Base\Parameter.cs" />
+    <Compile Include="_core_x_\Base\ParameterCallbacks.cs" />
+    <Compile Include="_core_x_\Base\ParameterField.cs" />
+    <Compile Include="_core_x_\Base\ParameterInfo.cs" />
+    <Compile Include="_core_x_\Base\ParameterProperty.cs" />
+    <Compile Include="_core_x_\Base\Parameters.cs" />
+    <Compile Include="_core_x_\Base\ParametersInfo.cs" />
+    <Compile Include="_core_x_\Base\SetCallback.cs" />
+    <Compile Include="_core_x_\Serialization\ISerializer.cs" />
+    <Compile Include="_core_x_\Unmanaged\IncomingMsg.cs" />
+    <Compile Include="_core_x_\Unmanaged\OutgoingMsg.cs" />
+    <Compile Include="_core_x_\Uplink_old_\IConnection.cs" />
+    <Compile Include="_core_x_\Video\IVideo.cs" />
+    <Compile Include="_core_x_\Video\VideoType.cs" />
+    <Compile Include="liveobjects_4.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_core_e_\Repository\Attribute.cs" />
+    <Compile Include="_core_e_\Data\Axis.cs" />
+    <Compile Include="_core_e_\Data\Data1D.cs" />
+    <Compile Include="_core_e_\Data\Data2D.cs" />
+    <Compile Include="_core_e_\Data\DataCo.cs" />
+    <Compile Include="_core_e_\Data\DataSeries.cs" />
+    <Compile Include="_core_e_\Data\DataSourceAttribute.cs" />
+    <Compile Include="_core_e_\Data\Drawing.cs" />
+    <Compile Include="_core_e_\Data\DrawingContext.cs" />
+    <Compile Include="_core_e_\Data\IAxis.cs" />
+    <Compile Include="_core_e_\Data\IConverter.cs" />
+    <Compile Include="_core_e_\Data\IData.cs" />
+    <Compile Include="_core_e_\Data\IDataSet.cs" />
+    <Compile Include="_core_e_\Data\IDrawingContext.cs" />
+    <Compile Include="_core_e_\Data\IFilter.cs" />
+    <Compile Include="_core_e_\Data\IScale.cs" />
+    <Compile Include="_core_e_\Data\IView.cs" />
+    <Compile Include="_core_e_\Data\Point.cs" />
+    <Compile Include="_core_e_\Data\Range.cs" />
+    <Compile Include="_core_e_\Data\Rectangle.cs" />
+    <Compile Include="_core_e_\Data\Scale.cs" />
+    <Compile Include="_core_e_\Data\View.cs" />
+    <Compile Include="_core_e_\Data\XY.cs" />
+    <Compile Include="_core_e_\Data\XYSeries.cs" />
+    <Compile Include="_core_e_\Repository\AttributeCollection.cs" />
+    <Compile Include="_core_e_\Repository\IAttribute.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="_core_e_\MyMath\BaseStatistics.cs" />
+    <Compile Include="_core_e_\MyMath\ConfidenceIntervals.cs" />
+    <Compile Include="_core_e_\MyMath\LeastSquares.cs" />
+    <Compile Include="_core_e_\Repository\IRepository.cs" />
+    <Compile Include="_core_e_\Repository\ScalarAttribute.cs" />
+    <Compile Include="_core_x_\Uplink_old_\IController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="liveobjects_4.snk" />
+    <None Include="Migrated rules for liveobjects_4.ruleset" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\liveobjects_1\liveobjects_1.csproj">
+      <Project>{F06CF495-6A41-4E21-8BD7-ECCA7F2C2D2A}</Project>
+      <Name>liveobjects_1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

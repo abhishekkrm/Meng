@@ -1,0 +1,193 @@
+E:\liveobjects_isis2\liveobjects_8\bin\x86\Debug\liveobjects_8.dll
+E:\liveobjects_isis2\liveobjects_8\bin\x86\Debug\liveobjects_8.pdb
+E:\liveobjects_isis2\liveobjects_8\bin\x86\Debug\liveobjects_1.dll
+E:\liveobjects_isis2\liveobjects_8\bin\x86\Debug\liveobjects_4.dll
+E:\liveobjects_isis2\liveobjects_8\bin\x86\Debug\liveobjects_6.dll
+E:\liveobjects_isis2\liveobjects_8\bin\x86\Debug\liveobjects_7.dll
+E:\liveobjects_isis2\liveobjects_8\bin\x86\Debug\liveobjects_5.dll
+E:\liveobjects_isis2\liveobjects_8\bin\x86\Debug\liveobjects_5.pdb
+E:\liveobjects_isis2\liveobjects_8\bin\x86\Debug\liveobjects_4.pdb
+E:\liveobjects_isis2\liveobjects_8\bin\x86\Debug\liveobjects_7.pdb
+E:\liveobjects_isis2\liveobjects_8\bin\x86\Debug\liveobjects_6.pdb
+E:\liveobjects_isis2\liveobjects_8\bin\x86\Debug\liveobjects_1.pdb
+E:\liveobjects_isis2\liveobjects_8\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\liveobjects_isis2\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.AggregationUI.resources
+E:\liveobjects_isis2\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.ChannelTester.resources
+E:\liveobjects_isis2\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.Control.resources
+E:\liveobjects_isis2\liveobjects_8\obj\x86\Debug\Demo.LocationJumper.resources
+E:\liveobjects_isis2\liveobjects_8\obj\x86\Debug\QS._qss_x_.ObjectExplorer_.ObjectExplorer.resources
+E:\liveobjects_isis2\liveobjects_8\obj\x86\Debug\QS._qss_x_.Component_.Classes_.TextTest.resources
+E:\liveobjects_isis2\liveobjects_8\obj\x86\Debug\liveobjects_8.csproj.GenerateResource.Cache
+E:\liveobjects_isis2\liveobjects_8\obj\x86\Debug\liveobjects_8.dll
+E:\liveobjects_isis2\liveobjects_8\obj\x86\Debug\liveobjects_8.pdb
+E:\liveobjects_isis\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_8.dll.config
+E:\liveobjects_isis\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_8.dll
+E:\liveobjects_isis\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_8.pdb
+E:\liveobjects_isis\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_1.dll
+E:\liveobjects_isis\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_4.dll
+E:\liveobjects_isis\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_6.dll
+E:\liveobjects_isis\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_7.dll
+E:\liveobjects_isis\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_5.dll
+E:\liveobjects_isis\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_5.pdb
+E:\liveobjects_isis\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_4.pdb
+E:\liveobjects_isis\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_7.pdb
+E:\liveobjects_isis\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_6.pdb
+E:\liveobjects_isis\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_1.pdb
+E:\liveobjects_isis\ldoisis2\liveobjects_8\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\liveobjects_isis\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.AggregationUI.resources
+E:\liveobjects_isis\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.ChannelTester.resources
+E:\liveobjects_isis\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.Control.resources
+E:\liveobjects_isis\ldoisis2\liveobjects_8\obj\x86\Debug\Demo.LocationJumper.resources
+E:\liveobjects_isis\ldoisis2\liveobjects_8\obj\x86\Debug\QS._qss_x_.ObjectExplorer_.ObjectExplorer.resources
+E:\liveobjects_isis\ldoisis2\liveobjects_8\obj\x86\Debug\QS._qss_x_.Component_.Classes_.TextTest.resources
+E:\liveobjects_isis\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.csproj.GenerateResource.Cache
+E:\liveobjects_isis\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.dll
+E:\liveobjects_isis\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.pdb
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_8.dll.config
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_8.dll
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_8.pdb
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_1.dll
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_4.dll
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_6.dll
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_7.dll
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\LzmaSharp.dll
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\NMock.StrongNamed.dll
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\nunit.framework.dll
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\SlimDX.DirectInput.dll
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_5.dll
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_1.pdb
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_4.pdb
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_6.pdb
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_7.pdb
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\LzmaSharp.xml
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\NMock.StrongNamed.xml
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\nunit.framework.xml
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\SlimDX.DirectInput.xml
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_5.pdb
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.csprojResolveAssemblyReference.cache
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.AggregationUI.resources
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.ChannelTester.resources
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.Control.resources
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\obj\x86\Debug\Demo.LocationJumper.resources
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\obj\x86\Debug\QS._qss_x_.ObjectExplorer_.ObjectExplorer.resources
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\obj\x86\Debug\QS._qss_x_.Component_.Classes_.TextTest.resources
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.csproj.GenerateResource.Cache
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.dll
+E:\liveobjects_upgraded\ldoisis2\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.pdb
+D:\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_8.dll.config
+D:\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_8.dll
+D:\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_8.pdb
+D:\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_1.dll
+D:\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_4.dll
+D:\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_6.dll
+D:\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_7.dll
+D:\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_5.dll
+D:\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_1.pdb
+D:\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_4.pdb
+D:\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_6.pdb
+D:\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_7.pdb
+D:\ldoisis2\liveobjects_8\bin\x86\Debug\liveobjects_5.pdb
+D:\ldoisis2\liveobjects_8\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.AggregationUI.resources
+D:\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.ChannelTester.resources
+D:\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.Control.resources
+D:\ldoisis2\liveobjects_8\obj\x86\Debug\Demo.LocationJumper.resources
+D:\ldoisis2\liveobjects_8\obj\x86\Debug\QS._qss_x_.ObjectExplorer_.ObjectExplorer.resources
+D:\ldoisis2\liveobjects_8\obj\x86\Debug\QS._qss_x_.Component_.Classes_.TextTest.resources
+D:\ldoisis2\liveobjects_8\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\ldoisis2\liveobjects_8\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.dll
+D:\ldoisis2\liveobjects_8\obj\x86\Debug\liveobjects_8.pdb
+D:\ldoisis2-local\liveobjects_8\bin\x86\Debug\liveobjects_8.dll.config
+D:\ldoisis2-local\liveobjects_8\bin\x86\Debug\liveobjects_8.dll
+D:\ldoisis2-local\liveobjects_8\bin\x86\Debug\liveobjects_8.pdb
+D:\ldoisis2-local\liveobjects_8\bin\x86\Debug\liveobjects_1.dll
+D:\ldoisis2-local\liveobjects_8\bin\x86\Debug\liveobjects_4.dll
+D:\ldoisis2-local\liveobjects_8\bin\x86\Debug\liveobjects_6.dll
+D:\ldoisis2-local\liveobjects_8\bin\x86\Debug\liveobjects_7.dll
+D:\ldoisis2-local\liveobjects_8\bin\x86\Debug\liveobjects_5.dll
+D:\ldoisis2-local\liveobjects_8\bin\x86\Debug\liveobjects_1.pdb
+D:\ldoisis2-local\liveobjects_8\bin\x86\Debug\liveobjects_4.pdb
+D:\ldoisis2-local\liveobjects_8\bin\x86\Debug\liveobjects_6.pdb
+D:\ldoisis2-local\liveobjects_8\bin\x86\Debug\liveobjects_7.pdb
+D:\ldoisis2-local\liveobjects_8\bin\x86\Debug\liveobjects_5.pdb
+D:\ldoisis2-local\liveobjects_8\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\ldoisis2-local\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.AggregationUI.resources
+D:\ldoisis2-local\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.ChannelTester.resources
+D:\ldoisis2-local\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.Control.resources
+D:\ldoisis2-local\liveobjects_8\obj\x86\Debug\Demo.LocationJumper.resources
+D:\ldoisis2-local\liveobjects_8\obj\x86\Debug\QS._qss_x_.ObjectExplorer_.ObjectExplorer.resources
+D:\ldoisis2-local\liveobjects_8\obj\x86\Debug\QS._qss_x_.Component_.Classes_.TextTest.resources
+D:\ldoisis2-local\liveobjects_8\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\ldoisis2-local\liveobjects_8\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\ldoisis2-local\liveobjects_8\obj\x86\Debug\liveobjects_8.dll
+D:\ldoisis2-local\liveobjects_8\obj\x86\Debug\liveobjects_8.pdb
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_8.dll.config
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_8.dll
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_8.pdb
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_1.dll
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_4.dll
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_6.dll
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_7.dll
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_5.dll
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_1.pdb
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_4.pdb
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_6.pdb
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_7.pdb
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_5.pdb
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.csprojResolveAssemblyReference.cache
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.AggregationUI.resources
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.ChannelTester.resources
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.Control.resources
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\Demo.LocationJumper.resources
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\QS._qss_x_.ObjectExplorer_.ObjectExplorer.resources
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\QS._qss_x_.Component_.Classes_.TextTest.resources
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.csproj.GenerateResource.Cache
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.dll
+G:\IsisGridCloud\isisgridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.pdb
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_8.dll.config
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_8.dll
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_8.pdb
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_1.dll
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_4.dll
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_6.dll
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_7.dll
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_5.dll
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_1.pdb
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_4.pdb
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_6.pdb
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_7.pdb
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_5.pdb
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.csprojResolveAssemblyReference.cache
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.AggregationUI.resources
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.ChannelTester.resources
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.Control.resources
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\obj\x86\Debug\Demo.LocationJumper.resources
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\obj\x86\Debug\QS._qss_x_.ObjectExplorer_.ObjectExplorer.resources
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\obj\x86\Debug\QS._qss_x_.Component_.Classes_.TextTest.resources
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.csproj.GenerateResource.Cache
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.dll
+C:\Data\Cornell\Cloud computing project\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.pdb
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_8.dll.config
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_8.dll
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_8.pdb
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_1.dll
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_4.dll
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_6.dll
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_7.dll
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_5.dll
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_1.pdb
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_4.pdb
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_6.pdb
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_7.pdb
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\bin\x86\Debug\liveobjects_5.pdb
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.csprojResolveAssemblyReference.cache
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.AggregationUI.resources
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.ChannelTester.resources
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.Components_.Control.resources
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\Demo.LocationJumper.resources
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\QS._qss_x_.ObjectExplorer_.ObjectExplorer.resources
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\QS._qss_x_.Component_.Classes_.TextTest.resources
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.csproj.GenerateResource.Cache
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.dll
+C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\liveobjects_8\obj\x86\Debug\liveobjects_8.pdb

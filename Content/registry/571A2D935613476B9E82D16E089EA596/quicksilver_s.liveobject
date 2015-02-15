@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright (c) 2010 Krzysztof Ostrowski. All rights reserved.
+
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the
+following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+  copyright notice, this list of conditions and the following
+  disclaimer in the documentation and/or other materials provided
+  with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="2A8D55BCC9EC4095B7E0196526DE79D0">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="QuickSilver" />
+    <Attribute id="07EC27D89CBD410DADE60463E4D46985" value="A local instance of the QuickSilver communication system." />
+    <Parameter id="configuration">
+      <Value xsi:type="Configuration">
+        <Parameter name="alarm_quantum" value="0.005" />
+<!--  <Parameter name="batching" value="no" />
+        <Parameter name="batching_buffersize" value="5000" /> -->
+        <Parameter name="buffering_unrecognized" value="true" />
+        <Parameter name="default_multicast_rate" value="1000" />
+        <Parameter name="default_unicast_rate" value="300" />
+        <Parameter name="disable_ipmulticast_loopback" value ="true" />
+        <Parameter name="disable_software_loopback" value ="false" />
+        <Parameter name="drain_multicast" value="false" />
+        <Parameter name="drain_unicast" value="true" />
+        <Parameter name="enable_hybrid_multicast" value ="false" />
+        <Parameter name="fc_multicast_credits" value="500" />
+        <Parameter name="fc_unicast_credits" value="100" />
+        <Parameter name="fd_enabled" value="true" />
+        <Parameter name="fd_heartbeat_interval" value="1" />
+        <Parameter name="fd_heartbeat_maxmissed" value="5" />
+        <Parameter name="fd_heartbeat_timeout" value="2" />
+        <Parameter name="gms_address" value ="192.168.0.109:55996" />
+        <Parameter name="gms_batching_time" value="1" />
+        <Parameter name="gms_groupalloc" value="false" />
+        <Parameter name="gs_feed_buffermax" value="150" />
+        <Parameter name="gs_feed_buffermin" value="50" />
+        <Parameter name="gs_max_pending_ack" value="100000" />
+        <Parameter name="io_quantum" value="0.05" />
+        <Parameter name="maximum_unrecognized" value="30000" />
+        <Parameter name="mtu" value="20480" />
+        <Parameter name="multicast_sender_cc" value="500" />
+        <Parameter name="nbuffers_multicast" value="100" />
+        <Parameter name="nbuffers_unicast" value="100" />
+        <Parameter name="port" value ="55995" />
+        <Parameter name="process_affinity" value ="2" />
+        <Parameter name="process_priorityclass" value ="High" />
+        <Parameter name="qsm" value ="true" />
+        <Parameter name="qsm_application" value ="false" />
+        <Parameter name="qsm_controller" value="false" />
+        <Parameter name="qsm_controller_channels" value="" />
+<!--  <Parameter name="rs_ack_with_table" value="false" />
+        <Parameter name="rs_adjuster_growth" value="0.5" />
+        <Parameter name="rs_adjuster_intertia" value="3" />
+        <Parameter name="rs_adjuster_maxadd" value="10" />
+        <Parameter name="rs_adjuster_maxaddcalc" value="10" />
+        <Parameter name="rs_adjuster_maxzoom" value="1.1" />
+        <Parameter name="rs_adjuster_maxzoomcalc" value="1.1" />
+        <Parameter name="rs_avoid_token_convoys" value="true" />
+        <Parameter name="rs_check_partition_naks" value="false" />
+        <Parameter name="rs_do_not_recreate_token" value="false" /> -->        
+        <Parameter name="rs_forwarding" value="true" />
+        <Parameter name="rs_growth_coefficient" value="0.1" />
+        <Parameter name="rs_max_naks" value="20" />
+        <Parameter name="rs_max_window" value="1000000" />
+<!--  <Parameter name="rs_maxinc" value="100" />
+        <Parameter name="rs_minimum_token_interarrival" value="0.005" />
+        <Parameter name="rs_minimum_token_rate" value="1" />
+        <Parameter name="rs_multiplier" value="3" /> -->        
+        <Parameter name="rs_naks" value="true" />
+        <Parameter name="rs_pullcaching" value="true" />
+        <Parameter name="rs_rate" value="5000" />
+        <Parameter name="rs_ratecontroller" value="2" />
+        <Parameter name="rs_ratesharing" value="Compete" />
+        <Parameter name="rs_replication" value="5" />
+        <Parameter name="rs_timeout" value="300" />
+        <Parameter name="rs_token_rate" value="1" />
+        <Parameter name="rs_warmuptime" value="3" />
+        <Parameter name="subnet" value ="192.168.0.0/24" />
+        <Parameter name="system_bufsize_multicast_receive" value="4194304" />
+        <Parameter name="system_bufsize_multicast_send" value="1048576" />
+        <Parameter name="system_bufsize_unicast_receive" value="4194304" />
+        <Parameter name="system_bufsize_unicast_send" value="8192" />
+        <Parameter name="timewarps_continueio" value="false" />
+        <Parameter name="transmission_cc" value="10000" />
+        <Parameter name="transmission_high" value="10000000" />
+        <Parameter name="transmission_low" value="1000" />
+        <Parameter name="uplink_address" value="http://192.168.0.109:59991" />
+        <Parameter name="uplink_capacity_inbound_control" value="1024" />
+        <Parameter name="uplink_capacity_inbound_data" value="1048576" />
+        <Parameter name="uplink_capacity_outbound_control" value="1024" />
+        <Parameter name="uplink_capacity_outbound_data" value="1048576" />
+        <Parameter name="uplink_controller" value="true" />
+        <Parameter name="uplink_port" value="59992" />
+        <Parameter name="uplink_subnet" value="192.168.0.0/24" />
+        <Parameter name="unicast_sender_cc" value="50" />
+        <Parameter name="unrecognized_timeout" value="3" />
+        <Parameter name="verbose" value ="true" />
+      </Value>
+    </Parameter>
+    <Parameter id="connection">
+      <Value xsi:type="ReferenceObject" id="7F14063FA2084763A5225E36C3984E14">
+        <Parameter id="MessageClass">
+          <Value xsi:type="ValueClass" id="9B6C433D6AC84BA6BF9FD34DF7FC6548" />
+        </Parameter>
+        <Parameter id="address">
+          <Value xsi:type="xsd:string">http://192.168.0.109:50000</Value>
+        </Parameter>
+        <Parameter id="network">
+          <Value xsi:type="xsd:string">192.168.0.0/24</Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+    <Parameter id="deserializer">
+      <Value xsi:type="ReferenceObject" id="FAEC13B6015A4B83BFF3758BDCA1AA30">
+        <Parameter id="library">
+          <Value xsi:type="ReferenceObject" id="BFB405E1F3134A33AF093B0D4901318B" />
+        </Parameter>
+      </Value>
+    </Parameter>
+  </Object>
+</Root>

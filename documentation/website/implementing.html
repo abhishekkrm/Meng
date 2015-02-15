@@ -1,0 +1,1028 @@
+﻿<HTML xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 8.0">
+<TITLE>Live Distributed Objects - Implementing Objects in C#</TITLE>
+<style type="text/css">
+.style1 {
+	margin-left: 40px;
+}
+.style2 {
+	background-color: #FFFF00;
+}
+.style3 {
+	color: #FF0000;
+}
+</style>
+</HEAD>
+<BODY>
+<h1>Live Distributed Objects</h1>
+<h2>Implementing Objects in C#</h2>
+<p><span class="style3">Note: Contents of this tutorial may depend on code that has been written, 
+debugged, or extended 5 minutes ago. If something doesn&#39;t work, make sure you&#39;re 
+running the latest version of the platform. To update your installation without 
+reinstalling everything, follow these
+<a href="installation.html#incremental">
+easy manual steps</a>, or configure an
+<a href="installation.html#auto">automatic 
+update</a>.</span></p>
+<p><a href="#libraries">Object Libraries</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#skeleton">Creating and Deploying a Skeleton of a 
+Live Object Library</a><br>
+<a href="#objects">Objects</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#ui_object">Creating a Simple User Interface Object 
+Backed by a Communication Channel</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#custom_types">Creating a Simple Object with a 
+Custom Interface and with Custom Communication Channel Types</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#mashup_object">Creating a Simple Mash-Up Object 
+That Contains Other Objects and Uses Reflection</a><br>
+<a href="#gossip_objects">Gossip Objects</a><br>
+&nbsp;&nbsp;&nbsp; more... coming soon... </p>
+<h3><strong></a><a name="libraries"></a></strong>Object Libraries</h3>
+<p><strong><a name="skeleton"></a>Creating and Deploying a Skeleton of a Live 
+Object Library</strong></p>
+<p>Before you read the tutorial, you may watch this short video that 
+illustrates the sequence of actions we will walk you through.</p>
+<p>
+<object 
+  width="800" 
+  height="560"
+  classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+  codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" >
+  <param name="movie" value="http://liveobjects.cs.cornell.edu:55996/player.swf" />
+  <param name="flashvars" value="file=http://liveobjects.cs.cornell.edu:55996/0002/tutorial.flv&autoStart=false" />
+  <embed  
+    src="http://liveobjects.cs.cornell.edu:55996/player.swf"
+    flashvars="file=http://liveobjects.cs.cornell.edu:55996/0002/tutorial.flv&autoStart=false"
+    width="800" 
+    height="560"
+    type="application/x-shockwave-flash" 
+    pluginspage="http://www.macromedia.com/go/getflashplayer" /> 
+</object>
+</p>
+</body>
+</html>
+<p>As mentioned before, live objects and types used in their definitions can be 
+defined by the user in .NET code. This is achieved by annotating ordinary class 
+and interface definitions with special attributes, which are parsed by the live 
+objects runtime, and deploying the compiled code in a dedicated folder. When 
+during parsing an XML description of an object, a reference to an object or type 
+is found that is not a type known to the runtime, the runtime looks for a 
+library that defines this object or type and tries to dynamically load the code 
+into the process to make the object definition or type available to the object 
+loader. Below, we will walk through the process of defining and deploying a 
+simple custom object library.</p>
+<p>Start by launching Visual Studio and creating a class library project in C# 
+(you can perfectly well use any other .NET language, such as VB, C++, J# etc., 
+but since C# is, in some sense, the &quot;model&quot; .NET language, in this tutorial we 
+will use examples in C#).</p>
+<p class="style1"><img src="screenshot_036.gif" width="461" height="288"></p>
+<p class="style1"><img src="screenshot_037.gif" width="810" height="578"></p>
+<p>We will be using custom attributes and types defined by the runtime, so we 
+need to add a reference to the part of the runtime where those are stored. Open 
+the &quot;References&quot; tab and add a reference to the library &quot;liveobjects_1.dll&quot;. You 
+don&#39;t need to, and in fact should not add references to any other libraries 
+(class names in other DLLs are randomly obfuscated, referencing any of them will 
+make your code unusable). You will find the &quot;liveobjects_1.dll&quot; file in the 
+&quot;\bin&quot; folder relative to the root of the distribution. If you haven&#39;t changed 
+the default installation folder, the full path to the live objects library that 
+you need to import will be &quot;C:\liveobjects\bin\liveobjects_1.dll&quot;.</p>
+<p class="style1"><img src="screenshot_038.gif" width="368" height="262"></p>
+<p class="style1"><img src="screenshot_039.gif" width="536" height="496"></p>
+<p>Now, we need to assign a unique namespace identifier to the library. All 
+types and objects defined in this DLL will be placed in the specified namespace. 
+Open the source file &quot;AssemblyInfo.cs&quot; hidden in the &quot;Properties&quot; folder in your 
+project, and add a new attribute of type &quot;QS.Fx.Reflection.Library&quot;, with a 
+single string argument, as shown below.</p>
+<p class="style1"><img src="screenshot_040.gif" width="668" height="187"></p>
+<p>The argument is a namespace identifier and version number, separated by a 
+back-apostrophe &quot;`&quot;. For a component to share with others, we will provide a way 
+of generating a registering a namespace identifier through our website. For 
+simple testing, you can generate the namespace identifier with the &quot;Create GUID&quot; 
+tool in the &quot;Tools&quot; menu in Visual Studio. You need to use the &quot;registry&quot; 
+format, and remove any characters besides the letters and digits from the 
+identifier created this way. The sequence of actions you need to take to 
+generate a GUID is shown below.</p>
+<p>Select &quot;Tooos&quot;...</p>
+<p class="style1"><img src="screenshot_058.gif" width="305" height="123"></p>
+<p>Select &quot;Create GUID&quot;...</p>
+<p class="style1"><img src="screenshot_059.gif" width="317" height="86"></p>
+<p>Click on &quot;New GUID&quot;, and then on &quot;Copy&quot;.</p>
+<p class="style1"><img src="screenshot_060.gif" width="406" height="223"></p>
+<p>Paste the GUID into the editor and remove all &quot;{&quot;, &quot;}&quot;, and &quot;-&quot; characters 
+from it. Then, append a back-apostrophe and a version number 1 
+to the GUID string, and pass the resulting string as an argument to the QS.Fx.Reflection.Library 
+attribute constructor, as shown below.</p>
+<p class="style1">[assembly: QS.Fx.Reflection.Library(&quot;76A5C94847B44F88933AE426369FAF92`1&quot;)]
+</p>
+<p>Note that the back apostrophe character &quot;`&quot; we used (grave accent, Unicode 
+0060) is not the same as the regular single apostrophe &quot;&#39;&quot;. The &quot;`&quot; character is 
+most likely located in the upper left corner of your keyboard, next to the 
+character for number &quot;1&quot; . Don&#39;t get confused!</p>
+<p>Now, we shall create a simple UI object. Create a new custom user control, as 
+shown below.</p>
+<p class="style1"><img src="screenshot_041.gif" width="521" height="302"></p>
+<p>Once the controls gets added to your project, switch to the code view.</p>
+<p class="style1"><img src="screenshot_042.gif" width="437" height="251"></p>
+<p>Now, we will annotate the custom control code as an implementation of a live 
+object. We do this by applying a custom attribute &quot;QS.Fx.Reflection.ComponentClass&quot;. 
+The first argument is the identifier and a version of the new component. Let&#39;s 
+pick identifier 1 and version 1. The second and third arguments to the attribute 
+are a short name and a longer description of the object that will be displayed 
+e.g. in the object designer. The annotated class should look something like the 
+following.</p>
+<p class="style1"><img src="screenshot_043.gif" width="753" height="263"></p>
+<p>Now, we need to specify what type of object we are implementing. We do this 
+by inheriting from an interface that defines an object type. In this example, we 
+will use a predefined interface, defined by the built-in class &quot;QS.Fx.Object.Classes.IUI&quot;, 
+representing objects that have a 2-dimensional Windows Forms style UI and 
+doesn&#39;t provide any programmatic API. Later on in the tutorial, we will 
+demonstrate how to implement new types of objects. For now, inherit from the 
+built-in type mentioned above. Also, make the class &quot;sealed&quot;: inheritance is not 
+permitted for live objects definitions anyway, and making the class sealed will 
+allow for more compiler optimizations, so you should do this whenever 
+appropriate.</p>
+<p class="style1"><img src="screenshot_044.gif" width="740" height="63"></p>
+<p>&nbsp;Inheriting from &quot;QS.Fx.Object.Classes.IUI&quot; forces you to implement a 
+property defined in this interface, you can automatically generate stub code by 
+positioning the cursor at the beginning of the interface name, and choosing the 
+option to &quot;explicitly&quot; implement the interface, as shown below.</p>
+<p class="style1"><img src="screenshot_045.gif" width="750" height="122"></p>
+<p>You should see a stub similar to the one below generated in your source file.</p>
+<p class="style1"><img src="screenshot_046.gif" width="609" height="186"></p>
+<p>As you may remember from, the way of interacting with live objects is to 
+connect to their endpoints. The interface exposed by a live object is therefore 
+simply a list of endpoints. The &quot;UI&quot; class defines a single endpoint, and the 
+code generated above should return the endpoint that others will connect to. 
+Endpoints are constructed by the endpoint factory class &quot;QS.Fx.Endpoints.Internal.Create&quot;. 
+To create an endpoint of the type matching the interface, we use the &quot;ExportedUI&quot; 
+method. The construction should happen in the object&#39;s constructor, the created 
+endpoint reference should be saved in a private field, and returned by the 
+property getter, as shown below.</p>
+<p class="style1"><img src="screenshot_047.gif" width="737" height="442"></p>
+<p>The factory method &quot;ExportedUI&quot; that creates the endpoint takes a single 
+argument. This is a user interface endpoint, and we need to provide the UI that 
+implements the user interface. Since the class Foo we created is the UI, it 
+simply passes a reference to itself.</p>
+<p>Right now, the object does nothing at all, but its definition is technically 
+complete. Before we add more functionality, let&#39;s try to deploy and execute it. 
+In general, we will use automated tools for this purpose, and we will discuss 
+the necessary setup in another part of the tutorial. For simple debugging, it is 
+best and easiest to deploy things manually, so this is what we&#39;ll do in this 
+tutorial.</p>
+<p>The runtime stores libraries in a subfolder &quot;\libaries&quot; of the root 
+installation path. The folder contains a subfolder for each of the namespaces, 
+the name of the subfolder being the namespace identifier. In the namespace 
+folder, we have a separate subfolder for each version of the namespace. In the 
+subfolder of a given version, there is a single file named &quot;metadata.xml&quot;, 
+which, as the name suggests, contains some metadata related to the namespace, 
+and a subfolder named &quot;data&quot;, which contains the actual binaries. </p>
+<p>The distribution already comes with an example custom library of components 
+deployed, so before deploying our custom library, let&#39;s look at the example. The 
+library implements components in namespace &quot;1A3160A2B3C64B589A9754161FD6B6EF&quot;, 
+and the current version is &quot;1&quot;, hence the relevant files can be found in &quot;C:\liveobjects\libraries\1A3160A2B3C64B589A9754161FD6B6EF\1&quot;. 
+The folder structure is as on the pictures below. </p>
+<p class="style1"><img src="screenshot_048.gif" width="499" height="151">&nbsp; </p>
+<p class="style1"><img src="screenshot_049.gif" width="499" height="149"></p>
+<p>The metadata file is an XML file that has a single root element &quot;&lt;Library&gt;&quot;. 
+The element has an XML attribute &quot;id&quot; that identifies the namespace and the 
+version of the namespace this library implements. It may seem redundant to 
+include this information here, considering that it is already present in the 
+folder structure, but this helps catch bugs or silly mistakes during library 
+deployment. The library element also contains one or more &quot;&lt;Include&gt;&quot; elements 
+with a &quot;filename&quot; attribute that points to specific binary files relative to the 
+&quot;data&quot; subfolder. We assume that the contents &quot;data&quot; subfolder can be anything, 
+some of the files stored there may be libraries unrelated to live objects, and 
+some may be custom data or configuration settings, therefore we need to 
+explicitly point to the files that the live objects runtime should load. </p>
+<p class="style1">&lt;Library id=&quot;1A3160A2B3C64B589A9754161FD6B6EF`1&quot;&gt; <br>
+&nbsp;&nbsp;&nbsp; &lt;Include filename=&quot;examples_1.dll&quot; /&gt; <br>
+&lt;/Library&gt;&nbsp; </p>
+<p>To deploy our custom library manually, we need to create a directory 
+structure and a metadata file such as those above, and copy the binaries over. 
+The resulting directory structure should look like on the following pictures.</p>
+<p class="style1"><img src="screenshot_050.gif" width="664" height="253"></p>
+<p class="style1"><img src="screenshot_051.gif" width="654" height="152"></p>
+<p>Note that we do not copy over any of the live objects DLLs, even 
+&quot;liveobjects_1.dll&quot;, to the &quot;data&quot; folder. When loading the library, the live 
+objects runtime will hook things up as needed using its own DLLs, as installed 
+on your machine in the &quot;\bin&quot; folder, and placing here any live objects DLLs 
+could only cause problems.</p>
+<p>The contents of the &quot;metadata.xml&quot; file should look like the following:</p>
+<p class="style1">&lt;Library id=&quot;76A5C94847B44F88933AE426369FAF92`1&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Include filename=&quot;SomeStuff.dll&quot; /&gt;<br>
+&lt;/Library&gt; </p>
+<p>In practice, copying things over manually is tedious, hence during debugging, 
+you may want to do so in post-build steps. To do so, first include file 
+&quot;metadata.xml&quot; with the content above in your project, create an empty file 
+named &quot;postbuild.bat&quot; and also add it to your project.&nbsp; </p>
+<p>A word of caution: don&#39;t create the batch file from under Visual Studio, 
+because there appears to be a bug in Visual Studio causing text files created in 
+it to start with a garbage Unicode string that isn&#39;t visible to a human eye, but 
+will fool the shell and make your script unusable. You may then see error 
+messages such as one below.</p>
+<p class="style1">&#39;∩╗┐set&#39; is not recognized as an internal or external command </p>
+<p>If you run into this situation, the only cure is to edit the file using some 
+hexadecimal editor and surgically remove the offending characters at the 
+beginning of the file. To avoid running into this annoying bug, create a text 
+file in notepad, or from the Windows Explorer context menu, and include it in 
+the project. To do this, first click on the &quot;Show All Files&quot; button below to 
+display the full set of files in the project folder, including those that aren&#39;t 
+part of the project (that&#39;s the button circled in red in the picture below).</p>
+<p class="style1"><img src="screenshot_056.gif" width="299" height="147"></p>
+<p>Now, select the newly created batch file, and click on the &quot;Include In 
+Project&quot; command in the context menu to add the existing file to your project.</p>
+<p class="style1"><img src="screenshot_057.gif" width="299" height="251"></p>
+<p>Now that all files are in place, edit the 
+&quot;post-build&quot; step of your project, so that the post-build script is 
+invoked after a successful build. For your convenience, the command to invoke 
+the build script that you need to type into the post-build step dialog is pasted 
+below as a string you can conveniently copy.</p>
+<p class="style1">&quot;$(ProjectDir)postbuild.bat&quot; &quot;$(ProjectDir)&quot; &quot;$(TargetDir)&quot;</p>
+<p>The text typed into the post-build script dialog is shown on the picture below. 
+To get to this dialog, 
+right-click on a project in the tree view, select &quot;Properties&quot;, and navigate to the &quot;Build Events&quot; tab in it. </p>
+<p class="style1"><img src="screenshot_052.gif" width="802" height="284"></p>
+<p>If you need to customize this script, click &quot;Edit Post-build...&quot;, and click 
+on the &quot;Macros&quot; button. This will display a list of macros that encapsulate 
+things like a path to your solution folder, the produced DLL or executable etc., 
+which you can use in your script to make it portable. Note that in the script, 
+we do not separate the name of the batch file from the macro with a backslash. 
+If we did, the string would resolve to a path with a double-backslash, because 
+the &quot;$(ProjectDir)&quot; macro already contains a backslash in it. Unfortunately, the 
+shell isn&#39;t smart enough to ignore the redundant backslash, and it will fail to 
+execute the script with a path formatted this way.</p>
+<p>Now, in the &quot;postbuild.bat&quot; file, type in the following logic to 
+automatically deploy your compiled code in the &quot;libraries&quot; folder after each 
+successful build.</p>
+<p class="style1">set namespace=76A5C94847B44F88933AE426369FAF92 <br>
+set version=1 <br>
+set root=C:\liveobjects <br>
+if not exist %root%\libraries\%namespace% mkdir %root%\libraries\%namespace% <br>
+if not exist %root%\libraries\%namespace%\%version% mkdir 
+%root%\libraries\%namespace%\%version% <br>
+del /f /s /q %root%\libraries\%namespace%\%version%\*.* <br>
+mkdir %root%\libraries\%namespace%\%version%\data <br>
+xcopy /y %2SomeStuff.dll %root%\libraries\%namespace%\%version%\data\ <br>
+xcopy /y %2SomeStuff.pdb %root%\libraries\%namespace%\%version%\data\ <br>
+xcopy /y %1metadata.xml %root%\libraries\%namespace%\%version%\ </p>
+<p>If you rebuild the project now, you should see the files being automatically 
+deployed. If you&#39;re getting error messages, most likely they are related to 
+spaces in file or folder names, and you might need to put some parts of the 
+script in quotation marks.</p>
+<p>To test the newly created object, create a new file with the &quot;.liveobject&quot; 
+extension e.g. in notepad, and put the following contents into the file.</p>
+<p class="style1">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt; <br>
+&lt;Root xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+<br>
+&nbsp;&nbsp;&nbsp; &lt;Object xsi:type=&quot;ReferenceObject&quot; 
+id=&quot;76A5C94847B44F88933AE426369FAF92`1:1`1&quot; /&gt; <br>
+&lt;/Root&gt; </p>
+<p class="style1"><img src="screenshot_062.gif" width="924" height="163"></p>
+<p class="style1"><img src="screenshot_063.gif" width="488" height="236"></p>
+<p class="style1"><img src="screenshot_064.gif" width="176" height="197"></p>
+<p>The simple live object reference we created tells the runtime to locate version 1 or higher of namespace 
+76A5C94847B44F88933AE426369FAF92, load the component library, and find version 1 
+or higher of object 1 in it. After running the file, you should see your user 
+interface object being displayed, as shown below.</p>
+<p class="style1"><img src="screenshot_053.gif" width="218" height="118"></p>
+<h3><a name="objects"></a>Objects</h3>
+<p><strong><a name="ui_object"></a>Creating a Simple User Interface Object 
+Backed by a Communication Channel</strong></p>
+<p>Before you read the tutorial, you may watch this short video that 
+illustrates the sequence of actions we will walk you through.</p>
+<p>
+<object 
+  width="800" 
+  height="560"
+  classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+  codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" >
+  <param name="movie" value="http://liveobjects.cs.cornell.edu:55996/player.swf" />
+  <param name="flashvars" value="file=http://liveobjects.cs.cornell.edu:55996/0008/tutorial.flv&autoStart=false" />
+  <embed  
+    src="http://liveobjects.cs.cornell.edu:55996/player.swf"
+    flashvars="file=http://liveobjects.cs.cornell.edu:55996/0008/tutorial.flv&autoStart=false"
+    width="800" 
+    height="560"
+    type="application/x-shockwave-flash" 
+    pluginspage="http://www.macromedia.com/go/getflashplayer" /> 
+</object>
+</p>
+<p>In this section, we will extend the <a href="#skeleton">skeleton library 
+created earlier</a>, and implement an object that uses a communication channel 
+to persist its data. Recall that the goal of our technology is to enable 
+building applications that consist entirely of live objects. Hence, the 
+communication channel will also be a live object. Our new UI object should work 
+with any communication channel, and it should not make any assumptions about the 
+underlying channel implementation.</p>
+<p>The easiest way to achieve this is to make our UI object a template that will 
+take a channel object as an argument. We have already seen examples of such 
+parameterized objects in the <a href="objects.html#analyzing">earlier parts of the 
+tutorial</a>, when discussing the internal structure of XML files and examples 
+in the object designer.</p>
+<p>To add a parameter that is a reference to another object, we simply add a 
+parameter annotated with .NET attribute &quot;QS.Fx.Reflection.Parameter&quot; to the 
+constructor. The attribute has two arguments, the first being the name of the 
+parameter, and the second being the category. On object reference is not a type, 
+but an actual value, hence we apply category &quot;Value&quot;. The .NET data type of the 
+references is a template type QS.Fx.Object.Reference&lt;ObjectClass&gt;, where 
+ObjectClass is a .NET class that serves as an alias for a class of live objects. 
+We won&#39;t discuss the concept of the alias here, the reader may find more 
+information in the
+<a href="http://www.cs.cornell.edu/~krzys/liveobjects_ecoop2008.pdf">paper on 
+live objects</a>. For the purposes of this tutorial, we will just resort to 
+examples, hopefully after a few of those the idea will become intuitively clear.</p>
+<p>A correct constructor declaration for an object with a single parameter that 
+is a reference to another object looks as follows.&nbsp;&nbsp; </p>
+<p class="style1"><img src="screenshot_054.gif" width="725" height="92"></p>
+<p>For the purposes of verification, the complete source file is shown below.</p>
+<p class="style1"><img src="screenshot_065.gif" width="785" height="593"></p>
+<p>You can actually recompile the project again, and after dragging the &quot;.liveobject&quot; 
+file into the designer, you will see that the presence of a parameter has been 
+recognized, as shown below. Since we have not actually assigned anything to the 
+parameter (the XML file does not have any &quot;&lt;Parameter&gt;&quot; elements), the parameter 
+is assumed to be null, i.e. a null reference is used.</p>
+<p class="style1"><img src="screenshot_055.gif" width="862" height="212"></p>
+<p>Although the designer accepted the object, the object actually won&#39;t run. The 
+designer is generally more forgiving, and fixes some problems for you. If you 
+drag your object from the designer out onto the desktop, and reopen it, you will 
+see that the designer has added some missing code to the XML file, explicitly 
+passing a null reference to the parameter. The runtime requires of a well-formed 
+&quot;.liveobject&quot; file to have all parameters always assigned, even if the 
+parameters are null. The designer also decorated the definition with some 
+attributes, such as name or description, extracted from your C# code.</p>
+<p class="style1">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;<br>
+&lt;Root xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Object xsi:type=&quot;ReferenceObject&quot; 
+id=&quot;76A5C94847B44F88933AE426369FAF92`1:1`1&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Attribute 
+id=&quot;9F4C608A9A6D44FFAD8A2FDC662E185B&quot; value=&quot;Foo&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Attribute 
+id=&quot;7EC27D89CBD410DADE60463E4D46985&quot; value=&quot;This is my custom object Foo.&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Attribute 
+id=&quot;9F64B7ABB95245F28596BFFD1F549558&quot; value=&quot;1&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ObjectClass 
+id=&quot;0`1:5211621A78F4CFBB993FA43186A5403`0&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="style2">&lt;Parameter id=&quot;channel&quot;&gt;</span> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="style2">&lt;Value xsi:type=&quot;ReferenceObject&quot; /&gt;</span> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="style2">&lt;/Parameter&gt;</span> <br>
+&nbsp;&nbsp;&nbsp; &lt;/Object&gt;<br>
+&lt;/Root&gt; </p>
+<p>After this fix, the object is usable, but again doesn&#39;t do anything. 
+Furthermore, the type of the parameter being just any object reference won&#39;t do. 
+Right now, we can pas any type of object as a value of the parameter &quot;channel&quot;, 
+for example a 3D airplane object, and as shown below, the object will type check 
+correctly, and in fact it will run as well. The newly created UI object will 
+receive a correct reference, it simply won&#39;t be able to do much with it.</p>
+<p class="style1"><img src="screenshot_067.gif" width="723" height="309"></p>
+<p>To restrict the type of the parameter, we need to point to a more specific 
+object class. Instead of the predefined .NET class &quot;QS.Fx.Object.Classes.IObject&quot;, 
+which served as an alias for a generic class of objects that all other object 
+classes are a subtype of, we will use a .NET class &quot;QS.Fx.Object.Classes.ICheckpointedCommunicationChannel&quot;, 
+which serves as an alias for a class of objects that provide a single 
+communication channel endpoint with state transfer support. The type of the 
+parameter &quot;channel&quot; of the constructor needs to change as shown below.</p>
+<p class="style1"><img src="screenshot_066.gif" width="721" height="143"></p>
+<p>The above definition deserves a comment. The class of channel objects we use 
+here is actually a template, parameterized by the type of values that will be 
+sent in messages, and the type of values contained in the checkpoints. In order 
+to use this class here, we need to assign values to both of those parameters. 
+Here, we use the predefined class &quot;QS.Fx.Value.Classes.IText&quot;, which represents 
+a simple string. The reason why we don&#39;t just use System.String is because the 
+particular implementation of a multicast channel we use here requires value 
+classed that support the type of serialization used by live objects. We will 
+discuss the serialization-related topics in more detail later on.</p>
+<p>If you recompile and redeploy the library with the change highlighted above, 
+passing an airplane to the &quot;channel&quot; parameter will no longer type check, as 
+shown below. Note also how the type of the parameter has changed (compare this 
+with the preceding screenshot). Previously, &quot;channel&quot; was supposed to be a value 
+of type &quot;ObjectReference&quot;, where the class of the referenced object was simply 
+the generic &quot;Object&quot; class. Now, as you see in the picture below, the class of 
+the referenced object is based on the &quot;Checkpointed communication channel&quot; 
+template, parameterized with the &quot;Text&quot; value class. Hence, the parameter 
+requires channels that can carry textual messages and transfer textual state.</p>
+<p class="style1"><img src="screenshot_068.gif" width="923" height="337"></p>
+<p>For quick initial testing of the new object, we can use the &quot;LocalCommunicationChannel&quot; 
+object that provides empty initial state and simply bounces all messages back. 
+We actually went through the setup process in an
+<a href="http://liveobjects.cs.cornell.edu/doc/objects.html#creating">earlier 
+part of the tutorial</a>, so instead of repeating it all here, here&#39;s the 
+desired outcome. You need to drag and drop the &quot;LocalCommunicationChannel&quot; and 
+value type &quot;Text&quot; so that you end up with a correct live object reference that 
+looks like below.</p>
+<p class="style1"><img src="screenshot_069.gif" width="829" height="419"></p>
+<p>Now, select the object in the tree view and drag it onto the desktop.</p>
+<p class="style1"><img src="screenshot_070.gif" width="686" height="135"></p>
+<p class="style1"><img src="screenshot_071.gif" width="440" height="160"></p>
+<p>Again, you can run the object. It still doesn&#39;t do anything, but now it does 
+get initialized with a correct reference to a working communication channel. </p>
+<p>Now it&#39;s time to use the channel. Go back to the code, and type in code that 
+will instantiate a channel proxy from the channel reference by invoking the 
+getter of the &quot;Object&quot; property of the reference, as shown below. First, you 
+create a new private field that will keep a reference to the proxy, like this.</p>
+<p class="style1"><img src="screenshot_074.gif" width="612" height="77"></p>
+<p>Now, you dereference the channel reference in the constructor to create the 
+proxy.</p>
+<p class="style1"><img src="screenshot_073.gif" width="365" height="27"></p>
+<p>The relevant piece of the code that changes now looks like this.</p>
+<p class="style1"><img src="screenshot_072.gif" width="728" height="374"></p>
+<p>Now that we have the proxy, we need to ask it to provide its communication 
+endpoint, and connect to it. In order to connect to the channel&#39;s endpoint, we 
+will have to have our own matching endpoint, so we need to create it here. </p>
+<p>Go to the designer window, find the channel object and its endpoint, browse 
+down to the &quot;EndpointClass&quot; element, and choose &quot;Generate Code for the Matching 
+Endpoint&quot; from the context menu. This is going to place in Clipboard a piece of 
+C# code representing the alias type for the endpoint we need to generate to 
+connect to the channel, as shown below.</p>
+<p class="style1"><img src="screenshot_075.gif" width="446" height="304"></p>
+<p>Now, paste from clipboard into your code, to create a private field with this 
+type, as shown below. The part being pasted is selected.</p>
+<p class="style1"><img src="screenshot_076.gif" width="698" height="272"></p>
+<p>Then, write code in the constructor that will construct this endpoint. To get 
+the constructor method, simply produce a copy of the text above, replacing type 
+name &quot;QS.Fx.Endpoint.Internal.IDualInterface&quot; with method name &quot;QS.Fx.Endpoint.Internal.Create.DualInterface&quot;, 
+while leaving the template parameters as they are, so that you get the following 
+code in the constructor. </p>
+<p class="style1"><img src="screenshot_077.gif" width="661" height="290"></p>
+<p>Note we have passed a single argument to method &quot;Create&quot;. To construct and 
+endpoint from template &quot;dual interface&quot;, we need to pass as argument some object 
+that implements interface &quot;QS.Fx.Interface.Classes.ICheckpointedCommunicationChannelClient&quot;. 
+This interface provides handlers for events that might arrive through the 
+endpoint. The easiest thing to do at this point is to let the class you&#39;re 
+defining implement those event handlers, so we pass &quot;this&quot;, and extend the class 
+definition to implement the interface with incoming event handlers, as shown 
+below.</p>
+<p class="style1"><img src="screenshot_078.gif" width="1120" height="83"></p>
+<p>To make the code compile again, we just need to implement the event handlers. 
+Implement them explicitly, as we explained earlier, by positioning the cursor at 
+the beginning of the type name and choosing option to &quot;implement explicitly&quot; 
+from the menu that pops up. The complete code with generated stubs should look 
+like the following.</p>
+<p class="style1"><img src="screenshot_079.gif" width="859" height="563"></p>
+<p>You can verify that the code now compiles and runs. While still nothing is 
+happening, a proxy of the embedded channel objects is being instantiated, and an 
+internal endpoint is being created. So, let&#39;s now connect the endpoint we 
+created to the internal channel object and add some event handlers.</p>
+<p>To establish a connection between objects, we invoke the &quot;Connect&quot; method of 
+an endpoint. The method returns an object of type &quot;QS.Fx.Endpoint.IConnection&quot;, 
+which represents a reference to the connection, and controls the connection&#39;s 
+lifetime. We store the connection reference in a private variable. The variable 
+we need to declare is shown below.</p>
+<p class="style1"><img src="screenshot_080.gif" width="572" height="31"></p>
+<p>The code we need to add at the end of the constructor to establish the 
+connection is shown below.</p>
+<p class="style1"><img src="screenshot_081.gif" width="764" height="29"></p>
+<p>Now, let&#39;s look at the event handlers. As a client of the checkpointed 
+communication channel, we need to implement three incoming vents. Event 
+&quot;Initialize&quot; is the first one we will receive, and carries a checkpointed state 
+object that we can use to initialize this proxy. Event &quot;Receive&quot; carries 
+messages multicast on the channel, which represent updates. The checkpointed 
+state is synchronized with the updates that follow, and represent the version of 
+the replicated state exactly before the next update that follows it, hence if we 
+use the checkpoint to initialize our proxy, and then process updates received 
+from the channel one after another, the proxy will stay synchronized with the 
+other proxies. Finally, event &quot;Checkpoint&quot; is a request to generate a checkpoint 
+of the current state. This is used to initialize other proxies that have just 
+recently joined. </p>
+<p>First, to visualize the processing that is going to take place, let&#39;s extend 
+the UI with a text box that will display the object&#39;s state, and a button that 
+will generate updates. By double-clicking on &quot;Foo.cs&quot; in the tree view (or 
+choosing &quot;Designer&quot; from the &quot;View&quot; menu), we shift to the design view of the UI 
+object. Add a button and a multi-line text box, as shown below.</p>
+<p class="style1"><img src="screenshot_082.gif" width="202" height="203"></p>
+<p>Now, in the body of the &quot;Initialize&quot; method, let us add code that will 
+replace the contents of the text box with the textual data received from the 
+channel, as shown below. Note that we must handle the case when the checkpoint 
+is simply a null object. We do that by initializing the text box with an empty 
+string.</p>
+<p class="style1"><img src="screenshot_083.gif" ></p>
+<p>Similarly, to generate checkpoints that will be used to initialize other 
+proxies, we do the reverse, i.e. we produce a checkpoint using the textual data 
+from the text box. To create a serializable object of type &quot;QS.Fx.Value.Classes.IText&quot;, 
+we may use class &quot;QS.Fx.Value.UnicodeText&quot;, as shown below.</p>
+<p class="style1"><img src="screenshot_084.gif" width="861" height="145"></p>
+<p>Finally, we process an update by appending the received string to the 
+contents of the current window.</p>
+<p class="style1"><img src="screenshot_085.gif" width="692" height="149"></p>
+<p>We have handled all input events, but if we run the object, nothing would 
+happen because nobody is generating updates. So, switch to the design view, and 
+double-click on the button to associate the click even with code and 
+automatically generate an appropriate stub. You should see code similar to the 
+one below being added to your source file. </p>
+<p class="style1"><img src="screenshot_086.gif" width="541" height="96"></p>
+<p>In the body of the code, create some random string, and publish the string on 
+the channel by calling method &quot;Send&quot; available through the &quot;Interface&quot; property 
+of the channel endpoint, as shown below.</p>
+<p class="style1"><img src="screenshot_087.gif"  ></p>
+<p>Now, if you rebuild and start your object, you will see messages being posted 
+after button is clicked, as shown below.</p>
+<p class="style1"><img src="screenshot_088.gif" width="515" height="208"></p>
+<p>Note that we do not simply update the UI in response to events. Because the 
+object is distributed, any changes to its state must be synchronized between all 
+proxies running it. Whenever we need to make an update, we publish a request on 
+the communication channel. Only after the request has been ordered relative to 
+other requests and delivered by the communication channel to all proxies of the 
+object can the proxies act upon the request. This ensures that proxies are 
+always synchronized.</p>
+<p>Although the object now correctly handles all events and runs with the simple 
+channel that bounces messages back, it won&#39;t run in a real multicast scenario, 
+for the updates to the UI controls are done from the context of the networking 
+threads, not from the context of the UI thread. This is a limitation of Windows 
+Forms that you will frequently run into when coding any UI components. You can 
+read about the underlying problem in the MSDN documentation, in the
+<a href="http://msdn2.microsoft.com/en-us/library/0b1bf3y3.aspx">description 
+accompanying the class &quot;System.Windows.Forms.Control.BeginInvoke&quot;</a>.</p>
+<p>A quick and dirty solution to the problem would be to simply use &quot;BeginInvoke&quot; 
+to process the incoming message, such as below.</p>
+<p class="style1"><img src="screenshot_089.gif" width="836" height="426"></p>
+<p>While this might work for extremely simple objects, it is not really a 
+correct solution for a number of reasons, such as e.g. that it may result in 
+updates being applied out of order. A much better technique is to place the 
+received updates on a queue, and use BeginUpdate to schedule a callback that 
+will process those updates asynchronously. </p>
+<p>First, we need to define the structure that will represent on the queue, and 
+declare a private variable that will represent the queue, as shown below.</p>
+<p class="style1"><img src="screenshot_090.gif" width="614" height="428"></p>
+<p>Now, we modify the code of the &quot;Initialize&quot; and &quot;Receive&quot; handlers to simply 
+place an appropriate event on the queue, and schedule asynchronous processing 
+through BeginInvoke. To avoid redundant work, we don&#39;t schedule a callback if 
+the queue is not empty, for this means that a callback has already been 
+schedule. In the callback, we will simply process data in bulk. The updates 
+bodies of the two methods are shown below.</p>
+<p class="style1"><img src="screenshot_091.gif" width="749" height="598"></p>
+<p>The body of the method scheduling the callback, invoked from both methods 
+shown above, looks like the following.</p>
+<p class="style1"><img src="screenshot_092.gif" width="563" height="174"></p>
+<p>Finally, the body of the callback that processes the updates would look as 
+shown below.</p>
+<p class="style1"><img src="screenshot_093.gif" width="763" height="537"></p>
+<p>You can check that the project compiles again, and the object works just as 
+before. This time, however, we are ready to replace the underlying mock 
+communication channel with one that works across multiple processes. To keep 
+things simple, we will reuse here one of the communication channels 
+pre-configured in the distribution. Launch the object designer and drag file 
+&quot;shared_text_1.liveobject&quot; from the &quot;examples&quot; folder into the designer window, 
+then locate object passed as parameter &quot;channel&quot; to the root UI object, as shown 
+below.</p>
+<p class="style1"><img src="screenshot_094.gif" width="741" height="329"></p>
+<p>&nbsp;Now, select the repository object representing the channel, and drag it 
+out of the designer and onto the desktop, as shown below.</p>
+<p class="style1"><img src="screenshot_095.gif" width="398" height="179"></p>
+<p class="style1"><img src="screenshot_096.gif" width="496" height="216"></p>
+<p>You may check if the object was exported correctly by dragging its &quot;.liveobject&quot; 
+file from the desktop back to the designer. You should see something like this.</p>
+<p class="style1"><img src="screenshot_097.gif" width="849" height="176"></p>
+<p>Now, drag the original &quot;.liveobject&quot; file referencing your new UI component 
+into the designer, and drag the channel you just exported onto the &quot;channel&quot; 
+parameter. The object should type check correctly, and you should see a 
+structure similar to the one shown below.</p>
+<p class="style1"><img src="screenshot_098.gif" width="1023" height="516"></p>
+<p>Now, select the root object in the tree view and drag it out onto the 
+desktop. This produces a new &quot;.liveobject&quot; file with the updated reference. 
+Then, make sure that the &quot;Live Distributed Objects&quot; service that controls 
+multicast channels is running. If it is not, start it now by &quot;Services&quot; tool in 
+&quot;Administrative Tools&quot; in &quot;Start Menu&quot;, or by typing in the command &quot;net start &quot;QuickSilver 
+Live Objects&quot;&quot; in command prompt. FInally, launch your object again, by 
+double-clicking the updated &quot;.liveobject&quot; you just created on the desktop by 
+dragging the updated object definition from the designer. Launch the object at 
+least twice, so you have multiple clients accessing it. Whenever you click the 
+button in any of the clients, updates should be multicast and applied 
+consistently everywhere, with the as shown below.</p>
+<p class="style1"><img src="screenshot_099.gif" width="791" height="178"></p>
+<p>For reference, compare your code with the <a href="SomeStuff.zip">complete 
+solution of the module implemented in this section</a> included with this 
+documentation.</p>
+<p><strong><a name="custom_types"></a>Creating a Simple Object with a Custom 
+Interface and with Custom Communication Channel Types</strong></p>
+<p>The example object in the preceding section used predefined type &quot;Text&quot; for 
+both update messages and state that is transferred between replicas. While there 
+are performance advantages to using built-in types, most objects will require 
+custom data structures. Our platform allows the user to define and use new types 
+of messages, by defining a new .NET class and annotating it with a &quot;ValueClass&quot; 
+attribute, much in the way we annotated a custom component in the preceding 
+example. In this section, we will illustrate this with a distributed banking 
+example. </p>
+<p>An example type that will represent a financial transaction is shown below.</p>
+<p class="style1"><img src="screenshot_100.gif" width="504" height="449"></p>
+<p>Note the use of &quot;XmlAttribute&quot; in this example (defined in namespace &quot;System.Xml.Serialization&quot;). 
+This attribute marks the fields of this class as serializable. Annotated this 
+way, the &quot;Transaction&quot; class can be serialized using the built-in .NET 
+serializer. In order to be able to send messages across the network, our 
+platform requires that these messages are serializable using either one of the 
+techniques built into .NET, binary serialization or XML serialization, or using 
+QuickSilver&#39;s custom internal serialization scheme. The choice of the technique 
+will depend on the communication channel used. In this example, we will use XML 
+serialization because it is much easier to work with than the QuickSilver&#39;s 
+internal scheme, and it is much easier to debug than the built-in .NET binary 
+serialization (the latter has the highly annoying property that recompiling your 
+code breaks binary compatibility). The built-in XML serialization is slow and 
+has high overhead, but the performance of our example object isn&#39;t critical. For 
+uses such as multimedia streams, using live object built-in types or 
+QuickSilver&#39;s serialization scheme is recommended (these will be described in 
+another part of the tutorial).</p>
+<p>We will assume here that you are familiar with XML serialization. If not, you 
+might want to visit
+<a href="http://msdn2.microsoft.com/en-us/library/182eeyhh.aspx">
+http://msdn2.microsoft.com/en-us/library/182eeyhh.aspx</a>.</p>
+<p>In our banking example, the &quot;Transaction&quot; class will represent transactions, 
+i.e. operations made against the bank, and in the implementation of our bank 
+object, which again will rely on a multicast stream to carry state and updates 
+between bank replicas, the type &quot;Transaction&quot; defined above will be assigned to 
+the &quot;MessageClass&quot; parameter. The type of checkpoints representing the bank&#39;s 
+state at a point in time (the value of the parameter &quot;CheckpointClass&quot;) is 
+defined as a separate class &quot;Accounts&quot;, containing a list of account statuses 
+stored in yet another custom type &quot;Account&quot;, as shown below. Note that each of 
+these types is separately annotated with the &quot;ValueClass&quot; attribute, each has a 
+different identifier, and each contains a default no-parameter constructor and 
+annotations required for correct XML serialization.</p>
+<p class="style1"><img src="screenshot_101.gif" width="433" height="356"></p>
+<p class="style1"><img src="screenshot_102.gif" width="428" height="422"> </p>
+<p>Now, if you compile and deploy your library as explained in the preceding 
+examples, and expand the &quot;value classes&quot; node in the right-hand pane in the 
+object designer, you can see your new value classes listed, as shown below.</p>
+<p class="style1"><img src="screenshot_104.gif" width="404" height="87"></p>
+<p>With the value classes in place, we can now create a communication channel 
+that will be used by our new object. Now, unlike in the previous example, we 
+can&#39;t directly use any of the examples channels that have been preconfigured in 
+the distribution, not just because none of them is of the right type, but also 
+because the built-in communication system supports only channels that carry 
+messages serializable using QuickSilver&#39;s built-in serialization scheme. In this 
+example, we want to use messages serialized as XML, we need a &quot;wrapper&quot; channel 
+that will take care of the translation between XML-serializable messages 
+generated by our custom object, and messages in the format that our 
+communication system can support. </p>
+<p>We can accomplish this with the built-in object &quot;XmlChannel&quot;. In the object 
+designer window, navigate to this object in the &quot;objects&quot; section in the 
+right-hand pane, and drag it onto the design sheet. Then, drag your newly 
+created value class &quot;Transaction&quot; from the &quot;value classes&quot; section onto the &quot;MessageClass&quot; 
+parameter, and drag the newly created value class &quot;Accounts&quot; onto the &quot;CheckpointClass&quot; 
+parameter. The object should now type-check correctly, and you should see a 
+result similar to the one below. </p>
+<p class="style1"><img src="screenshot_105.gif" width="1086" height="285"></p>
+<p>We&#39;re not ready just yet. The XML channel object does only translation to and 
+from XML, but doesn&#39;t actually perform any network communication. For the 
+latter, it needs a communication channel that will be used internally to carry 
+messages serialized to XML. It expects a generic type of a channel, in which 
+both message and checkpoint type are of the base type &quot;ISerializable&quot;.</p>
+<p>Right now, we don&#39;t have a channel of the required type, so we&#39;re going to 
+create one. To illustrate the process, we&#39;re not going to rely on any fancy 
+tool, we&#39;ll actually do it manually. We&#39;re going to make things somewhat simpler 
+by using one of the example channels as a template. To get started, fire object 
+&quot;channels.liveobject&quot; from the &quot;examples&quot; folder, and drag any of the channels 
+onto the &quot;underlyingchannel&quot; parameter of the &quot;Xml Channel&quot; object. Note that 
+&quot;channels.liveobject&quot; will fail if the &quot;Live Distributed Objects&quot; service is not 
+running. You should see the result similar to one below.</p>
+<p class="style1"><img src="screenshot_106.gif" width="893" height="437"></p>
+<p>The object doesn&#39;t type-check correctly because the type of the underlying 
+channel does not match. To fix it, find the &quot;ISerializable&quot; value class in the 
+right-hand pane, and drag in onto the parameters of the underlying channel 
+&quot;Text_1&quot;. This time, the entire object should type-check correctly. You can now 
+grab the entire object and drag it onto the desktop.</p>
+<p>Although the channel object typechecks correctly, it is not usable, because 
+it has a wrong identifier: the channel with the identifier we used already 
+exists, and has a different type. If you tried to use this channel in any 
+context, the runtime would throw and exception. At the very least, we need to 
+change the channel identifier. At the time of writing this tutorial, the object 
+designer didn&#39;t support renaming objects just yet, so we will do it by hand. If 
+you open the newly generated &quot;.liveobject&quot; reference in an XML editor, you will 
+see in it a description of the underlying channel that starts out as follows.</p>
+<p class="style1"><img src="screenshot_107.gif" width="1001" height="274"></p>
+<p>To fix the definition, replace the value of the &quot;id&quot; attribute of the the top 
+&quot;ReferenceObject&quot; element with an unused channel identifier (consult the list of 
+channels displayed by the &quot;channels&quot; object if not sure). While at it, you might 
+also update the channel name and description encoded in custom attributes in the 
+two lines right below it.</p>
+<p class="style1"><img src="screenshot_108.gif" width="1010" height="99"></p>
+<p>Reload the object in the designer to make sure that you didn&#39;t make a typo 
+while editing the XML, you should see the updated channel identifier, name and 
+description, as shown below.</p>
+<p class="style1"><img src="screenshot_109.gif" width="992" height="466"></p>
+<p>By now, we have a complete, well-formed definition of a channel object that 
+can be used in our banking system. However, it won&#39;t work because the 
+communication system doesn&#39;t know about the underlying channel 
+&quot;9999999999999999999&quot;, we need to configure the channel on the channel server.</p>
+<p>All communication substrates built into the live objects platform maintain 
+the list of channels and channel settings in configuration files in the 
+&quot;channels&quot; subfolder relative to the root installation folder of the 
+distribution. Channel definitions are stored only on a selected &quot;controller&quot; 
+node, which managed the network. For each channel, there is a separate folder 
+named after the channel identifier, containing a single file &quot;metadata.xml&quot; with 
+the channel&#39;s configuration settings. To keep things simple, all communication 
+substrates use the same files, so once configured, channels can be easily reused 
+between all the different built-in configuration platforms. In addition to the 
+metadata, depending on the communication substrate used, the channel folder 
+might contain additional data, such as checkpoints saved on the server etc. The 
+simple default communication substrate used in this tutorial only needs the 
+metadata file. The file is formatted in XML, with a single top &quot;&lt;Metadata&gt;&quot; 
+element that contains elements &quot;&lt;ID&gt;&quot;, &quot;&lt;Name&gt;&quot;, and &quot;&lt;Comment&gt;&quot; with the 
+channel&#39;s identifier, optional name and optional description, and elements&quot;&lt;MessageClass&gt;&quot; 
+and &quot;&lt;CheckpointClass&gt;&quot; storing the type definitions of messages and checkpoints 
+exchanged on this channel. An example channel configuration file is shown below.</p>
+<p class="style1"><img src="screenshot_103.gif" width="868" height="428"></p>
+<p>To configure a new channel on the server, we simply create a new folder, with 
+a new &quot;metadata.xml&quot; describing the channel. Since in this tutorial, we are only 
+going to communicate within a single machine, and the channel server resides on 
+the same machine on which we&#39;re doing the development (this is by far the most 
+convenient scenario for debugging simple objects), we&#39;re going to create the 
+folder on the same machine on which we&#39;re running the objects. For the same 
+reason, each new installation of live objects automatically deploys a number of 
+example channels on each machine. Although the ultimate goal is to share objects 
+across the network, for simple debugging and demonstration purposes, one will 
+often use a single machine, hence the preconfigured channel configuration files 
+created locally by the setup. In real deployments, only one machine would be 
+used as a channel &quot;controller&quot; that manages communication for an entire network. 
+In those scenarios, only the channel definitions on the channel controller would 
+be used. The definitions deployed on all other machines would be ignored, and 
+could just as well be deleted.</p>
+<p>For the ease of debugging our example, we will include the configuration 
+files for a single channel in the solution, and add a post-build step that 
+automatically deploys these definitions on the local machine. We start off by 
+adding a channel folder and the new metadata file to the project, as shown 
+below.</p>
+<p class="style1"><img src="screenshot_110.gif" width="910" height="210"></p>
+<p>Note the 128-bit values of &quot;MessageClass&quot; and &quot;CheckpointClass&quot;, we copy 
+those values over from our&nbsp; XML channel definition (they represent the 
+built-in generic &quot;ISerializable&quot; type mentioned earlier).</p>
+<p>Now, we extend the post-build step with the additional copy command to 
+locally deploy the channel definition:</p>
+<p class="style1"><img src="screenshot_111.gif" width="446" height="29"></p>
+<p>You should now be able to recompile the project, and see the channel 
+definition deployed in the &quot;channels&quot; folder. If you start the &quot;QuickSilver Live 
+Objects&quot; service and fire up &quot;channels.liveobject&quot; from the &quot;examples&quot; folder, 
+you should see your new channel listed, as shown below. Note that if the service 
+is already running, it may not pick up the new channel definition immediately 
+(the service is scanning the folder periodically, but it does so only every once 
+in a while), and you may need to restart it to make sure the channel is 
+immediately visible to the clients.</p>
+<p class="style1"><img src="screenshot_112.gif" width="632" height="196"></p>
+<p>&nbsp;</p>
+<p>Note: if you are using an older version of the system, the service may have a bug 
+    that will cause it not to notice that you deployed new channels until you 
+    restart it.</p>
+<p>As an exercise, you may actually drag this channel into the &quot;underlyingchannel&quot; 
+parameter of your Xml channel object, to see that it is correctly served by the 
+communication system, and has a correctly configured type. The object should 
+type-check correctly, and you should also see your updated object name and 
+description retrieved from the channel metadata in the &quot;metadata.xml&quot; file, as 
+shown below.</p>
+<p class="style1"><img src="screenshot_113.gif" width="910" height="342"></p>
+<p>Now, we&#39;re going to define the bank object that uses this channel to 
+coordinate its replicas. Rather than bundling &quot;business logic&quot; with the UI code, 
+as in the previous example, we&#39;re going to separate the two, and implement the 
+&quot;business logic&quot; as a separate object that is passed to the UI as a parameter.</p>
+<p>We start off by defining a new object type to represent the bank. The object 
+will expose one bi-directional endpoint. We define a class of such objects by 
+creating a new .NET interface derived from the generic object class &quot;QS.Fx.Object.Classes.IObject&quot;, 
+annotating it with &quot;QS.Fx.Reflection.ObjectClass&quot; attribute, and defining a 
+number of properties that return endpoints of the desired types, each decorated 
+with an &quot;QS.Fx.Reflection.Endpoint&quot; attribute, as shown below.</p>
+<p class="style1"><img src="screenshot_114.gif" width="617" height="221"></p>
+<p>The above definition states that from now on, the .NET interface &quot;IBank&quot; 
+defined in this class library will represent a live object class with identifier 
+&quot;1&quot;, version &quot;1&quot; and a user-friendly name &quot;Bank&quot;, and that live objects of this 
+class have a single endpoint named &quot;Bank&quot;, which is a bi-directional event 
+channel, with the types of events determined by the two .NET interfaces &quot;IOutgoing&quot; 
+and &quot;IIncoming&quot;. </p>
+<p>The definitions of .NET interface &quot;IIncoming&quot; looks as follows. We declare 
+five types of message exchanges named &quot;Ready&quot;, &quot;Account&quot;, &quot;Transfer&quot;, &quot;Deposit&quot;, 
+and &quot;Withdraw&quot;. The first will be used by the bank client to test whether the 
+bank replica is fully initialized and ready to respond to requests. The second 
+is used to retrieve the list of bank accounts. The last three are used to 
+initiate transactions.</p>
+<p class="style1"><img src="screenshot_115.gif" width="548" height="430"></p>
+<p>In the live objects nomenclature, this interface would define both input and 
+output events, the input events corresponding to each of the method calls, and 
+the output events corresponding to the messages carrying the results. In the 
+most &quot;orthodox&quot; implementation of the
+<a href="http://www.cs.cornell.edu/~krzys/liveobjects_ecoop2008.pdf">live 
+objects model</a>, each interface would only describe one set of events, and 
+communication would be purely asynchronous. In this prototype, we opted for a 
+solution that developers are comfortable with, and allow interfaces to contain 
+declarations of methods that synchronously return values to the caller. The 
+implicit &quot;rule of conduct&quot; we adopt is that all event handlers should terminate 
+promptly, and ideally, never block, lest the system might block. In future 
+versions of the platform, we will add mechanisms to help enforce this by 
+preempting long-running objects, hosting different subsets of objects in 
+different threads or different application domains.</p>
+<p>The definition of the outgoing events interface &quot;IOutgoing&quot; follows a similar 
+pattern. We define two events, &quot;Ready&quot; to notify the user of the bank object 
+that the bank replica is fully initialized and ready to accept requests, and 
+another to alert of changes to account balances.</p>
+<p class="style1"><img src="screenshot_116.gif" width="542" height="221"></p>
+<p>Having defined the bank&#39;s object class, we now define the actual object. The 
+structure of the code should look as below. As usual, the class is annotated 
+with the &quot;QS.Fx.Reflection.ComponentClass&quot; attribute to make it recognizable to 
+the live objects runtime. Since this is not a UI object any more, we don&#39;t 
+derive from the &quot;QS.Fx.Object.Classes.IUI&quot; interface. Instead, we derive from 
+the newly created &quot;IBank&quot; interface. Since this object will have two endpoints, 
+one to expose to other objects and one to use internally to communicate with an 
+embedded channel object, we also implement two event handler interfaces, &quot;IIncoming&quot; 
+for the external endpoint that is to be exposed, and &quot;ICheckpointedCommunicationChannelClient&quot; 
+for the internal endpoint that is to be connected to the channel. The class 
+takes the channel reference as a parameter to the constructor, much in the same 
+way as it was in the previous example. We see a plumbing code in the constructor 
+that by now should have a familiar structure. Finally, in addition to the two 
+endpoints and the internal endpoint connection, we have one data field &quot;mycaccounts&quot; 
+to maintain the bank&#39;s state, and one boolean field &quot;ready&quot; to indicate whether 
+the bank&#39;s state has been initialized.</p>
+<p class="style1"><img src="screenshot_117.gif" width="1021" height="748"></p>
+<p>&nbsp;The implementation of the &quot;IBank&quot; interface is straightforward. As with 
+other interfaces that are object class aliases, we simply return the requested 
+endpoints.</p>
+<p class="style1"><img src="screenshot_118.gif" width="653" height="194"></p>
+<p>The implementation of the bank&#39;s incoming events is also straightforward: we 
+either return the locally cached information, or use the embedded channel to 
+multicast a transaction to be performed against the bank&#39;s replicated state.</p>
+<p class="style1"><img src="screenshot_119.gif" width="719" height="722"></p>
+<p>Finally, we implement the event handlers for channel communications. In the 
+initialization event, we move data from the checkpoint to the internal data 
+structure &quot;mycaccounts&quot;, mark the bank replica as ready to process requests, and 
+if there is some other object connected to the bank replica, we notify the 
+object that the bank is ready by sending event &quot;Ready&quot; through the bank 
+endpoint.</p>
+<p class="style1"><img src="screenshot_120.gif" width="1133" height="316"></p>
+<p>When asked to produce a checkpoint, we use the same code as in the bank 
+interface above.</p>
+<p class="style1"><img src="screenshot_121.gif" width="1013" height="173"></p>
+<p>The implementation of the update event is a bit more complex, but that&#39;s just 
+because we chose to cram more complex logic into a single message: the bank 
+performs deposit, withdrawal, or transfer of funds depending on whether the 
+&quot;from&quot; or &quot;to&quot; fields are null or empty, and creates new accounts as needed. We 
+also iterate over all accounts that changed and issue an outgoing event through 
+the bank interface to alert the connected object to the change.</p>
+<p class="style1"><img src="screenshot_122.gif" width="1134" height="748"></p>
+<p>With the bank logic embedded in the bank object, we can now write a host of 
+different frontends to perform different bank-related tasks. We will implement 
+two frontends, the first will be a report that just shows the list of accounts 
+and balances, and the second will have an interface through which one can issue 
+transactions. By now, the structure of the code should be self-explanatory, so 
+we will just print the actual code. The overall code structure of the report 
+object looks as below. </p>
+<p class="style1"><img src="screenshot_123.gif" width="851" height="724"></p>
+<p>In response to any notifications from the bank, we simply refresh the entire 
+view.</p>
+<p class="style1"><img src="screenshot_124.gif" width="424" height="306"></p>
+<p>The actual code that does the refresh simply retrieves all accounts from the 
+bank object and populates a list view.</p>
+<p class="style1"><img src="screenshot_125.gif" width="926" height="537"></p>
+<p>This is it. The code of the second object is even simpler. The overall 
+structure is as shown below.</p>
+<p class="style1"><img src="screenshot_126.gif" width="854" height="677"></p>
+<p>The event handlers do nothing and simply ignore the incoming events, and 
+pressing a button results in a new ooutgoing event passed to the bank object.</p>
+<p class="style1"><img src="screenshot_127.gif" width="521" height="769"></p>
+<p>To test the project, strart up atleast one copy of the control and one copy of 
+    the report objects. To create a new account, leave the &quot;from&quot; field empty, put 
+    some name in the &quot;to&quot; field, and some amount in the &quot;amount&quot; field. This will 
+    create a new account with the amount requested. Every time you transfer money 
+    into an acocunt that doesn&#39;t exist, one is created. The source of account can be 
+    either another account, or if none is specified, money is created out of the 
+    thin air. </p>
+<p>For reference, compare your code with a <a href="SomeStuff_2.zip">complete 
+solution of the example implemented in this section</a>.</p>
+<p class="style1"><img src="screenshot_128.gif" width="479" height="329"></p>
+<p>This concludes our example. Of course, the example is rather naive, and we 
+wouldn&#39;t implement a real banking service this way. If nothing else, we wouldn&#39;t 
+fully replicate and transfer bank state across all clients, and instead leave it 
+to a core set of replicas, perhaps one per site. We would not want to retrieve 
+the full list of accounts in each report, and we wouldn&#39;t want to issue 
+notifications for all account changes. We would also need some level security, 
+and a fault-tolerance component that ensures there is always at least a few 
+working replicas maintaining the bank&#39;s state (in this example, all the accounts 
+are erased at the second the last bank object replica disappears, so we would 
+need to make sure that a core set of such replicas is always running). A more 
+sophisticated implementation would take these factors into account. We leave it 
+up to the user to come up with the solutions (if you do, and would like to add 
+some of your ideas to this tutorial, please
+<a href="mailto:krzys@cs.cornell.edu">let us know</a>).</p>
+<p><strong><a name="mashup_object"></a>Creating a Simple Mash-Up Object That 
+Contains Other Objects and Uses Reflection</strong></p>
+<p>The third example will illustrate the process of loading other objects and 
+reflection mechanisms that can be used to inspect their types. We will create a 
+simple shared object container that allows the user to drag and drop visual 
+objects inside. Example usage is shown below. Here, two shared text objects have 
+been dragged inside, and are displayed one after another.</p>
+<p class="style1"><img src="screenshot_129.gif" width="724" height="233"></p>
+<p>As before, we start by defining the types of messages and state checkpoints. 
+The distributed state in our object will consist of a list of serialized XML 
+object definitions, and so the checkpoint will be simply a list of strings. The 
+checkpoint would look as shown below.</p>
+<p class="style1"><img src="screenshot_130.gif" width="608" height="356"></p>
+<p>The contents of the update class would in general depend on the type of 
+update being applied, so one of the fields of the update message will be the 
+operation code. In this example, we will implement only one operation, adding 
+new objects to the mash-up. As before, we will simply include the serialized XML 
+definition of the object being added in the update message.</p>
+<p class="style1"><img src="screenshot_131.gif" width="692" height="544"></p>
+<p>As before, we will be using the &quot;XmlChannel&quot; wrapper to carry objects, so we 
+need another binary channel, as shown below.</p>
+<p class="style1"><img src="screenshot_132.gif" width="1050" height="201"></p>
+<p>The header of the new object class will need to include the usual annotation 
+with the &quot;ComponentClass&quot; attribute. We will be coding a UI object, so we will 
+inherit from the &quot;QS.Fx.Object.Classes.IUI&quot; interface to inform the runtime that 
+this is a UI object. Finally, we will be using an embedded communication 
+channel, and this class will implement all the event handlers, so we inherit 
+from channel client event handler interface &quot;QS.Fx.Interface.Classes.ICheckpointedCommunicationChannelClient&quot; 
+parameterized by the types of checkpoints and messages we will exchange.</p>
+<p class="style1"><img src="screenshot_133.gif" width="640" height="196"></p>
+<p>The constructor will have two parameters. Apart from the communication 
+channel, we will also need some object that will help us de-serialize the XML 
+definitions, and produce usable object references. This will allow us to 
+dynamically instantiate proxies to the embedded objects.</p>
+<p class="style1"><img src="screenshot_134.gif" width="734" height="350"></p>
+<p>In the body of the constructor, we simply create all the necessary endpoints, 
+one to the embedded channel, and another to the embedded loader object, and we 
+establish connections.</p>
+<p class="style1"><img src="screenshot_135.gif" width="702" height="471"></p>
+<p>To support the code above, we will need a few extra fields shown below.</p>
+<p class="style1"><img src="screenshot_136.gif" width="653" height="359"></p>
+<p>As it is with any type of object, we need to return on demand endpoints that 
+other objects can use, so we have the usual property getter that returns the 
+external endpoint we created in the constructor. </p>
+<p class="style1"><img src="screenshot_140.gif" width="587" height="116"></p>
+<p>Now, we move on the the running state that we will maintain. First, we will 
+keep a list of the serialized XML definitions of all embedded objects. Keeping 
+them serialized is convenient when we need to provide a checkpoint for other 
+objects.</p>
+<p class="style1"><img src="screenshot_137.gif" width="498" height="29"></p>
+<p>Returning a checkpoint is straightforward, we simply wrap the list of 
+serialized definitions in the checkpoint class.</p>
+<p class="style1"><img src="screenshot_141.gif" width="629" height="290"></p>
+<p>Initialization will look similar, but we will need a bit of extra code. When 
+we initialize the local replica, we not only need to store the object 
+definitions, but we also need to actually load and display the embedded objects. 
+Since this involves UI code, we need to do so asynchronously. To this purpose, 
+aside from storing the definitions on the list, we also store new definitions on 
+a queue. These queued definitions will need to be &quot;processed&quot; later.</p>
+<p class="style1"><img src="screenshot_138.gif" width="607" height="30"></p>
+<p>Initialization code would then look as below. Note the call to the &quot;LoadEmbeddedObject&quot; 
+method. This method will asynchronously process the queued definitions.</p>
+<p class="style1"><img src="screenshot_142.gif" width="656" height="565"></p>
+<p>Processing an update looks very similar, we just store a single definitions 
+rather than multiple definitions at once.</p>
+<p class="style1"><img src="screenshot_143.gif" width="656" height="590"></p>
+<p>The asynchronous processing method &quot;LoadEmbeddedObject&quot; switches to the UI 
+context, and then simply processes the queue, calling another helper method on 
+each of the XML strings one by one.</p>
+<p class="style1"><img src="screenshot_144.gif" width="677" height="305"></p>
+<p>The second helper method looks as follows. This one requires a bit more 
+explanation. First, we use the embedded loader to translate a serialized XML 
+specification into an object reference. Next, we access the &quot;ObjectClass&quot; field 
+of the reference to inspect the class of the referenced object. We use the &quot;IsSubtypeOf&quot; 
+method to test whether the object is a UI object. We pass as an argument a 
+reference to the class of UI objects that we saved earlier (the relevant code is 
+also given below). If the test is successful, we cast the generic object 
+reference to a UI object reference. Having obtained a UI reference, we can 
+dereference it to produce a proxy to the actual UI object. Subsequently, we 
+create an endpoint that we will use to connect to this proxy, we dynamically 
+establish the connection, and store the connection reference on the list of 
+connections (if we didn&#39;t store it, it would be garbage collected and 
+disconnected).</p>
+<p class="style1"><img src="screenshot_145.gif" width="644" height="424"></p>
+<p>To support this code, we need another local variable to store the 
+connections. We will also need to get a reference to the class of UI objects 
+that the above code relies upon. We do that by calling generic method &quot;ObjectClass&quot; 
+of &quot;QS.Fx.Reflection.Library.Create&quot;, passing the alias type of the class of UI 
+objects as a generic parameter.</p>
+<p class="style1">&nbsp;<img src="screenshot_139.gif" width="847" height="101"></p>
+<p>By now, we have all we need to be able to display and exchange the replicated 
+state, but we don&#39;t have any code that would modify it. We make the container 
+accept drag and drop events (you need to set the &quot;AllowDrop&quot; property on the 
+visual elements), and implement the &quot;DragEnter&quot; and &quot;DragDrop&quot; methods (you need 
+to create associations from the UI, consult the MSDN documentation or look at&nbsp; 
+the zipped example if you don&#39;t know how). In this example, we will only accept 
+objects dragged as text, so the &quot;DragEnter&quot; method will look as follows.</p>
+<p class="style1"><img src="screenshot_146.gif" width="659" height="333"></p>
+<p>It is straightforward to modify it to also accept drag and drop of files, and 
+we leave this as an exercise for you. Now, the code that handles the actual drop 
+operation should look familiar. We simply access the dragged text, wrap it as an 
+update, and push along the channel.</p>
+<p class="style1"><img src="screenshot_147.gif" width="692" height="354"></p>
+<p>That&#39;s it. Our object is complete. To test it, we just need a &quot;.liveobject&quot; 
+reference file. The process of creating it is similar to what we did in the 
+previous examples, so we won&#39;t go over it step by step. You can compare your 
+code with the complete definitions shown below.</p>
+<p>First, the visual representation of the object reference.</p>
+<p class="style1"><img src="screenshot_152.gif" width="1096" height="833"></p>
+<p>And here&#39;s the left-pane tree view listing showing all relevant types and 
+parameter values.</p>
+<p class="style1"><img src="screenshot_153.gif" width="452" height="645"></p>
+<p>The structure of the underlying XML file looks as below.</p>
+<p class="style1"><img src="screenshot_148.gif" width="1013" height="265"></p>
+<p>The &quot;channel&quot; parameter passed as an argument to your object looks like 
+below.</p>
+<p class="style1"><img src="screenshot_149.gif" width="782" height="303"></p>
+<p>The &quot;underlyingchannel&quot; parameter of the XmlChanel object is given below.</p>
+<p class="style1"><img src="screenshot_150.gif" width="838" height="534"></p>
+<p>Finaally, here&#39;s how the &quot;loader&quot; parameter passed to your object would look.</p>
+<p class="style1"><img src="screenshot_151.gif" width="791" height="167"></p>
+<p>For reference, compare your code with a <a href="SomeStuff_3.zip">complete 
+solution of the example implemented in this section</a>.</p>
+<p>&nbsp;</p>
+</BODY>
+<h3><a name="gossip_objects"></a>Gossip Objects</h3>
+<p>This distribution of live objects includes an experimental platform for 
+    supporting gossip style of communication between distributed live objects.&nbsp; 
+    Click <a href="gossip.html">here to see the documentation.</a></p>
+
+</HTML>

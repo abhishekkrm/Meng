@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>AppFileBacking Info</title>
+</head>
+<body>
+<h1><b>AppFileBacking</b></h1>
+<h4><b>Description</b></h4>
+<p>The purpose of this component is to provide file backing for a Checkpointed Communication Channel (CC) so that it can recover it's state after a crash or disconnection. It accomplishes this by writing all messages received to a file, as well as recording the checkpoint of the channel at timed intervals. This component exposes a CheckpointedCommunicationChannel endpoint, so any component implementing the matching client endpoint can connect to it. The path to the file to use for storage is a constructor argument that must be specified in the liveobject along with an integer representing the interval in milliseconds between when checkpoints should be recorded. The file specified has the extension ".ccbackup" appended to it. When a new checkpoint is obtained, a new backup file is started. In order to prevent the old file's data being lost in the event of a crash while starting a new file, the old file is first given the extension .old. Then the file is created and the new checkpoint written to it. Only after this is the old file deleted. It should be noted that the path specified is not an absolute path nor is it relative from the liveobject's current directory. Rather, it currently starts in the liveobject's temp directory, in a folder who's name is the timestamp when liveobject's was executed. This path will generally be C:\liveobjects\temp\200910141446250700000035447991\tmp2 where that timestamp folder will be replaced with the current timestamp.</p>
+<p>Because of this timestamp folder, retrieving a stored file on startup is not easy, since it cannot be known which previous timestamp folder the file is stored in. Therefore, in the sample liveobject, TextFileBacking, the path specified is  ..\..\&lt;filename&gt; in order to navigate out of this timestamped directory.</p>
+<h4><b>Example</b></h4>
+<p>
+An example liveobject using this component can be found in TextFileBacking.liveobject. This simple example stores messages input to a file located at C:\liveobjects\temp\testmsgstore.txt.ccbackup. Examining the xml of this liveobject, one will notice that the path to the file to store backup data is ..\..\textmsgstore.txt. The navigating up two directories is to circumvent the issue described in the previous section. Upon executing TextFileBacking, if the backup file already exists, then the channel will be initiated with the checkpoint from the file and the very last update recorded in the file should appear on the text box UI. If there is no backup file present, a new one will be started and the text box will be empty.
+</p>
+</body>
+</html>

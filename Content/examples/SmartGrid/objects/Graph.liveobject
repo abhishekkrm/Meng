@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Object xsi:type="ReferenceObject" id="572CC8684441411282C389AF806539F9`1:1`1">
+	<!-- Text -->
+		<Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Graph"/>
+		<Attribute id="07EC27D89CBD410DADE60463E4D46985" value="This is a text message #1."/>
+		<Parameter id="channel">
+		  <Value xsi:type="ReferenceObject" id="00000000000000000000000000001034">
+			<ObjectClass id="806C71E88E749AA879E52F960F4B881">
+			  <!-- CheckpointedCommunicationChannel -->
+			  <Parameter id="MessageClass">
+				<Value xsi:type="ValueClass" id="982130E40A294E3CAD5441841E87941E" />
+				<!-- Text -->
+			  </Parameter>
+			  <Parameter id="CheckpointClass">
+				<Value xsi:type="ValueClass" id="982130E40A294E3CAD5441841E87941E" />
+				<!-- Text -->
+			  </Parameter>
+			</ObjectClass>
+			<From xsi:type="ReferenceObject" id="011E83FA6A9F426993BB8EF26FF7D7B8">
+			  <!-- Centralized_CC -->
+			  <ObjectClass id="D111EEF8754D4EB98ABD90B0260AEF93">
+				<!-- Dictionary -->
+				<Parameter id="KeyClass">
+				  <Value xsi:type="ValueClass" id="2FEB1E028342422CBD38CB074B957973" />
+				</Parameter>
+				<Parameter id="ObjectClass">
+				  <Value xsi:type="ObjectClass" id="F5225FA26F7C4F6D93C9E5A1A45FCF45" />
+				</Parameter>
+			  </ObjectClass>
+			  <From xsi:type="ReferenceObject" id="E8C9D312C27649F39812B8E99AA67CBC" />
+			  <!-- Registry -->        
+			</From>
+		  </Value>
+		</Parameter>
+	</Object>
+</Root>

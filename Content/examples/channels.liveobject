@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright (c) 2010 Krzysztof Ostrowski. All rights reserved.
+
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the
+following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+  copyright notice, this list of conditions and the following
+  disclaimer in the documentation and/or other materials provided
+  with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="0C4E4E5F6DB24C04910D1CBE473CBE24" >
+    <Parameter id="folder">
+      <Value xsi:type="ReferenceObject" id="011E83FA6A9F426993BB8EF26FF7D7B8">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Centralized Comm. Channel Client"/>
+        <ObjectClass id="D111EEF8754D4EB98ABD90B0260AEF93">
+          <Parameter id="KeyClass">
+            <Value xsi:type="ValueClass" id="2FEB1E028342422CBD38CB074B957973" />
+          </Parameter>
+          <Parameter id="ObjectClass">
+            <Value xsi:type="ObjectClass" id="F5225FA26F7C4F6D93C9E5A1A45FCF45" />
+          </Parameter>
+        </ObjectClass>
+        <From xsi:type="ReferenceObject" id="E8C9D312C27649F39812B8E99AA67CBC" />
+      </Value>
+    </Parameter>
+    <Parameter id="loader" >
+      <Value xsi:type="ReferenceObject" id="991815B1E97F4BEF811476F01270FDA8">
+        <Parameter id="library">
+          <Value xsi:type="ReferenceObject" id="BFB405E1F3134A33AF093B0D4901318B" />
+        </Parameter>
+      </Value>
+    </Parameter>
+  </Object>
+</Root>

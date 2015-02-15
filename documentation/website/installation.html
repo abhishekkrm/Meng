@@ -1,0 +1,543 @@
+﻿<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 8.0">
+<TITLE>Live Distributed Objects - Installation and Basic Configuration</TITLE>
+<style type="text/css">
+.style1 {
+	text-decoration: underline;
+}
+.style2 {
+	margin-left: 40px;
+}
+</style>
+</HEAD>
+<BODY>
+<h1>Live Distributed Objects</h1>
+<h2>Installation and Basic Configuration</h2>
+<p>
+<a href="#prerequisites">Prerequisites</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#prerequisites_hardware">Hardware Requirements</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#prerequisites_software">Software Requirements</a><br>
+<a href="#accessing">Accessing the Live Objects Website</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#accessing_generalinfo">General Information</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#accessing_ssl">Accessing the SSL-secured Portion of 
+the Website</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#accessing_registration">Registration</a><br>
+<a href="#downloading">Downloading and Installing the Software</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#standalone_installer">Download and the First 
+Installation Using a Standalone Installer</a><br>
+&nbsp;&nbsp;&nbsp;
+<a href="#incremental">Applying Incremental Updates Manually</a><br>
+<a href="#auto">Configuring Automatic Updates</a><br>
+&nbsp;&nbsp;&nbsp;
+<a href="#autoupdate">Configuring an Automatic Update Mechanism on the Client 
+Machine</a><br>
+&nbsp;&nbsp;&nbsp;
+<a href="#server">Configuring an Automatic Update Server</a></p>
+<h3><a name="accessing"></a><a name="prerequisites"></a>Prerequisites</h3>
+<p><strong><a name="prerequisites_hardware"></a>Hardware Requirements</strong></p>
+<p>In terms of hardware requirements, the most important limitation is that 
+imposed by the XNA framework. If you machine does not support DirectX 9.0c and 
+Shader Model 1.1, you will not be able to execute graphical components that rely 
+on those features. You may or may not be able to install the system and use 
+other components (we have not tested our system on legacy platforms). For more 
+detail on the hardware requirements, refer to the information on the Microsoft&#39;s
+<a href="http://msdn2.microsoft.com/en-us/directx/default.aspx">DirectX</a> and
+<a href="http://msdn2.microsoft.com/en-us/xna/default.aspx">XNA</a> web pages. </p>
+<p><em><span class="style1">Note</span>: The above requirement may prevent you 
+from being able to run the system in a virtual machine under VMWare, Microsoft 
+Virtual PC, or Microsoft Virtual Server. We don&#39;t keep track of the current 
+status of the problem and have not tested our system on these platforms, and the 
+last time we checked, the hardware still lacked adequate support. If you do 
+manage to run the graphical components or even the minimal subset of the 
+platform on a virtual machine, please do <a href="mailto:krzys@cs.cornell.edu">
+let us know</a>.&nbsp; </em></p>
+<p><strong><a name="prerequisites_software"></a>Software Requirements</strong></p>
+<p>Currently, our system is only supported on Windows XP/2003/Vista/2008. The system 
+    will work on 32-bit and 64-bit versions of the OS (although in the latter case 
+    it will do so using WOW64; currently, Microsoft&#39;s XNA libraries are not 
+    supported for true 64-bit applications). True 64-bit and Linux versions of the 
+    runtime with limited functionality will be available in the near future.</p>
+    <p>In 
+order to simply run the platform (but not develop components for it), you will 
+need to install the following minimum runtime components, in the order in which they 
+    are listed below (note you may also need 
+to install the latest service packs). </p>
+ <ol>
+ 	<li>
+	<a href="http://www.microsoft.com/downloads/details.aspx?familyid=AB99342F-5D1A-413D-8319-81DA479AB0D7&amp;displaylang=en">
+		Microsoft .NET Framework 3.5 Service Pack 1</a> </li>
+ 	<li>
+	<a href="http://www.microsoft.com/downloads/details.aspx?familyid=a5c84275-3b97-4ab7-a40d-3802b2af5fc2&amp;displaylang=en">
+		Microsoft Visual C++ 2008 SP1 Redistributable Package (x86)</a> </li>
+ 	<li>
+	<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=0CEF8180-E94A-4F56-B157-5AB8109CB4F5&amp;displaylang=en">
+		DirectX End-User Runtimes (February 2010)</a> </li>
+	<li>
+	<a href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=53867a2a-e249-4560-8011-98eb3e799ef2">
+		Microsoft XNA Framework Redistributable 3.1</a> </li>
+ </ol>
+<p>In order to develop components for the platform, you should equip yourself 
+with a recent version of Visual Studio and the relevant SDKs (Windows, DirectX). 
+We recommend setting up the following environment.</p>
+<ol>
+	<li>
+	<a href="http://www.microsoft.com/Express/">
+	Microsoft Visual Studio 2008 Express Edition</a> (or any higher edition; we recommend Professional since it supports multithreaded debugging)</li>
+	<li>
+	<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=27673c47-b3b5-4c67-bd99-84e525b5ce61&displaylang=en">
+	Microsoft Visual Studio 2008 Service Pack 1</a></li>
+	<li>
+	<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=F26B1AA4-741A-433A-9BE5-FA919850BDBF&displaylang=en">
+	Microsoft Windows SDK for Windows Server 2008 and .NET Framework 3.5</a></li>
+	<li>
+	<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=24a541d6-0486-4453-8641-1eee9e21b282&displaylang=en">
+	Microsoft DirectX SDK March 2009</a></li>
+	<li>
+	<a href="http://www.microsoft.com/downloads/details.aspx?familyid=7D70D6ED-1EDD-4852-9883-9A33C0AD8FEE&displaylang=en">
+	Microsoft XNA Game Studio 3.0</a></li>
+	<li>
+	<a href="http://www.microsoft.com/downloads/details.aspx?familyid=30402623-93ca-479a-867c-04dc45164f5b&amp;displaylang=en">
+	Microsoft Visual Studio 2008 SDK</a></li>
+</ol>
+<p>Components that are distributed as ISO can be installed by mounting ISO as a virtual drive, for example using (freeware) SlySoft's <a href="http://www.slysoft.com/en/virtual-clonedrive.html">Virtual CloneDrive</a>.</p>
+<p>Although not necessary, the following are also extremely useful for this type 
+of development:</p>
+<ol>
+	<li>
+	<a href="http://www.microsoft.com/whdc/devtools/debugging/installx86.mspx">
+	Debugging Tools for Windows</a></li>
+	<li>(set the system environment variable &quot;_NT_SYMBOL_PATH&quot; to value 
+	&quot;SRV*c:\symbols*http://msdl.microsoft.com/download/symbols&quot;)</li>
+	<li>
+	<a href="http://technet.microsoft.com/en-us/sysinternals/0e18b180-9b7a-4c49-8120-c47c5a693683.aspx">
+	SysInternals Suite</a> (in particular the extremely useful &quot;Process 
+	Explorer&quot;)</li>
+	<li>Some scripting tools, ideally
+	<a href="http://www.microsoft.com/windowsserver2003/technologies/management/powershell/download.mspx">
+	PowerShell</a> and <a href="http://www.codeplex.com/IronPython">IronPython</a> 
+	because they they natively support .NET</li>
+	<li>Some network monitoring software, for example
+	<a href="http://www.ethereal.com/">Ethereal</a></li>
+</ol>
+<p>For some advanced configuration, you may also need to locate on your machine 
+or download various additional administrative tools, such as &quot;makecert.exe&quot; or 
+&quot;httpcfg.exe&quot;.</p>
+<p>For comfortable development, you will sometimes need to control the local 
+firewall settings, and be able to run as a local &quot;Administrator&quot; on the machine 
+on which you are developing your application. On Windows Vista and Windows 2008, 
+you may need to launch Visual Studio and Command Prompt in the &quot;elevated&quot; mode.
+</p>
+<h3>Accessing the Live Objects Website</h3>
+<p>Before you read the tutorial, you may watch this short video that 
+illustrates the sequence of actions we will walk you through.</p>
+<p>
+<object 
+  width="800" 
+  height="560"
+  classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+  codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" >
+  <param name="movie" value="http://liveobjects.cs.cornell.edu:55996/player.swf" />
+  <param name="flashvars" value="file=http://liveobjects.cs.cornell.edu:55996/0000/tutorial.flv&autoStart=false" />
+  <embed  
+    src="http://liveobjects.cs.cornell.edu:55996/player.swf"
+    flashvars="file=http://liveobjects.cs.cornell.edu:55996/0000/tutorial.flv&autoStart=false"
+    width="800" 
+    height="560"
+    type="application/x-shockwave-flash" 
+    pluginspage="http://www.macromedia.com/go/getflashplayer" /> 
+</object>
+</p>
+<p><strong><a name="accessing_generalinfo"></a>General Information</strong></p>
+<p>The distribution, documentation, and all related content resides
+<a href="http://liveobjects.cs.cornell.edu">
+http://liveobjects.cs.cornell.edu</a>. Some of the content is only available 
+through a secure SSL connection, and some is only available to registered users. 
+Anyone can register for free. We require registration because we would like 
+to have a rough idea of who is using our system. We will not collect any 
+personal information without explicitly requesting your permission to do so, and 
+we will not share the registration data with anyone.</p>
+<p><strong><a name="accessing_ssl"></a>Accessing SSL-secured Portion of the Website</strong></p>
+<p>To access the secured portion of the website, you need to have a browser that 
+supports 128-bit encryption, and you should install our
+<a href="http://liveobjects.cs.cornell.edu/getcertificate.aspx">server 
+certificate</a> in your trusted certificate storage, in the &quot;Trusted Root Certification Authorities&quot; 
+folder and optionally also in the &quot;Trusted People&quot; 
+folder. If the browser does not prompt you to do install the certificate automatically, you should 
+follow the process outlined below.</p>
+<p><em><span class="style1">Note</span>: For the purpose of browsing the content on this server, it is enough to 
+install the certificate in the folders associated with the &quot;Current User&quot;. If your browser automatically prompts you to install the 
+certificate, this is where the certificate will go. However, if you plan to use 
+our optional update mechanism to automatically keep our machine in sync with our 
+update server, you should place the certificate in the folders associated with 
+the &quot;Local Machine&quot;, so that it can be used also by the update service. The process outlined here 
+achieves the latter.</em></p>
+<ol>
+	<li>Download the certificate from
+	<a href="http://liveobjects.cs.cornell.edu/getcertificate.aspx">
+	http://liveobjects.cs.cornell.edu/getcertificate.aspx</a>, or by clicking 
+	the &quot;certificate&quot; button on the main page.</li>
+	<li>Open the Microsoft Management Console by typing &quot;mmc&quot; either in the 
+	input field under the &quot;Run...&quot; option in &quot;Start Menu&quot;, or in a new console 
+	window launched by &quot;Command Prompt&quot; from the &quot;Accessories&quot; menu.</li>
+	<li>Select &quot;File&quot;, followed by &quot;Add/Remove Snap-In&quot;, and add the 
+	&quot;Certificates&quot; snap-in to the console. You will need to edit the 
+	certificates stored on the local machine, so choose the &quot;Computer Account&quot; 
+	in the following dialog.</li>
+	<li>In the tree view, navigate to &quot;Console Root&quot;, then &quot;Certificates (Local 
+	Computer)&quot;, then &quot;Trusted Root Certification Authorities&quot;, right-click on 
+	the node and choose the &quot;Import...&quot; command from the &quot;All Tasks&quot; menu. 
+	Navigate to the &quot;.cer&quot; file downloaded from the unsecure portion of the 
+	liveobjects website and import the certificate.</li>
+	<li>Optionally, copy the certificate to the &quot;Trusted People&quot; folder by using 
+	copy and paste commands from the context menu.</li>
+</ol>
+<p>The installed certificate should appears in the management console window as 
+follows:</p>
+<p class="style2"><img src="screenshot_001.gif" width="1066" height="409"></p>
+<p><strong><a name="accessing_registration"></a>Registration</strong></p>
+<p>To register, simply click &quot;register&quot; navigate on the main page, or go 
+directly to the registration form at
+<a href="https://liveobjects.cs.cornell.edu/registration.aspx">
+https://liveobjects.cs.cornell.edu/registration.aspx</a>. After you provide the 
+credentials, we will send you an email with an activation code, which you need 
+to type into the form at the activation page at
+<a href="https://liveobjects.cs.cornell.edu/activation.aspx">
+https://liveobjects.cs.cornell.edu/activation.aspx</a> to activate the account 
+and gain access to the secured area at
+<a href="https://liveobjects.cs.cornell.edu/s/">
+https://liveobjects.cs.cornell.edu/s/</a>, from which you will be able to 
+download the system and eventually also control various personal settings, such 
+as notification or access to other services. Your email address will serve as 
+the account name. Your credentials are stored in the cookies.</p>
+<h3>Downloading and Installing the Software</h3>
+<p><strong><a name="standalone_installer"></a>Download and the First 
+Installation Using a Standalone Installer</strong></p>
+<p>Before you read the tutorial, you may watch this short video that 
+illustrates the sequence of actions we will walk you through.</p>
+<p>
+<object 
+  width="800" 
+  height="560"
+  classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+  codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" >
+  <param name="movie" value="http://liveobjects.cs.cornell.edu:55996/player.swf" />
+  <param name="flashvars" value="file=http://liveobjects.cs.cornell.edu:55996/0001/tutorial.flv&autoStart=false" />
+  <embed  
+    src="http://liveobjects.cs.cornell.edu:55996/player.swf"
+    flashvars="file=http://liveobjects.cs.cornell.edu:55996/0001/tutorial.flv&autoStart=false"
+    width="800" 
+    height="560"
+    type="application/x-shockwave-flash" 
+    pluginspage="http://www.macromedia.com/go/getflashplayer" /> 
+</object>
+</p>
+<p>To perform the initial installation, you need to download a standalone 
+&quot;liveobjects.msi&quot; file containing the installer from the secured area of our 
+website, at <a href="https://liveobjects.cs.cornell.edu/s/">
+https://liveobjects.cs.cornell.edu/s/</a>. After downloading, execute the file 
+from an account with Administrative permissions (the installation involves 
+registering two system services and writing a handful of registry entries). As 
+long as you have satisfied all prerequisites, the installation should not go 
+smoothly. If any errors occur, double-check whether you have the necessary 
+runtime components, and whether older, beta versions of these components are 
+still on the system, thus causing problems with loading libraries and resolving 
+dependencies. If the installation fails for unknown reason, please do
+<a href="mailto:krzys@cs.cornell.edu">contact us</a>.</p>
+<p>After installation, your machine is modified in the following manner:</p>
+<ol>
+	<li>All binaries, configuration, content, and other files are gathered in 
+	one place, by default at &quot;C:\liveobjects&quot;.</li>
+	<li>Two system services are installed that run under the SYSTEM account, by 
+	default are stopped, and are configured to start manually:<ul>
+		<li>&nbsp;&quot;Live Distributed Objects&quot;. This service is mapped to file 
+		&quot;\bin\liveobjects.exe&quot; relative to the root installation folder, and it 
+		is simply a special instance of the live objects runtime that runs with 
+		the SYSTEM credentials and hosts service components shared by all 
+		processes on the current machine. The components to run in the system 
+		scope are collected in the &quot;\services&quot; folder, and include a simple 
+		local multicast server that you can use for running a demo or for 
+		debugging purposes. </li>
+		<li>&quot;Live Distributed Objects Autoupdate&quot;. This service is mapped to &quot;\autoupdate\bin\autoupdate.exe&quot;, 
+		it is an autoupdate client and server that you can use to have your 
+		machine automatically pull the latest versions of our plaform from our 
+		central server, or a server you setup manually e.g. for a lab or cluster 
+		environment.</li>
+	</ul>
+	</li>
+	<li>We register a number of COM components and modify the file associations, 
+	so that files with the &quot;.liveobject&quot; extension are executed by the 
+	liveobjects runtime when doubleclicked or launched from the console window.</li>
+</ol>
+<p>To quickly test the system, start the &quot;Live Distributed Objects&quot; service, 
+either by using the &quot;Services&quot; tool in &quot;Administrative Tools&quot;, or by executing 
+&quot;net start LiveDistributedObjects&quot; in the console window. Check that the service 
+process has not terminated unexpectedly, and that it has a TCP port open at the 
+default address 60000. You may do the latter by typing in &quot;netstat -a -b -n&quot; in 
+the console window. In the output of the command, you should be looking for an 
+entry that looks more or less like the following.</p>
+<p class="style2">TCP 172.23.16.35:60000 0.0.0.0:0 LISTENING<br>
+[liveobjects.exe]</p>
+<p>If you installed the SysInternals suite, you can achieve the same more easily 
+by launching Process Explorer, double-clicking on the &quot;liveobjects.exe&quot; process, 
+and selecting the &quot;TCP/IP&quot; tab in the information dialog that pops up.</p>
+<p>If the service is running, you should be able to launch some of the 
+pre-configured components we provided to get you started. Double-click on the 
+&quot;shared_text_1.liveobject&quot; file in the &quot;\examples&quot; folder, or type &quot;C:\liveobjects\bin\liveobjects.exe 
+C:\liveobjects\examples\shared_text_1.liveobject&quot; from the console window 
+(modify the path accordingly). Do it at least twice. You should see two (or 
+more) windows popping up. Any text typed in one of the windows should be 
+automatically propagated to the others, in either direction. It should look more 
+or less as follows. </p>
+<p class="style2"><img src="screenshot_002.gif" width="610" height="382"></p>
+<p>You can also test whether XNA framework is supported on your machine by 
+executing file &quot;window_x.liveobject&quot;, again either by double-click, or by 
+passing it as an argument to &quot;liveobjects.exe&quot;. The component you are starting 
+is a generic container for rendering live objects with 3-dimensional interface. 
+If you see a window with a black background (picture on the left), the graphics 
+components are working. In all likelihood, you will also hear a distinct noise 
+of the fan on your graphics adapter spinning up. Now, try to drag file 
+&quot;shared_folder_1.liveobject&quot; (don&#39;t confuse it with&nbsp; 
+&quot;shared_folder_1_view.liveobject&quot;) into the black window. The file you are 
+dragging is a shared folder, and by connecting it to the 3-dimensional window, 
+you instruct the runtime to start rendering all objects that reside in the 
+shared folder and have a 3-dimensional interface. By default, the shared folder 
+is empty, hence you should only see a patch of blue sky. The caption should also 
+confirm that you are connected to the shared folder (as in a picture on the 
+right).</p>
+<p class="style2"><img src="screenshot_003.gif" width="855" height="394"> </p>
+<p>When you are done testing, you can shutdown the service by executing &quot;net 
+stop LiveDistributedObjects&quot;. Because the multicast component we have installed 
+by default for debugging purposes does not require secure connections, it is 
+best to leave the service as starting manually and shut it down when not needed. 
+Later in the tutorial, we will discuss the ways to configure secure 
+communication.</p>
+<p><a name="incremental"><strong></strong></a><strong>Applying Incremental Updates Manually</strong></p>
+<p>Before you read the tutorial, you may watch this short video that 
+illustrates the sequence of actions we will walk you through.</p>
+<p>
+<object 
+  width="800" 
+  height="560"
+  classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+  codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" >
+  <param name="movie" value="http://liveobjects.cs.cornell.edu:55996/player.swf" />
+  <param name="flashvars" value="file=http://liveobjects.cs.cornell.edu:55996/0003/tutorial.flv&autoStart=false" />
+  <embed  
+    src="http://liveobjects.cs.cornell.edu:55996/player.swf"
+    flashvars="file=http://liveobjects.cs.cornell.edu:55996/0003/tutorial.flv&autoStart=false"
+    width="800" 
+    height="560"
+    type="application/x-shockwave-flash" 
+    pluginspage="http://www.macromedia.com/go/getflashplayer" /> 
+</object>
+</p>
+<p>We create incremental updates are release much more often, sometimes daily. 
+These updates assume that you have basic a folder structure and some initial 
+configuration in place, so they should be used to patch a system that has been 
+previously installed through a standalone installer, not for the initial setup. 
+An incremental update is managed by &quot;autoupdate\bin\autoupdate.exe&quot;, which comes 
+already preinstalled, but by default is not active. </p>
+<p>There are two modes of updating: updating using a manually downloaded update 
+package, described in this section, and <a href="#auto">updating automatically</a>. 
+You can grab update packages from the secure area at
+<a href="http://liveobjects.cs.cornell.edu/s/">
+http://liveobjects.cs.cornell.edu/s/</a>. They are files with names of the form 
+A.B.C.D, where A is a major version number, B is a minor version number, C is a 
+version control label, and D is a timestamp. </p>
+<p>To install an update manually, first you need to configure &quot;autoupdate.exe&quot; 
+with the correct path where the updates need to be deployed. The update process 
+is controlled by settings in the file &quot;\autoupdate\configuration\configuration.xml&quot;. 
+Open the file, and make sure that section &quot;&lt;root&gt;&quot; points to the root 
+installation folder. The file might look like this:</p>
+<p class="style2">&lt;configuration&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;root&gt;C:\liveobjects&lt;/root&gt;<br>
+&lt;/configuration&gt;</p>
+<p>After you downloaded an update and configured the target folder, pass the 
+update file as an argument to &quot;\autoupdate\bin\autoupdate.exe&quot;, like this:</p>
+<p class="style2">C:\liveobjects\autoupdate\bin\autoupdate.exe 
+C:\Users\krzys\Downloads\000.000.003379.20080123084654377615</p>
+<p>The updater is actually designed to be a service, so it won&#39;t output results 
+to the screen, instead you can find its logs in the system Event Viewer. You can 
+find the event viewer in Administrative Tools in the Start Menu, or you can 
+start it by typing in the following command into the console window:</p>
+<p class="style2">C:\Windows\System32\eventvwr.msc /s</p>
+<p>There, navigate to the section with &quot;Application&quot; events, and find events 
+generated by &quot;Live Distributed Objects Autoupdate&quot;. The menus may loook a bit 
+different depending on the version of Windows you&#39;re runnin. For example, on 
+Windows 2008, the result will look like this:</p>
+<p class="style2"><img src="screenshot_004.gif" width="864" height="475"></p>
+<p>You will also find the update file moved to folder &quot;\autoupdate\updates\&quot;, 
+and a log of some of the changes made in folder &quot;\autoupdate\logs&quot;. Note that 
+the update won&#39;t work if you just place the update file in the &quot;updates&quot; folder, 
+you should download it elsewhere.</p>
+<h3><a name="auto"></a>Configuring Automatic Updates</h3>
+<p><a name="autoupdate"><strong></strong></a><strong>Configuring an Automatic Update Mechanism on the 
+Client Machine</strong></p>
+<p>To configure automatic updates on the client, you need to enter a few 
+additional entries in the &quot;\autoupdate\configuration\configuration.xml&quot; file. 
+You need an additional section &lt;load&gt; that specifies the server from which you 
+will download updates, and sections &lt;user&gt; and &lt;password&gt; where you store your 
+credentials. The server address should be specified as &quot;hostname:port&quot;, where 
+&quot;hostname&quot; is a correct DNS name of the server. A correctly configured file 
+might look like this:</p>
+<p class="style2">&lt;configuration&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;load&gt;liveobjects.cs.cornell.edu:56000&lt;/load&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;root&gt;C:\liveobjects&lt;/root&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;username&gt;FOO&lt;/username&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;password&gt;BAR&lt;/password&gt;<br>
+&lt;/configuration&gt;</p>
+<p>You can obtain the user and password from whoever owns the server. As we 
+shall explain below, you can setup your own update server, and update servers 
+can connect to other update servers, to form a tree-like structure. You can also 
+connect to our own &quot;root&quot; update server, you just need to write us an email 
+requesting that. If you own multiple machines, though, you should do that only 
+for one machine that will pull updates for your entire network, and act as a 
+server for other of your machines.</p>
+<p>Before you can invoke the update, you just need one more thing: install 
+server certificate on the client. Because automatic update deploys executable 
+content on your machine, we use secure transmission over SSL to make sure you 
+don&#39;t end up connecting to a fake server and downloading a virus, or spilling 
+you credentials to a malicious third party. While establishing an SSL 
+connection, the client receives a certificate from the server that represents 
+the proof of the server&#39;s identity. For the connection to go through, the client 
+machine must be configured to explicitly trust the server&#39;s certificate, by 
+placing the certificate in the &quot;Trusted People&quot;, and perhaps, if the certificate 
+is self-signed, also &quot;Trusted Root Certification Authorities&quot; of the &quot;Local 
+Machine&quot; folder (note it must be &quot;Local Machine&quot; folder, not &quot;Current User&quot;, 
+because the certificate is used by our autoupdate service, which runs as a 
+system process. </p>
+<p><em><span class="style1">Note</span>: As an additional precaution against 
+attacks, we sign all updates with a secret private key that resides on a secure 
+server behind a firewall, and the automatic updater verifies the signature 
+against a hard-coded public key before unpacking and running the content, so the 
+automatic updates should be completely safe to your machine even in case the 
+update server is compromised. The automatic updater never updates itself, so as 
+long as you protect the updater executable &quot;autoupdate.exe&quot; against tampering, 
+the process should pose absolutely no threat. On the other hand, you must 
+protect &quot;autoupdate.exe&quot; from tampering. Ideally, you should restrict security 
+settings, so that only the SYSTEM account and you personally have rights to 
+modify that file (and ideally, you should also make the file read-only to 
+yourself, to make sure a malicious process running on behalf of you won&#39;t 
+overwrite it)</em>.</p>
+<p>Our root update server uses the same
+<a href="http://liveobjects.cs.cornell.edu/getcertificate.aspx">certificate</a> 
+you used to <a href="#accessing_ssl">connect</a> to the secure portion of our 
+webpage. If you already installed this certificate in the &quot;Trusted Root 
+Certification Authorities&quot; folder of the &quot;Local Machine&quot;, you don&#39;t need to do 
+anything. If not, go back to the earlier <a href="#accessing_ssl">instructions</a> 
+and do that now. </p>
+<p>With all the setup in place, you can just run &quot;autoupdate.exe&quot; without 
+arguments, and you should see an event in the &quot;Application&quot; log reporting either 
+a successful update, or that no updates are available.</p>
+<p>Finally, to run updates regularly in the background, make the &quot;QuickSilver 
+Live Objects Autoupdate&quot; service start automatically. The service will check for 
+updates at each reboot, and at a specific time during the day. You should 
+configure the latter by adding an additional &lt;time&gt; entry in your configuration, 
+with the time in the HH:MM format:</p>
+<p class="style2">&lt;configuration&gt;<br>
+&nbsp;&nbsp;&nbsp; ...<br>
+&nbsp;&nbsp;&nbsp; &lt;time&gt;5:00&lt;/time&gt;<br>
+&lt;/configuration&gt;</p>
+<p><a name="server"><strong></strong></a><strong>Configuring an Automatic Update 
+Server</strong></p>
+<p>Before you read the tutorial, you may watch this short video that 
+illustrates the sequence of actions we will walk you through.</p>
+<p>
+<object 
+  width="800" 
+  height="560"
+  classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+  codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" >
+  <param name="movie" value="http://liveobjects.cs.cornell.edu:55996/player.swf" />
+  <param name="flashvars" value="file=http://liveobjects.cs.cornell.edu:55996/0005/tutorial.flv&autoStart=false" />
+  <embed  
+    src="http://liveobjects.cs.cornell.edu:55996/player.swf"
+    flashvars="file=http://liveobjects.cs.cornell.edu:55996/0005/tutorial.flv&autoStart=false"
+    width="800" 
+    height="560"
+    type="application/x-shockwave-flash" 
+    pluginspage="http://www.macromedia.com/go/getflashplayer" /> 
+</object>
+</p>
+<p>To configure your machine as a server, you need to run the &quot;QuickSilver 
+Live Objects Autoupdate&quot; service, ideally by configuring it to start 
+automatically, add put an additional &quot;&lt;host&gt;&quot; section in the configuration file 
+at &quot;\autoupdate\configuration\configuration.xml&quot;, with your correct DNS address 
+and port number, as shown below. Your machine can act as both a server and a 
+client. If you leave the &lt;load&gt; section in, your server will obtain updates from 
+other servers. If you leave it out, your server will only serve the updates that 
+you manually placed in the &quot;\autoupdate\configuration\updates&quot; folder. The 
+update package with the latest number in that folder is assumed to be the one to 
+serve.</p>
+<p class="style2">&lt;configuration&gt;<br>
+&nbsp;&nbsp;&nbsp; ...<br>
+&nbsp;&nbsp;&nbsp; &lt;host&gt;liveobjects.cs.cornell.edu:56000&lt;/host&gt;<br>
+&lt;/configuration&gt;</p>
+<p>Note that you may need to explicitly allow the port on your personal 
+firewall. </p>
+<p>The server only accepts connections from authorized clients. The list of 
+users and their credentials are stored in file &quot;\autoupdate\configuration\users.xml&quot;, 
+with one &lt;user&gt; entry for each client, as below:</p>
+<p class="style2">&lt;users&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;user name=&quot;FOO&quot; password=&quot;BAR&quot; /&gt;<br>
+&lt;/users&gt;</p>
+<p>In order to accept client connections, the server must also have a server 
+certificate that clients trust. To generate a self-signed certificate yourself, 
+you can use a &quot;makecert.exe&quot; tool. If you installed Windows SDK, you will find 
+this tool in the Windows SDK folder, for example &quot;C:\Program Files\Microsoft 
+SDKs\Windows\v6.0A\bin\makecert.exe&quot;. If not, you may need to search for it 
+elsewhere (it&#39;s a free tool). The command that creates a certificate for a host 
+named HOSTNAME and installs it locally on that host would like as follows:</p>
+<p class="style2">makecert -n CN=&quot;HOSTNAME&quot; -r -pe -a sha1 -b 01/01/2008 -e 
+01/01/2010 -eku 1.3.6.1.5.5.7.3.1 -sky exchange -sp &quot;Microsoft RSA SChannel 
+Cryptographic Provider&quot; -sy 12 -ss My -sr LocalMachine</p>
+<p>Once the certificate is created, you should open the &quot;Certificates&quot; snap-in 
+(see the <a href="#accessing_ssl">earlier instructions</a> for how to do that). 
+You will find the newly created certificate in a &quot;Personal&quot; folder in the &quot;Local 
+Computer&quot; section. Right-click on the certificate, select &quot;All Tasks&quot;, and then 
+&quot;Export&quot;. Walk through the wizard. Do not export private keys. Generate a &quot;.CER&quot; 
+file. Then, distribute that file to the client machines, and follow the
+<a href="#autoupdate">earlier instructions</a> for how to configure the client 
+machines to trust this certificate (you need to import it into the &quot;Trusted Root 
+Certification Authorities&quot; in &quot;Local Machine&quot;).</p>
+<p>Now, you just need to associate this certificate with the autoupdate service. 
+First, obtain the certificate thumbprint. Double-click on the certificate in the 
+&quot;Certificates&quot; snap-in, or on the &quot;.cer&quot; file you exported, switch to the 
+&quot;Details&quot; tab, and scroll to the &quot;Thumbprint&quot; section, as shown below. Select 
+the entire thumbprint, paste it into Notepad, and remove all spaces between 
+numbers (for example, press Ctrl+H, type a space in the “find what”, type 
+nothing in “replace with”, click “replace all”). After spaces removed, select 
+the certificate thumbprint and copy to clipbopard (Ctrl+C). </p>
+<p class="style2"><img src="screenshot_005.gif" width="427" height="358"></p>
+<p>Now, if you are running Windows XP/2003, type in the following command, 
+replacing PORT with the port number you selected for your autoupdate service, 
+and THUMBPRINT with the thumbprint without spaces between numbers you&#39;ve just 
+created. If the &quot;httpcfg.exe&quot; tool is not present on your system, you can 
+extract it, for example, from
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=6EC50B78-8BE1-4E81-B3BE-4E7AC4F0912D&amp;displaylang=en">
+Windows Server 2003 Service Pack 1 32-bit Support Tools</a>. You can also find 
+it elsewhere, it&#39;s a widely-used, free tool.</p>
+<p class="style2">httpcfg.exe set ssl -i 0.0.0.0:PORT -h THUMBPRINT</p>
+<p>If you are under Windows Vista/2008, the command would look as follows. The &quot;netsh&quot; 
+tool should be preinstalled on your system.</p>
+<p class="style2">C:\Windows\System32\netsh.exe http add sslcert ipport=0.0.0.0:PORT 
+certhash=THUMBPRINT appid={38239C9A-D38B-478f-AADB-DFDF52143F6C}</p>
+<p>You can check the association you created by running &quot;httpcfg.exe query ssl&quot; 
+or &quot;netsh.exe http show ssl&quot;. You should see a printout that includes a record 
+that looks something like the following.</p>
+<p class="style2">IP : 0.0.0.0:56000<br>
+Hash : bf9caafd1fbccb30b6dda86a227737c62a7748a2<br>
+Guid : {00000000-0000-0000-0000-000000000000}<br>
+CertStoreName : (null)<br>
+CertCheckMode : 0<br>
+RevocationFreshnessTime : 0<br>
+UrlRetrievalTimeout : 0<br>
+SslCtlIdentifier : (null)<br>
+SslCtlStoreName : (null)<br>
+Flags : 0</p>
+<p>After that, you should be able to launch the service and accept client 
+connections. You will find a report in the system event log every time a client 
+successfully downloads a new update.</p>
+</BODY>
+</HTML>

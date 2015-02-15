@@ -1,0 +1,1661 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2004-2009 Krzysztof Ostrowski (krzys@cs.cornell.edu). All rights reserved.
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8B85A998-9E96-4AEA-8358-392CB8440ABE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QS</RootNamespace>
+    <AssemblyName>liveobjects_7</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>liveobjects_7.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|AnyCPU' ">
+    <OutputPath>bin\Distribution\</OutputPath>
+    <DefineConstants>TRACE;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|x64' ">
+    <OutputPath>bin\x64\Distribution\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Simulation\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Simulation\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Distribution|x86' ">
+    <OutputPath>bin\x86\Distribution\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Simulation|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Simulation\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux|AnyCPU' ">
+    <OutputPath>bin\Linux\</OutputPath>
+    <DefineConstants>TRACE;XNA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux|x64' ">
+    <OutputPath>bin\x64\Linux\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Linux|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Linux\</OutputPath>
+    <DefineConstants>TRACE;DISABLE_CLOCK_SYNC_EXPERIMENTS</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|AnyCPU' ">
+    <OutputPath>bin\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_7.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|x64' ">
+    <OutputPath>bin\x64\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_7.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Azure-Release|x86' ">
+    <OutputPath>bin\x86\Azure-Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>
+    </CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Migrated rules for liveobjects_7.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Content.Pipeline, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuildNo.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="GUI\Components\AddressCollector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\AddressCollector.designer.cs">
+      <DependentUpon>AddressCollector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\AddressCollectorBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\AddressCollectorBox.designer.cs">
+      <DependentUpon>AddressCollectorBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\AppController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\AppController.designer.cs">
+      <DependentUpon>AppController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\ArgumentsTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\ArgumentsTextBox.designer.cs">
+      <DependentUpon>ArgumentsTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\CollectionOfDS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\CollectionOfDS.Designer.cs">
+      <DependentUpon>CollectionOfDS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\CollectionOfDSWithView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\CollectionOfDSWithView.Designer.cs">
+      <DependentUpon>CollectionOfDSWithView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\ComponentSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\ComponentSelector.designer.cs">
+      <DependentUpon>ComponentSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\ConsoleWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\ConsoleWindow.designer.cs">
+      <DependentUpon>ConsoleWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\DataBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\DataBox.designer.cs">
+      <DependentUpon>DataBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\DataExplorer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\DataExplorer.Designer.cs">
+      <DependentUpon>DataExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\DataSetPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\DataSetPane.Designer.cs">
+      <DependentUpon>DataSetPane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\DataWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\DataWindow.Designer.cs">
+      <DependentUpon>DataWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\EnhancedDataSetPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\EnhancedDataSetPane.Designer.cs">
+      <DependentUpon>EnhancedDataSetPane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\EnhancedDataVisualizer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\EnhancedDataVisualizer.Designer.cs">
+      <DependentUpon>EnhancedDataVisualizer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\EnumBox2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\EnumBox2.Designer.cs">
+      <DependentUpon>EnumBox2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\EnumeratorBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\EnumeratorBox.Designer.cs">
+      <DependentUpon>EnumeratorBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\EnumeratorViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\EnumeratorViewer.Designer.cs">
+      <DependentUpon>EnumeratorViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\EnumView2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\EnumView2.Designer.cs">
+      <DependentUpon>EnumView2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\ExperimentCfg1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\ExperimentCfg1.Designer.cs">
+      <DependentUpon>ExperimentCfg1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\ExperimentController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\ExperimentController.Designer.cs">
+      <DependentUpon>ExperimentController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\ExperimentControllerSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\ExperimentControllerSelector.Designer.cs">
+      <DependentUpon>ExperimentControllerSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\ExperimentResultSetExplorer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\ExperimentResultSetExplorer.Designer.cs">
+      <DependentUpon>ExperimentResultSetExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\ExperimentResultSetExplorerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\ExperimentResultSetExplorerForm.Designer.cs">
+      <DependentUpon>ExperimentResultSetExplorerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\ExperimentResultSetSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\ExperimentResultSetSelector.Designer.cs">
+      <DependentUpon>ExperimentResultSetSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\ExperimentSelector.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\ExperimentSelector.Designer.cs">
+      <DependentUpon>ExperimentSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\IRepositoryExplorer.cs" />
+    <Compile Include="GUI\Components\PacketList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\PacketList.Designer.cs">
+      <DependentUpon>PacketList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\PythonConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\PythonConsole.Designer.cs">
+      <DependentUpon>PythonConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\IAppController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\IDataVisualizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\IExperimentConfigurator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\IManagedNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\InspectionBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\InspectionBox.Designer.cs">
+      <DependentUpon>InspectionBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\ISelectionViewer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\LogWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\LogWindow.Designer.cs">
+      <DependentUpon>LogWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\ManagedNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\RemoteInspectorBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\RemoteInspectorBox.Designer.cs">
+      <DependentUpon>RemoteInspectorBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\RepositoryExplorer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\RepositoryExplorer.Designer.cs">
+      <DependentUpon>RepositoryExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\RepositoryTreeNode.cs" />
+    <Compile Include="GUI\Components\SelectionViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\SelectionViewer.Designer.cs">
+      <DependentUpon>SelectionViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\ThreadTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\ThreadTree.Designer.cs">
+      <DependentUpon>ThreadTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Components\Box.cs" />
+    <Compile Include="GUI\Helpers\DrawableWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Helpers\DrawableWindow.Designer.cs">
+      <DependentUpon>DrawableWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Properties\Resources.Designer.cs" />
+    <Compile Include="GUI\Resources\ImageCollection.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Resources\ImageCollection.designer.cs">
+      <DependentUpon>ImageCollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Scheduler\CreateTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Scheduler\CreateTask.Designer.cs">
+      <DependentUpon>CreateTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Scheduler\EditParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Scheduler\EditParameter.Designer.cs">
+      <DependentUpon>EditParameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Scheduler\SchedulerClient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Scheduler\SchedulerClient.Designer.cs">
+      <DependentUpon>SchedulerClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Simulations\ISimulator.cs" />
+    <Compile Include="GUI\Simulations\NewSimulatorController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Simulations\NewSimulatorController.designer.cs">
+      <DependentUpon>NewSimulatorController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Simulations\Simulator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Simulations\Simulator.designer.cs">
+      <DependentUpon>Simulator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Visualization\DataAnalyzer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Visualization\DataAnalyzer.Designer.cs">
+      <DependentUpon>DataAnalyzer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interop\Win32.cs" />
+    <Compile Include="liveobjects_7.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Microsoft_NET.cs" />
+    <Compile Include="Platform.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Fx\Object\RuntimeContext.cs" />
+    <Compile Include="_qss_c_\Embeddings2\GroupServices.cs" />
+    <Compile Include="_qss_c_\Embeddings2\MethodCallRequest.cs" />
+    <Compile Include="_qss_c_\Embeddings2\MethodCallResponse.cs" />
+    <Compile Include="_qss_c_\Embeddings2\ReplicationGroup.cs" />
+    <Compile Include="_qss_c_\Embeddings2\ReplicationGroup2.cs" />
+    <Compile Include="_qss_c_\Embeddings2\ReplicationGroupType.cs" />
+    <Compile Include="_qss_c_\Embeddings2\ReplicationGroupType2.cs" />
+    <Compile Include="_qss_c_\Embeddings2\Types\Interface.cs" />
+    <Compile Include="_qss_c_\Embeddings2\Types\Method.cs" />
+    <Compile Include="_qss_c_\Embeddings2\Types\Parameter.cs" />
+    <Compile Include="_qss_c_\Embeddings2\Types\ParameterMode.cs" />
+    <Compile Include="_qss_c_\Embeddings2\Types\Property.cs" />
+    <Compile Include="_qss_c_\Embeddings2\Types\ReferencedType.cs" />
+    <Compile Include="_qss_c_\Embeddings\Event.cs" />
+    <Compile Include="_qss_c_\Embeddings\IEvent.cs" />
+    <Compile Include="_qss_c_\Framework_2_\Client.cs" />
+    <Compile Include="_qss_c_\Framework_2_\ClientConfiguration.cs" />
+    <Compile Include="_qss_c_\Framework_2_\ClientController.cs" />
+    <Compile Include="_qss_c_\Framework_2_\CloseRequest.cs" />
+    <Compile Include="_qss_c_\Framework_2_\CompletionCallback.cs" />
+    <Compile Include="_qss_c_\Framework_2_\DispatchRequest.cs" />
+    <Compile Include="_qss_c_\Framework_2_\Feed.cs" />
+    <Compile Include="_qss_c_\Framework_2_\Group.cs" />
+    <Compile Include="_qss_c_\Framework_2_\GroupOptions.cs" />
+    <Compile Include="_qss_c_\Framework_2_\GroupRef.cs" />
+    <Compile Include="_qss_c_\Framework_2_\IChannel.cs" />
+    <Compile Include="_qss_c_\Framework_2_\IClient.cs" />
+    <Compile Include="_qss_c_\Framework_2_\IGroup.cs" />
+    <Compile Include="_qss_c_\Framework_2_\IncomingCallback.cs" />
+    <Compile Include="_qss_c_\Framework_2_\Message.cs" />
+    <Compile Include="_qss_c_\Framework_2_\OpenRequest.cs" />
+    <Compile Include="_qss_c_\Framework_2_\OutgoingCallback.cs" />
+    <Compile Include="_qss_c_\Framework_2_\SendRequest.cs" />
+    <Compile Include="_qss_c_\Framework_2_\_ClientRef.cs" />
+    <Compile Include="_qss_c_\Framework_2_\_IClientController.cs" />
+    <Compile Include="_qss_c_\Framework_2_\_IFramework.cs" />
+    <Compile Include="_qss_c_\Framework_1_\FrameworkOnCore.cs" />
+    <Compile Include="_qss_c_\Framework_1_\FrameworkOnCore2.cs" />
+    <Compile Include="_qss_c_\Framework_1_\IFramework.cs" />
+    <Compile Include="_qss_c_\Framework_1_\MiniFramework.cs" />
+    <Compile Include="_qss_c_\Framework_1_\SimpleFramework.cs" />
+    <Compile Include="_qss_c_\Glued\Clients\Client1.cs" />
+    <Compile Include="_qss_c_\Glued\MetaNodes\MetaNode1.cs" />
+    <Compile Include="_qss_c_\Glued\Nodes\Node1.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Components\SubscriptionService\Bundled\GMS.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Components\SubscriptionService\OpenRequest.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Components\SubscriptionService\State\Client.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Components\SubscriptionService\State\Configuration.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Components\SubscriptionService\State\Group.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Components\SubscriptionService\State\Node.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Components\SubscriptionService\SubscriptionService.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Components\Subscription\GroupController.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Components\Subscription\OpenRequest.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Components\Subscription\SubscriptionController.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Components\Types\GroupTypeLibrary.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Components\_ClientController.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Components\_EndPointController.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Embeddings\ReplicatedObjects\AggregateAttribute.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Embeddings\ReplicatedObjects\IAggregationType.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Embeddings\ReplicatedObjects\IFactory.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Embeddings\ReplicatedObjects\IHost.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Embeddings\ReplicatedObjects\MethodCall.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Embeddings\ReplicatedObjects\Proxy.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Embeddings\ReplicatedObjects\ReplicatedObjectGroupType.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Embeddings\ReplicatedObjects\Request.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Embeddings\ReplicatedObjects\Response.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Embeddings\ReplicatedObjects\Service.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Embeddings\ReplicatedObjects\Services.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Implementations\Clients\_GenericClient.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\Clients\IClient.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\Clients\IClientContext.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\Clients\IClientHostingService.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\Clients\_IClientClass.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\Clients\_IClientController.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\Common\AccessMode.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\Common\Attribute.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\Common\OpeningMode.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\Dissemination\IDisseminationClient.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\Dissemination\IDisseminationClientContext.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\SubscriptionService\ISubscriptionService.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\SubscriptionService\State\IClient.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\SubscriptionService\State\IConfiguration.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\SubscriptionService\State\IGroup.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\SubscriptionService\State\INode.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\Subscription\IGroupReference.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\Subscription\ISubscriptionController.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\Types\IGroupType.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\Types\IGroupTypeLibrary.cs" />
+    <Compile Include="_qss_c_\Infrastructure2\Interfaces\_IEndPointController.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Components\GVID.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Components\MembershipService.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Components\Receiver.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Contracts\AccessMode.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Contracts\GroupProperties.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Contracts\GroupType.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Contracts\IHost.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Contracts\IMembershipService.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Contracts\IReceiver.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Contracts\OpeningMode.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Contracts\OrderingMode.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Contracts\ReliabilityMode.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Contracts\_ISink.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\IAggregator.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\IAggregatorRef.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\IChannel.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\IClient.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\IClientContext.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\ICluster.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\IClusterView.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\IController.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\IMember.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\IMemberView.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\IPeer.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\IPeerContext.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\IPeerContextView.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\ISession.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\ISessionView.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\ISink.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\ISource.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\ISourceView.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\_IChannelID.cs" />
+    <Compile Include="_qss_c_\Infrastructure\Interfaces\_IConsumerControl.cs" />
+    <Compile Include="_qss_c_\Interoperability\Remoting\Channel.cs" />
+    <Compile Include="_qss_c_\Interoperability\Remoting\ClientChannel.cs" />
+    <Compile Include="_qss_c_\Interoperability\Remoting\ClientTransportSink.cs" />
+    <Compile Include="_qss_c_\Interoperability\Remoting\ClientTransportSinkProvider.cs" />
+    <Compile Include="_qss_c_\Interoperability\Remoting\HeaderWrapper.cs" />
+    <Compile Include="_qss_c_\Interoperability\Remoting\RequestWrapper.cs" />
+    <Compile Include="_qss_c_\Interoperability\Remoting\ServerChannel.cs" />
+    <Compile Include="_qss_c_\Interoperability\Remoting\ServerTransportSink.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Abstractions\IClient.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Abstractions\IClientContext.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Abstractions\IClientContextRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Abstractions\IClientRef.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Abstractions\IMetaNode.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Abstractions\IMetaNodeContext.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Abstractions\IMetaNodeContextRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Abstractions\IMetaNodeRef.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Abstractions\INode.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Abstractions\INodeContext.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Abstractions\INodeContextRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Abstractions\INodeRef.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Agent\AgentController.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Agent\ClientContext.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Agent\ClientContextRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Agent\GroupController.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Agent\IAgentController.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Agent\MetaNodeContext.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Agent\MetaNodeContextRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Agent\NodeContext.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Agent\NodeContextRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Agent\RegionViewController.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\Channel.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\Client.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\ClientView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\Configuration.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\GlobalView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\Group.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\GroupView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\GroupViewRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\IncomingView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\LocalView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\Member.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\MetaMember.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\MetaNode.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\MetaNodeRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\Node.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\Region.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\RegionView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\RegionViewRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\Session.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ClientState\SessionView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Client\Client.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Client\GroupRef.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Client\RequestState.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Expressions\Expression.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Expressions\ExpressionType.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Expressions\Group.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Expressions\Intersection.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Expressions\Minus.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Expressions\Union.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Glue\AgentController.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Glue\GroupController.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Glue\IAgentController.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Interface\AccessMode.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Interface\IGroupAttributes.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Interface\IGroupRef.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Interface\IGroupType.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Interface\IMembershipService.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Interface\OpeningMode.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\CreateClientView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\CreateGlobalView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\CreateGroup.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\CreateGroupView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\CreateGroupViewRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\CreateIncomingView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\CreateLocalView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\CreateMetaNode.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\CreateMetaNodeRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\CreateRegion.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\CreateRegionView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\CreateRegionViewRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\CreateSession.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\CreateSessionView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Notifications\Notification.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Requests\Close.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Requests\Crash.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Requests\Open.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Requests\Request.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Requests\RequestType.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Requests\Resync.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Requests\_RequestSequence.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Responses\Error.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Responses\Opened.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Responses\Response.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Responses\ResponseType.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Responses\Succeeded.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\Channel.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\ClientView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\Configuration.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\GlobalView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\Group.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\GroupView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\GroupViewRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\IncomingView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\LocalView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\MetaNode.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\MetaNodeRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\Node.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\Region.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\RegionView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\RegionViewRevision.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\Session.cs" />
+    <Compile Include="_qss_c_\Membership_3_\ServerState\SessionView.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Server\CentralizedGMS.cs" />
+    <Compile Include="_qss_c_\Membership_3_\Types\Derivations.cs" />
+    <Compile Include="_qss_c_\Native_\Windows.cs" />
+    <Compile Include="_qss_c_\Packets_\Deserializer.cs" />
+    <Compile Include="_qss_c_\Packets_\IPacket.cs" />
+    <Compile Include="_qss_c_\Packets_\MessageObj.cs" />
+    <Compile Include="_qss_c_\Packets_\Packet.cs" />
+    <Compile Include="_qss_c_\Packets_\PacketHeader.cs" />
+    <Compile Include="_qss_c_\Packets_\RecognizedObj.cs" />
+    <Compile Include="_qss_c_\Packets_\Recognizer.cs" />
+    <Compile Include="_qss_c_\Platform_\PhysicalPlatform.cs" />
+    <Compile Include="_qss_c_\Platform_\PlatformOnCore.cs" />
+    <Compile Include="_qss_c_\Remoting_\Channels\CustomizableChannels.cs" />
+    <Compile Include="_qss_c_\Remoting_\Channels\_CustomizableChannel.cs" />
+    <Compile Include="_qss_c_\Remoting_\Compression\CompressingClientSink.cs" />
+    <Compile Include="_qss_c_\Remoting_\Compression\CompressingServerSink.cs" />
+    <Compile Include="_qss_c_\Remoting_\Compression\CompressionClientSinkProvider.cs" />
+    <Compile Include="_qss_c_\Remoting_\Compression\CompressionServerSinkProvider.cs" />
+    <Compile Include="_qss_c_\Remoting_\Encryption\EncryptingClientSink.cs" />
+    <Compile Include="_qss_c_\Remoting_\Encryption\EncryptingServerSink.cs" />
+    <Compile Include="_qss_c_\Remoting_\Encryption\EncryptionClientSinkProvider.cs" />
+    <Compile Include="_qss_c_\Remoting_\Encryption\EncryptionServerSinkProvider.cs" />
+    <Compile Include="_qss_c_\Remoting_\Encryption\Keys.cs" />
+    <Compile Include="_qss_c_\Streams_\Copy.cs" />
+    <Compile Include="_qss_c_\Streams_\StreamCompressor.cs" />
+    <Compile Include="_qss_c_\Streams_\StreamEncryptor.cs" />
+    <Compile Include="_qss_c_\_OldFx\Dissemination\Algorithms\Base\IAlgorithm.cs" />
+    <Compile Include="_qss_c_\_OldFx\Dissemination\Algorithms\Base\IContext.cs" />
+    <Compile Include="_qss_c_\_OldFx\Dissemination\Components\Algorithms\Tree1.cs" />
+    <Compile Include="_qss_c_\_OldFx\Endpoints\Base2\EndpointType.cs" />
+    <Compile Include="_qss_c_\_OldFx\Endpoints\Base2\InterfaceType.cs" />
+    <Compile Include="_qss_c_\_OldFx\Endpoints\Base2\Type.cs" />
+    <Compile Include="_qss_c_\_OldFx\Endpoints\Base\Binding.cs" />
+    <Compile Include="_qss_c_\_OldFx\Endpoints\Base\Endpoint.cs" />
+    <Compile Include="_qss_c_\_OldFx\Endpoints\Base\EndpointType.cs" />
+    <Compile Include="_qss_c_\_OldFx\Endpoints\Base\IInterface.cs" />
+    <Compile Include="_qss_c_\_OldFx\Endpoints\Base\_IEndpoint.cs" />
+    <Compile Include="_qss_c_\_OldFx\Endpoints\Base\_IEndpointType.cs" />
+    <Compile Include="_qss_c_\_OldFx\Management\Membership\Service\Base\IManagedObject.cs" />
+    <Compile Include="_qss_c_\_OldFx\Management\Membership\Service\Base\IService.cs" />
+    <Compile Include="_qss_c_\_OldFx\Management\Membership\Service\Base\IServiceContext.cs" />
+    <Compile Include="_qss_c_\_OldFx\Management\Membership\Service\Components\OverlappingService.cs" />
+    <Compile Include="_qss_c_\_OldFx\Management\Membership\Service\Components\RegularService.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Base\_IPeerID.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Base\_IPeerReference.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Base\_IRecoveryComponent.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Base\_IRecoveryComponentContext.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Base\_ISession.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Base\_ISlice.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Components\Peers\Ring1.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Peers\Base\IContext.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Peers\Base\IMembershipView.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Peers\Base\IPeer.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Peers\Base\IPeerReference.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Peers\Base\_IPeerID.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Peers\Infrastructure\Context.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Peers\Infrastructure\PeerReference.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Virtualization\AppState.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Virtualization\Node.cs" />
+    <Compile Include="_qss_c_\_OldFx\Reliability\Virtualization\Simulator.cs" />
+    <Compile Include="_qss_c_\_OldFx\Services\Base\Addressing.cs" />
+    <Compile Include="_qss_c_\_OldFx\Services\Base\Connector.cs" />
+    <Compile Include="_qss_c_\_OldFx\Services\Base\Host.cs" />
+    <Compile Include="_qss_c_\_OldFx\Services\Base\IConnector.cs" />
+    <Compile Include="_qss_c_\_OldFx\Services\Base\IHost.cs" />
+    <Compile Include="_qss_c_\_OldFx\Services\Base\IRegistration.cs" />
+    <Compile Include="_qss_c_\_OldFx\Services\Base\IServiceRef.cs" />
+    <Compile Include="_qss_c_\_OldFx\Services\Base\Message.cs" />
+    <Compile Include="_qss_c_\_OldFx\Services\Base\Response.cs" />
+    <Compile Include="_qss_c_\_OldFx\Services\Base\ServiceRef.cs" />
+    <Compile Include="_qss_c_\_OldFx\Services\Hosting\Host1.cs" />
+    <Compile Include="_qss_c_\_OldFx\Services\Proxies\Proxy1.cs" />
+    <Compile Include="_qss_c_\_OldFx\Types\Base\EndpointProxy.cs" />
+    <Compile Include="_qss_c_\_OldFx\Types\Base\_IEndpointPair.cs" />
+    <Compile Include="_qss_c_\_OldFx\Types\Base\_IPeerAlgorithm.cs" />
+    <Compile Include="_qss_c_\_OldFx\Types\Base\_TypeAggregator.cs" />
+    <Compile Include="_qss_c_\_OldFx\Types\Endpoints\_ICaching.cs" />
+    <Compile Include="_qss_d_\Agent_2_\Agent.cs" />
+    <Compile Include="_qss_d_\Agent_2_\Agent2.cs" />
+    <Compile Include="_qss_d_\Agent_2_\AgentWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_qss_d_\Agent_2_\AgentWindow.Designer.cs">
+      <DependentUpon>AgentWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_qss_d_\Agent_2_\Client.cs" />
+    <Compile Include="_qss_d_\Agent_2_\ConnectCallback.cs" />
+    <Compile Include="_qss_d_\Agent_2_\DisconnectCallback.cs" />
+    <Compile Include="_qss_d_\Agent_2_\EndSessionCallback.cs" />
+    <Compile Include="_qss_d_\Agent_2_\IAgent.cs" />
+    <Compile Include="_qss_d_\Agent_2_\IChannel.cs" />
+    <Compile Include="_qss_d_\Agent_2_\IClient.cs" />
+    <Compile Include="_qss_d_\Agent_2_\IService.cs" />
+    <Compile Include="_qss_d_\Agent_2_\IServiceObject.cs" />
+    <Compile Include="_qss_d_\Agent_2_\ISession.cs" />
+    <Compile Include="_qss_d_\Agent_2_\ISessionController.cs" />
+    <Compile Include="_qss_d_\Agent_2_\Message.cs" />
+    <Compile Include="_qss_d_\Agent_2_\Service.cs" />
+    <Compile Include="_qss_d_\Agent_2_\ServiceObject.cs" />
+    <Compile Include="_qss_d_\Agent_2_\Session.cs" />
+    <Compile Include="_qss_d_\Agent_2_\SessionController.cs" />
+    <Compile Include="_qss_d_\Agent_2_\SessionController2.cs" />
+    <Compile Include="_qss_d_\Agent_2_\SessionWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_qss_d_\Agent_2_\SessionWindow.Designer.cs">
+      <DependentUpon>SessionWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_qss_d_\Agent_\Agent.cs" />
+    <Compile Include="_qss_d_\Agent_\Client.cs" />
+    <Compile Include="_qss_d_\Agent_\IAgent.cs" />
+    <Compile Include="_qss_d_\Agent_\Service.cs" />
+    <Compile Include="_qss_d_\ClusterAdministrator_\Administrator.cs" />
+    <Compile Include="_qss_d_\ClusterAdministrator_\Client.cs" />
+    <Compile Include="_qss_d_\ClusterAdministrator_\Configuration.cs" />
+    <Compile Include="_qss_d_\ClusterAdministrator_\IAdministrator.cs" />
+    <Compile Include="_qss_d_\ClusterAdministrator_\Service.cs" />
+    <Compile Include="_qss_d_\Console_\Configuration.cs" />
+    <Compile Include="_qss_d_\Console_\Console.cs" />
+    <Compile Include="_qss_d_\Debugging_\DebuggingAgent.cs" />
+    <Compile Include="_qss_d_\Deployment_\Updater.cs" />
+    <Compile Include="_qss_d_\Monitoring_\Analyzer.cs" />
+    <Compile Include="_qss_d_\Monitoring_\AnalyzerAttribute.cs" />
+    <Compile Include="_qss_d_\Monitoring_\Analyzers\Analyzer1.cs" />
+    <Compile Include="_qss_d_\Monitoring_\Listener1.cs" />
+    <Compile Include="_qss_d_\Monitoring_\Packet.cs" />
+    <Compile Include="_qss_d_\Monitoring_\_PCapReader.cs" />
+    <Compile Include="_qss_d_\Scheduler_3_\Configuration.cs" />
+    <Compile Include="_qss_d_\Scheduler_3_\IScheduler.cs" />
+    <Compile Include="_qss_d_\Scheduler_3_\ITask.cs" />
+    <Compile Include="_qss_d_\Scheduler_3_\Scheduler.cs" />
+    <Compile Include="_qss_d_\Scheduler_3_\SchedulerConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_qss_d_\Scheduler_3_\SchedulerConsole.Designer.cs">
+      <DependentUpon>SchedulerConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_qss_d_\Scheduler_3_\SchedulerWS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_qss_d_\Scheduler_3_\Task.cs" />
+    <Compile Include="_qss_d_\Scheduler_3_\TaskController.cs" />
+    <Compile Include="_qss_d_\Scheduler_3_\TaskList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_qss_d_\Scheduler_3_\TaskList.Designer.cs">
+      <DependentUpon>TaskList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_qss_d_\Scheduler_3_\TaskListViewItem.cs" />
+    <Compile Include="_qss_d_\Scheduler_3_\TaskSpecification.cs" />
+    <Compile Include="_qss_d_\Scheduler_3_\TaskStatus.cs" />
+    <Compile Include="_qss_d_\Scheduler_1_\IScheduler.cs" />
+    <Compile Include="_qss_d_\Scheduler_1_\ISchedulerClient.cs" />
+    <Compile Include="_qss_d_\Scheduler_1_\LogCollection.cs" />
+    <Compile Include="_qss_d_\Scheduler_1_\Request.cs" />
+    <Compile Include="_qss_d_\Scheduler_1_\SchedulerClient.cs" />
+    <Compile Include="_qss_d_\Scheduler_1_\SchedulerService.cs" />
+    <Compile Include="_qss_d_\Security_\Impersonation.cs" />
+    <Compile Include="_qss_d_\Service_2_\Service.cs" />
+    <Compile Include="_qss_d_\Service_2_\ServiceWrapper.cs" />
+    <Compile Include="_qss_d_\ServiceController_\ServiceController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_qss_d_\ServiceController_\ServiceController.Designer.cs">
+      <DependentUpon>ServiceController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_qss_d_\Service_1_\Configuration.cs" />
+    <Compile Include="_qss_d_\Service_1_\Protocol.cs" />
+    <Compile Include="_qss_d_\Service_1_\Service.cs" />
+    <Compile Include="_qss_d_\Skeleton.cs" />
+    <Compile Include="_qss_e_\Administration_\Base_\ITask.cs" />
+    <Compile Include="_qss_e_\Administration_\Base_\ITaskSpecification.cs" />
+    <Compile Include="_qss_e_\Administration_\Services_\Packaging\IPackagingService.cs" />
+    <Compile Include="_qss_e_\Administration_\Services_\Packaging\PackagingService.cs" />
+    <Compile Include="_qss_e_\Administration_\Services_\Packaging\Parameter.cs" />
+    <Compile Include="_qss_e_\Administration_\Services_\Packaging\Template.cs" />
+    <Compile Include="_qss_e_\Applications_\MultiHash_\Agent.cs" />
+    <Compile Include="_qss_e_\Applications_\MultiHash_\GUID.cs" />
+    <Compile Include="_qss_e_\Applications_\MultiHash_\IAgent.cs" />
+    <Compile Include="_qss_e_\Components_\IExperimentController.cs" />
+    <Compile Include="_qss_e_\Components_\ManualController.cs" />
+    <Compile Include="_qss_e_\Components_\RemoteController1.cs" />
+    <Compile Include="_qss_e_\Components_\Sleeper.cs" />
+    <Compile Include="_qss_e_\Data_\Converters_\IdentifyLosses.cs" />
+    <Compile Include="_qss_e_\Data_\Converters_\IdentifyRetransmits.cs" />
+    <Compile Include="_qss_e_\Data_\Converters_\Merge2onX.cs" />
+    <Compile Include="_qss_e_\Data_\Converters_\MultiToMinMax.cs" />
+    <Compile Include="_qss_e_\Data_\Converters_\Overlay.cs" />
+    <Compile Include="_qss_e_\Data_\Converters_\Receives2ReceiveTimes.cs" />
+    <Compile Include="_qss_e_\Data_\Converters_\RecoveryLatencies.cs" />
+    <Compile Include="_qss_e_\Data_\Converters_\Substract.cs" />
+    <Compile Include="_qss_e_\Deployment_\IUploader.cs" />
+    <Compile Include="_qss_e_\Deployment_\Uploader.cs" />
+    <Compile Include="_qss_e_\Disturbances_\CPUConsumer.cs" />
+    <Compile Include="_qss_e_\Environments_\CombinedEnvironment.cs" />
+    <Compile Include="_qss_e_\Environments_\DistributedEnvironment.cs" />
+    <Compile Include="_qss_e_\Environments_\EmulatedEnvironment.cs" />
+    <Compile Include="_qss_e_\Environments_\MultithreadedSimulation.cs" />
+    <Compile Include="_qss_e_\Environments_\SimulatedEnvironment.cs" />
+    <Compile Include="_qss_e_\Experiments_\000-099\Experiment_000.cs" />
+    <Compile Include="_qss_e_\Experiments_\000-099\Experiment_001.cs" />
+    <Compile Include="_qss_e_\Experiments_\000-099\Experiment_002.cs" />
+    <Compile Include="_qss_e_\Experiments_\000-099\Experiment_003.cs" />
+    <Compile Include="_qss_e_\Experiments_\000-099\Experiment_004.cs" />
+    <Compile Include="_qss_e_\Experiments_\000-099\Experiment_005.cs" />
+    <Compile Include="_qss_e_\Experiments_\000-099\Experiment_006.cs" />
+    <Compile Include="_qss_e_\Experiments_\000-099\Experiment_007.cs" />
+    <Compile Include="_qss_e_\Experiments_\000-099\Experiment_008.cs" />
+    <Compile Include="_qss_e_\Experiments_\100-199\Experiment_100.cs" />
+    <Compile Include="_qss_e_\Experiments_\100-199\Experiment_101.cs" />
+    <Compile Include="_qss_e_\Experiments_\100-199\Experiment_102.cs" />
+    <Compile Include="_qss_e_\Experiments_\100-199\Experiment_103.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\AppController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_qss_e_\Experiments_\200-299\AppController.Designer.cs">
+      <DependentUpon>AppController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_200.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_201.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_202.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_203.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_204.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_250.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_251.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_252.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_253.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_254.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_255.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_256.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_257.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_258.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_259.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_260.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_261.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_262.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_263.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_264.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_265.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_266.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_267.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_298.cs" />
+    <Compile Include="_qss_e_\Experiments_\200-299\Experiment_299.cs" />
+    <Compile Include="_qss_e_\Experiments_\300-399\Experiment_300.cs" />
+    <Compile Include="_qss_e_\Experiments_\300-399\Experiment_301.cs" />
+    <Compile Include="_qss_e_\Experiments_\300-399\Experiment_302.cs" />
+    <Compile Include="_qss_e_\Experiments_\DefaultExperimentAttribute.cs" />
+    <Compile Include="_qss_e_\Experiments_\Experiment.cs" />
+    <Compile Include="_qss_e_\Experiments_\IExperiment.cs" />
+    <Compile Include="_qss_e_\Experiment_\Helpers\DumpResults.cs" />
+    <Compile Include="_qss_e_\Experiment_\Helpers\SaveResults.cs" />
+    <Compile Include="_qss_e_\Helpers_\SerializationTester.cs" />
+    <Compile Include="_qss_e_\Launchers_\ExperimentConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_qss_e_\Launchers_\ExperimentConsole.Designer.cs">
+      <DependentUpon>ExperimentConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_qss_e_\Launchers_\ExperimentSpecification.cs" />
+    <Compile Include="_qss_e_\Launchers_\RunExperiment.cs" />
+    <Compile Include="_qss_e_\Monitoring_\PacketTransmission.cs" />
+    <Compile Include="_qss_e_\NUnit_\GenericTest.cs" />
+    <Compile Include="_qss_e_\NUnit_\UnitTest_001.cs" />
+    <Compile Include="_qss_e_\NUnit_\UnitTest_002.cs" />
+    <Compile Include="_qss_e_\NUnit_\UnitTest_003.cs" />
+    <Compile Include="_qss_e_\Overlapping_\GroupAssignment.cs" />
+    <Compile Include="_qss_e_\Overlapping_\IGroupAssignment.cs" />
+    <Compile Include="_qss_e_\Patterns_\IOverlapPattern.cs" />
+    <Compile Include="_qss_e_\Patterns_\OverlapPattern1.cs" />
+    <Compile Include="_qss_e_\Platforms_\IPlatform.cs" />
+    <Compile Include="_qss_e_\Postprocessing_\Losses.cs" />
+    <Compile Include="_qss_e_\Postprocessing_\Merge2onX.cs" />
+    <Compile Include="_qss_e_\Postprocessing_\RecoveryLatency.cs" />
+    <Compile Include="_qss_e_\Runtime_\RunApp.cs" />
+    <Compile Include="_qss_e_\Scenarios_\IScenario.cs" />
+    <Compile Include="_qss_e_\Scenarios_\IScenarioClass.cs" />
+    <Compile Include="_qss_e_\Scenarios_\IsolatedClusters.cs" />
+    <Compile Include="_qss_e_\Scenarios_\IsolatedSenders.cs" />
+    <Compile Include="_qss_e_\Scenarios_\Lightweight1.cs" />
+    <Compile Include="_qss_e_\Scenarios_\Random1.cs" />
+    <Compile Include="_qss_e_\Scenarios_\Random2.cs" />
+    <Compile Include="_qss_e_\Scenarios_\Simple.cs" />
+    <Compile Include="_qss_e_\Simulations_\ISimulator.cs" />
+    <Compile Include="_qss_e_\Simulations_\Simulations.cs" />
+    <Compile Include="_qss_e_\Simulations_\Simulator.cs" />
+    <Compile Include="_qss_e_\Tests_\001\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\002\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\003\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\004\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\005\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\006\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\007\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\008\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\009\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\010\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\100\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\101\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\102\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\103\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\104\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\105\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\106\MainApp.cs" />
+    <Compile Include="_qss_e_\Tests_\107\MainApp.cs" />
+    <Compile Include="_qss_e_\Worker_\Application.cs" />
+    <Compile Include="_qss_e_\Worker_\Configuration.cs" />
+    <Compile Include="_qss_e_\Worker_\IWorker.cs" />
+    <Compile Include="_qss_e_\Worker_\Worker.cs" />
+    <Compile Include="_qss_p_\Component_\Classes_\Protocol_.cs" />
+    <Compile Include="_qss_p_\Parser_\ErrorHandler_.cs" />
+    <Compile Include="_qss_p_\Parser_\Error_.cs" />
+    <Compile Include="_qss_p_\Parser_\IErrorHandler_.cs" />
+    <Compile Include="_qss_p_\Parser_\Parser_0_.cs" />
+    <Compile Include="_qss_p_\Parser_\Parser_1_.cs" />
+    <Compile Include="_qss_p_\Parser_\Span_.cs" />
+    <Compile Include="_qss_x_\Applications_\001-100\001-010\Application_001.cs" />
+    <Compile Include="_qss_x_\Applications_\001-100\001-010\Application_002.cs" />
+    <Compile Include="_qss_x_\Applications_\001-100\001-010\Application_003.cs" />
+    <Compile Include="_qss_x_\Applications_\001-100\001-010\Application_004.cs" />
+    <Compile Include="_qss_x_\Applications_\001-100\001-010\Application_005.cs" />
+    <Compile Include="_qss_x_\Clock_\PhysicalClock.cs" />
+    <Compile Include="_qss_x_\Component_\Classes_\Box_3D.cs" />
+    <Compile Include="_qss_x_\Component_\Classes_\Control_X.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_qss_x_\Component_\Classes_\GMS.cs" />
+    <Compile Include="_qss_x_\Component_\Classes_\Image_3D.cs" />
+    <Compile Include="_qss_x_\Component_\Classes_\Model_3D.cs" />
+    <Compile Include="_qss_x_\Component_\Classes_\QSM_.cs" />
+    <Compile Include="_qss_x_\Component_\Classes_\Uplink.cs" />
+    <Compile Include="_qss_x_\Component_\Classes_\UplinkController.cs" />
+    <Compile Include="_qss_x_\Component_\Classes_\Window_X.cs" />
+    <Compile Include="_qss_x_\Content_\Controller_.cs" />
+    <Compile Include="_qss_x_\Content_\IContent_.cs" />
+    <Compile Include="_qss_x_\Content_\IController_.cs" />
+    <Compile Include="_qss_x_\Content_\INamespace_.cs" />
+    <Compile Include="_qss_x_\Content_\Xna_\Controller_.cs" />
+    <Compile Include="_qss_x_\Content_\Xna_\IController_.cs" />
+    <Compile Include="_qss_x_\Platform_\Application.cs" />
+    <Compile Include="_qss_x_\QSM_old_\Engine.cs" />
+    <Compile Include="_qss_x_\QSM_old_\IEngine.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmChannelStatus_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmChannel_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmClient_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmConnection_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmControllerChannel_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmControllerClient_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmControllerConnection_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmHelpers_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmIncoming_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmMetadata_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmControllerObject_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmController_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmControl_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmApplicationObject_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmOperation_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmOutgoing_.cs" />
+    <Compile Include="_qss_x_\QuickSilver_\Factory_.cs" />
+    <Compile Include="_qss_x_\QuickSilver_\Object_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmApplicationChannel_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmApplicationConnection_.cs" />
+    <Compile Include="_qss_x_\Qsm_\QsmApplication_.cs" />
+    <Compile Include="_qss_x_\QuickSilver_\QuickSilver_.cs" />
+    <Compile Include="_qss_x_\QuickSilver_\_junk\QuickSilver_C_.cs" />
+    <Compile Include="_qss_x_\Service_Old_\SystemService.cs" />
+    <Compile Include="_qss_x_\Service_Old_\SystemServiceWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_qss_x_\Service_Old_\SystemServiceWindow.Designer.cs">
+      <DependentUpon>SystemServiceWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_qss_x_\Unmanaged_\Channel.cs" />
+    <Compile Include="_qss_x_\Unmanaged_\Engine.cs" />
+    <Compile Include="_qss_x_\Unmanaged_\EngineUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_qss_x_\Unmanaged_\EngineUI.Designer.cs">
+      <DependentUpon>EngineUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_qss_x_\Uplink_1_\UplinkConnection_.cs" />
+    <Compile Include="_qss_x_\Uplink_1_\UplinkController_.cs" />
+    <Compile Include="_qss_x_\Uplink_1_\UplinkObject_.cs" />
+    <Compile Include="_qss_x_\Uplink_1_\Uplink_.cs" />
+    <Compile Include="_qss_x_\Uplink_2_\IUplinkController_.cs" />
+    <Compile Include="_qss_x_\Uplink_2_\UplinkChannel_.cs" />
+    <Compile Include="_qss_x_\Uplink_2_\UplinkConnection_.cs" />
+    <Compile Include="_qss_x_\Uplink_2_\UplinkControllerClient_.cs" />
+    <Compile Include="_qss_x_\Uplink_2_\UplinkController_.cs" />
+    <Compile Include="_qss_x_\Uplink_2_\UplinkObject_.cs" />
+    <Compile Include="_qss_x_\Uplink_2_\Uplink_.cs" />
+    <Compile Include="_qss_x_\Uplink_\IUplink.cs" />
+    <Compile Include="_qss_x_\Uplink_\Uplink.cs" />
+    <Compile Include="_Web\IFoo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Client.cd" />
+    <None Include="Migrated rules for liveobjects_7.ruleset" />
+    <None Include="prebuild.bat" />
+    <None Include="GMS.cd" />
+    <None Include="liveobjects_7.snk" />
+    <None Include="Member.cd" />
+    <None Include="Membership.cd" />
+    <None Include="MetaMember.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="_qss_c_\Infrastructure2\Diagrams\Dissemination.cd" />
+    <None Include="_qss_c_\Infrastructure2\Diagrams\Subscription.cd" />
+    <None Include="_qss_c_\Infrastructure\Diagrams\Client.cd" />
+    <None Include="_qss_c_\Infrastructure\Diagrams\Peer.cd" />
+    <None Include="_qss_c_\Infrastructure\Diagrams\Sink.cd" />
+    <None Include="_qss_c_\Infrastructure\Services\Services.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GUI\Components\AddressCollector.resx">
+      <DependentUpon>AddressCollector.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\AddressCollectorBox.resx">
+      <DependentUpon>AddressCollectorBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\AppController.resx">
+      <DependentUpon>AppController.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\CollectionOfDS.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CollectionOfDS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\CollectionOfDSWithView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CollectionOfDSWithView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\ComponentSelector.resx">
+      <DependentUpon>ComponentSelector.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\DataBox.resx">
+      <DependentUpon>DataBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\DataExplorer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DataExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\DataWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DataWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\EnhancedDataVisualizer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EnhancedDataVisualizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\EnumBox2.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EnumBox2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\EnumeratorBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EnumeratorBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\EnumeratorViewer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EnumeratorViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\EnumView2.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EnumView2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\ExperimentCfg1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ExperimentCfg1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\ExperimentController.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ExperimentController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\ExperimentControllerSelector.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ExperimentControllerSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\ExperimentResultSetExplorer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ExperimentResultSetExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\ExperimentResultSetExplorerForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ExperimentResultSetExplorerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\ExperimentResultSetSelector.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ExperimentResultSetSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\PacketList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PacketList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\PythonConsole.resx">
+      <DependentUpon>PythonConsole.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\InspectionBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InspectionBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\RemoteInspectorBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RemoteInspectorBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\RepositoryExplorer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RepositoryExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Components\SelectionViewer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SelectionViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Resources\ImageCollection.resx">
+      <DependentUpon>ImageCollection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Scheduler\CreateTask.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CreateTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Scheduler\EditParameter.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EditParameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Scheduler\SchedulerClient.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SchedulerClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Simulations\NewSimulatorController.resx">
+      <DependentUpon>NewSimulatorController.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Visualization\DataAnalyzer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DataAnalyzer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_qss_d_\Agent_2_\AgentWindow.resx">
+      <DependentUpon>AgentWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_qss_d_\Agent_2_\SessionWindow.resx">
+      <DependentUpon>SessionWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_qss_d_\Scheduler_3_\SchedulerConsole.resx">
+      <DependentUpon>SchedulerConsole.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_qss_d_\Scheduler_3_\TaskList.resx">
+      <DependentUpon>TaskList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_qss_d_\ServiceController_\ServiceController.resx">
+      <DependentUpon>ServiceController.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_qss_e_\Experiments_\200-299\AppController.resx">
+      <DependentUpon>AppController.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_qss_e_\Launchers_\ExperimentConsole.resx">
+      <DependentUpon>ExperimentConsole.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_qss_x_\Service_Old_\SystemServiceWindow.resx">
+      <DependentUpon>SystemServiceWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_qss_x_\Unmanaged_\EngineUI.resx">
+      <DependentUpon>EngineUI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\liveobjects_1\liveobjects_1.csproj">
+      <Project>{F06CF495-6A41-4E21-8BD7-ECCA7F2C2D2A}</Project>
+      <Name>liveobjects_1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\liveobjects_4\liveobjects_4.csproj">
+      <Project>{F31A380F-1CE2-4F4A-96E9-5043C131C6EE}</Project>
+      <Name>liveobjects_4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\liveobjects_5\liveobjects_5.vcxproj">
+      <Project>{1AB2459B-FF90-471E-BD59-73CE53B123DF}</Project>
+      <Name>liveobjects_5</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\liveobjects_6\liveobjects_6.csproj">
+      <Project>{A17EE7A5-3A05-4CAB-A5B4-249BCCD3C604}</Project>
+      <Name>liveobjects_6</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Protocol_.liveobject" />
+    <Content Include="_objects\_channels_qsm.liveobject" />
+    <Content Include="_objects\_controller_c.liveobject" />
+    <Content Include="_objects\_controller_g.liveobject" />
+    <Content Include="_objects\_controller_s.liveobject" />
+    <Content Include="_objects\_test_0.liveobject" />
+    <Content Include="_objects\_test_1.liveobject" />
+    <Content Include="_objects\_test_2.liveobject" />
+    <None Include="_qss_p_\ParserGenerator_\IScanner.patch" />
+    <None Include="_qss_p_\ParserGenerator_\ParserStack.patch" />
+    <None Include="_qss_p_\ParserGenerator_\Rule.patch" />
+    <None Include="_qss_p_\ParserGenerator_\ShiftReduceParser.patch" />
+    <None Include="_qss_p_\ParserGenerator_\State.patch" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_qss_p_\Parser_\Lexer_.lex" />
+    <None Include="_qss_p_\Parser_\Parser_.y" />
+    <None Include="_qss_p_\Parser_\Output_.txt" />
+    <None Include="_qss_p_\Parser_\Report_.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fx\Object\Compiler.cs" />
+    <Compile Include="Fx\Object\FileConsole.cs" />
+    <Compile Include="_qss_p_\ParserGenerator_\Babel.cs" />
+    <Compile Include="_qss_p_\ParserGenerator_\IScanner.cs" />
+    <Compile Include="_qss_p_\ParserGenerator_\ParserStack.cs" />
+    <Compile Include="_qss_p_\ParserGenerator_\Rule.cs" />
+    <Compile Include="_qss_p_\ParserGenerator_\ShiftReduceParser.cs" />
+    <Compile Include="_qss_p_\ParserGenerator_\State.cs" />
+    <Compile Include="_qss_p_\Parser_\Lexer_.cs" />
+    <Compile Include="_qss_p_\Parser_\Parser_.cs" />
+    <Compile Include="_qss_p_\Parser_\Tokens_.cs" />
+    <Compile Include="_qss_p_\Printing_\IPrinter_.cs" />
+    <Compile Include="_qss_p_\Printing_\Printer_.cs" />
+    <Compile Include="_qss_p_\Structure_\Assignment_.cs" />
+    <Compile Include="_qss_p_\Structure_\EndpointClass_DualInterface_.cs" />
+    <Compile Include="_qss_p_\Structure_\Endpoint_Internal_.cs" />
+    <Compile Include="_qss_p_\Structure_\Endpoint_Member_.cs" />
+    <Compile Include="_qss_p_\Structure_\IAssignment_.cs" />
+    <Compile Include="_qss_p_\Structure_\IEndpointClass_DualInterface_.cs" />
+    <Compile Include="_qss_p_\Structure_\IEndpoint_Internal_.cs" />
+    <Compile Include="_qss_p_\Structure_\IEndpoint_Member_.cs" />
+    <Compile Include="_qss_p_\Structure_\IInterfaceClass_Primitive_.cs" />
+    <Compile Include="_qss_p_\Structure_\InterfaceClass_Primitive_.cs" />
+    <Compile Include="_qss_p_\Structure_\IObjectClass_Reference_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValue_Custom_.cs" />
+    <Compile Include="_qss_p_\Structure_\Value_Custom_.cs" />
+    <Compile Include="_qss_p_\Structure_\_____Assignment_.cs" />
+    <Compile Include="_qss_p_\Structure_\Code_.cs" />
+    <Compile Include="_qss_p_\Structure_\Declaration_Parameter_.cs" />
+    <Compile Include="_qss_p_\Structure_\EndpointClass_Primitive_.cs" />
+    <Compile Include="_qss_p_\Structure_\IEndpointClass_Primitive_.cs" />
+    <Compile Include="_qss_p_\Structure_\IInterfaceClass_Custom_.cs" />
+    <Compile Include="_qss_p_\Structure_\IInterfaceClass_Parameter_.cs" />
+    <Compile Include="_qss_p_\Structure_\IInterfaceClass_Reference_.cs" />
+    <Compile Include="_qss_p_\Structure_\InterfaceClass_Custom_.cs" />
+    <Compile Include="_qss_p_\Structure_\IObjectClass_Custom_.cs" />
+    <Compile Include="_qss_p_\Structure_\IObjectClass_Primitive_.cs" />
+    <Compile Include="_qss_p_\Structure_\IObject_Custom_.cs" />
+    <Compile Include="_qss_p_\Structure_\IOperatorClass_.cs" />
+    <Compile Include="_qss_p_\Structure_\IOperatorClass_Custom_.cs" />
+    <Compile Include="_qss_p_\Structure_\IOperatorClass_Reference_.cs" />
+    <Compile Include="_qss_p_\Structure_\IOperator_Custom_.cs" />
+    <Compile Include="_qss_p_\Structure_\IOperator_Primitive_.cs" />
+    <Compile Include="_qss_p_\Structure_\IParameter_.cs" />
+    <Compile Include="_qss_p_\Structure_\Declaration_Reference_.cs" />
+    <Compile Include="_qss_p_\Structure_\IDeclaration_Reference_.cs" />
+    <Compile Include="_qss_p_\Structure_\IUnresolved_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValueClass_Reference_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValueClass_Parameter_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValue_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValueClass_Custom_.cs" />
+    <Compile Include="_qss_p_\Structure_\IMetadata_.cs" />
+    <Compile Include="_qss_p_\Structure_\IObjectClass_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValue_Incoming_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValue_Internal_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValue_Member_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValue_Outgoing_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValue_Parameter_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValue_Reference_.cs" />
+    <Compile Include="_qss_p_\Structure_\ObjectClass_Custom_.cs" />
+    <Compile Include="_qss_p_\Structure_\ObjectClass_Primitive_.cs" />
+    <Compile Include="_qss_p_\Structure_\Object_Custom_.cs" />
+    <Compile Include="_qss_p_\Structure_\OperatorClass_.cs" />
+    <Compile Include="_qss_p_\Structure_\OperatorClass_Custom_.cs" />
+    <Compile Include="_qss_p_\Structure_\Operator_Custom_.cs" />
+    <Compile Include="_qss_p_\Structure_\Operator_Primitive_.cs" />
+    <Compile Include="_qss_p_\Structure_\ValueClass_Custom_.cs" />
+    <Compile Include="_qss_p_\Structure_\Metadata_.cs" />
+    <Compile Include="_qss_p_\Structure_\ObjectClass_.cs" />
+    <Compile Include="_qss_p_\Structure_\ValueClass_Primitive_.cs" />
+    <Compile Include="_qss_p_\Structure_\Conditional_.cs" />
+    <Compile Include="_qss_p_\Structure_\Dependency_.cs" />
+    <Compile Include="_qss_p_\Structure_\EmbeddedFlow_.cs" />
+    <Compile Include="_qss_p_\Structure_\Embedding_.cs" />
+    <Compile Include="_qss_p_\Structure_\Environment_.cs" />
+    <Compile Include="_qss_p_\Structure_\Expression_.cs" />
+    <Compile Include="_qss_p_\Structure_\_____IAssignment_.cs" />
+    <Compile Include="_qss_p_\Structure_\IConditional_.cs" />
+    <Compile Include="_qss_p_\Structure_\IDependency_.cs" />
+    <Compile Include="_qss_p_\Structure_\IEmbeddedFlow_.cs" />
+    <Compile Include="_qss_p_\Structure_\IEmbedded_.cs" />
+    <Compile Include="_qss_p_\Structure_\IEmbedding_.cs" />
+    <Compile Include="_qss_p_\Structure_\IEnvironment_.cs" />
+    <Compile Include="_qss_p_\Structure_\IExpression_.cs" />
+    <Compile Include="_qss_p_\Structure_\IOperation_.cs" />
+    <Compile Include="_qss_p_\Structure_\IOperator_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValueClass_Primitive_.cs" />
+    <Compile Include="_qss_p_\Structure_\Operation_.cs" />
+    <Compile Include="_qss_p_\Structure_\Operator_.cs" />
+    <Compile Include="_qss_p_\Structure_\Value_Incoming_.cs" />
+    <Compile Include="_qss_p_\Structure_\Value_Internal_.cs" />
+    <Compile Include="_qss_p_\Structure_\Value_Outgoing_.cs" />
+    <Compile Include="_qss_p_\Structure_\_____Parameter_.cs" />
+    <Compile Include="_qss_p_\Structure_\Statement_.cs" />
+    <Compile Include="_qss_p_\Structure_\Declaration_.cs" />
+    <Compile Include="_qss_p_\Structure_\EndpointClass_.cs" />
+    <Compile Include="_qss_p_\Structure_\Endpoint_.cs" />
+    <Compile Include="_qss_p_\Structure_\FlowClass_.cs" />
+    <Compile Include="_qss_p_\Structure_\Flow_.cs" />
+    <Compile Include="_qss_p_\Structure_\ICode_.cs" />
+    <Compile Include="_qss_p_\Structure_\IStatement_.cs" />
+    <Compile Include="_qss_p_\Structure_\IDeclaration_.cs" />
+    <Compile Include="_qss_p_\Structure_\IElement_.cs" />
+    <Compile Include="_qss_p_\Structure_\IEndpointClass_.cs" />
+    <Compile Include="_qss_p_\Structure_\IEndpoint_.cs" />
+    <Compile Include="_qss_p_\Structure_\IFlowClass_.cs" />
+    <Compile Include="_qss_p_\Structure_\IFlow_.cs" />
+    <Compile Include="_qss_p_\Structure_\IInterfaceClass_.cs" />
+    <Compile Include="_qss_p_\Structure_\IInterface_.cs" />
+    <Compile Include="_qss_p_\Structure_\ILibrary.cs" />
+    <Compile Include="_qss_p_\Structure_\InterfaceClass_.cs" />
+    <Compile Include="_qss_p_\Structure_\Interface_.cs" />
+    <Compile Include="_qss_p_\Structure_\IObject_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValueClass_Set_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValueClass_Tuple_.cs" />
+    <Compile Include="_qss_p_\Structure_\IValueClass_.cs" />
+    <Compile Include="_qss_p_\Structure_\Library_.cs" />
+    <Compile Include="_qss_p_\Structure_\Object_.cs" />
+    <Compile Include="_qss_p_\Structure_\Properties_.cs" />
+    <Compile Include="_qss_p_\Structure_\ValueClass_Set_.cs" />
+    <Compile Include="_qss_p_\Structure_\ValueClass_Tuple_.cs" />
+    <Compile Include="_qss_p_\Structure_\ValueClass_.cs" />
+    <Compile Include="_qss_p_\Structure_\Embedded_.cs" />
+    <Compile Include="_qss_p_\Structure_\Value_.cs" />
+    <Compile Include="_qss_p_\Structure_\Value_Member_.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="postbuild.bat" />
+    <None Include="_qss_p_\ParserGenerator_\_diff.bat" />
+    <None Include="_qss_p_\ParserGenerator_\_patch.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GUI\Deployments\" />
+    <Folder Include="GUI\Environment\" />
+    <Folder Include="GUI\Fx\Filesystem\" />
+    <Folder Include="GUI\Fx\Network\" />
+    <Folder Include="GUI\Fx\Simulations\" />
+    <Folder Include="GUI\Scheduler2\" />
+    <Folder Include="obj\Debug\" />
+    <Folder Include="Protocols\" />
+    <Folder Include="_qss_c_\Infrastructure2\Components\Dissemination\" />
+    <Folder Include="_qss_c_\Infrastructure2\Interfaces\Group\" />
+    <Folder Include="_qss_c_\Infrastructure3\Diagrams\" />
+    <Folder Include="_qss_c_\Membership_3_\Common\" />
+    <Folder Include="_qss_c_\_OldFx\Channels\Base\" />
+    <Folder Include="_qss_c_\_OldFx\Connections\Base\" />
+    <Folder Include="_qss_c_\_OldFx\Dissemination\Algorithms\Infrastructure\" />
+    <Folder Include="_qss_c_\_OldFx\Dissemination\Base\" />
+    <Folder Include="_qss_c_\_OldFx\Dissemination\Filters\" />
+    <Folder Include="_qss_c_\_OldFx\Reliability\Simulation\" />
+    <Folder Include="_qss_e_\Administration_\Services_\NewFolder1\" />
+    <Folder Include="_qss_p_\Documentation_\" />
+    <Folder Include="_qss_x_\Applications_\001-100\011-020\" />
+    <Folder Include="_qss_x_\Experiment_\Interface_\" />
+    <Folder Include="_qss_x_\Experiment_\Object_\" />
+    <Folder Include="_qss_x_\Experiment_\Value_\" />
+    <Folder Include="_qss_x_\NewFolder1\" />
+    <Folder Include="_qss_x_\Properties_\Component_\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!--
+
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\VSSDK\Microsoft.VsSDK.targets" />
+-->
+  <PropertyGroup>
+    <PreBuildEvent>"$(ProjectDir)"\prebuild.bat $(SolutionDir) $(PlatformName) $(ConfigurationName) $(TargetDir) $(ProjectDir)</PreBuildEvent>
+    <PostBuildEvent>"$(ProjectDir)"\postbuild.bat "$(ProjectDir)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright (c) 2010 Krzysztof Ostrowski. All rights reserved.
+
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the
+following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+  copyright notice, this list of conditions and the following
+  disclaimer in the documentation and/or other materials provided
+  with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="0`1:53915EBDD0E84E04BAAF1AF03F779856`0">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="WcfChannelController" />
+    <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="" />
+    <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="53915EBDD0E84E04BAAF1AF03F779856" />
+    <ObjectClass id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+    <Parameter id="MessageClass">
+      <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+    </Parameter>
+    <Parameter id="CheckpointClass">
+      <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+    </Parameter>
+    <Parameter id="address">
+      <Value xsi:type="xsd:string">http://localhost:1000</Value>
+    </Parameter>
+    <Parameter id="backend">
+      <Value xsi:type="ReferenceObject" id="0`1:4FF15AA1A8BD458BA3847691DF96D289`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="LocalCommunicationChannel" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="A simple communication channel with checkpointing that is local to the object using it, useful for debugging." />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="4FF15AA1A8BD458BA3847691DF96D289" />
+        <ObjectClass id="0`1:806C71E88E749AA879E52F960F4B881`0">
+          <Parameter id="MessageClass">
+            <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+          </Parameter>
+          <Parameter id="CheckpointClass">
+            <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+          </Parameter>
+        </ObjectClass>
+        <Parameter id="MessageClass">
+          <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+        </Parameter>
+        <Parameter id="CheckpointClass">
+          <Value xsi:type="ValueClass" id="0`1:982130E40A294E3CAD5441841E87941E`0" />
+        </Parameter>
+        <Parameter id="address" />
+        <Parameter id="debugging">
+          <Value xsi:type="xsd:boolean">false</Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+  </Object>
+</Root>

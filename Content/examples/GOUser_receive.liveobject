@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright (c) 2010 Krzysztof Ostrowski. All rights reserved.
+
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the
+following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+  copyright notice, this list of conditions and the following
+  disclaimer in the documentation and/or other materials provided
+  with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="1A3160A2B3C64B589A9754161FD6B6EF`1:3`1">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="GOUserReceive" />
+    <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="This is a component class based on the .NET type &quot;SomeStuff.IncomingRumorReport&quot;." />
+    <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="3" />
+    <ObjectClass id="0`1:5211621A78F4CFBB993FA43186A5403`0" />
+    <Parameter id="GOTransport">
+      <Value xsi:type="ReferenceObject" id="0`1:2`1">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="GOTransport" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="This is a component class based on the .NET type &quot;SomeStuff.GOTransport&quot;." />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="2" />
+        <ObjectClass id="0`1:1`1" />
+        <Parameter id="channel">
+          <Value xsi:type="ReferenceObject" id="0`1:7EB42417EB864FF485F685025C447808`0">
+            <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Xml Channel" />
+            <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="A checkpoint communication channel carrying serializable .NET objects encoded as XML strings." />
+            <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="7EB42417EB864FF485F685025C447808" />
+            <ObjectClass id="0`1:806C71E88E749AA879E52F960F4B881`0">
+              <Parameter id="MessageClass">
+                <Value xsi:type="ValueClass" id="0`1:30`1" />
+              </Parameter>
+              <Parameter id="CheckpointClass">
+                <Value xsi:type="ValueClass" id="0`1:2`1" />
+              </Parameter>
+            </ObjectClass>
+            <Parameter id="MessageClass">
+              <Value xsi:type="ValueClass" id="0`1:30`1" />
+            </Parameter>
+            <Parameter id="CheckpointClass">
+              <Value xsi:type="ValueClass" id="0`1:2`1" />
+            </Parameter>
+            <Parameter id="underlyingchannel">
+              <Value xsi:type="ReferenceObject" id="00000000000000000000000000000037">
+                <ObjectClass id="0`1:806C71E88E749AA879E52F960F4B881`0">
+                  <Parameter id="MessageClass">
+                    <Value xsi:type="ValueClass" id="0`1:148B8C6B886A49029CD81610CB75EEE6`0" />
+                  </Parameter>
+                  <Parameter id="CheckpointClass">
+                    <Value xsi:type="ValueClass" id="0`1:148B8C6B886A49029CD81610CB75EEE6`0" />
+                  </Parameter>
+                </ObjectClass>
+                <From xsi:type="ReferenceObject" id="011E83FA6A9F426993BB8EF26FF7D7B8">
+                  <ObjectClass id="0`1:D111EEF8754D4EB98ABD90B0260AEF93`0">
+                    <Parameter id="KeyClass">
+                      <Value xsi:type="ValueClass" id="0`1:2FEB1E028342422CBD38CB074B957973`0" />
+                    </Parameter>
+                    <Parameter id="ObjectClass">
+                      <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+                    </Parameter>
+                  </ObjectClass>
+                  <From xsi:type="ReferenceObject" id="0`1:E8C9D312C27649F39812B8E99AA67CBC`0">
+                    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Registry" />
+                    <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="A collection of services with known names, but with a local customized configuration that could be based on system registry or on configuration files." />
+                    <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="E8C9D312C27649F39812B8E99AA67CBC" />
+                    <ObjectClass id="0`1:D111EEF8754D4EB98ABD90B0260AEF93`0">
+                      <Parameter id="KeyClass">
+                        <Value xsi:type="ValueClass" id="0`1:2FEB1E028342422CBD38CB074B957973`0" />
+                      </Parameter>
+                      <Parameter id="ObjectClass">
+                        <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+                      </Parameter>
+                    </ObjectClass>
+                  </From>
+                </From>
+              </Value>
+            </Parameter>
+          </Value>
+        </Parameter>
+        <Parameter id="GOConnection_URL">
+          <Value xsi:type="xsd:string">ipc://GossipChannel/GOConnection</Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+  </Object>
+</Root>

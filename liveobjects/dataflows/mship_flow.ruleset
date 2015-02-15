@@ -1,0 +1,17 @@
+{
+  set S
+  set A
+  set H
+  set G
+  set F
+  set K
+  {
+    H := union S
+    G <= H
+    [S]L := G
+  }
+  {
+    F <= K
+    [K]U := F
+  }
+}

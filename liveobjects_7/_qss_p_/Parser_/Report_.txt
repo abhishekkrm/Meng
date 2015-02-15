@@ -1,0 +1,2317 @@
+Grammar
+
+    1 $accept: Library EOF
+
+    2 @1: /* empty */
+
+    3 Assignment: Values_References '=' @1 Assignment_Body
+
+    4 Assignment_Body: /* empty */
+
+    5 Declaration: ValueClass_Declaration
+    6            | OperatorClass_Declaration
+    7            | InterfaceClass_Declaration
+    8            | EndpointClass_Declaration
+    9            | ObjectClass_Declaration
+   10            | Value_Declaration
+   11            | Operator_Declaration
+   12            | Object_Declaration
+
+   13 Declarations: Declarations_Body Declarations
+   14             | Declarations_Body
+
+   15 Declarations_Body: Declaration
+
+   16 Declaration_Reference: IDENTIFIER Parameters_Values_Optional
+
+   17 EndpointClass_Functional: /* empty */
+
+   18 @2: /* empty */
+
+   19 EndpointClass_Declaration: KWENDPOINT KWCLASS Metadata @2 Parameters_Declarations_Classes_Optional '{' '}'
+
+   20 @3: /* empty */
+
+   21 InterfaceClass_Declaration: KWINTERFACE KWCLASS Metadata @3 Parameters_Declarations_Classes_Optional '{' '}'
+
+   22 Library: KWLIBRARY Metadata '{' Declarations '}'
+
+   23 Metadata: Metadata_Internal
+   24         | UUID IDENTIFIER
+   25         | UUID STRING IDENTIFIER
+   26         | UUID '`' NUMBER IDENTIFIER
+   27         | UUID '`' NUMBER STRING IDENTIFIER
+
+   28 Metadata_Internal: IDENTIFIER
+   29                  | STRING IDENTIFIER
+
+   30 @4: /* empty */
+
+   31 @5: /* empty */
+
+   32 Object_Declaration: KWOBJECT Metadata @4 Parameters_Declarations_Optional @5 Object_Declaration_Body
+
+   33 Object_Declaration_Body: EndpointClass_Functional '{' '}'
+
+   34 @6: /* empty */
+
+   35 ObjectClass_Declaration: KWOBJECT KWCLASS Metadata @6 Parameters_Declarations_Classes_Optional '{' '}'
+
+   36 @7: /* empty */
+
+   37 @8: /* empty */
+
+   38 Operator_Declaration: KWOPERATOR Metadata @7 Parameters_Declarations_Optional @8 Operator_Declaration_Body
+
+   39 Operator_Declaration_Body: '(' Values_Incoming ')' Values_Outgoing '{' Values_Internal '}'
+
+   40 @9: /* empty */
+
+   41 @10: /* empty */
+
+   42 OperatorClass_Declaration: KWOPERATOR KWCLASS Metadata @9 Parameters_Declarations_Classes_Optional @10 OperatorClass_Declaration_Body
+
+   43 OperatorClass_Declaration_Body: '(' Values_Incoming ')' Values_Outgoing ';'
+
+   44 Parameter_Declaration: Parameter_Declaration_Value
+   45                      | Parameter_Declaration_Class
+
+   46 Parameter_Declaration_Class: KWVALUE KWCLASS IDENTIFIER
+   47                            | KWVALUE '~' IDENTIFIER
+   48                            | ValueClass_Unambiguous '~' IDENTIFIER
+   49                            | Declaration_Reference '~' IDENTIFIER
+
+   50 Parameter_Declaration_Value: ValueClass_Unambiguous IDENTIFIER
+   51                            | Declaration_Reference IDENTIFIER
+
+   52 Parameters_Declarations: Parameter_Declaration ',' Parameters_Declarations
+   53                        | Parameter_Declaration
+
+   54 Parameters_Declarations_Optional: LT Parameters_Declarations GT
+   55                                 | /* empty */
+
+   56 Parameters_Declarations_Classes: Parameter_Declaration_Class ',' Parameters_Declarations_Classes
+   57                                | Parameter_Declaration_Class
+
+   58 Parameters_Declarations_Classes_Optional: LT Parameters_Declarations_Classes GT
+   59                                         | /* empty */
+
+   60 Parameter_Value: ValueClass_Unambiguous
+   61                | Declaration_Reference
+
+   62 Parameters_Values: Parameter_Value ',' Parameters_Values
+   63                  | Parameter_Value
+
+   64 Parameters_Values_Optional: LT Parameters_Values GT
+   65                           | /* empty */
+
+   66 @11: /* empty */
+
+   67 @12: /* empty */
+
+   68 Value_Declaration: KWVALUE Metadata @11 Parameters_Declarations_Optional @12 Value_Declaration_Body
+
+   69 Value_Declaration_Body: '{' Values_Members '}'
+
+   70 Value_Incoming: ValueClass Metadata_Internal
+
+   71 Value_Member: ValueClass Metadata_Internal
+
+   72 Value_Internal: ValueClass Metadata_Internal
+
+   73 Value_Outgoing: ValueClass Metadata_Internal
+
+   74 Value_Reference: IDENTIFIER
+
+   75 Values_Incoming: Values_Incoming_Body
+   76                | /* empty */
+
+   77 Values_Incoming_Body: Value_Incoming ',' Values_Incoming_Body
+   78                     | Value_Incoming
+
+   79 Values_Internal: Values_Internal_Body
+   80                | /* empty */
+
+   81 Values_Internal_Body: Value_Internal ';' Values_Internal_Body
+   82                     | Value_Internal ';'
+
+   83 Values_Outgoing: ':' Values_Outgoing_Body
+   84                | /* empty */
+
+   85 Values_Outgoing_Body: Value_Outgoing ',' Values_Outgoing_Body
+   86                     | Value_Outgoing
+
+   87 Values_Members: Value_Member ';' Values_Members
+   88               | /* empty */
+
+   89 Values_Members_Commas: Values_Members_Commas_Body
+   90                      | /* empty */
+
+   91 Values_Members_Commas_Body: Value_Member ',' Values_Members_Commas_Body
+   92                           | Value_Member
+
+   93 Values_References: Value_Reference ',' Values_References
+   94                  | Value_Reference
+
+   95 ValueClass: ValueClass_Unambiguous
+   96           | ValueClass_Reference
+
+   97 ValueClasses: ValueClass ',' ValueClasses
+   98             | ValueClass
+
+   99 @13: /* empty */
+
+  100 @14: /* empty */
+
+  101 ValueClass_Declaration: KWVALUE KWCLASS Metadata @13 Parameters_Declarations_Classes_Optional @14 ValueClass_Declaration_Body
+
+  102 ValueClass_Declaration_Body: '{' Values_Members '}'
+
+  103 ValueClass_Reference: IDENTIFIER Parameters_Values_Optional
+
+  104 ValueClass_Unambiguous: KWBOOL
+  105                       | KWINT
+  106                       | '(' ValueClasses ')'
+  107                       | '{' ValueClass '}'
+
+State 0
+
+    1 $accept: . Library EOF 
+
+    KWLIBRARY      shift, and go to state 3
+
+    Library        go to state 1
+
+
+State 1
+
+    1 $accept: Library . EOF 
+
+    EOF            shift, and go to state 2
+
+
+
+State 2
+
+    1 $accept: Library EOF .
+		-lookahead: []
+
+    error          reduce using rule 1 ($accept)
+    EOF            reduce using rule 1 ($accept)
+    IDENTIFIER     reduce using rule 1 ($accept)
+    NUMBER         reduce using rule 1 ($accept)
+    STRING         reduce using rule 1 ($accept)
+    UUID           reduce using rule 1 ($accept)
+    KWBOOL         reduce using rule 1 ($accept)
+    KWCLASS        reduce using rule 1 ($accept)
+    KWCONJUNCTION  reduce using rule 1 ($accept)
+    KWCONST        reduce using rule 1 ($accept)
+    KWDISJUNCTION  reduce using rule 1 ($accept)
+    KWDOWN         reduce using rule 1 ($accept)
+    KWELSEWHERE    reduce using rule 1 ($accept)
+    KWEMPTY        reduce using rule 1 ($accept)
+    KWENDPOINT     reduce using rule 1 ($accept)
+    KWFALSE        reduce using rule 1 ($accept)
+    KWFRESH        reduce using rule 1 ($accept)
+    KWID           reduce using rule 1 ($accept)
+    KWINCOMPLETE   reduce using rule 1 ($accept)
+    KWINDEPENDENTLY reduce using rule 1 ($accept)
+    KWINT          reduce using rule 1 ($accept)
+    KWINTERFACE    reduce using rule 1 ($accept)
+    KWINTERSECTION reduce using rule 1 ($accept)
+    KWLIBRARY      reduce using rule 1 ($accept)
+    KWMAX          reduce using rule 1 ($accept)
+    KWMESSAGE      reduce using rule 1 ($accept)
+    KWMIN          reduce using rule 1 ($accept)
+    KWOBJECT       reduce using rule 1 ($accept)
+    KWOPERATOR     reduce using rule 1 ($accept)
+    KWOTHER        reduce using rule 1 ($accept)
+    KWPRODUCT      reduce using rule 1 ($accept)
+    KWSAME         reduce using rule 1 ($accept)
+    KWSINGLETON    reduce using rule 1 ($accept)
+    KWSOME         reduce using rule 1 ($accept)
+    KWSTRONG       reduce using rule 1 ($accept)
+    KWSUM          reduce using rule 1 ($accept)
+    KWTRUE         reduce using rule 1 ($accept)
+    KWUNCOORDINATED reduce using rule 1 ($accept)
+    KWUNION        reduce using rule 1 ($accept)
+    KWUNORDERED    reduce using rule 1 ($accept)
+    KWUP           reduce using rule 1 ($accept)
+    KWUUID         reduce using rule 1 ($accept)
+    KWVERSION      reduce using rule 1 ($accept)
+    KWVALUE        reduce using rule 1 ($accept)
+    KWWEAK         reduce using rule 1 ($accept)
+    KWWHERE        reduce using rule 1 ($accept)
+    EQ             reduce using rule 1 ($accept)
+    NEQ            reduce using rule 1 ($accept)
+    GT             reduce using rule 1 ($accept)
+    GTE            reduce using rule 1 ($accept)
+    LT             reduce using rule 1 ($accept)
+    LTE            reduce using rule 1 ($accept)
+    AMPAMP         reduce using rule 1 ($accept)
+    BARBAR         reduce using rule 1 ($accept)
+    ASSIGN         reduce using rule 1 ($accept)
+    DOTDOT         reduce using rule 1 ($accept)
+    maxParseToken  reduce using rule 1 ($accept)
+    LEX_WHITE      reduce using rule 1 ($accept)
+    LEX_COMMENT    reduce using rule 1 ($accept)
+    LEX_ERROR      reduce using rule 1 ($accept)
+    '['            reduce using rule 1 ($accept)
+    UMINUS         reduce using rule 1 ($accept)
+    '*'            reduce using rule 1 ($accept)
+    '/'            reduce using rule 1 ($accept)
+    '+'            reduce using rule 1 ($accept)
+    '-'            reduce using rule 1 ($accept)
+    LOWER_THAN_ELSEWHERE reduce using rule 1 ($accept)
+    '='            reduce using rule 1 ($accept)
+    '{'            reduce using rule 1 ($accept)
+    '}'            reduce using rule 1 ($accept)
+    '`'            reduce using rule 1 ($accept)
+    '('            reduce using rule 1 ($accept)
+    ')'            reduce using rule 1 ($accept)
+    ';'            reduce using rule 1 ($accept)
+    '~'            reduce using rule 1 ($accept)
+    ','            reduce using rule 1 ($accept)
+    ':'            reduce using rule 1 ($accept)
+
+
+
+State 3
+
+    22 Library: KWLIBRARY . Metadata '{' Declarations '}' 
+
+    IDENTIFIER     shift, and go to state 27
+    STRING         shift, and go to state 28
+    UUID           shift, and go to state 73
+
+    Metadata       go to state 4
+    Metadata_Internal go to state 72
+
+
+State 4
+
+    22 Library: KWLIBRARY Metadata . '{' Declarations '}' 
+
+    '{'            shift, and go to state 5
+
+
+
+State 5
+
+    22 Library: KWLIBRARY Metadata '{' . Declarations '}' 
+
+    KWVALUE        shift, and go to state 12
+    KWOPERATOR     shift, and go to state 103
+    KWINTERFACE    shift, and go to state 147
+    KWENDPOINT     shift, and go to state 155
+    KWOBJECT       shift, and go to state 163
+
+    Declarations   go to state 6
+    Declarations_Body go to state 8
+    Declaration    go to state 10
+    ValueClass_Declaration go to state 11
+    OperatorClass_Declaration go to state 102
+    InterfaceClass_Declaration go to state 146
+    EndpointClass_Declaration go to state 154
+    ObjectClass_Declaration go to state 162
+    Value_Declaration go to state 178
+    Operator_Declaration go to state 179
+    Object_Declaration go to state 180
+
+
+State 6
+
+    22 Library: KWLIBRARY Metadata '{' Declarations . '}' 
+
+    '}'            shift, and go to state 7
+
+
+
+State 7
+
+    22 Library: KWLIBRARY Metadata '{' Declarations '}' .
+		-lookahead: [EOF, ]
+
+    EOF            reduce using rule 22 (Library)
+
+
+
+State 8
+
+    13 Declarations: Declarations_Body . Declarations 
+    14 Declarations: Declarations_Body .
+		-lookahead: ['}', ]
+
+    KWVALUE        shift, and go to state 12
+    KWOPERATOR     shift, and go to state 103
+    KWINTERFACE    shift, and go to state 147
+    KWENDPOINT     shift, and go to state 155
+    KWOBJECT       shift, and go to state 163
+    '}'            reduce using rule 14 (Declarations)
+
+    Declarations   go to state 9
+    Declarations_Body go to state 8
+    Declaration    go to state 10
+    ValueClass_Declaration go to state 11
+    OperatorClass_Declaration go to state 102
+    InterfaceClass_Declaration go to state 146
+    EndpointClass_Declaration go to state 154
+    ObjectClass_Declaration go to state 162
+    Value_Declaration go to state 178
+    Operator_Declaration go to state 179
+    Object_Declaration go to state 180
+
+
+State 9
+
+    13 Declarations: Declarations_Body Declarations .
+		-lookahead: ['}', ]
+
+    '}'            reduce using rule 13 (Declarations)
+
+
+
+State 10
+
+    15 Declarations_Body: Declaration .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 15 (Declarations_Body)
+    KWOPERATOR     reduce using rule 15 (Declarations_Body)
+    KWINTERFACE    reduce using rule 15 (Declarations_Body)
+    KWENDPOINT     reduce using rule 15 (Declarations_Body)
+    KWOBJECT       reduce using rule 15 (Declarations_Body)
+    '}'            reduce using rule 15 (Declarations_Body)
+
+
+
+State 11
+
+    5 Declaration: ValueClass_Declaration .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 5 (Declaration)
+    KWOPERATOR     reduce using rule 5 (Declaration)
+    KWINTERFACE    reduce using rule 5 (Declaration)
+    KWENDPOINT     reduce using rule 5 (Declaration)
+    KWOBJECT       reduce using rule 5 (Declaration)
+    '}'            reduce using rule 5 (Declaration)
+
+
+
+State 12
+
+    101 ValueClass_Declaration: KWVALUE . KWCLASS Metadata @13 Parameters_Declarations_Classes_Optional @14 ValueClass_Declaration_Body 
+    68 Value_Declaration: KWVALUE . Metadata @11 Parameters_Declarations_Optional @12 Value_Declaration_Body 
+
+    KWCLASS        shift, and go to state 13
+    IDENTIFIER     shift, and go to state 27
+    STRING         shift, and go to state 28
+    UUID           shift, and go to state 73
+
+    Metadata       go to state 82
+    Metadata_Internal go to state 72
+
+
+State 13
+
+    101 ValueClass_Declaration: KWVALUE KWCLASS . Metadata @13 Parameters_Declarations_Classes_Optional @14 ValueClass_Declaration_Body 
+
+    IDENTIFIER     shift, and go to state 27
+    STRING         shift, and go to state 28
+    UUID           shift, and go to state 73
+
+    Metadata       go to state 14
+    Metadata_Internal go to state 72
+
+
+State 14
+
+    101 ValueClass_Declaration: KWVALUE KWCLASS Metadata . @13 Parameters_Declarations_Classes_Optional @14 ValueClass_Declaration_Body 
+
+    LT             reduce using rule 99 (@13)
+    '{'            reduce using rule 99 (@13)
+
+    @13            go to state 15
+
+
+State 15
+
+    101 ValueClass_Declaration: KWVALUE KWCLASS Metadata @13 . Parameters_Declarations_Classes_Optional @14 ValueClass_Declaration_Body 
+
+    LT             shift, and go to state 55
+    '{'            reduce using rule 59 (Parameters_Declarations_Classes_Optional)
+
+    Parameters_Declarations_Classes_Optional go to state 16
+
+
+State 16
+
+    101 ValueClass_Declaration: KWVALUE KWCLASS Metadata @13 Parameters_Declarations_Classes_Optional . @14 ValueClass_Declaration_Body 
+
+    '{'            reduce using rule 100 (@14)
+
+    @14            go to state 17
+
+
+State 17
+
+    101 ValueClass_Declaration: KWVALUE KWCLASS Metadata @13 Parameters_Declarations_Classes_Optional @14 . ValueClass_Declaration_Body 
+
+    '{'            shift, and go to state 19
+
+    ValueClass_Declaration_Body go to state 18
+
+
+State 18
+
+    101 ValueClass_Declaration: KWVALUE KWCLASS Metadata @13 Parameters_Declarations_Classes_Optional @14 ValueClass_Declaration_Body .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 101 (ValueClass_Declaration)
+    KWOPERATOR     reduce using rule 101 (ValueClass_Declaration)
+    KWINTERFACE    reduce using rule 101 (ValueClass_Declaration)
+    KWENDPOINT     reduce using rule 101 (ValueClass_Declaration)
+    KWOBJECT       reduce using rule 101 (ValueClass_Declaration)
+    '}'            reduce using rule 101 (ValueClass_Declaration)
+
+
+
+State 19
+
+    102 ValueClass_Declaration_Body: '{' . Values_Members '}' 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 43
+    '}'            reduce using rule 88 (Values_Members)
+
+    Values_Members go to state 20
+    Value_Member   go to state 22
+    ValueClass     go to state 25
+    ValueClass_Unambiguous go to state 30
+    ValueClass_Reference go to state 42
+
+
+State 20
+
+    102 ValueClass_Declaration_Body: '{' Values_Members . '}' 
+
+    '}'            shift, and go to state 21
+
+
+
+State 21
+
+    102 ValueClass_Declaration_Body: '{' Values_Members '}' .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 102 (ValueClass_Declaration_Body)
+    KWOPERATOR     reduce using rule 102 (ValueClass_Declaration_Body)
+    KWINTERFACE    reduce using rule 102 (ValueClass_Declaration_Body)
+    KWENDPOINT     reduce using rule 102 (ValueClass_Declaration_Body)
+    KWOBJECT       reduce using rule 102 (ValueClass_Declaration_Body)
+    '}'            reduce using rule 102 (ValueClass_Declaration_Body)
+
+
+
+State 22
+
+    87 Values_Members: Value_Member . ';' Values_Members 
+
+    ';'            shift, and go to state 23
+
+
+
+State 23
+
+    87 Values_Members: Value_Member ';' . Values_Members 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 43
+    '}'            reduce using rule 88 (Values_Members)
+
+    Values_Members go to state 24
+    Value_Member   go to state 22
+    ValueClass     go to state 25
+    ValueClass_Unambiguous go to state 30
+    ValueClass_Reference go to state 42
+
+
+State 24
+
+    87 Values_Members: Value_Member ';' Values_Members .
+		-lookahead: ['}', ]
+
+    '}'            reduce using rule 87 (Values_Members)
+
+
+
+State 25
+
+    71 Value_Member: ValueClass . Metadata_Internal 
+
+    IDENTIFIER     shift, and go to state 27
+    STRING         shift, and go to state 28
+
+    Metadata_Internal go to state 26
+
+
+State 26
+
+    71 Value_Member: ValueClass Metadata_Internal .
+		-lookahead: [';', ]
+
+    ';'            reduce using rule 71 (Value_Member)
+
+
+
+State 27
+
+    28 Metadata_Internal: IDENTIFIER .
+		-lookahead: ['{', LT, ';', '(', ',', ')', ]
+
+    '{'            reduce using rule 28 (Metadata_Internal)
+    LT             reduce using rule 28 (Metadata_Internal)
+    ';'            reduce using rule 28 (Metadata_Internal)
+    '('            reduce using rule 28 (Metadata_Internal)
+    ','            reduce using rule 28 (Metadata_Internal)
+    ')'            reduce using rule 28 (Metadata_Internal)
+
+
+
+State 28
+
+    29 Metadata_Internal: STRING . IDENTIFIER 
+
+    IDENTIFIER     shift, and go to state 29
+
+
+
+State 29
+
+    29 Metadata_Internal: STRING IDENTIFIER .
+		-lookahead: ['{', LT, ';', '(', ',', ')', ]
+
+    '{'            reduce using rule 29 (Metadata_Internal)
+    LT             reduce using rule 29 (Metadata_Internal)
+    ';'            reduce using rule 29 (Metadata_Internal)
+    '('            reduce using rule 29 (Metadata_Internal)
+    ','            reduce using rule 29 (Metadata_Internal)
+    ')'            reduce using rule 29 (Metadata_Internal)
+
+
+
+State 30
+
+    95 ValueClass: ValueClass_Unambiguous .
+		-lookahead: [IDENTIFIER, STRING, ',', ')', '}', ]
+
+    IDENTIFIER     reduce using rule 95 (ValueClass)
+    STRING         reduce using rule 95 (ValueClass)
+    ','            reduce using rule 95 (ValueClass)
+    ')'            reduce using rule 95 (ValueClass)
+    '}'            reduce using rule 95 (ValueClass)
+
+
+
+State 31
+
+    104 ValueClass_Unambiguous: KWBOOL .
+		-lookahead: [IDENTIFIER, STRING, ',', ')', '}', GT, '~', ]
+
+    IDENTIFIER     reduce using rule 104 (ValueClass_Unambiguous)
+    STRING         reduce using rule 104 (ValueClass_Unambiguous)
+    ','            reduce using rule 104 (ValueClass_Unambiguous)
+    ')'            reduce using rule 104 (ValueClass_Unambiguous)
+    '}'            reduce using rule 104 (ValueClass_Unambiguous)
+    GT             reduce using rule 104 (ValueClass_Unambiguous)
+    '~'            reduce using rule 104 (ValueClass_Unambiguous)
+
+
+
+State 32
+
+    105 ValueClass_Unambiguous: KWINT .
+		-lookahead: [IDENTIFIER, STRING, ',', ')', '}', GT, '~', ]
+
+    IDENTIFIER     reduce using rule 105 (ValueClass_Unambiguous)
+    STRING         reduce using rule 105 (ValueClass_Unambiguous)
+    ','            reduce using rule 105 (ValueClass_Unambiguous)
+    ')'            reduce using rule 105 (ValueClass_Unambiguous)
+    '}'            reduce using rule 105 (ValueClass_Unambiguous)
+    GT             reduce using rule 105 (ValueClass_Unambiguous)
+    '~'            reduce using rule 105 (ValueClass_Unambiguous)
+
+
+
+State 33
+
+    106 ValueClass_Unambiguous: '(' . ValueClasses ')' 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 43
+
+    ValueClasses   go to state 34
+    ValueClass     go to state 36
+    ValueClass_Unambiguous go to state 30
+    ValueClass_Reference go to state 42
+
+
+State 34
+
+    106 ValueClass_Unambiguous: '(' ValueClasses . ')' 
+
+    ')'            shift, and go to state 35
+
+
+
+State 35
+
+    106 ValueClass_Unambiguous: '(' ValueClasses ')' .
+		-lookahead: [IDENTIFIER, STRING, ',', ')', '}', GT, '~', ]
+
+    IDENTIFIER     reduce using rule 106 (ValueClass_Unambiguous)
+    STRING         reduce using rule 106 (ValueClass_Unambiguous)
+    ','            reduce using rule 106 (ValueClass_Unambiguous)
+    ')'            reduce using rule 106 (ValueClass_Unambiguous)
+    '}'            reduce using rule 106 (ValueClass_Unambiguous)
+    GT             reduce using rule 106 (ValueClass_Unambiguous)
+    '~'            reduce using rule 106 (ValueClass_Unambiguous)
+
+
+
+State 36
+
+    97 ValueClasses: ValueClass . ',' ValueClasses 
+    98 ValueClasses: ValueClass .
+		-lookahead: [')', ]
+
+    ','            shift, and go to state 37
+    ')'            reduce using rule 98 (ValueClasses)
+
+
+
+State 37
+
+    97 ValueClasses: ValueClass ',' . ValueClasses 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 43
+
+    ValueClasses   go to state 38
+    ValueClass     go to state 36
+    ValueClass_Unambiguous go to state 30
+    ValueClass_Reference go to state 42
+
+
+State 38
+
+    97 ValueClasses: ValueClass ',' ValueClasses .
+		-lookahead: [')', ]
+
+    ')'            reduce using rule 97 (ValueClasses)
+
+
+
+State 39
+
+    107 ValueClass_Unambiguous: '{' . ValueClass '}' 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 43
+
+    ValueClass     go to state 40
+    ValueClass_Unambiguous go to state 30
+    ValueClass_Reference go to state 42
+
+
+State 40
+
+    107 ValueClass_Unambiguous: '{' ValueClass . '}' 
+
+    '}'            shift, and go to state 41
+
+
+
+State 41
+
+    107 ValueClass_Unambiguous: '{' ValueClass '}' .
+		-lookahead: [IDENTIFIER, STRING, ',', ')', '}', GT, '~', ]
+
+    IDENTIFIER     reduce using rule 107 (ValueClass_Unambiguous)
+    STRING         reduce using rule 107 (ValueClass_Unambiguous)
+    ','            reduce using rule 107 (ValueClass_Unambiguous)
+    ')'            reduce using rule 107 (ValueClass_Unambiguous)
+    '}'            reduce using rule 107 (ValueClass_Unambiguous)
+    GT             reduce using rule 107 (ValueClass_Unambiguous)
+    '~'            reduce using rule 107 (ValueClass_Unambiguous)
+
+
+
+State 42
+
+    96 ValueClass: ValueClass_Reference .
+		-lookahead: [IDENTIFIER, STRING, ',', ')', '}', ]
+
+    IDENTIFIER     reduce using rule 96 (ValueClass)
+    STRING         reduce using rule 96 (ValueClass)
+    ','            reduce using rule 96 (ValueClass)
+    ')'            reduce using rule 96 (ValueClass)
+    '}'            reduce using rule 96 (ValueClass)
+
+
+
+State 43
+
+    103 ValueClass_Reference: IDENTIFIER . Parameters_Values_Optional 
+
+    LT             shift, and go to state 45
+    IDENTIFIER     reduce using rule 65 (Parameters_Values_Optional)
+    STRING         reduce using rule 65 (Parameters_Values_Optional)
+    ','            reduce using rule 65 (Parameters_Values_Optional)
+    ')'            reduce using rule 65 (Parameters_Values_Optional)
+    '}'            reduce using rule 65 (Parameters_Values_Optional)
+
+    Parameters_Values_Optional go to state 44
+
+
+State 44
+
+    103 ValueClass_Reference: IDENTIFIER Parameters_Values_Optional .
+		-lookahead: [IDENTIFIER, STRING, ',', ')', '}', ]
+
+    IDENTIFIER     reduce using rule 103 (ValueClass_Reference)
+    STRING         reduce using rule 103 (ValueClass_Reference)
+    ','            reduce using rule 103 (ValueClass_Reference)
+    ')'            reduce using rule 103 (ValueClass_Reference)
+    '}'            reduce using rule 103 (ValueClass_Reference)
+
+
+
+State 45
+
+    64 Parameters_Values_Optional: LT . Parameters_Values GT 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 53
+
+    Parameters_Values go to state 46
+    Parameter_Value go to state 48
+    ValueClass_Unambiguous go to state 51
+    Declaration_Reference go to state 52
+
+
+State 46
+
+    64 Parameters_Values_Optional: LT Parameters_Values . GT 
+
+    GT             shift, and go to state 47
+
+
+
+State 47
+
+    64 Parameters_Values_Optional: LT Parameters_Values GT .
+		-lookahead: [IDENTIFIER, STRING, ',', ')', '}', GT, '~', ]
+
+    IDENTIFIER     reduce using rule 64 (Parameters_Values_Optional)
+    STRING         reduce using rule 64 (Parameters_Values_Optional)
+    ','            reduce using rule 64 (Parameters_Values_Optional)
+    ')'            reduce using rule 64 (Parameters_Values_Optional)
+    '}'            reduce using rule 64 (Parameters_Values_Optional)
+    GT             reduce using rule 64 (Parameters_Values_Optional)
+    '~'            reduce using rule 64 (Parameters_Values_Optional)
+
+
+
+State 48
+
+    62 Parameters_Values: Parameter_Value . ',' Parameters_Values 
+    63 Parameters_Values: Parameter_Value .
+		-lookahead: [GT, ]
+
+    ','            shift, and go to state 49
+    GT             reduce using rule 63 (Parameters_Values)
+
+
+
+State 49
+
+    62 Parameters_Values: Parameter_Value ',' . Parameters_Values 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 53
+
+    Parameters_Values go to state 50
+    Parameter_Value go to state 48
+    ValueClass_Unambiguous go to state 51
+    Declaration_Reference go to state 52
+
+
+State 50
+
+    62 Parameters_Values: Parameter_Value ',' Parameters_Values .
+		-lookahead: [GT, ]
+
+    GT             reduce using rule 62 (Parameters_Values)
+
+
+
+State 51
+
+    60 Parameter_Value: ValueClass_Unambiguous .
+		-lookahead: [',', GT, ]
+
+    ','            reduce using rule 60 (Parameter_Value)
+    GT             reduce using rule 60 (Parameter_Value)
+
+
+
+State 52
+
+    61 Parameter_Value: Declaration_Reference .
+		-lookahead: [',', GT, ]
+
+    ','            reduce using rule 61 (Parameter_Value)
+    GT             reduce using rule 61 (Parameter_Value)
+
+
+
+State 53
+
+    16 Declaration_Reference: IDENTIFIER . Parameters_Values_Optional 
+
+    LT             shift, and go to state 45
+    ','            reduce using rule 65 (Parameters_Values_Optional)
+    GT             reduce using rule 65 (Parameters_Values_Optional)
+    '~'            reduce using rule 65 (Parameters_Values_Optional)
+    IDENTIFIER     reduce using rule 65 (Parameters_Values_Optional)
+
+    Parameters_Values_Optional go to state 54
+
+
+State 54
+
+    16 Declaration_Reference: IDENTIFIER Parameters_Values_Optional .
+		-lookahead: [',', GT, '~', IDENTIFIER, ]
+
+    ','            reduce using rule 16 (Declaration_Reference)
+    GT             reduce using rule 16 (Declaration_Reference)
+    '~'            reduce using rule 16 (Declaration_Reference)
+    IDENTIFIER     reduce using rule 16 (Declaration_Reference)
+
+
+
+State 55
+
+    58 Parameters_Declarations_Classes_Optional: LT . Parameters_Declarations_Classes GT 
+
+    KWVALUE        shift, and go to state 61
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 53
+
+    Parameters_Declarations_Classes go to state 56
+    Parameter_Declaration_Class go to state 58
+    ValueClass_Unambiguous go to state 66
+    Declaration_Reference go to state 69
+
+
+State 56
+
+    58 Parameters_Declarations_Classes_Optional: LT Parameters_Declarations_Classes . GT 
+
+    GT             shift, and go to state 57
+
+
+
+State 57
+
+    58 Parameters_Declarations_Classes_Optional: LT Parameters_Declarations_Classes GT .
+		-lookahead: ['{', '(', ]
+
+    '{'            reduce using rule 58 (Parameters_Declarations_Classes_Optional)
+    '('            reduce using rule 58 (Parameters_Declarations_Classes_Optional)
+
+
+
+State 58
+
+    56 Parameters_Declarations_Classes: Parameter_Declaration_Class . ',' Parameters_Declarations_Classes 
+    57 Parameters_Declarations_Classes: Parameter_Declaration_Class .
+		-lookahead: [GT, ]
+
+    ','            shift, and go to state 59
+    GT             reduce using rule 57 (Parameters_Declarations_Classes)
+
+
+
+State 59
+
+    56 Parameters_Declarations_Classes: Parameter_Declaration_Class ',' . Parameters_Declarations_Classes 
+
+    KWVALUE        shift, and go to state 61
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 53
+
+    Parameters_Declarations_Classes go to state 60
+    Parameter_Declaration_Class go to state 58
+    ValueClass_Unambiguous go to state 66
+    Declaration_Reference go to state 69
+
+
+State 60
+
+    56 Parameters_Declarations_Classes: Parameter_Declaration_Class ',' Parameters_Declarations_Classes .
+		-lookahead: [GT, ]
+
+    GT             reduce using rule 56 (Parameters_Declarations_Classes)
+
+
+
+State 61
+
+    46 Parameter_Declaration_Class: KWVALUE . KWCLASS IDENTIFIER 
+    47 Parameter_Declaration_Class: KWVALUE . '~' IDENTIFIER 
+
+    KWCLASS        shift, and go to state 62
+    '~'            shift, and go to state 64
+
+
+
+State 62
+
+    46 Parameter_Declaration_Class: KWVALUE KWCLASS . IDENTIFIER 
+
+    IDENTIFIER     shift, and go to state 63
+
+
+
+State 63
+
+    46 Parameter_Declaration_Class: KWVALUE KWCLASS IDENTIFIER .
+		-lookahead: [',', GT, ]
+
+    ','            reduce using rule 46 (Parameter_Declaration_Class)
+    GT             reduce using rule 46 (Parameter_Declaration_Class)
+
+
+
+State 64
+
+    47 Parameter_Declaration_Class: KWVALUE '~' . IDENTIFIER 
+
+    IDENTIFIER     shift, and go to state 65
+
+
+
+State 65
+
+    47 Parameter_Declaration_Class: KWVALUE '~' IDENTIFIER .
+		-lookahead: [',', GT, ]
+
+    ','            reduce using rule 47 (Parameter_Declaration_Class)
+    GT             reduce using rule 47 (Parameter_Declaration_Class)
+
+
+
+State 66
+
+    48 Parameter_Declaration_Class: ValueClass_Unambiguous . '~' IDENTIFIER 
+
+    '~'            shift, and go to state 67
+
+
+
+State 67
+
+    48 Parameter_Declaration_Class: ValueClass_Unambiguous '~' . IDENTIFIER 
+
+    IDENTIFIER     shift, and go to state 68
+
+
+
+State 68
+
+    48 Parameter_Declaration_Class: ValueClass_Unambiguous '~' IDENTIFIER .
+		-lookahead: [',', GT, ]
+
+    ','            reduce using rule 48 (Parameter_Declaration_Class)
+    GT             reduce using rule 48 (Parameter_Declaration_Class)
+
+
+
+State 69
+
+    49 Parameter_Declaration_Class: Declaration_Reference . '~' IDENTIFIER 
+
+    '~'            shift, and go to state 70
+
+
+
+State 70
+
+    49 Parameter_Declaration_Class: Declaration_Reference '~' . IDENTIFIER 
+
+    IDENTIFIER     shift, and go to state 71
+
+
+
+State 71
+
+    49 Parameter_Declaration_Class: Declaration_Reference '~' IDENTIFIER .
+		-lookahead: [',', GT, ]
+
+    ','            reduce using rule 49 (Parameter_Declaration_Class)
+    GT             reduce using rule 49 (Parameter_Declaration_Class)
+
+
+
+State 72
+
+    23 Metadata: Metadata_Internal .
+		-lookahead: ['{', LT, '(', ]
+
+    '{'            reduce using rule 23 (Metadata)
+    LT             reduce using rule 23 (Metadata)
+    '('            reduce using rule 23 (Metadata)
+
+
+
+State 73
+
+    24 Metadata: UUID . IDENTIFIER 
+    25 Metadata: UUID . STRING IDENTIFIER 
+    26 Metadata: UUID . '`' NUMBER IDENTIFIER 
+    27 Metadata: UUID . '`' NUMBER STRING IDENTIFIER 
+
+    IDENTIFIER     shift, and go to state 74
+    STRING         shift, and go to state 75
+    '`'            shift, and go to state 77
+
+
+
+State 74
+
+    24 Metadata: UUID IDENTIFIER .
+		-lookahead: ['{', LT, '(', ]
+
+    '{'            reduce using rule 24 (Metadata)
+    LT             reduce using rule 24 (Metadata)
+    '('            reduce using rule 24 (Metadata)
+
+
+
+State 75
+
+    25 Metadata: UUID STRING . IDENTIFIER 
+
+    IDENTIFIER     shift, and go to state 76
+
+
+
+State 76
+
+    25 Metadata: UUID STRING IDENTIFIER .
+		-lookahead: ['{', LT, '(', ]
+
+    '{'            reduce using rule 25 (Metadata)
+    LT             reduce using rule 25 (Metadata)
+    '('            reduce using rule 25 (Metadata)
+
+
+
+State 77
+
+    26 Metadata: UUID '`' . NUMBER IDENTIFIER 
+    27 Metadata: UUID '`' . NUMBER STRING IDENTIFIER 
+
+    NUMBER         shift, and go to state 78
+
+
+
+State 78
+
+    26 Metadata: UUID '`' NUMBER . IDENTIFIER 
+    27 Metadata: UUID '`' NUMBER . STRING IDENTIFIER 
+
+    IDENTIFIER     shift, and go to state 79
+    STRING         shift, and go to state 80
+
+
+
+State 79
+
+    26 Metadata: UUID '`' NUMBER IDENTIFIER .
+		-lookahead: ['{', LT, '(', ]
+
+    '{'            reduce using rule 26 (Metadata)
+    LT             reduce using rule 26 (Metadata)
+    '('            reduce using rule 26 (Metadata)
+
+
+
+State 80
+
+    27 Metadata: UUID '`' NUMBER STRING . IDENTIFIER 
+
+    IDENTIFIER     shift, and go to state 81
+
+
+
+State 81
+
+    27 Metadata: UUID '`' NUMBER STRING IDENTIFIER .
+		-lookahead: ['{', LT, '(', ]
+
+    '{'            reduce using rule 27 (Metadata)
+    LT             reduce using rule 27 (Metadata)
+    '('            reduce using rule 27 (Metadata)
+
+
+
+State 82
+
+    68 Value_Declaration: KWVALUE Metadata . @11 Parameters_Declarations_Optional @12 Value_Declaration_Body 
+
+    LT             reduce using rule 66 (@11)
+    '{'            reduce using rule 66 (@11)
+
+    @11            go to state 83
+
+
+State 83
+
+    68 Value_Declaration: KWVALUE Metadata @11 . Parameters_Declarations_Optional @12 Value_Declaration_Body 
+
+    LT             shift, and go to state 90
+    '{'            reduce using rule 55 (Parameters_Declarations_Optional)
+
+    Parameters_Declarations_Optional go to state 84
+
+
+State 84
+
+    68 Value_Declaration: KWVALUE Metadata @11 Parameters_Declarations_Optional . @12 Value_Declaration_Body 
+
+    '{'            reduce using rule 67 (@12)
+
+    @12            go to state 85
+
+
+State 85
+
+    68 Value_Declaration: KWVALUE Metadata @11 Parameters_Declarations_Optional @12 . Value_Declaration_Body 
+
+    '{'            shift, and go to state 87
+
+    Value_Declaration_Body go to state 86
+
+
+State 86
+
+    68 Value_Declaration: KWVALUE Metadata @11 Parameters_Declarations_Optional @12 Value_Declaration_Body .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 68 (Value_Declaration)
+    KWOPERATOR     reduce using rule 68 (Value_Declaration)
+    KWINTERFACE    reduce using rule 68 (Value_Declaration)
+    KWENDPOINT     reduce using rule 68 (Value_Declaration)
+    KWOBJECT       reduce using rule 68 (Value_Declaration)
+    '}'            reduce using rule 68 (Value_Declaration)
+
+
+
+State 87
+
+    69 Value_Declaration_Body: '{' . Values_Members '}' 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 43
+    '}'            reduce using rule 88 (Values_Members)
+
+    Values_Members go to state 88
+    Value_Member   go to state 22
+    ValueClass     go to state 25
+    ValueClass_Unambiguous go to state 30
+    ValueClass_Reference go to state 42
+
+
+State 88
+
+    69 Value_Declaration_Body: '{' Values_Members . '}' 
+
+    '}'            shift, and go to state 89
+
+
+
+State 89
+
+    69 Value_Declaration_Body: '{' Values_Members '}' .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 69 (Value_Declaration_Body)
+    KWOPERATOR     reduce using rule 69 (Value_Declaration_Body)
+    KWINTERFACE    reduce using rule 69 (Value_Declaration_Body)
+    KWENDPOINT     reduce using rule 69 (Value_Declaration_Body)
+    KWOBJECT       reduce using rule 69 (Value_Declaration_Body)
+    '}'            reduce using rule 69 (Value_Declaration_Body)
+
+
+
+State 90
+
+    54 Parameters_Declarations_Optional: LT . Parameters_Declarations GT 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 53
+    KWVALUE        shift, and go to state 61
+
+    Parameters_Declarations go to state 91
+    Parameter_Declaration go to state 93
+    Parameter_Declaration_Value go to state 96
+    ValueClass_Unambiguous go to state 97
+    Declaration_Reference go to state 99
+    Parameter_Declaration_Class go to state 101
+
+
+State 91
+
+    54 Parameters_Declarations_Optional: LT Parameters_Declarations . GT 
+
+    GT             shift, and go to state 92
+
+
+
+State 92
+
+    54 Parameters_Declarations_Optional: LT Parameters_Declarations GT .
+		-lookahead: ['{', '(', ]
+
+    '{'            reduce using rule 54 (Parameters_Declarations_Optional)
+    '('            reduce using rule 54 (Parameters_Declarations_Optional)
+
+
+
+State 93
+
+    52 Parameters_Declarations: Parameter_Declaration . ',' Parameters_Declarations 
+    53 Parameters_Declarations: Parameter_Declaration .
+		-lookahead: [GT, ]
+
+    ','            shift, and go to state 94
+    GT             reduce using rule 53 (Parameters_Declarations)
+
+
+
+State 94
+
+    52 Parameters_Declarations: Parameter_Declaration ',' . Parameters_Declarations 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 53
+    KWVALUE        shift, and go to state 61
+
+    Parameters_Declarations go to state 95
+    Parameter_Declaration go to state 93
+    Parameter_Declaration_Value go to state 96
+    ValueClass_Unambiguous go to state 97
+    Declaration_Reference go to state 99
+    Parameter_Declaration_Class go to state 101
+
+
+State 95
+
+    52 Parameters_Declarations: Parameter_Declaration ',' Parameters_Declarations .
+		-lookahead: [GT, ]
+
+    GT             reduce using rule 52 (Parameters_Declarations)
+
+
+
+State 96
+
+    44 Parameter_Declaration: Parameter_Declaration_Value .
+		-lookahead: [',', GT, ]
+
+    ','            reduce using rule 44 (Parameter_Declaration)
+    GT             reduce using rule 44 (Parameter_Declaration)
+
+
+
+State 97
+
+    50 Parameter_Declaration_Value: ValueClass_Unambiguous . IDENTIFIER 
+    48 Parameter_Declaration_Class: ValueClass_Unambiguous . '~' IDENTIFIER 
+
+    IDENTIFIER     shift, and go to state 98
+    '~'            shift, and go to state 67
+
+
+
+State 98
+
+    50 Parameter_Declaration_Value: ValueClass_Unambiguous IDENTIFIER .
+		-lookahead: [',', GT, ]
+
+    ','            reduce using rule 50 (Parameter_Declaration_Value)
+    GT             reduce using rule 50 (Parameter_Declaration_Value)
+
+
+
+State 99
+
+    51 Parameter_Declaration_Value: Declaration_Reference . IDENTIFIER 
+    49 Parameter_Declaration_Class: Declaration_Reference . '~' IDENTIFIER 
+
+    IDENTIFIER     shift, and go to state 100
+    '~'            shift, and go to state 70
+
+
+
+State 100
+
+    51 Parameter_Declaration_Value: Declaration_Reference IDENTIFIER .
+		-lookahead: [',', GT, ]
+
+    ','            reduce using rule 51 (Parameter_Declaration_Value)
+    GT             reduce using rule 51 (Parameter_Declaration_Value)
+
+
+
+State 101
+
+    45 Parameter_Declaration: Parameter_Declaration_Class .
+		-lookahead: [',', GT, ]
+
+    ','            reduce using rule 45 (Parameter_Declaration)
+    GT             reduce using rule 45 (Parameter_Declaration)
+
+
+
+State 102
+
+    6 Declaration: OperatorClass_Declaration .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 6 (Declaration)
+    KWOPERATOR     reduce using rule 6 (Declaration)
+    KWINTERFACE    reduce using rule 6 (Declaration)
+    KWENDPOINT     reduce using rule 6 (Declaration)
+    KWOBJECT       reduce using rule 6 (Declaration)
+    '}'            reduce using rule 6 (Declaration)
+
+
+
+State 103
+
+    42 OperatorClass_Declaration: KWOPERATOR . KWCLASS Metadata @9 Parameters_Declarations_Classes_Optional @10 OperatorClass_Declaration_Body 
+    38 Operator_Declaration: KWOPERATOR . Metadata @7 Parameters_Declarations_Optional @8 Operator_Declaration_Body 
+
+    KWCLASS        shift, and go to state 104
+    IDENTIFIER     shift, and go to state 27
+    STRING         shift, and go to state 28
+    UUID           shift, and go to state 73
+
+    Metadata       go to state 128
+    Metadata_Internal go to state 72
+
+
+State 104
+
+    42 OperatorClass_Declaration: KWOPERATOR KWCLASS . Metadata @9 Parameters_Declarations_Classes_Optional @10 OperatorClass_Declaration_Body 
+
+    IDENTIFIER     shift, and go to state 27
+    STRING         shift, and go to state 28
+    UUID           shift, and go to state 73
+
+    Metadata       go to state 105
+    Metadata_Internal go to state 72
+
+
+State 105
+
+    42 OperatorClass_Declaration: KWOPERATOR KWCLASS Metadata . @9 Parameters_Declarations_Classes_Optional @10 OperatorClass_Declaration_Body 
+
+    LT             reduce using rule 40 (@9)
+    '('            reduce using rule 40 (@9)
+
+    @9             go to state 106
+
+
+State 106
+
+    42 OperatorClass_Declaration: KWOPERATOR KWCLASS Metadata @9 . Parameters_Declarations_Classes_Optional @10 OperatorClass_Declaration_Body 
+
+    LT             shift, and go to state 55
+    '('            reduce using rule 59 (Parameters_Declarations_Classes_Optional)
+
+    Parameters_Declarations_Classes_Optional go to state 107
+
+
+State 107
+
+    42 OperatorClass_Declaration: KWOPERATOR KWCLASS Metadata @9 Parameters_Declarations_Classes_Optional . @10 OperatorClass_Declaration_Body 
+
+    '('            reduce using rule 41 (@10)
+
+    @10            go to state 108
+
+
+State 108
+
+    42 OperatorClass_Declaration: KWOPERATOR KWCLASS Metadata @9 Parameters_Declarations_Classes_Optional @10 . OperatorClass_Declaration_Body 
+
+    '('            shift, and go to state 110
+
+    OperatorClass_Declaration_Body go to state 109
+
+
+State 109
+
+    42 OperatorClass_Declaration: KWOPERATOR KWCLASS Metadata @9 Parameters_Declarations_Classes_Optional @10 OperatorClass_Declaration_Body .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 42 (OperatorClass_Declaration)
+    KWOPERATOR     reduce using rule 42 (OperatorClass_Declaration)
+    KWINTERFACE    reduce using rule 42 (OperatorClass_Declaration)
+    KWENDPOINT     reduce using rule 42 (OperatorClass_Declaration)
+    KWOBJECT       reduce using rule 42 (OperatorClass_Declaration)
+    '}'            reduce using rule 42 (OperatorClass_Declaration)
+
+
+
+State 110
+
+    43 OperatorClass_Declaration_Body: '(' . Values_Incoming ')' Values_Outgoing ';' 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 43
+    ')'            reduce using rule 76 (Values_Incoming)
+
+    Values_Incoming go to state 111
+    Values_Incoming_Body go to state 122
+    Value_Incoming go to state 123
+    ValueClass     go to state 126
+    ValueClass_Unambiguous go to state 30
+    ValueClass_Reference go to state 42
+
+
+State 111
+
+    43 OperatorClass_Declaration_Body: '(' Values_Incoming . ')' Values_Outgoing ';' 
+
+    ')'            shift, and go to state 112
+
+
+
+State 112
+
+    43 OperatorClass_Declaration_Body: '(' Values_Incoming ')' . Values_Outgoing ';' 
+
+    ':'            shift, and go to state 115
+    ';'            reduce using rule 84 (Values_Outgoing)
+
+    Values_Outgoing go to state 113
+
+
+State 113
+
+    43 OperatorClass_Declaration_Body: '(' Values_Incoming ')' Values_Outgoing . ';' 
+
+    ';'            shift, and go to state 114
+
+
+
+State 114
+
+    43 OperatorClass_Declaration_Body: '(' Values_Incoming ')' Values_Outgoing ';' .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 43 (OperatorClass_Declaration_Body)
+    KWOPERATOR     reduce using rule 43 (OperatorClass_Declaration_Body)
+    KWINTERFACE    reduce using rule 43 (OperatorClass_Declaration_Body)
+    KWENDPOINT     reduce using rule 43 (OperatorClass_Declaration_Body)
+    KWOBJECT       reduce using rule 43 (OperatorClass_Declaration_Body)
+    '}'            reduce using rule 43 (OperatorClass_Declaration_Body)
+
+
+
+State 115
+
+    83 Values_Outgoing: ':' . Values_Outgoing_Body 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 43
+
+    Values_Outgoing_Body go to state 116
+    Value_Outgoing go to state 117
+    ValueClass     go to state 120
+    ValueClass_Unambiguous go to state 30
+    ValueClass_Reference go to state 42
+
+
+State 116
+
+    83 Values_Outgoing: ':' Values_Outgoing_Body .
+		-lookahead: [';', '{', ]
+
+    ';'            reduce using rule 83 (Values_Outgoing)
+    '{'            reduce using rule 83 (Values_Outgoing)
+
+
+
+State 117
+
+    85 Values_Outgoing_Body: Value_Outgoing . ',' Values_Outgoing_Body 
+    86 Values_Outgoing_Body: Value_Outgoing .
+		-lookahead: [';', '{', ]
+
+    ','            shift, and go to state 118
+    ';'            reduce using rule 86 (Values_Outgoing_Body)
+    '{'            reduce using rule 86 (Values_Outgoing_Body)
+
+
+
+State 118
+
+    85 Values_Outgoing_Body: Value_Outgoing ',' . Values_Outgoing_Body 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 43
+
+    Values_Outgoing_Body go to state 119
+    Value_Outgoing go to state 117
+    ValueClass     go to state 120
+    ValueClass_Unambiguous go to state 30
+    ValueClass_Reference go to state 42
+
+
+State 119
+
+    85 Values_Outgoing_Body: Value_Outgoing ',' Values_Outgoing_Body .
+		-lookahead: [';', '{', ]
+
+    ';'            reduce using rule 85 (Values_Outgoing_Body)
+    '{'            reduce using rule 85 (Values_Outgoing_Body)
+
+
+
+State 120
+
+    73 Value_Outgoing: ValueClass . Metadata_Internal 
+
+    IDENTIFIER     shift, and go to state 27
+    STRING         shift, and go to state 28
+
+    Metadata_Internal go to state 121
+
+
+State 121
+
+    73 Value_Outgoing: ValueClass Metadata_Internal .
+		-lookahead: [',', ';', '{', ]
+
+    ','            reduce using rule 73 (Value_Outgoing)
+    ';'            reduce using rule 73 (Value_Outgoing)
+    '{'            reduce using rule 73 (Value_Outgoing)
+
+
+
+State 122
+
+    75 Values_Incoming: Values_Incoming_Body .
+		-lookahead: [')', ]
+
+    ')'            reduce using rule 75 (Values_Incoming)
+
+
+
+State 123
+
+    77 Values_Incoming_Body: Value_Incoming . ',' Values_Incoming_Body 
+    78 Values_Incoming_Body: Value_Incoming .
+		-lookahead: [')', ]
+
+    ','            shift, and go to state 124
+    ')'            reduce using rule 78 (Values_Incoming_Body)
+
+
+
+State 124
+
+    77 Values_Incoming_Body: Value_Incoming ',' . Values_Incoming_Body 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 43
+
+    Values_Incoming_Body go to state 125
+    Value_Incoming go to state 123
+    ValueClass     go to state 126
+    ValueClass_Unambiguous go to state 30
+    ValueClass_Reference go to state 42
+
+
+State 125
+
+    77 Values_Incoming_Body: Value_Incoming ',' Values_Incoming_Body .
+		-lookahead: [')', ]
+
+    ')'            reduce using rule 77 (Values_Incoming_Body)
+
+
+
+State 126
+
+    70 Value_Incoming: ValueClass . Metadata_Internal 
+
+    IDENTIFIER     shift, and go to state 27
+    STRING         shift, and go to state 28
+
+    Metadata_Internal go to state 127
+
+
+State 127
+
+    70 Value_Incoming: ValueClass Metadata_Internal .
+		-lookahead: [',', ')', ]
+
+    ','            reduce using rule 70 (Value_Incoming)
+    ')'            reduce using rule 70 (Value_Incoming)
+
+
+
+State 128
+
+    38 Operator_Declaration: KWOPERATOR Metadata . @7 Parameters_Declarations_Optional @8 Operator_Declaration_Body 
+
+    LT             reduce using rule 36 (@7)
+    '('            reduce using rule 36 (@7)
+
+    @7             go to state 129
+
+
+State 129
+
+    38 Operator_Declaration: KWOPERATOR Metadata @7 . Parameters_Declarations_Optional @8 Operator_Declaration_Body 
+
+    LT             shift, and go to state 90
+    '('            reduce using rule 55 (Parameters_Declarations_Optional)
+
+    Parameters_Declarations_Optional go to state 130
+
+
+State 130
+
+    38 Operator_Declaration: KWOPERATOR Metadata @7 Parameters_Declarations_Optional . @8 Operator_Declaration_Body 
+
+    '('            reduce using rule 37 (@8)
+
+    @8             go to state 131
+
+
+State 131
+
+    38 Operator_Declaration: KWOPERATOR Metadata @7 Parameters_Declarations_Optional @8 . Operator_Declaration_Body 
+
+    '('            shift, and go to state 133
+
+    Operator_Declaration_Body go to state 132
+
+
+State 132
+
+    38 Operator_Declaration: KWOPERATOR Metadata @7 Parameters_Declarations_Optional @8 Operator_Declaration_Body .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 38 (Operator_Declaration)
+    KWOPERATOR     reduce using rule 38 (Operator_Declaration)
+    KWINTERFACE    reduce using rule 38 (Operator_Declaration)
+    KWENDPOINT     reduce using rule 38 (Operator_Declaration)
+    KWOBJECT       reduce using rule 38 (Operator_Declaration)
+    '}'            reduce using rule 38 (Operator_Declaration)
+
+
+
+State 133
+
+    39 Operator_Declaration_Body: '(' . Values_Incoming ')' Values_Outgoing '{' Values_Internal '}' 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 43
+    ')'            reduce using rule 76 (Values_Incoming)
+
+    Values_Incoming go to state 134
+    Values_Incoming_Body go to state 122
+    Value_Incoming go to state 123
+    ValueClass     go to state 126
+    ValueClass_Unambiguous go to state 30
+    ValueClass_Reference go to state 42
+
+
+State 134
+
+    39 Operator_Declaration_Body: '(' Values_Incoming . ')' Values_Outgoing '{' Values_Internal '}' 
+
+    ')'            shift, and go to state 135
+
+
+
+State 135
+
+    39 Operator_Declaration_Body: '(' Values_Incoming ')' . Values_Outgoing '{' Values_Internal '}' 
+
+    ':'            shift, and go to state 115
+    '{'            reduce using rule 84 (Values_Outgoing)
+
+    Values_Outgoing go to state 136
+
+
+State 136
+
+    39 Operator_Declaration_Body: '(' Values_Incoming ')' Values_Outgoing . '{' Values_Internal '}' 
+
+    '{'            shift, and go to state 137
+
+
+
+State 137
+
+    39 Operator_Declaration_Body: '(' Values_Incoming ')' Values_Outgoing '{' . Values_Internal '}' 
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 43
+    '}'            reduce using rule 80 (Values_Internal)
+
+    Values_Internal go to state 138
+    Values_Internal_Body go to state 140
+    Value_Internal go to state 141
+    ValueClass     go to state 144
+    ValueClass_Unambiguous go to state 30
+    ValueClass_Reference go to state 42
+
+
+State 138
+
+    39 Operator_Declaration_Body: '(' Values_Incoming ')' Values_Outgoing '{' Values_Internal . '}' 
+
+    '}'            shift, and go to state 139
+
+
+
+State 139
+
+    39 Operator_Declaration_Body: '(' Values_Incoming ')' Values_Outgoing '{' Values_Internal '}' .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 39 (Operator_Declaration_Body)
+    KWOPERATOR     reduce using rule 39 (Operator_Declaration_Body)
+    KWINTERFACE    reduce using rule 39 (Operator_Declaration_Body)
+    KWENDPOINT     reduce using rule 39 (Operator_Declaration_Body)
+    KWOBJECT       reduce using rule 39 (Operator_Declaration_Body)
+    '}'            reduce using rule 39 (Operator_Declaration_Body)
+
+
+
+State 140
+
+    79 Values_Internal: Values_Internal_Body .
+		-lookahead: ['}', ]
+
+    '}'            reduce using rule 79 (Values_Internal)
+
+
+
+State 141
+
+    81 Values_Internal_Body: Value_Internal . ';' Values_Internal_Body 
+    82 Values_Internal_Body: Value_Internal . ';' 
+
+    ';'            shift, and go to state 142
+
+
+
+State 142
+
+    81 Values_Internal_Body: Value_Internal ';' . Values_Internal_Body 
+    82 Values_Internal_Body: Value_Internal ';' .
+		-lookahead: ['}', ]
+
+    KWBOOL         shift, and go to state 31
+    KWINT          shift, and go to state 32
+    '('            shift, and go to state 33
+    '{'            shift, and go to state 39
+    IDENTIFIER     shift, and go to state 43
+    '}'            reduce using rule 82 (Values_Internal_Body)
+
+    Values_Internal_Body go to state 143
+    Value_Internal go to state 141
+    ValueClass     go to state 144
+    ValueClass_Unambiguous go to state 30
+    ValueClass_Reference go to state 42
+
+
+State 143
+
+    81 Values_Internal_Body: Value_Internal ';' Values_Internal_Body .
+		-lookahead: ['}', ]
+
+    '}'            reduce using rule 81 (Values_Internal_Body)
+
+
+
+State 144
+
+    72 Value_Internal: ValueClass . Metadata_Internal 
+
+    IDENTIFIER     shift, and go to state 27
+    STRING         shift, and go to state 28
+
+    Metadata_Internal go to state 145
+
+
+State 145
+
+    72 Value_Internal: ValueClass Metadata_Internal .
+		-lookahead: [';', ]
+
+    ';'            reduce using rule 72 (Value_Internal)
+
+
+
+State 146
+
+    7 Declaration: InterfaceClass_Declaration .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 7 (Declaration)
+    KWOPERATOR     reduce using rule 7 (Declaration)
+    KWINTERFACE    reduce using rule 7 (Declaration)
+    KWENDPOINT     reduce using rule 7 (Declaration)
+    KWOBJECT       reduce using rule 7 (Declaration)
+    '}'            reduce using rule 7 (Declaration)
+
+
+
+State 147
+
+    21 InterfaceClass_Declaration: KWINTERFACE . KWCLASS Metadata @3 Parameters_Declarations_Classes_Optional '{' '}' 
+
+    KWCLASS        shift, and go to state 148
+
+
+
+State 148
+
+    21 InterfaceClass_Declaration: KWINTERFACE KWCLASS . Metadata @3 Parameters_Declarations_Classes_Optional '{' '}' 
+
+    IDENTIFIER     shift, and go to state 27
+    STRING         shift, and go to state 28
+    UUID           shift, and go to state 73
+
+    Metadata       go to state 149
+    Metadata_Internal go to state 72
+
+
+State 149
+
+    21 InterfaceClass_Declaration: KWINTERFACE KWCLASS Metadata . @3 Parameters_Declarations_Classes_Optional '{' '}' 
+
+    LT             reduce using rule 20 (@3)
+    '{'            reduce using rule 20 (@3)
+
+    @3             go to state 150
+
+
+State 150
+
+    21 InterfaceClass_Declaration: KWINTERFACE KWCLASS Metadata @3 . Parameters_Declarations_Classes_Optional '{' '}' 
+
+    LT             shift, and go to state 55
+    '{'            reduce using rule 59 (Parameters_Declarations_Classes_Optional)
+
+    Parameters_Declarations_Classes_Optional go to state 151
+
+
+State 151
+
+    21 InterfaceClass_Declaration: KWINTERFACE KWCLASS Metadata @3 Parameters_Declarations_Classes_Optional . '{' '}' 
+
+    '{'            shift, and go to state 152
+
+
+
+State 152
+
+    21 InterfaceClass_Declaration: KWINTERFACE KWCLASS Metadata @3 Parameters_Declarations_Classes_Optional '{' . '}' 
+
+    '}'            shift, and go to state 153
+
+
+
+State 153
+
+    21 InterfaceClass_Declaration: KWINTERFACE KWCLASS Metadata @3 Parameters_Declarations_Classes_Optional '{' '}' .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 21 (InterfaceClass_Declaration)
+    KWOPERATOR     reduce using rule 21 (InterfaceClass_Declaration)
+    KWINTERFACE    reduce using rule 21 (InterfaceClass_Declaration)
+    KWENDPOINT     reduce using rule 21 (InterfaceClass_Declaration)
+    KWOBJECT       reduce using rule 21 (InterfaceClass_Declaration)
+    '}'            reduce using rule 21 (InterfaceClass_Declaration)
+
+
+
+State 154
+
+    8 Declaration: EndpointClass_Declaration .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 8 (Declaration)
+    KWOPERATOR     reduce using rule 8 (Declaration)
+    KWINTERFACE    reduce using rule 8 (Declaration)
+    KWENDPOINT     reduce using rule 8 (Declaration)
+    KWOBJECT       reduce using rule 8 (Declaration)
+    '}'            reduce using rule 8 (Declaration)
+
+
+
+State 155
+
+    19 EndpointClass_Declaration: KWENDPOINT . KWCLASS Metadata @2 Parameters_Declarations_Classes_Optional '{' '}' 
+
+    KWCLASS        shift, and go to state 156
+
+
+
+State 156
+
+    19 EndpointClass_Declaration: KWENDPOINT KWCLASS . Metadata @2 Parameters_Declarations_Classes_Optional '{' '}' 
+
+    IDENTIFIER     shift, and go to state 27
+    STRING         shift, and go to state 28
+    UUID           shift, and go to state 73
+
+    Metadata       go to state 157
+    Metadata_Internal go to state 72
+
+
+State 157
+
+    19 EndpointClass_Declaration: KWENDPOINT KWCLASS Metadata . @2 Parameters_Declarations_Classes_Optional '{' '}' 
+
+    LT             reduce using rule 18 (@2)
+    '{'            reduce using rule 18 (@2)
+
+    @2             go to state 158
+
+
+State 158
+
+    19 EndpointClass_Declaration: KWENDPOINT KWCLASS Metadata @2 . Parameters_Declarations_Classes_Optional '{' '}' 
+
+    LT             shift, and go to state 55
+    '{'            reduce using rule 59 (Parameters_Declarations_Classes_Optional)
+
+    Parameters_Declarations_Classes_Optional go to state 159
+
+
+State 159
+
+    19 EndpointClass_Declaration: KWENDPOINT KWCLASS Metadata @2 Parameters_Declarations_Classes_Optional . '{' '}' 
+
+    '{'            shift, and go to state 160
+
+
+
+State 160
+
+    19 EndpointClass_Declaration: KWENDPOINT KWCLASS Metadata @2 Parameters_Declarations_Classes_Optional '{' . '}' 
+
+    '}'            shift, and go to state 161
+
+
+
+State 161
+
+    19 EndpointClass_Declaration: KWENDPOINT KWCLASS Metadata @2 Parameters_Declarations_Classes_Optional '{' '}' .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 19 (EndpointClass_Declaration)
+    KWOPERATOR     reduce using rule 19 (EndpointClass_Declaration)
+    KWINTERFACE    reduce using rule 19 (EndpointClass_Declaration)
+    KWENDPOINT     reduce using rule 19 (EndpointClass_Declaration)
+    KWOBJECT       reduce using rule 19 (EndpointClass_Declaration)
+    '}'            reduce using rule 19 (EndpointClass_Declaration)
+
+
+
+State 162
+
+    9 Declaration: ObjectClass_Declaration .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 9 (Declaration)
+    KWOPERATOR     reduce using rule 9 (Declaration)
+    KWINTERFACE    reduce using rule 9 (Declaration)
+    KWENDPOINT     reduce using rule 9 (Declaration)
+    KWOBJECT       reduce using rule 9 (Declaration)
+    '}'            reduce using rule 9 (Declaration)
+
+
+
+State 163
+
+    35 ObjectClass_Declaration: KWOBJECT . KWCLASS Metadata @6 Parameters_Declarations_Classes_Optional '{' '}' 
+    32 Object_Declaration: KWOBJECT . Metadata @4 Parameters_Declarations_Optional @5 Object_Declaration_Body 
+
+    KWCLASS        shift, and go to state 164
+    IDENTIFIER     shift, and go to state 27
+    STRING         shift, and go to state 28
+    UUID           shift, and go to state 73
+
+    Metadata       go to state 170
+    Metadata_Internal go to state 72
+
+
+State 164
+
+    35 ObjectClass_Declaration: KWOBJECT KWCLASS . Metadata @6 Parameters_Declarations_Classes_Optional '{' '}' 
+
+    IDENTIFIER     shift, and go to state 27
+    STRING         shift, and go to state 28
+    UUID           shift, and go to state 73
+
+    Metadata       go to state 165
+    Metadata_Internal go to state 72
+
+
+State 165
+
+    35 ObjectClass_Declaration: KWOBJECT KWCLASS Metadata . @6 Parameters_Declarations_Classes_Optional '{' '}' 
+
+    LT             reduce using rule 34 (@6)
+    '{'            reduce using rule 34 (@6)
+
+    @6             go to state 166
+
+
+State 166
+
+    35 ObjectClass_Declaration: KWOBJECT KWCLASS Metadata @6 . Parameters_Declarations_Classes_Optional '{' '}' 
+
+    LT             shift, and go to state 55
+    '{'            reduce using rule 59 (Parameters_Declarations_Classes_Optional)
+
+    Parameters_Declarations_Classes_Optional go to state 167
+
+
+State 167
+
+    35 ObjectClass_Declaration: KWOBJECT KWCLASS Metadata @6 Parameters_Declarations_Classes_Optional . '{' '}' 
+
+    '{'            shift, and go to state 168
+
+
+
+State 168
+
+    35 ObjectClass_Declaration: KWOBJECT KWCLASS Metadata @6 Parameters_Declarations_Classes_Optional '{' . '}' 
+
+    '}'            shift, and go to state 169
+
+
+
+State 169
+
+    35 ObjectClass_Declaration: KWOBJECT KWCLASS Metadata @6 Parameters_Declarations_Classes_Optional '{' '}' .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 35 (ObjectClass_Declaration)
+    KWOPERATOR     reduce using rule 35 (ObjectClass_Declaration)
+    KWINTERFACE    reduce using rule 35 (ObjectClass_Declaration)
+    KWENDPOINT     reduce using rule 35 (ObjectClass_Declaration)
+    KWOBJECT       reduce using rule 35 (ObjectClass_Declaration)
+    '}'            reduce using rule 35 (ObjectClass_Declaration)
+
+
+
+State 170
+
+    32 Object_Declaration: KWOBJECT Metadata . @4 Parameters_Declarations_Optional @5 Object_Declaration_Body 
+
+    LT             reduce using rule 30 (@4)
+    '{'            reduce using rule 30 (@4)
+
+    @4             go to state 171
+
+
+State 171
+
+    32 Object_Declaration: KWOBJECT Metadata @4 . Parameters_Declarations_Optional @5 Object_Declaration_Body 
+
+    LT             shift, and go to state 90
+    '{'            reduce using rule 55 (Parameters_Declarations_Optional)
+
+    Parameters_Declarations_Optional go to state 172
+
+
+State 172
+
+    32 Object_Declaration: KWOBJECT Metadata @4 Parameters_Declarations_Optional . @5 Object_Declaration_Body 
+
+    '{'            reduce using rule 31 (@5)
+
+    @5             go to state 173
+
+
+State 173
+
+    32 Object_Declaration: KWOBJECT Metadata @4 Parameters_Declarations_Optional @5 . Object_Declaration_Body 
+
+    '{'            reduce using rule 17 (EndpointClass_Functional)
+
+    Object_Declaration_Body go to state 174
+    EndpointClass_Functional go to state 175
+
+
+State 174
+
+    32 Object_Declaration: KWOBJECT Metadata @4 Parameters_Declarations_Optional @5 Object_Declaration_Body .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 32 (Object_Declaration)
+    KWOPERATOR     reduce using rule 32 (Object_Declaration)
+    KWINTERFACE    reduce using rule 32 (Object_Declaration)
+    KWENDPOINT     reduce using rule 32 (Object_Declaration)
+    KWOBJECT       reduce using rule 32 (Object_Declaration)
+    '}'            reduce using rule 32 (Object_Declaration)
+
+
+
+State 175
+
+    33 Object_Declaration_Body: EndpointClass_Functional . '{' '}' 
+
+    '{'            shift, and go to state 176
+
+
+
+State 176
+
+    33 Object_Declaration_Body: EndpointClass_Functional '{' . '}' 
+
+    '}'            shift, and go to state 177
+
+
+
+State 177
+
+    33 Object_Declaration_Body: EndpointClass_Functional '{' '}' .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 33 (Object_Declaration_Body)
+    KWOPERATOR     reduce using rule 33 (Object_Declaration_Body)
+    KWINTERFACE    reduce using rule 33 (Object_Declaration_Body)
+    KWENDPOINT     reduce using rule 33 (Object_Declaration_Body)
+    KWOBJECT       reduce using rule 33 (Object_Declaration_Body)
+    '}'            reduce using rule 33 (Object_Declaration_Body)
+
+
+
+State 178
+
+    10 Declaration: Value_Declaration .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 10 (Declaration)
+    KWOPERATOR     reduce using rule 10 (Declaration)
+    KWINTERFACE    reduce using rule 10 (Declaration)
+    KWENDPOINT     reduce using rule 10 (Declaration)
+    KWOBJECT       reduce using rule 10 (Declaration)
+    '}'            reduce using rule 10 (Declaration)
+
+
+
+State 179
+
+    11 Declaration: Operator_Declaration .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 11 (Declaration)
+    KWOPERATOR     reduce using rule 11 (Declaration)
+    KWINTERFACE    reduce using rule 11 (Declaration)
+    KWENDPOINT     reduce using rule 11 (Declaration)
+    KWOBJECT       reduce using rule 11 (Declaration)
+    '}'            reduce using rule 11 (Declaration)
+
+
+
+State 180
+
+    12 Declaration: Object_Declaration .
+		-lookahead: [KWVALUE, KWOPERATOR, KWINTERFACE, KWENDPOINT, KWOBJECT, '}', ]
+
+    KWVALUE        reduce using rule 12 (Declaration)
+    KWOPERATOR     reduce using rule 12 (Declaration)
+    KWINTERFACE    reduce using rule 12 (Declaration)
+    KWENDPOINT     reduce using rule 12 (Declaration)
+    KWOBJECT       reduce using rule 12 (Declaration)
+    '}'            reduce using rule 12 (Declaration)
+
+
+

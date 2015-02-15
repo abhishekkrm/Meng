@@ -1,0 +1,8 @@
+18c18
+< namespace Babel.ParserGenerator
+---
+> namespace QS._qss_p_.ParserGenerator_
+54c54
+<         { return new LexLocation(this.sLin, this.sCol, last.eLin, last.eCol); }
+---
+>         { return (last != null) ? (new LexLocation(this.sLin, this.sCol, last.eLin, last.eCol)) : this; }

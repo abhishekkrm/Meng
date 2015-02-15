@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright (c) 2010 Krzysztof Ostrowski. All rights reserved.
+
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the
+following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+  copyright notice, this list of conditions and the following
+  disclaimer in the documentation and/or other materials provided
+  with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="0`1:AC8C2FEEE2C641DFAB6021379A976664`0">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="B52" />
+    <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="Implements a 3-dimensional model displayable in XNA windows." />
+    <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="AC8C2FEEE2C641DFAB6021379A976664" />
+    <ObjectClass id="0`1:D80E49C5D5449A0889BD04146CDAA8E`0" />
+    <Parameter id="modelname">
+      <Value xsi:type="xsd:string">374509882DE749DA9148D5D3F51D20D1`1:B52.xnb</Value>
+    </Parameter>
+    <Parameter id="coordinates">
+      <Value xsi:type="ReferenceObject" id="0`1:2D360778BB184A76A544E5740006A618`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Coordinates_2" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="Coordinates of a moving object." />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="2D360778BB184A76A544E5740006A618" />
+        <ObjectClass id="0`1:A07FA453F6AB4C56A15EF412E5C28C16`0">
+          <Parameter id="ValueClass">
+            <Value xsi:type="ValueClass" id="0`1:5CD78703A5504945BE5867CDFF4771E7`0" />
+          </Parameter>
+        </ObjectClass>
+        <Parameter id="PX">
+          <Value xsi:type="xsd:double">38606.41</Value>
+        </Parameter>
+        <Parameter id="PY">
+          <Value xsi:type="xsd:double">81751.59</Value>
+        </Parameter>
+        <Parameter id="PZ">
+          <Value xsi:type="xsd:double">80</Value>
+        </Parameter>
+        <Parameter id="RX">
+          <Value xsi:type="xsd:double">0</Value>
+        </Parameter>
+        <Parameter id="RY">
+          <Value xsi:type="xsd:double">0</Value>
+        </Parameter>
+        <Parameter id="RZ">
+          <Value xsi:type="xsd:double">0</Value>
+        </Parameter>
+        <Parameter id="R">
+          <Value xsi:type="xsd:double">500</Value>
+        </Parameter>
+        <Parameter id="T">
+          <Value xsi:type="xsd:double">0</Value>
+        </Parameter>
+        <Parameter id="S">
+          <Value xsi:type="xsd:double">0.018</Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+    <Parameter id="scale">
+      <Value xsi:type="xsd:double">10</Value>
+    </Parameter>
+	<Parameter id="flipz">
+      <Value xsi:type="xsd:double">0.0</Value>
+    </Parameter>
+  </Object>
+</Root>

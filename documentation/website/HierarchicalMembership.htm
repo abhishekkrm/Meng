@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Hierarchical Membership</title>
+</head>
+<body>
+As a part of implementation of a hierarchical membership protocol, a peer to peer communication system in which each node knowns only one single node,
+called the root
+    has been implemented.<p>
+        &nbsp;</p>
+    <p>
+        There are two components in this system, one being the root and the other being 
+        a client which knows the root and requests the root for remote addresses. The 
+        root holds a list of all node addresses it knows about and responds to a client 
+        with this information when a client requests for it. As of now the client is 
+        designed to simply talk to each of the peers in the list with &quot;Hello World&quot; 
+        messages.
+    </p>
+    <p>
+        &nbsp;The root(Lookup_Root in the file Mshiproot.cs -liveobjects_8 , takes only one 
+        parameter apart from Context, it is an object of ITransport, using which it 
+        communicates with any client which tries to connect to it. The root responds 
+        with a listt of addresses of hosts which connected to it previously. If none 
+        connected to it, it sends an empty string back.
+    </p>
+<p>
+        &nbsp;</p>
+<p>
+        To use the components for any sort of experiments, in Object Designer select the 
+        component: Lookup_Root. This component is the root server that manages the list 
+        of known servers. This object is given one parameter, which is of the type 
+        ITransportClient, this preferably is TcpTransport2.&nbsp; The address given to 
+        the ITransport is where this component will listen to remote servers.</p>
+    <p>
+        The Lookup Object simply takes the root address and a transport as parameters 
+        and attempts to connect to the root. Once it talks to the root, it tries to 
+        connect to every other node whose address the root sent out. If no address was 
+        sent, then this node retries infinite times until an address is returned. When 
+        an address is returned it sends a &quot;Hello World&quot; message to the other node. On 
+        receipt of a &quot;Hello World&quot; message, each node again sends Hello World. This 
+        continues infinitely. This component is the Lookup_ component seen in the Object 
+        Designer. Similar to Lookup_Root, this takes a TcpTransport2, or whatever 
+        component is used in the Lookup_Root. The address of the Lookup_Root component 
+        to connect to should be given as the other parameter. The way these operate is 
+        given above.</p>
+<p>
+        Note: These are not complete components, they are meant to be part of a larger 
+        system, which would manage large scalable membership. </p>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="0`1:C131AB0C81C54F078B6BFF0CF642C6EF`0">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="PubSubClient" />
+    <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="subscribe with user interest" />
+    <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="C131AB0C81C54F078B6BFF0CF642C6EF" />
+    <ObjectClass id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+    <Parameter id="nodeID">
+      <Value xsi:type="xsd:string">cs3</Value>
+    </Parameter>
+    <Parameter id="isPublisher">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Parameter>
+    <Parameter id="loop">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Parameter>
+    <Parameter id="GradientOverlay">
+      <Value xsi:type="ReferenceObject" id="0`1:C174CA92624349FF9307794B2E2BB3B5`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Gradient Peer" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="This is a component class based on the .NET type &quot;Quilt.Core.GradientPeer&quot;." />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="C174CA92624349FF9307794B2E2BB3B5" />
+        <ObjectClass id="0`1:4C020691595949BA8589E45D0271DDC1`0" />
+        <Parameter id="EUIDTransport">
+          <Value xsi:type="ReferenceObject" id="0`1:79FEB8EB499F4261ADA93A031FDE8E17`0">
+            <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="EUIDTransport" />
+            <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="This is a component class based on the .NET type &quot;QS._qss_x_.Properties_.EUIDTransport_`1&quot;." />
+            <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="79FEB8EB499F4261ADA93A031FDE8E17" />
+            <ObjectClass id="0`1:336CDD8D1B8E42C99295E5D8DD386727`0">
+              <Parameter id="AddressClass">
+                <Value xsi:type="ValueClass" id="0`1:633A4944C4E440DC91F5417D09D61C45`0" />
+              </Parameter>
+              <Parameter id="MessageClass">
+                <Value xsi:type="ValueClass" id="0`1:A37F160CE3EA401BA6EB8E732B3566B7`0" />
+              </Parameter>
+            </ObjectClass>
+            <Parameter id="MessageClass">
+              <Value xsi:type="ValueClass" id="0`1:A37F160CE3EA401BA6EB8E732B3566B7`0" />
+            </Parameter>
+            <Parameter id="Subnet, formatted as X.Y.Z.W/V">
+              <Value xsi:type="xsd:string">10.0.0.0/16</Value>
+            </Parameter>
+            <Parameter id="Preferred Protocol, TCP or UDP, TCP by default">
+              <Value xsi:type="xsd:string">TCP</Value>
+            </Parameter>
+            <Parameter id="TCP Port">
+              <Value xsi:type="xsd:string">8887</Value>
+            </Parameter>
+            <Parameter id="UDP Port">
+              <Value xsi:type="xsd:string">9998</Value>
+            </Parameter>
+            <Parameter id="UDP Packet Size Limit, 4096 by default" />
+            <Parameter id="STUN Server Address, if you want support for NAT traverse" />
+            <Parameter id="Traverse Timout Seconds, 60 By Default" />
+            <Parameter id="debug">
+              <Value xsi:type="xsd:boolean">true</Value>
+            </Parameter>
+          </Value>
+        </Parameter>
+        <Parameter id="Peer Identification, default by using STUN address">
+          <Value xsi:type="xsd:string">cs3</Value>
+        </Parameter>
+        <Parameter id="Peer Name,default by Anonymous" />
+        <Parameter id="Bootstrap Serer EUID String">
+          <Value xsi:type="xsd:string">TCP://BIDIRECTION|10.0.2.15:12300;UDP://BIDIRECTION|10.0.2.15:12400/10.0.2.15:12400;1|0|192.168.1.1;UDP</Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+  </Object>
+</Root>

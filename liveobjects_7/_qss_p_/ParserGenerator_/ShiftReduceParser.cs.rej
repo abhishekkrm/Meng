@@ -1,0 +1,47 @@
+*** /dev/null
+--- /dev/null
+***************
+*** 18
+- namespace Babel.ParserGenerator
+--- 18 -----
++ namespace QS._qss_p_.ParserGenerator_
+***************
+*** 87
+- 						Console.Error.WriteLine("Next token is {0}", TerminalToString(next));
+--- 87 -----
++ 						Console.Error.WriteLine("Next token is {0}", _TerminalToString(next));
+***************
+*** 114
+- 				Console.Error.Write("Shifting token {0}, ", TerminalToString(next));
+--- 114 -----
++ 				Console.Error.Write("Shifting token {0}, ", _TerminalToString(next));
+***************
+*** 217
+-             errorMsg.AppendFormat("syntax error, unexpected {0}", TerminalToString(next));
+--- 217 -----
++             errorMsg.AppendFormat("syntax error, unexpected {0}", _TerminalToString(next));
+***************
+*** 229
+-                     errorMsg.Append(TerminalToString(terminal));
+--- 229 -----
++                     errorMsg.Append(_TerminalToString(terminal));
+***************
+*** 312
+-                         Console.Error.WriteLine("Next token is {0}", TerminalToString(next));
+--- 312 -----
++                         Console.Error.WriteLine("Next token is {0}", _TerminalToString(next));
+***************
+*** 325
+-                             Console.Error.WriteLine("Error: Discarding {0}", TerminalToString(next));
+--- 325 -----
++                             Console.Error.WriteLine("Error: Discarding {0}", _TerminalToString(next));
+***************
+*** 347
+-                     Console.Error.WriteLine("Error: panic discard of {0}", TerminalToString(next));
+--- 347 -----
++                     Console.Error.WriteLine("Error: panic discard of {0}", _TerminalToString(next));
+***************
+*** 421
+- 				return TerminalToString(symbol);
+--- 429 -----
++ 				return _TerminalToString(symbol);

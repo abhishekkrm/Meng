@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2004-2009 Krzysztof Ostrowski (krzys@cs.cornell.edu). All rights reserved.
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="F01AA89B005A4B119702B6A076816160">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Properties Framework Multicast Client" />
+    <Parameter id="channel">
+      <Value xsi:type="ReferenceObject" id="22B987492B164910877120F9E85EE8A6">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Properties Framework Multicast Channel" />
+        <Parameter id="MessageClass">
+          <Value xsi:type="ValueClass" id="148B8C6B886A49029CD81610CB75EEE6" />
+        </Parameter>
+        <Parameter id="CheckpointClass">
+          <Value xsi:type="ValueClass" id="148B8C6B886A49029CD81610CB75EEE6" />
+        </Parameter>
+        <Parameter id="delegation">
+          <Value xsi:type="ReferenceObject" id="34BFC487AF954C7FAED21947F36EF364">
+            <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Properties Framework Delegation Channel (Local)" />
+            <Parameter id="IdentifierClass">
+              <Value xsi:type="ValueClass" id="24D8914967A443BE93FD68B4F3CE82A5" />
+            </Parameter>
+            <Parameter id="ObjectClass">
+              <Value xsi:type="ObjectClass" id="FDD770B290844EB49B3D1B38566D374E" />
+            </Parameter>
+            <Parameter id="identifier">
+              <Value xsi:type="Identifier">1</Value>
+            </Parameter>
+            <Parameter id="object">
+              <Value xsi:type="ReferenceObject" id="2C1D2D7BD5EB4F0080FFD0F8E9C7D7B2">
+                <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Properties Framework Aggregation Component" />
+                <Parameter id="properties">
+                  <Value xsi:type="Properties">
+<!--                    
+                    <Property id="1">
+                      <Name>Unordered</Name>
+                      <Comment>Sets of identifiers of unordered packets (coming from the worker element).</Comment>
+                      <ValueClass id="000000000000000000000000" />
+                      <DependencyClass>Independent</DependencyClass>
+                      <Source location="Outer" id="1" />
+                    </Property>
+-->                    
+                    <Property id="1">
+                      <Name>Last</Name>
+                      <Comment>The last phase entered by the slowest client.</Comment>
+                      <ValueClass id="36AFF46D303849C28C4D7AFB9EBED55D" />
+                      <DependencyClass>Independent</DependencyClass>
+                      <Source location="Local" id="1" />
+<!-- 
+                      <Destination location="Inner" id="1" /> 
+-->
+                    </Property>
+                  </Value>
+                </Parameter>
+                <Parameter id="debug">
+                  <Value xsi:type="xsd:boolean">true</Value>
+                </Parameter>
+              </Value>
+            </Parameter>
+            <Parameter id="debug">
+              <Value xsi:type="xsd:boolean">true</Value>
+            </Parameter>
+          </Value>
+        </Parameter>
+        <Parameter id="batching">
+          <Value xsi:type="xsd:double">0.1</Value>
+        </Parameter>
+        <Parameter id="debug">
+          <Value xsi:type="xsd:boolean">true</Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+    <Parameter id="length">
+      <Value xsi:type="xsd:int">1</Value>
+    </Parameter>
+    <Parameter id="rate">
+      <Value xsi:type="xsd:double">1</Value>
+    </Parameter>
+    <Parameter id="debug">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Parameter>
+  </Object>
+</Root>
+
+

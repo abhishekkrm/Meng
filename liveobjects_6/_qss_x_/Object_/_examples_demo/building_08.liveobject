@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright (c) 2004-2009 Krzysztof Ostrowski (krzys@cs.cornell.edu). All rights reserved.
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+-->
+
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="{43CA76B7A90346C4B713D43271A2EF62}">
+    <Attribute id="{9F4C608A9A6D44FFAD8A2FDC662E185B}" value="Building_08"/>
+    <Attribute id="{07EC27D89CBD410DADE60463E4D46985}" value="This is a nice building #08."/>
+    <!-- Box_3D -->
+    <Parameter id="SX">
+      <Value xsi:type="xsd:float">50</Value>
+    </Parameter>
+    <Parameter id="SY">
+      <Value xsi:type="xsd:float">100</Value>
+    </Parameter>
+    <Parameter id="SZ">
+      <Value xsi:type="xsd:float">400</Value>
+    </Parameter>
+    <Parameter id="coordinates">
+      <Value xsi:type="ReferenceObject" id="{AA471AB3A6644F8A8EB55E72B4078CA6}">
+        <!-- Coordinates -->
+        <Parameter id="PX">
+          <Value xsi:type="xsd:float">-8900</Value>
+        </Parameter>
+        <Parameter id="PY">
+          <Value xsi:type="xsd:float">-4500</Value>
+        </Parameter>
+        <Parameter id="PZ">
+          <Value xsi:type="xsd:float">0</Value>
+        </Parameter>
+        <Parameter id="RX">
+          <Value xsi:type="xsd:float">0</Value>
+        </Parameter>
+        <Parameter id="RY">
+          <Value xsi:type="xsd:float">0</Value>
+        </Parameter>
+        <Parameter id="RZ">
+          <Value xsi:type="xsd:float">1</Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+    <Parameter id="color">
+      <Value xsi:type="ReferenceObject" id="{579CBBAB3C7A46E2BD5A91D8A5280FFB}">
+        <!-- Color -->
+        <Parameter id="R">
+          <Value xsi:type="xsd:unsignedByte">255</Value>
+        </Parameter>
+        <Parameter id="G">
+          <Value xsi:type="xsd:unsignedByte">0</Value>
+        </Parameter>
+        <Parameter id="B">
+          <Value xsi:type="xsd:unsignedByte">0</Value>
+        </Parameter>
+        <Parameter id="A">
+          <Value xsi:type="xsd:unsignedByte">255</Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+  </Object>
+</Root>
+
+

@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{568C0446-F054-4912-AFE9-C6C94453A610}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>documentation</RootNamespace>
+    <AssemblyName>documentation</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Content Include="website\add.gif" />
+    <Content Include="website\add_channelfolder.gif" />
+    <Content Include="website\AppFileBacking.html" />
+    <Content Include="website\AppMulticastAbout.html" />
+    <Content Include="website\browse.gif" />
+    <Content Include="website\CentralizedChannelOverAbstractTransport.html" />
+    <Content Include="website\CentralizedChannelOverAbstractTransportClient.gif" />
+    <Content Include="website\CentralizedChannelOverAbstractTransportClient_1.gif" />
+    <Content Include="website\CentralizedChannelOverAbstractTransportClient_2.gif" />
+    <Content Include="website\CentralizedChannelOverAbstractTransportServer.gif" />
+    <Content Include="website\CentralizedChannelOverAbstractTransportServer_1.gif" />
+    <Content Include="website\CentralizedChannelOverAbstractTransportServer_2.gif" />
+    <Content Include="website\CentralizedChannelOverAbstractTransport_version1.html" />
+    <Content Include="website\CentralizedChannelOverAbstractTransport_version2.html" />
+    <Content Include="website\channelcontrol.html" />
+    <Content Include="website\communication.html" />
+    <Content Include="website\documentation.csproj.user" />
+    <Content Include="website\Documentation.vcproj.CUCS.jmc279.user" />
+    <Content Include="website\geospatial.html" />
+    <Content Include="website\geospatial_tutorials.html" />
+    <Content Include="website\geo_screenshot_01.gif" />
+    <Content Include="website\gossip.html" />
+    <Content Include="website\go_img_1.jpg" />
+    <Content Include="website\go_img_2.jpg" />
+    <Content Include="website\go_img_3.jpg" />
+    <Content Include="website\go_img_4.jpg" />
+    <Content Include="website\go_img_5.jpg" />
+    <Content Include="website\HierarchicalMembership.htm" />
+    <Content Include="website\implementing.html" />
+    <Content Include="website\index.html" />
+    <Content Include="website\infolder1.gif" />
+    <Content Include="website\initial.gif" />
+    <Content Include="website\initial_channelfolder.gif" />
+    <Content Include="website\installation.html" />
+    <Content Include="website\linux.html" />
+    <Content Include="website\objects.html" />
+    <Content Include="website\object_explorer.html" />
+    <Content Include="website\rename.gif" />
+    <Content Include="website\screenshot_001.gif" />
+    <Content Include="website\screenshot_002.gif" />
+    <Content Include="website\screenshot_003.gif" />
+    <Content Include="website\screenshot_004.gif" />
+    <Content Include="website\screenshot_005.gif" />
+    <Content Include="website\screenshot_006.gif" />
+    <Content Include="website\screenshot_007.gif" />
+    <Content Include="website\screenshot_008.gif" />
+    <Content Include="website\screenshot_009.gif" />
+    <Content Include="website\screenshot_010.gif" />
+    <Content Include="website\screenshot_011.gif" />
+    <Content Include="website\screenshot_012.gif" />
+    <Content Include="website\screenshot_013.gif" />
+    <Content Include="website\screenshot_014.gif" />
+    <Content Include="website\screenshot_015.gif" />
+    <Content Include="website\screenshot_016.gif" />
+    <Content Include="website\screenshot_017.gif" />
+    <Content Include="website\screenshot_018.gif" />
+    <Content Include="website\screenshot_019.gif" />
+    <Content Include="website\screenshot_020.gif" />
+    <Content Include="website\screenshot_021.gif" />
+    <Content Include="website\screenshot_022.gif" />
+    <Content Include="website\screenshot_023.gif" />
+    <Content Include="website\screenshot_024.gif" />
+    <Content Include="website\screenshot_025.gif" />
+    <Content Include="website\screenshot_026.gif" />
+    <Content Include="website\screenshot_027.gif" />
+    <Content Include="website\screenshot_028.gif" />
+    <Content Include="website\screenshot_029.gif" />
+    <Content Include="website\screenshot_030.gif" />
+    <Content Include="website\screenshot_031.gif" />
+    <Content Include="website\screenshot_032.gif" />
+    <Content Include="website\screenshot_033.gif" />
+    <Content Include="website\screenshot_034.gif" />
+    <Content Include="website\screenshot_035.gif" />
+    <Content Include="website\screenshot_036.gif" />
+    <Content Include="website\screenshot_037.gif" />
+    <Content Include="website\screenshot_038.gif" />
+    <Content Include="website\screenshot_039.gif" />
+    <Content Include="website\screenshot_040.gif" />
+    <Content Include="website\screenshot_041.gif" />
+    <Content Include="website\screenshot_042.gif" />
+    <Content Include="website\screenshot_043.gif" />
+    <Content Include="website\screenshot_044.gif" />
+    <Content Include="website\screenshot_045.gif" />
+    <Content Include="website\screenshot_046.gif" />
+    <Content Include="website\screenshot_047.gif" />
+    <Content Include="website\screenshot_048.gif" />
+    <Content Include="website\screenshot_049.gif" />
+    <Content Include="website\screenshot_050.gif" />
+    <Content Include="website\screenshot_051.gif" />
+    <Content Include="website\screenshot_052.gif" />
+    <Content Include="website\screenshot_053.gif" />
+    <Content Include="website\screenshot_054.gif" />
+    <Content Include="website\screenshot_055.gif" />
+    <Content Include="website\screenshot_056.gif" />
+    <Content Include="website\screenshot_057.gif" />
+    <Content Include="website\screenshot_058.gif" />
+    <Content Include="website\screenshot_059.gif" />
+    <Content Include="website\screenshot_060.gif" />
+    <Content Include="website\screenshot_061.gif" />
+    <Content Include="website\screenshot_062.gif" />
+    <Content Include="website\screenshot_063.gif" />
+    <Content Include="website\screenshot_064.gif" />
+    <Content Include="website\screenshot_065.gif" />
+    <Content Include="website\screenshot_066.gif" />
+    <Content Include="website\screenshot_067.gif" />
+    <Content Include="website\screenshot_068.gif" />
+    <Content Include="website\screenshot_069.gif" />
+    <Content Include="website\screenshot_070.gif" />
+    <Content Include="website\screenshot_071.gif" />
+    <Content Include="website\screenshot_072.gif" />
+    <Content Include="website\screenshot_073.gif" />
+    <Content Include="website\screenshot_074.gif" />
+    <Content Include="website\screenshot_075.gif" />
+    <Content Include="website\screenshot_076.gif" />
+    <Content Include="website\screenshot_077.gif" />
+    <Content Include="website\screenshot_078.gif" />
+    <Content Include="website\screenshot_079.gif" />
+    <Content Include="website\screenshot_080.gif" />
+    <Content Include="website\screenshot_081.gif" />
+    <Content Include="website\screenshot_082.gif" />
+    <Content Include="website\screenshot_083.gif" />
+    <Content Include="website\screenshot_084.gif" />
+    <Content Include="website\screenshot_085.gif" />
+    <Content Include="website\screenshot_086.gif" />
+    <Content Include="website\screenshot_087.gif" />
+    <Content Include="website\screenshot_088.gif" />
+    <Content Include="website\screenshot_089.gif" />
+    <Content Include="website\screenshot_090.gif" />
+    <Content Include="website\screenshot_091.gif" />
+    <Content Include="website\screenshot_092.gif" />
+    <Content Include="website\screenshot_093.gif" />
+    <Content Include="website\screenshot_094.gif" />
+    <Content Include="website\screenshot_095.gif" />
+    <Content Include="website\screenshot_096.gif" />
+    <Content Include="website\screenshot_097.gif" />
+    <Content Include="website\screenshot_098.gif" />
+    <Content Include="website\screenshot_099.gif" />
+    <Content Include="website\screenshot_100.gif" />
+    <Content Include="website\screenshot_101.gif" />
+    <Content Include="website\screenshot_102.gif" />
+    <Content Include="website\screenshot_103.gif" />
+    <Content Include="website\screenshot_104.gif" />
+    <Content Include="website\screenshot_105.gif" />
+    <Content Include="website\screenshot_106.gif" />
+    <Content Include="website\screenshot_107.gif" />
+    <Content Include="website\screenshot_108.gif" />
+    <Content Include="website\screenshot_109.gif" />
+    <Content Include="website\screenshot_110.gif" />
+    <Content Include="website\screenshot_111.gif" />
+    <Content Include="website\screenshot_112.gif" />
+    <Content Include="website\screenshot_113.gif" />
+    <Content Include="website\screenshot_114.gif" />
+    <Content Include="website\screenshot_115.gif" />
+    <Content Include="website\screenshot_116.gif" />
+    <Content Include="website\screenshot_117.gif" />
+    <Content Include="website\screenshot_118.gif" />
+    <Content Include="website\screenshot_119.gif" />
+    <Content Include="website\screenshot_120.gif" />
+    <Content Include="website\screenshot_121.gif" />
+    <Content Include="website\screenshot_122.gif" />
+    <Content Include="website\screenshot_123.gif" />
+    <Content Include="website\screenshot_124.gif" />
+    <Content Include="website\screenshot_125.gif" />
+    <Content Include="website\screenshot_126.gif" />
+    <Content Include="website\screenshot_127.gif" />
+    <Content Include="website\screenshot_128.gif" />
+    <Content Include="website\screenshot_129.gif" />
+    <Content Include="website\screenshot_130.gif" />
+    <Content Include="website\screenshot_131.gif" />
+    <Content Include="website\screenshot_132.gif" />
+    <Content Include="website\screenshot_133.gif" />
+    <Content Include="website\screenshot_134.gif" />
+    <Content Include="website\screenshot_135.gif" />
+    <Content Include="website\screenshot_136.gif" />
+    <Content Include="website\screenshot_137.gif" />
+    <Content Include="website\screenshot_138.gif" />
+    <Content Include="website\screenshot_139.gif" />
+    <Content Include="website\screenshot_140.gif" />
+    <Content Include="website\screenshot_141.gif" />
+    <Content Include="website\screenshot_142.gif" />
+    <Content Include="website\screenshot_143.gif" />
+    <Content Include="website\screenshot_144.gif" />
+    <Content Include="website\screenshot_145.gif" />
+    <Content Include="website\screenshot_146.gif" />
+    <Content Include="website\screenshot_147.gif" />
+    <Content Include="website\screenshot_148.gif" />
+    <Content Include="website\screenshot_149.gif" />
+    <Content Include="website\screenshot_150.gif" />
+    <Content Include="website\screenshot_151.gif" />
+    <Content Include="website\screenshot_152.gif" />
+    <Content Include="website\screenshot_153.gif" />
+    <Content Include="website\screenshot_154.gif" />
+    <Content Include="website\screenshot_155.gif" />
+    <Content Include="website\screenshot_156.gif" />
+    <Content Include="website\screenshot_157.gif" />
+    <Content Include="website\screenshot_158.gif" />
+    <Content Include="website\screenshot_159.gif" />
+    <Content Include="website\screenshot_160.gif" />
+    <Content Include="website\screenshot_161.gif" />
+    <Content Include="website\screenshot_162.gif" />
+    <Content Include="website\screenshot_163.gif" />
+    <Content Include="website\screenshot_164.gif" />
+    <Content Include="website\screenshot_165.gif" />
+    <Content Include="website\screenshot_166.gif" />
+    <Content Include="website\Switch.gif" />
+    <Content Include="website\Switch.html" />
+    <Content Include="website\UnreliableActiveMQEsbChannel.htm" />
+    <Content Include="website\UnreliableActiveMQEsbChannel_files\filelist.xml" />
+    <Content Include="website\UnreliableActiveMQEsbChannel_files\image002.gif" />
+    <Content Include="website\UnreliableEsbChannel.html" />
+    <Content Include="website\webservices.html" />
+    <Content Include="website\webservices_files\image001.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="website\jms_router_sender.zip" />
+    <None Include="website\SomeStuff.zip" />
+    <None Include="website\SomeStuff_2.zip" />
+    <None Include="website\SomeStuff_3.zip" />
+    <None Include="website\TryGO.zip" />
+    <None Include="website\UnreliableActiveMQEsbChannel_files\image001.emz" />
+  </ItemGroup>
+</Project>

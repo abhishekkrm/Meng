@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+
+Copyright (c) 2004-2009 Petko Nikolov. All rights reserved.
+
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+-->
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="0`1:C312BA6E943345BAA586A9263E840CC6`0">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="XNAWindow" />
+    <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="Implements an XNA Window" />
+    <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="C312BA6E943345BAA586A9263E840CC6" />
+    <ObjectClass id="0`1:8FE149A254F04911A329EFFF028564A7`0" />
+    <Parameter id="Dictionary">
+      <Value xsi:type="ReferenceObject" id="0`1:A23A3D5432FB40BAB87181FD0943299A`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Folder 1" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="This is a shared folder #1." />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="A23A3D5432FB40BAB87181FD0943299A" />
+        <ObjectClass id="0`1:D111EEF8754D4EB98ABD90B0260AEF93`0">
+          <Parameter id="KeyClass">
+            <Value xsi:type="ValueClass" id="0`1:2FEB1E028342422CBD38CB074B957973`0" />
+          </Parameter>
+          <Parameter id="ObjectClass">
+            <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+          </Parameter>
+        </ObjectClass>
+        <Parameter id="channel">
+          <Value xsi:type="ReferenceObject" id="00000000000000000000000000000002">
+            <ObjectClass id="0`1:806C71E88E749AA879E52F960F4B881`0">
+              <Parameter id="MessageClass">
+                <Value xsi:type="ValueClass" id="0`1:B0592A046E5E47E69A1AC39E412B7AD0`0" />
+              </Parameter>
+              <Parameter id="CheckpointClass">
+                <Value xsi:type="ValueClass" id="0`1:5B1608BEE89B434F967E92EDADF0EEB2`0" />
+              </Parameter>
+            </ObjectClass>
+            <From xsi:type="ReferenceObject" id="011E83FA6A9F426993BB8EF26FF7D7B8">
+              <ObjectClass id="0`1:D111EEF8754D4EB98ABD90B0260AEF93`0">
+                <Parameter id="KeyClass">
+                  <Value xsi:type="ValueClass" id="0`1:2FEB1E028342422CBD38CB074B957973`0" />
+                </Parameter>
+                <Parameter id="ObjectClass">
+                  <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+                </Parameter>
+              </ObjectClass>
+              <From xsi:type="ReferenceObject" id="0`1:E8C9D312C27649F39812B8E99AA67CBC`0">
+                <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Registry" />
+                <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="A collection of services with known names, but with a local customized configuration that could be based on system registry or on configuration files." />
+                <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="E8C9D312C27649F39812B8E99AA67CBC" />
+                <ObjectClass id="0`1:D111EEF8754D4EB98ABD90B0260AEF93`0">
+                  <Parameter id="KeyClass">
+                    <Value xsi:type="ValueClass" id="0`1:2FEB1E028342422CBD38CB074B957973`0" />
+                  </Parameter>
+                  <Parameter id="ObjectClass">
+                    <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+                  </Parameter>
+                </ObjectClass>
+              </From>
+            </From>
+          </Value>
+        </Parameter>
+        <Parameter id="loader">
+          <Value xsi:type="ReferenceObject" id="0`1:991815B1E97F4BEF811476F01270FDA8`0">
+            <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Loader" />
+            <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="A component capable of loading XML object specifications." />
+            <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="991815B1E97F4BEF811476F01270FDA8" />
+            <ObjectClass id="0`1:FA968B52DFCF46C8BE7BC07B4068E503`0">
+              <Parameter id="InterfaceClass">
+                <Value xsi:type="InterfaceClass" id="0`1:E31A038ECF1C40149DC485CF25B3BDC6`0">
+                  <Parameter id="ObjectClass">
+                    <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+                  </Parameter>
+                </Value>
+              </Parameter>
+            </ObjectClass>
+            <Parameter id="library">
+              <Value xsi:type="ReferenceObject" id="0`1:BFB405E1F3134A33AF093B0D4901318B`0">
+                <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Library" />
+                <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="The standard base library of predefined classes." />
+                <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="BFB405E1F3134A33AF093B0D4901318B" />
+                <ObjectClass id="0`1:FA968B52DFCF46C8BE7BC07B4068E503`0">
+                  <Parameter id="InterfaceClass">
+                    <Value xsi:type="InterfaceClass" id="0`1:2D14726DD3B8419F954FD1101DA16FD3`0" />
+                  </Parameter>
+                </ObjectClass>
+              </Value>
+            </Parameter>
+          </Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+    <Parameter id="CameraManager">
+      <Value xsi:type="ReferenceObject" id="0`1:A04EB4CDF06B44E990651B13737E1FF1`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="SlaveCameraManager" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="Translates no mouse or keyboard input.  Simply relays positions from the camera." />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="A04EB4CDF06B44E990651B13737E1FF1" />
+        <ObjectClass id="0`1:20`1" />
+        <Parameter id="Camera">
+          <Value xsi:type="ReferenceObject" id="0`1:601119857F9D4499AEA9224A355E2302`0">
+            <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Camera" />
+            <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="An XNA camera that can be shared." />
+            <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="601119857F9D4499AEA9224A355E2302" />
+            <ObjectClass id="0`1:22`1" />
+            <Parameter id="channel">
+              <Value xsi:type="ReferenceObject" id="0`1:7EB42417EB864FF485F685025C447808`0">
+                <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Xml Channel" />
+                <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="A checkpoint communication channel carrying serializable .NET objects encoded as XML strings." />
+                <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="7EB42417EB864FF485F685025C447808" />
+                <ObjectClass id="0`1:806C71E88E749AA879E52F960F4B881`0">
+                  <Parameter id="MessageClass">
+                    <Value xsi:type="ValueClass" id="0`1:53417B82864647559AF91BC559D741F0`0" />
+                  </Parameter>
+                  <Parameter id="CheckpointClass">
+                    <Value xsi:type="ValueClass" id="0`1:53417B82864647559AF91BC559D741F0`0" />
+                  </Parameter>
+                </ObjectClass>
+                <Parameter id="MessageClass">
+                  <Value xsi:type="ValueClass" id="0`1:53417B82864647559AF91BC559D741F0`0" />
+                </Parameter>
+                <Parameter id="CheckpointClass">
+                  <Value xsi:type="ValueClass" id="0`1:53417B82864647559AF91BC559D741F0`0" />
+                </Parameter>
+                <Parameter id="underlyingchannel">
+                  <Value xsi:type="ReferenceObject" id="43">
+                    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="WindowUpdateChannel" />
+                    <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="An underlying binary channel maintaining the state of a folder with embedded objects." />
+                    <ObjectClass id="0`1:806C71E88E749AA879E52F960F4B881`0">
+                      <Parameter id="MessageClass">
+                        <Value xsi:type="ValueClass" id="0`1:148B8C6B886A49029CD81610CB75EEE6`0" />
+                      </Parameter>
+                      <Parameter id="CheckpointClass">
+                        <Value xsi:type="ValueClass" id="0`1:148B8C6B886A49029CD81610CB75EEE6`0" />
+                      </Parameter>
+                    </ObjectClass>
+                    <From xsi:type="ReferenceObject" id="011E83FA6A9F426993BB8EF26FF7D7B8">
+                      <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Centralized Comm. Channel Client" />
+                      <ObjectClass id="0`1:D111EEF8754D4EB98ABD90B0260AEF93`0">
+                        <Parameter id="KeyClass">
+                          <Value xsi:type="ValueClass" id="0`1:2FEB1E028342422CBD38CB074B957973`0" />
+                        </Parameter>
+                        <Parameter id="ObjectClass">
+                          <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+                        </Parameter>
+                      </ObjectClass>
+                      <From xsi:type="ReferenceObject" id="0`1:E8C9D312C27649F39812B8E99AA67CBC`0">
+                        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Registry" />
+                        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="A collection of services with known names, but with a local customized configuration that could be based on system registry or on configuration files." />
+                        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="E8C9D312C27649F39812B8E99AA67CBC" />
+                        <ObjectClass id="0`1:D111EEF8754D4EB98ABD90B0260AEF93`0">
+                          <Parameter id="KeyClass">
+                            <Value xsi:type="ValueClass" id="0`1:2FEB1E028342422CBD38CB074B957973`0" />
+                          </Parameter>
+                          <Parameter id="ObjectClass">
+                            <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+                          </Parameter>
+                        </ObjectClass>
+                      </From>
+                    </From>
+                  </Value>
+                </Parameter>
+              </Value>
+            </Parameter>
+            <Parameter id="Share Position?" />
+            <Parameter id="Share Reference?" />
+            <Parameter id="Process Positions?">
+              <Value xsi:type="xsd:boolean">true</Value>
+            </Parameter>
+            <Parameter id="Process References?">
+              <Value xsi:type="xsd:boolean">true</Value>
+            </Parameter>
+            <Parameter id="PositionX" />
+            <Parameter id="PositionY" />
+            <Parameter id="PositionZ" />
+            <Parameter id="ForwardX" />
+            <Parameter id="ForwardY" />
+            <Parameter id="ForwardZ" />
+            <Parameter id="UpX" />
+            <Parameter id="UpY" />
+            <Parameter id="UpZ" />
+          </Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+    <Parameter id="Resizeable" />
+    <Parameter id="NearClip" />
+    <Parameter id="FarClip" />
+    <Parameter id="WindowWidth" />
+    <Parameter id="WindowHeight" />
+  </Object>
+</Root>

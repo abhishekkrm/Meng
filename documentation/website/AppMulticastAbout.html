@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>AppMulticast and UnreliableDisseminationChannel Info</title>
+</head>
+<body>
+<h1><b>AppMulticast</b></h1>
+<h4><b>Description</b></h4>
+<p>AppMulticast is a component that provides an unreliable channel for an application to broadcast messages to all members in a group. It provides this functionality in a direct fashion, sending messages passed from an application straight to each member of the group and does not take into account network congestion or lost messages.
+</p>
+<p>
+This component exposes one endpoint, a checkpointed communication channel (CC), that applications implementing the CC's client interface can connect to. The component also implements the group client interface allowing it to connect to a group whose members will receive messages from the application.</p>
+<p>
+AppMulticast prevents message loss when one of it's endpoints (the CC or the group) are disconnected by maintaining message queues during these cases. For example, if an application is connected to AppMulticast but AppMulicast has not yet connected to the group, then messages passed from the application will be stored until the group connection is made. Once the group is connected, all stored messages will be dumped to this connection. The same happens if the group is connected but not the application.
+</p>
+<h4><b>Example</b></h4>
+<p>
+An example liveobject utilizing this component is TextMC_TCP.liveobject. To run this, first run  "Membership Channel2 (Server)_TCP.liveobject" which is a group membership server. Then run TextMC_TCP.liveobject 2 or more times. Typing text into any one of the text boxes that appear on screen should result in the text appearing on all other text boxes. More TextMC_TCP liveobjects can be run, or existing ones deleted and the correct behavior will still apply.
+</p>
+<h1><b>UnreliableDisseminationChannel</b></h1>
+<h4><b>Description</b></h4>
+<p>
+This set of components is very much like AppMulticast, except that it uses a specific topology to disseminate the messages to the group. So far, dissemination through ring and tree topologies has been implemented. The interface to applications is the same, but checkpoints are not made use of yet. The use of topologies for dissemination rather than the send-to-all mechanism has the disadvantage that the message takes longer to get to all nodes. However, it has the advantage that it is a lot more scalable.
+</p>
+<h4><b>Example</b></h4>
+<p>
+Tests similar to the AppMulticast one can be run using the live objects Text_1_over_Ring_UDC and Text_1_over_Tree_UDC in the examples folder.
+</p>
+</body>
+</html>

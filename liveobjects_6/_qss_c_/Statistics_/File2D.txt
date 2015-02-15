@@ -1,0 +1,51 @@
+Copyright (c) 2010 Krzysztof Ostrowski. All rights reserved.
+
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the
+following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+---
+
+
+	4					name length = n1
+	n1				name
+	1					(byte) SerializationClass.Base3_ISerializable
+	4			@		total size = 4 + 2 + n2 + n3 + 4 + 16*N + 2 + 2 + n4 + n5 + n6 + n7 + n8 + n9
+	4			@		header size = 4 + 2 + n2 + n3 + 4 + 16*N + 2 + 2 + n4 + n5
+	2					(ushort) ClassID.TMS_Data_Data2D
+	n2				header of serialized StringWrapper (name)
+	n3				header of serialized StringWrapper (description)
+	4			@		nsamples
+	16*N	@		data
+	2					(ushort)ClassID.TMS_Data_Axis
+	2					(ushort)ClassID.TMS_Data_Axis
+	n4		@		header of serialized Axis (x)
+	n5		@		header of serialized Axis (y)
+	n6				buffers of serialized StringWrapper (name)
+	n7				buffers of serialized StringWrapper (description)
+	n8				buffers of serialized Axis (x)	
+	n9				buffers of serialized Axis (y)
+						

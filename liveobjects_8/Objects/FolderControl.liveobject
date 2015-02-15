@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+Copyright (c) 2009 Mihir Patel, Umang Kaul. All rights reserved.
+
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above
+   copyright notice, this list of conditions and the following
+   disclaimer in the documentation and/or other materials provided
+   with the distribution.
+
+THIS SOFTWARE IS PROVIDED "AS IS" BY THE ABOVE COPYRIGHT HOLDER(S)
+AND ALL OTHER CONTRIBUTORS AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDER(S) OR ANY OTHER
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+-->
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object xsi:type="ReferenceObject" id="0`1:E15D2EA1513A4CDEB5BC81E9B594E116`1">
+    <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Control" />
+    <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="This is a component class based on the .NET type &quot;liveobjects_8.Components_.Control&quot;." />
+    <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="E15D2EA1513A4CDEB5BC81E9B594E116" />
+    <ObjectClass id="0`1:5211621A78F4CFBB993FA43186A5403`0" />
+    <Parameter id="loader">
+      <Value xsi:type="ReferenceObject" id="0`1:991815B1E97F4BEF811476F01270FDA8`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Loader" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="A component capable of loading XML object specifications." />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="991815B1E97F4BEF811476F01270FDA8" />
+        <ObjectClass id="0`1:FA968B52DFCF46C8BE7BC07B4068E503`0">
+          <Parameter id="InterfaceClass">
+            <Value xsi:type="InterfaceClass" id="0`1:E31A038ECF1C40149DC485CF25B3BDC6`0">
+              <Parameter id="ObjectClass">
+                <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+              </Parameter>
+            </Value>
+          </Parameter>
+        </ObjectClass>
+        <Parameter id="library">
+          <Value xsi:type="ReferenceObject" id="0`1:BFB405E1F3134A33AF093B0D4901318B`0">
+            <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Library" />
+            <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="The standard base library of predefined classes." />
+            <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="BFB405E1F3134A33AF093B0D4901318B" />
+            <ObjectClass id="0`1:FA968B52DFCF46C8BE7BC07B4068E503`0">
+              <Parameter id="InterfaceClass">
+                <Value xsi:type="InterfaceClass" id="0`1:2D14726DD3B8419F954FD1101DA16FD3`0" />
+              </Parameter>
+            </ObjectClass>
+          </Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+    <Parameter id="rootFolder">
+      <Value xsi:type="ReferenceObject" id="0`1:A23A3D5432FB40BAB87181FD0943299A`0">
+        <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Folder 3" />
+        <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="This is a shared folder #3." />
+        <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="A23A3D5432FB40BAB87181FD0943299A" />
+        <ObjectClass id="0`1:D111EEF8754D4EB98ABD90B0260AEF93`0">
+          <Parameter id="KeyClass">
+            <Value xsi:type="ValueClass" id="0`1:2FEB1E028342422CBD38CB074B957973`0" />
+          </Parameter>
+          <Parameter id="ObjectClass">
+            <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+          </Parameter>
+        </ObjectClass>
+        <Parameter id="channel">
+          <Value xsi:type="ReferenceObject" id="00000000000000000000000000000046">
+            <ObjectClass id="0`1:806C71E88E749AA879E52F960F4B881`0">
+              <Parameter id="MessageClass">
+                <Value xsi:type="ValueClass" id="0`1:B0592A046E5E47E69A1AC39E412B7AD0`0" />
+              </Parameter>
+              <Parameter id="CheckpointClass">
+                <Value xsi:type="ValueClass" id="0`1:5B1608BEE89B434F967E92EDADF0EEB2`0" />
+              </Parameter>
+            </ObjectClass>
+            <From xsi:type="ReferenceObject" id="011E83FA6A9F426993BB8EF26FF7D7B8">
+              <ObjectClass id="0`1:D111EEF8754D4EB98ABD90B0260AEF93`0">
+                <Parameter id="KeyClass">
+                  <Value xsi:type="ValueClass" id="0`1:2FEB1E028342422CBD38CB074B957973`0" />
+                </Parameter>
+                <Parameter id="ObjectClass">
+                  <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+                </Parameter>
+              </ObjectClass>
+              <From xsi:type="ReferenceObject" id="0`1:E8C9D312C27649F39812B8E99AA67CBC`0">
+                <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Registry" />
+                <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="A collection of services with known names, but with a local customized configuration that could be based on system registry or on configuration files." />
+                <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="E8C9D312C27649F39812B8E99AA67CBC" />
+                <ObjectClass id="0`1:D111EEF8754D4EB98ABD90B0260AEF93`0">
+                  <Parameter id="KeyClass">
+                    <Value xsi:type="ValueClass" id="0`1:2FEB1E028342422CBD38CB074B957973`0" />
+                  </Parameter>
+                  <Parameter id="ObjectClass">
+                    <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+                  </Parameter>
+                </ObjectClass>
+              </From>
+            </From>
+          </Value>
+        </Parameter>
+        <Parameter id="loader">
+          <Value xsi:type="ReferenceObject" id="0`1:991815B1E97F4BEF811476F01270FDA8`0">
+            <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Loader" />
+            <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="A component capable of loading XML object specifications." />
+            <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="991815B1E97F4BEF811476F01270FDA8" />
+            <ObjectClass id="0`1:FA968B52DFCF46C8BE7BC07B4068E503`0">
+              <Parameter id="InterfaceClass">
+                <Value xsi:type="InterfaceClass" id="0`1:E31A038ECF1C40149DC485CF25B3BDC6`0">
+                  <Parameter id="ObjectClass">
+                    <Value xsi:type="ObjectClass" id="0`1:F5225FA26F7C4F6D93C9E5A1A45FCF45`0" />
+                  </Parameter>
+                </Value>
+              </Parameter>
+            </ObjectClass>
+            <Parameter id="library">
+              <Value xsi:type="ReferenceObject" id="0`1:BFB405E1F3134A33AF093B0D4901318B`0">
+                <Attribute id="9F4C608A9A6D44FFAD8A2FDC662E185B" value="Library" />
+                <Attribute id="7EC27D89CBD410DADE60463E4D46985" value="The standard base library of predefined classes." />
+                <Attribute id="9F64B7ABB95245F28596BFFD1F549558" value="BFB405E1F3134A33AF093B0D4901318B" />
+                <ObjectClass id="0`1:FA968B52DFCF46C8BE7BC07B4068E503`0">
+                  <Parameter id="InterfaceClass">
+                    <Value xsi:type="InterfaceClass" id="0`1:2D14726DD3B8419F954FD1101DA16FD3`0" />
+                  </Parameter>
+                </ObjectClass>
+              </Value>
+            </Parameter>
+          </Value>
+        </Parameter>
+      </Value>
+    </Parameter>
+  </Object>
+</Root>

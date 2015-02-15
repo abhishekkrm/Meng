@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="_Installer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemblyInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="liveobjects.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="_Installer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="objects\001c.liveobject" />
+    <None Include="objects\001s.liveobject" />
+    <None Include="objects\002c.liveobject" />
+    <None Include="objects\002s.liveobject" />
+    <None Include="objects\003.liveobject" />
+    <None Include="scenarios\aggregation.xml" />
+    <None Include="objects\bootstrap.liveobject" />
+    <None Include="scenarios\bootstrap.xml" />
+    <None Include="objects\client.liveobject" />
+    <None Include="scenarios\dataflow.xml" />
+    <None Include="scenarios\dissemination.xml" />
+    <None Include="scenarios\foo.xml" />
+    <None Include="liveobjects.reg" />
+    <None Include="dataflows\lockstep_flow.ruleset" />
+    <None Include="dataflows\lockstep_root.ruleset" />
+    <None Include="dataflows\mship_flow.ruleset" />
+    <None Include="dataflows\mship_root.ruleset" />
+    <None Include="scenarios\multicast.xml" />
+    <None Include="objects\ootc.liveobject" />
+    <None Include="postbuild.bat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="prebuild.bat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+    <None Include="scenarios\replication.xml" />
+    <None Include="scenarios\ring.xml" />
+    <None Include="objects\service.liveobject" />
+    <None Include="scenarios\storage.xml" />
+    <None Include="scenarios\synchronization.xml" />
+    <None Include="objects\test_01_bootstrap.liveobject" />
+    <None Include="objects\test_01_client.liveobject" />
+    <None Include="objects\test_01_service.liveobject" />
+    <None Include="objects\test_02_bootstrap.liveobject" />
+    <None Include="objects\test_02_client.liveobject" />
+    <None Include="objects\test_02_service.liveobject" />
+    <None Include="objects\test_03_bootstrap.liveobject" />
+    <None Include="objects\test_03_client.liveobject" />
+    <None Include="objects\test_03_service.liveobject" />
+    <None Include="objects\test_04_bootstrap.liveobject" />
+    <None Include="objects\test_04_client.liveobject" />
+    <None Include="objects\test_04_service.liveobject" />
+    <None Include="objects\test_05_bootstrap.liveobject" />
+    <None Include="objects\test_05_client.liveobject" />
+    <None Include="objects\test_05_service.liveobject" />
+    <None Include="scenarios\tree.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
