@@ -43,6 +43,12 @@ class Deployer:
             for additional_file in root_xml_elt.find('AdditionalFiles').findall('File'):
                 additional_file_path = os.path.join(os.path.dirname(deploy_xml_file), additional_file.text)
                 self._additional_files.append(additional_file_path)
+            
+            for additional_folder in root_xml_elt.find('AdditionalFiles').findall('Folder'):
+                additional_folder_path = os.path.join(os.path.dirname(deploy_xml_file), additional_folder.text)
+                for root, _, files in os.walk(additional_folder_path):
+                    for additional_file in files:
+                        self._additional_files.append(os.path.join(root, additional_file))
         
     def _copy_file( self, src_file, dst_path ):
         shutil.copy( src_file, dst_path )
@@ -61,13 +67,23 @@ class Deployer:
             line = line + '</Library>'
             metadata_file.write(line)
     
+    def _check_file_exists( self, filepath ):
+        return os.path.exists(filepath) and os.path.isfile(filepath)
+    
+    def _copy_dll_file( self ):
+        self._copy_file( self._src_dll_path, self._dll_deployment_dir )
+        #Copy pdb file as well if it exists
+        pdb_file_path = os.path.splitext(self._src_dll_path)[0] + '.pdb'
+        if self._check_file_exists(pdb_file_path):
+            self._copy_file( pdb_file_path, self._dll_deployment_dir )
+        
     def _copy_additional_files( self ):
         for additional_file in self._additional_files:
             self._copy_file( additional_file, self._dll_deployment_dir )
             
     def deploy( self ):
         self._create_directory( self._dll_deployment_dir )
-        self._copy_file( self._src_dll_path, self._dll_deployment_dir )
+        self._copy_dll_file()
         self._write_metadata_file()
         self._copy_additional_files()
         

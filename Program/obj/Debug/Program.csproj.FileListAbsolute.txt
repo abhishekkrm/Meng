@@ -1,5 +1,0 @@
-C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\Program\bin\Debug\Program.exe
-C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\Program\bin\Debug\Program.pdb
-C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\Program\obj\Debug\Program.csprojResolveAssemblyReference.cache
-C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\Program\obj\Debug\Program.exe
-C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\Program\obj\Debug\Program.pdb

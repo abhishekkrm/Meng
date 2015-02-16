@@ -1,5 +1,0 @@
-C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\Graph\ConsoleApplication1\bin\Release\ConsoleApplication1.dll
-C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\Graph\ConsoleApplication1\bin\Release\ConsoleApplication1.pdb
-C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\Graph\ConsoleApplication1\bin\Release\liveobjects_1.dll
-C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\Graph\ConsoleApplication1\obj\x86\Release\ConsoleApplication1.dll
-C:\Cornell\Projects\CloudComputing\ldo4gridcloud\Liveobjects-Source\Graph\ConsoleApplication1\obj\x86\Release\ConsoleApplication1.pdb

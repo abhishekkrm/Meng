@@ -1,0 +1,704 @@
+<components>	 
+	<!--- Generators -->
+	<component id ="1" Type="Generator">
+		<x value="42"/>
+		<y value="33"/>
+		<orientation value="0"/>
+		<buses>
+			<bus id="1"/>
+			<bus id="2"/>
+		</buses>
+	</component>
+	<component id ="2" Type="Generator">
+		<x value="140"/>
+		<y value="5"/>
+		<orientation value="0"/>
+		<buses>
+			<bus id="11"/>
+			<bus id="6"/>
+		</buses>
+	</component>
+	<component id ="3" Type="Generator">
+		<x value="175"/>
+		<y value="343"/>
+		<orientation value="180"/>
+		<buses>
+			<bus id="15"/>
+			<bus id="13"/>
+		</buses>
+	</component>
+	<component id ="4" Type="Generator">
+		<x value="308"/>
+		<y value="406"/>
+		<orientation value="180"/>
+		<buses>
+			<bus id="21"/>
+			<bus id="20"/>
+		</buses>
+	</component>
+	<component id ="5" Type="Generator">
+		<x value="422"/>
+		<y value="407"/>
+		<orientation value="180"/>
+		<buses>
+			<bus id="29"/>
+			<bus id="28"/>
+		</buses>
+	</component>
+	<component id ="6" Type="Generator">
+		<x value="494"/>
+		<y value="407"/>
+		<orientation value="180"/>
+		<buses>
+			<bus id="32"/>
+			<bus id="30"/>
+		</buses>
+	</component>
+	<component id ="7" Type="Generator">
+		<x value="617"/>
+		<y value="395"/>
+		<orientation value="180"/>
+		<buses>
+			<bus id="39"/>
+			<bus id="34"/>
+		</buses>
+	</component>
+	<component id ="8" Type="Generator">
+		<x value="608"/>
+		<y value="182"/>
+		<orientation value="0"/>
+		<buses>
+			<bus id="37"/>
+			<bus id="38"/>
+		</buses>
+	</component>
+	<component id ="9" Type="Generator">
+		<x value="600"/>
+		<y value="38"/>
+		<orientation value="180"/>
+		<buses>
+			<bus id="36"/>
+			<bus id="35"/>
+		</buses>
+	</component>
+            
+	<!--- Bus -->
+	<component id ="2" Type="Bus">
+		<x1 value="42"/>
+		<y1 value="106"/>
+		<x2 value="133"/>
+		<y2 value="106"/>
+		<type value="line"/>
+	</component>
+	<component id ="3" Type="Bus">
+		<x1 value="42"/>
+		<y1 value="150"/>
+		<x2 value="75"/>
+		<y2 value="150"/>
+		<type value="line"/>
+	</component>			
+	<component id ="4" Type="Bus">
+		<x1 value="20"/>
+		<y1 value="282"/>
+		<x2 value="69"/>
+		<y2 value="282"/>
+		<type value="line-arrow"/>
+	</component>
+	<component id ="5" Type="Bus">
+		<x1 value="52"/>
+		<y1 value="480"/>
+		<x2 value="100"/>
+		<y2 value="480"/>
+		<type value="line"/>
+	</component>
+	<component id ="6" Type="Bus">
+		<x1 value="104"/>
+		<y1 value="78"/>
+		<x2 value="181"/>
+		<y2 value="78"/>
+		<type value="line-arrow"/>
+	</component>
+	<component id ="7" Type="Bus">
+		<x1 value="104"/>
+		<y1 value="213"/>
+		<x2 value="164"/>
+		<y2 value="213"/>
+		<type value="line-arrow"/>
+	</component>
+	<component id ="8" Type="Bus">
+		<x1 value="104"/>
+		<y1 value="270"/>
+		<x2 value="153"/>
+		<y2 value="270"/>
+		<type value="line-arrow"/>
+	</component>
+	<component id ="9" Type="Bus">
+		<x1 value="80"/>
+		<y1 value="318"/>
+		<x2 value="155"/>
+		<y2 value="318"/>
+		<type value="line"/>
+	</component>
+	<component id ="10" Type="Bus">
+		<x1 value="82"/>
+		<y1 value="432"/>
+		<x2 value="131"/>
+		<y2 value="432"/>
+		<type value="line-arrow"/>
+	</component>
+	<component id ="12" Type="Bus">
+		<x1 value="141"/>
+		<y1 value="141"/>
+		<x2 value="191"/>
+		<y2 value="141"/>
+		<type value="line-arrow"/>
+	</component>
+	<component id ="13" Type="Bus">
+		<x1 value="130"/>
+		<y1 value="343"/>
+		<x2 value="260"/>
+		<y2 value="343"/>
+		<type value="line"/>
+	</component>
+	<component id ="14" Type="Bus">
+		<x1 value="103"/>
+		<y1 value="379"/>
+		<x2 value="152"/>
+		<y2 value="379"/>
+		<type value="line-arrow"/>
+	</component>
+	<component id ="16" Type="Bus">
+		<x1 value="239"/>
+		<y1 value="371"/>
+		<x2 value="308"/>
+		<y2 value="371"/>
+		<type value="line"/>
+	</component>
+	<component id ="17" Type="Bus">
+		<x1 value="270"/>
+		<y1 value="51"/>
+		<x2 value="327"/>
+		<y2 value="51"/>
+		<type value="line-arrow"/>
+	</component>
+	<component id ="18" Type="Bus">
+		<x1 value="275"/>
+		<y1 value="137"/>
+		<x2 value="275"/>
+		<y2 value="180"/>
+		<type value="line"/>
+	</component>
+	<component id ="19" Type="Bus">
+		<x1 value="286"/>
+		<y1 value="340"/>
+		<x2 value="359"/>
+		<y2 value="340"/>
+		<type value="line-arrow"/>
+	</component>
+	<component id ="20" Type="Bus">
+		<x1 value="286"/>
+		<y1 value="406"/>
+		<x2 value="358"/>
+		<y2 value="406"/>
+		<type value="line"/>
+	</component>
+	<component id ="22" Type="Bus">
+		<x1 value="359"/>
+		<y1 value="144"/>
+		<x2 value="400"/>
+		<y2 value="144"/>
+		<type value="line-arrow"/>
+	</component>
+	<component id ="23" Type="Bus">
+		<x1 value="358"/>
+		<y1 value="195"/>
+		<x2 value="512"/>
+		<y2 value="195"/>
+		<type value="line"/>
+	</component>
+    <component id ="24" Type="Bus">
+		<x1 value="357"/>
+		<y1 value="218"/>
+		<x2 value="400"/>
+		<y2 value="218"/>
+		<type value="line-arrow"/>
+	</component>
+	<component id ="25" Type="Bus">
+		<x1 value="344"/>
+		<y1 value="269"/>
+		<x2 value="384"/>
+		<y2 value="269"/>
+		<type value="line"/>
+	</component>
+	<component id ="26" Type="Bus">
+		<x1 value="336"/>
+		<y1 value="371"/>
+		<x2 value="384"/>
+		<y2 value="371"/>
+		<type value="line"/>
+	</component>
+	<component id ="27" Type="Bus">
+		<x1 value="394"/>
+		<y1 value="40"/>
+		<x2 value="450"/>
+		<y2 value="40"/>
+		<type value="line"/>
+	</component>	       
+	<component id ="30" Type="Bus">
+		<x1 value="440"/>
+		<y1 value="370"/>
+		<x2 value="524"/>
+		<y2 value="370"/>
+		<type value="line"/>
+	</component>
+	<component id ="31" Type="Bus">
+		<x1 value="482"/>
+		<y1 value="255"/>
+		<x2 value="522"/>
+		<y2 value="255"/>
+		<type value="line-arrow"/>
+	</component>
+	<component id ="32" Type="Bus">
+		<x1 value="493"/>
+		<y1 value="434"/>
+		<x2 value="519"/>
+		<y2 value="434"/>
+		<type value="line"/>
+	</component>
+    <component id ="33" Type="Bus">
+		<x1 value="541"/>
+		<y1 value="127"/>
+		<x2 value="599"/>
+		<y2 value="127"/>
+		<type value="line-arrow"/>
+	</component>	       
+	<component id ="34" Type="Bus">
+		<x1 value="568"/>
+		<y1 value="395"/>
+		<x2 value="665"/>
+		<y2 value="395"/>
+		<type value="line-arrow"/>
+	</component>
+	<component id ="35" Type="Bus">
+		<x1 value="577"/>
+		<y1 value="38"/>
+		<x2 value="635"/>
+		<y2 value="38"/>
+		<type value="line-arrow"/>
+	</component>
+	<component id ="38" Type="Bus">
+		<x1 value="603"/>
+		<y1 value="255"/>
+		<x2 value="644"/>
+		<y2 value="255"/>
+		<type value="line"/>
+	</component>
+	
+	<!--  Transmission lines -->
+	<component id ="1" Type="Line">
+		<x1 value="60"/>
+		<y1 value="106"/>
+		<x2 value="60"/>
+		<y2 value="150"/>
+		<connection value="2,3"/>
+	</component>
+	<component id ="2" Type="Line">
+		<x1 value="60"/>
+		<y1 value="150"/>
+		<x2 value="60"/>
+		<y2 value="282"/>
+		<connection value="3,4"/>
+	</component>
+ 	<component id ="3" Type="Line">
+		<x1 value="60"/>
+		<y1 value="282"/>
+		<x2 value="60"/>
+		<y2 value="480"/>
+		<connection value="4,5"/>
+	</component>
+	<component id ="4" Type="Line">
+		<x1 value="92"/>
+		<y1 value="432"/>
+		<x2 value="92"/>
+		<y2 value="480"/>
+		<connection value="5,10"/>
+	</component>
+	<component id ="5" Type="Line">
+		<x1 value="92"/>
+		<y1 value="318"/>
+		<x2 value="92"/>
+		<y2 value="432"/>
+		<connection value="9,10"/>
+	</component>
+	<component id ="6" Type="Line">
+		<x1 value="117"/>
+		<y1 value="78"/>
+		<x2 value="117"/>
+		<y2 value="213"/>
+		<connection value="6,7"/>
+	</component>
+	<component id ="7" Type="Line">
+		<x1 value="117"/>
+		<y1 value="213"/>
+		<x2 value="117"/>
+		<y2 value="270"/>
+		<connection value="7,8"/>
+	</component>
+	<component id ="8" Type="Line">
+		<x1 value="152"/>
+		<y1 value="141"/>
+		<x2 value="152"/>
+		<y2 value="212"/>
+		<connection value="7,12"/>
+	</component>		
+	<component id ="9" Type="Line">
+		<x1 value="141"/>
+		<y1 value="318"/>
+		<x2 value="141"/>
+		<y2 value="343"/>
+		<connection value="9,13"/>
+	</component>
+	<component id ="10" Type="Line">
+		<x1 value="141"/>
+		<y1 value="343"/>
+		<x2 value="141"/>
+		<y2 value="379"/>
+		<connection value="13,14"/>
+	</component>
+	<component id ="11" Type="Line">
+		<x1 value="118"/>
+		<y1 value="379"/>
+		<x2 value="118"/>
+		<y2 value="432"/>
+		<connection value="10,14"/>
+	</component>
+	<component id ="12" Type="Line">
+		<x1 value="168"/>
+		<y1 value="78"/>
+		<x2 value="168"/>
+		<y2 value="90"/>
+		<connection value="6,17"/>
+	</component>
+	<component id ="13" Type="Line">
+		<x1 value="168"/>
+		<y1 value="90"/>
+		<x2 value="288"/>
+		<y2 value="90"/>
+		<connection value="6,17"/>
+	</component>
+	<component id ="14" Type="Line">
+		<x1 value="288"/>
+		<y1 value="51"/>
+		<x2 value="288"/>
+		<y2 value="90"/>
+		<connection value="6,17"/>
+	</component>
+	<component id ="15" Type="Line">
+		<x1 value="246"/>
+		<y1 value="343"/>
+		<x2 value="246"/>
+		<y2 value="371"/>
+		<connection value="13,16"/>
+	</component>	       
+	<component id ="16" Type="Line">
+		<x1 value="179"/>
+		<y1 value="141"/>
+		<x2 value="179"/>
+		<y2 value="156"/>
+		<connection value="12,18"/>
+	</component>
+	<component id ="17" Type="Line">
+		<x1 value="179"/>
+		<y1 value="156"/>
+		<x2 value="275"/>
+		<y2 value="156"/>
+		<connection value="12,18"/>
+	</component>
+	<component id ="18" Type="Line">
+		<x1 value="298"/>
+		<y1 value="340"/>
+		<x2 value="298"/>
+		<y2 value="371"/>
+		<connection value="16,19"/>
+	</component>
+	<component id ="19" Type="Line">
+		<x1 value="298"/>
+		<y1 value="371"/>
+		<x2 value="298"/>
+		<y2 value="406"/>
+		<connection value="16,20"/>
+	</component>
+	 	<component id ="20" Type="Line">
+		<x1 value="310"/>
+		<y1 value="51"/>
+		<x2 value="310"/>
+		<y2 value="87"/>
+		<connection value="17,22"/>
+	</component>
+	<component id ="21" Type="Line">
+		<x1 value="310"/>
+		<y1 value="87"/>
+		<x2 value="371"/>
+		<y2 value="87"/>
+		<connection value="17,22"/>
+	</component>
+	<component id ="22" Type="Line">
+		<x1 value="371"/>
+		<y1 value="87"/>
+		<x2 value="371"/>
+		<y2 value="144"/>
+		<connection value="17,22"/>
+	</component>
+	<component id ="23" Type="Line">
+		<x1 value="275"/>
+		<y1 value="156"/>
+		<x2 value="371"/>
+		<y2 value="156"/>
+		<connection value="18,22"/>
+	</component>
+	<component id ="24" Type="Line">
+		<x1 value="371"/>
+		<y1 value="144"/>
+		<x2 value="371"/>
+		<y2 value="156"/>
+		<connection value="18,22"/>
+	</component>
+	<component id ="25" Type="Line">
+		<x1 value="275"/>
+		<y1 value="169"/>
+		<x2 value="373"/>
+		<y2 value="169"/>
+		<connection value="18,23"/>
+	</component>
+	<component id ="26" Type="Line">
+		<x1 value="373"/>
+		<y1 value="169"/>
+		<x2 value="373"/>
+		<y2 value="195"/>
+		<connection value="18,23"/>
+	</component>
+	<component id ="27" Type="Line">
+		<x1 value="373"/>
+		<y1 value="195"/>
+		<x2 value="373"/>
+		<y2 value="219"/>
+		<connection value="23,24"/>
+	</component>
+	<component id ="28" Type="Line">
+		<x1 value="310"/>
+		<y1 value="25"/>
+		<x2 value="310"/>
+		<y2 value="51"/>
+		<connection value="17,27"/>
+	</component>
+	<component id ="29" Type="Line">
+		<x1 value="310"/>
+		<y1 value="25"/>
+		<x2 value="410"/>
+		<y2 value="25"/>
+		<connection value="17,27"/>
+	</component>
+	<component id ="30" Type="Line">
+		<x1 value="410"/>
+		<y1 value="25"/>
+		<x2 value="410"/>
+		<y2 value="40"/>
+		<connection value="17,27"/>
+	</component>
+	<component id ="31" Type="Line">
+		<x1 value="348"/>
+		<y1 value="340"/>
+		<x2 value="348"/>
+		<y2 value="371"/>
+		<connection value="19,26"/>
+	</component>
+	<component id ="32" Type="Line">
+		<x1 value="348"/>
+		<y1 value="371"/>
+		<x2 value="348"/>
+		<y2 value="406"/>
+		<connection value="20,26"/>
+	</component>
+	<component id ="33" Type="Line">
+		<x1 value="141"/>
+		<y1 value="252"/>
+		<x2 value="141"/>
+		<y2 value="270"/>
+		<connection value="8,25"/>
+	</component>
+	<component id ="34" Type="Line">
+		<x1 value="141"/>
+		<y1 value="252"/>
+		<x2 value="354"/>
+		<y2 value="252"/>
+		<connection value="8,25"/>
+	</component>
+	<component id ="35" Type="Line">
+		<x1 value="354"/>
+		<y1 value="252"/>
+		<x2 value="354"/>
+		<y2 value="270"/>
+		<connection value="8,25"/>
+	</component>
+	<component id ="36" Type="Line">
+		<x1 value="373"/>
+		<y1 value="219"/>
+		<x2 value="373"/>
+		<y2 value="371"/>
+		<connection value="24,25"/>
+	</component>
+	<component id ="37" Type="Line">
+		<x1 value="373"/>
+		<y1 value="270"/>
+		<x2 value="373"/>
+		<y2 value="371"/>
+		<connection value="25,26"/>
+	</component>
+	<component id ="39" Type="Line">
+		<x1 value="457"/>
+		<y1 value="370"/>
+		<x2 value="457"/>
+		<y2 value="407"/>
+		<connection value="28,30"/>
+	</component>
+	<component id ="40" Type="Line">
+		<x1 value="493"/>
+		<y1 value="195"/>
+		<x2 value="493"/>
+		<y2 value="255"/>
+		<connection value="23,31"/>
+	</component>
+	<component id ="41" Type="Line">
+		<x1 value="507"/>
+		<y1 value="370"/>
+		<x2 value="507"/>
+		<y2 value="434"/>
+		<connection value="30,32"/>
+	</component>
+	<component id ="42" Type="Line">
+		<x1 value="287"/>
+		<y1 value="5"/>
+		<x2 value="287"/>
+		<y2 value="51"/>
+		<connection value="17,35"/>
+	</component>
+	<component id ="43" Type="Line">
+		<x1 value="287"/>
+		<y1 value="5"/>
+		<x2 value="615"/>
+		<y2 value="5"/>
+		<connection value="17,35"/>
+	</component>
+	<component id ="44" Type="Line">
+		<x1 value="615"/>
+		<y1 value="5"/>
+		<x2 value="615"/>
+		<y2 value="40"/>
+		<connection value="17,35"/>
+	</component>
+	<component id ="45" Type="Line">
+		<x1 value="433"/>
+		<y1 value="25"/>
+		<x2 value="433"/>
+		<y2 value="40"/>
+		<connection value="27,35"/>
+	</component>
+	<component id ="46" Type="Line">
+		<x1 value="433"/>
+		<y1 value="25"/>
+		<x2 value="591"/>
+		<y2 value="25"/>
+		<connection value="27,35"/>
+	</component>
+	<component id ="47" Type="Line">
+		<x1 value="591"/>
+		<y1 value="25"/>
+		<x2 value="591"/>
+		<y2 value="40"/>
+		<connection value="27,35"/>
+	</component>
+	<component id ="48" Type="Line">
+		<x1 value="550"/>
+		<y1 value="127"/>
+		<x2 value="550"/>
+		<y2 value="151"/>
+		<connection value="23,33"/>
+	</component>
+	<component id ="49" Type="Line">
+		<x1 value="493"/>
+		<y1 value="151"/>
+		<x2 value="550"/>
+		<y2 value="151"/>
+		<connection value="23,33"/>
+	</component>
+	<component id ="50" Type="Line">
+		<x1 value="493"/>
+		<y1 value="151"/>
+		<x2 value="493"/>
+		<y2 value="195"/>
+		<connection value="23,33"/>
+	</component>
+	<component id ="51" Type="Line">
+		<x1 value="513"/>
+		<y1 value="255"/>
+		<x2 value="513"/>
+		<y2 value="269"/>
+		<connection value="31,38"/>
+	</component>
+	<component id ="52" Type="Line">
+		<x1 value="513"/>
+		<y1 value="269"/>
+		<x2 value="618"/>
+		<y2 value="269"/>
+		<connection value="31,38"/>
+	</component>
+	<component id ="53" Type="Line">
+		<x1 value="618"/>
+		<y1 value="255"/>
+		<x2 value="618"/>
+		<y2 value="269"/>
+		<connection value="31,38"/>
+	</component>
+	<component id ="54" Type="Line">
+		<x1 value="630"/>
+		<y1 value="255"/>
+		<x2 value="630"/>
+		<y2 value="395"/>
+		<connection value="34,38"/>
+	</component>
+	<component id ="55" Type="Line">
+		<x1 value="591"/>
+		<y1 value="128"/>
+		<x2 value="591"/>
+		<y2 value="141"/>
+		<connection value="33,34"/>
+	</component>
+	<component id ="56" Type="Line">
+		<x1 value="591"/>
+		<y1 value="141"/>
+		<x2 value="651"/>
+		<y2 value="141"/>
+		<connection value="33,34"/>
+	</component>
+	<component id ="57" Type="Line">
+		<x1 value="651"/>
+		<y1 value="141"/>
+		<x2 value="651"/>
+		<y2 value="395"/>
+		<connection value="33,34"/>
+	</component>
+	<component id ="38" Type="Line">
+		<x1 value="457"/>
+		<y1 value="370"/>
+		<x2 value="457"/>
+		<y2 value="407"/>
+		<connection value="23,30"/>
+	</component>	
+	<component id ="58" Type="Line">
+		<x1 value="457"/>
+		<y1 value="195"/>
+		<x2 value="457"/>
+		<y2 value="370"/>
+		<connection value="23,30"/>
+	</component>
+</components>	

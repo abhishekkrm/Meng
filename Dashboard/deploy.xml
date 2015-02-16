@@ -1,8 +1,6 @@
 <root>
 <namespace>4D12F33758B74DAFBDE0D17E298AD01E`1</namespace>
 <AdditionalFiles>
-	<File>img.png</File>
-	<File>reddot.png</File>
-	<File>without_labels.png</File>
+	<Folder>resources</Folder>
 </AdditionalFiles>
 </root>

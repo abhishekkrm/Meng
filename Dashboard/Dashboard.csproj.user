@@ -3,4 +3,9 @@
   <PropertyGroup>
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\liveobjects\bin\liveobjects.exe</StartProgram>
+    <StartArguments>C:\liveobjects\examples\SmartGrid\objects\Dashboard.liveobject</StartArguments>
+  </PropertyGroup>
 </Project>
