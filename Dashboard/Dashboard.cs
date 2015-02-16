@@ -322,7 +322,7 @@ namespace Dashboard
                 BusControl busControl = busControlMap["1"] ;
                 if (busControl != null)
                 {
-                    if (!busControl.getBusName().Equals(String.Empty))
+                    if (!String.IsNullOrEmpty(busControl.getBusName()))
                     {
                         setPanelValues(busControl);
                         setGraphValues(busControl);
@@ -627,11 +627,8 @@ namespace Dashboard
                     {
                         setPanelValues(shownBus);
                         setGraphValues(shownBus);
-                        busInfoPanel.Refresh();
-                        graphPanel.Refresh();
-
+                        refreshPanels();
                     }
-
                 }
             }catch(Exception e)
             {
@@ -650,12 +647,12 @@ namespace Dashboard
                 String busDetailsPlusAffectedStr = GetServerResponseForOperation(Constants.OPERATION_AFFECTEDLIST);
                 String[] busDetailsPlusAffectedSplitStr = busDetailsPlusAffectedStr.Split(Constants.SEPARATOR_COLON_FOR_SERVER_DATA.ToCharArray());    //bus details: affected list
                                           
-                if(!busDetailsPlusAffectedSplitStr.Equals(String.Empty))
+                if(busDetailsPlusAffectedSplitStr.Length >= 2)
                 {
-                    if (!busDetailsPlusAffectedSplitStr[1].Equals(String.Empty))
+                    if (!String.IsNullOrEmpty(busDetailsPlusAffectedSplitStr[1]))
                         myGroup.OrderedSend(UPDATE, "AffectedListPropagate", busDetailsPlusAffectedSplitStr[1]);
 
-                    if (!busDetailsPlusAffectedSplitStr[0].Equals(String.Empty))
+                    if (!String.IsNullOrEmpty(busDetailsPlusAffectedSplitStr[0]))
                         myGroup.OrderedSend(UPDATE, "BusDetailsPropagate", busDetailsPlusAffectedSplitStr[0]);    
 
                     String lineDownSetCommaSeperated = null;
@@ -969,7 +966,7 @@ namespace Dashboard
                 // Establish the remote endpoint for the socket.
                 IPHostEntry ipHostInfo = Dns.Resolve(Dns.GetHostName());
                 IPAddress ipAddress = ipHostInfo.AddressList[0];
-                ipAddress = IPAddress.Parse("192.168.0.7");//"128.84.34.26");
+                ipAddress = IPAddress.Parse("127.0.0.1");//192.168.0.7");//"128.84.34.26");
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 5300);
 
                 // Create a TCP/IP  socket.
@@ -1070,8 +1067,32 @@ namespace Dashboard
             throw new NotImplementedException();
         }
 
+        /* Enable asynchronus calling */
+        delegate void RefreshPanelsCallback();
+
+        private void refreshPanels()
+        {
+            if (this.busInfoPanel.InvokeRequired)
+            {
+                RefreshPanelsCallback d = new RefreshPanelsCallback(refreshPanels);
+                this.Invoke(d, new object[] { });
+                return;
+            }
+            busInfoPanel.Refresh();
+            graphPanel.Refresh();
+        }
+
+        /* Enable asynchronus calling */
+        delegate void SetPanelValesCallback(BusControl busControl);
+        
         private void setPanelValues(BusControl busControl)
         {
+            if (this.busIdValue.InvokeRequired)
+            {
+                SetPanelValesCallback d = new SetPanelValesCallback(setPanelValues);
+                this.Invoke(d, new object[] { busControl });
+                return;
+            }
             shownBus = busControl;
             this.busIdValue.Text = busControl.getBusNo();
             this.busNameValue.Text = busControl.getBusName();
@@ -1082,10 +1103,20 @@ namespace Dashboard
             this.busPhaseAngleValue.Text = busControl.getVoltagePhaseAngle();
 
         }
+
+        /* Enable asynchronus calling */
+        delegate void SetGraphValesCallback(BusControl busControl);
+
         private void setGraphValues(BusControl busControl)
         {
             try
             {
+                if (this.voltageChart.InvokeRequired)
+                {
+                    SetGraphValesCallback d = new SetGraphValesCallback(setGraphValues);
+                    this.Invoke(d, new object[] { busControl });
+                    return;
+                }
 
                 this.voltageChart.Series.RemoveAt(0);
                 this.voltageChart.Series.Add("Series1");
