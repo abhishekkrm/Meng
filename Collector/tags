@@ -1,0 +1,91 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CFLAGS	Makefile	/^CFLAGS = -Wall -Wextra -g -pthread$/;"	m
+ComputeCRC	c37.c	/^uint16_t ComputeCRC(unsigned char *msg, unsigned int msglen) {$/;"	f
+DFL_PORT	pmudumper.c	7;"	d	file:
+DFL_PORT	pmuplayer.c	10;"	d	file:
+FRAME_SIZE	c37.h	1;"	d
+LDFLAGS	Makefile	/^LDFLAGS = -pthread$/;"	m
+LOG_H	log.h	2;"	d
+arguments	dc.c	/^struct arguments {$/;"	s	file:
+bytes	log.c	/^	size_t bytes;$/;"	m	struct:log	file:
+c37_packet	c37.h	/^} c37_packet;$/;"	t	typeref:struct:__anon1
+claim_tcpr_state	dc.c	/^static int claim_tcpr_state(struct tcpr_ip4 *state, int tcprsock,$/;"	f	file:
+connect_to_peer	dc.c	/^static int connect_to_peer(struct sockaddr_in *peeraddr, uint16_t bindport)$/;"	f	file:
+connect_to_tcpr	dc.c	/^static int connect_to_tcpr(struct sockaddr_in *tcpraddr)$/;"	f	file:
+copy_data	dc.c	/^static int copy_data(struct tcpr_ip4 *state, struct log *log, int pullsock,$/;"	f	file:
+count	log.c	/^	size_t count;$/;"	m	struct:log	file:
+crc	c37.h	/^    uint16_t crc;$/;"	m	struct:__anon1
+current_amplitude	c37.h	/^    float current_amplitude;$/;"	m	struct:__anon1
+current_angle	c37.h	/^    float current_angle;$/;"	m	struct:__anon1
+delta_frequency	c37.h	/^    float delta_frequency; \/\/ not reported\/used by their producers\/consumers$/;"	m	struct:__anon1
+do_connect	pmucat.c	/^int do_connect(char *peer, int port){$/;"	f
+do_copy	pmucat.c	/^void do_copy(int input, int output){$/;"	f
+do_copy	pmudumper.c	/^int do_copy(int fd){$/;"	f
+do_copy	pmuplayer.c	/^int do_copy(int fd){$/;"	f
+do_handle_slaves	dc.c	/^static void *do_handle_slaves(void *arg)$/;"	f	file:
+do_recv	pmudumper.c	/^void do_recv(int s){$/;"	f
+do_recv	pmuplayer.c	/^void do_recv(int s){$/;"	f
+fd	log.c	/^	int fd;$/;"	m	struct:log	file:
+form_c37_packet	c37.c	/^void form_c37_packet(char *buf, c37_packet *pkt) {$/;"	f
+fracsec	c37.h	/^    uint32_t fracsec;$/;"	m	struct:__anon1
+framesize	c37.h	/^    uint16_t framesize;$/;"	m	struct:__anon1
+get_args	pmudumper.c	/^static void get_args(int argc, char *argv[]){$/;"	f	file:
+get_args	pmuplayer.c	/^static void get_args(int argc, char *argv[]){$/;"	f	file:
+get_big_endian	c37.c	/^char *get_big_endian(char *ptr, int size, unsigned char *data) {$/;"	f
+get_c37_packet	c37.c	/^c37_packet *get_c37_packet(char *data) {$/;"	f
+get_tcpr_state	dc.c	/^static int get_tcpr_state(struct tcpr_ip4 *state, int tcprsock,$/;"	f	file:
+handle_slaves	dc.c	/^static void handle_slaves(void)$/;"	f	file:
+id	dc.c	/^	char *id;$/;"	m	struct:arguments	file:
+id_code	c37.h	/^    uint16_t id_code;$/;"	m	struct:__anon1
+log	log.c	/^struct log {$/;"	s	file:
+log_next	log.c	/^static int log_next(struct log *log)$/;"	f	file:
+log_start	log.c	/^struct log *log_start(char *prefix, size_t maxbytes, size_t maxcount)$/;"	f
+log_stop	log.c	/^void log_stop(struct log *log)$/;"	f
+log_write	log.c	/^size_t log_write(struct log *log, char *data, size_t size)$/;"	f
+logbytes	dc.c	/^	int logbytes;$/;"	m	struct:arguments	file:
+logcount	dc.c	/^	int logcount;$/;"	m	struct:arguments	file:
+logprefix	dc.c	/^	char *logprefix;$/;"	m	struct:arguments	file:
+main	dc.c	/^int main(int argc, char **argv)$/;"	f
+main	pmucat.c	/^int main(int argc, char *argv[]){$/;"	f
+main	pmudumper.c	/^int main(int argc, char *argv[]){$/;"	f
+main	pmuplayer.c	/^int main(int argc, char *argv[]){$/;"	f
+masterport	dc.c	/^static const uint16_t masterport = 6666;$/;"	v	file:
+maxbytes	log.c	/^	size_t maxbytes;$/;"	m	struct:log	file:
+maxcount	log.c	/^	size_t maxcount;$/;"	m	struct:log	file:
+name	dc.c	/^	char *name;$/;"	m	struct:arguments	file:
+name	pmudumper.c	/^	char *name;$/;"	m	struct:prog_args	file:
+name	pmuplayer.c	/^	char *name;$/;"	m	struct:prog_args	file:
+node	setup-network	/^node () {$/;"	f
+parse_arguments	dc.c	/^static void parse_arguments(struct arguments *args, int argc, char **argv)$/;"	f	file:
+port	dc.c	/^	uint32_t port;$/;"	m	struct:arguments	file:
+port	pmudumper.c	/^	char *port;$/;"	m	struct:prog_args	file:
+port	pmuplayer.c	/^	char *port;$/;"	m	struct:prog_args	file:
+prefix	log.c	/^	char *prefix;$/;"	m	struct:log	file:
+prog_args	pmudumper.c	/^struct prog_args {$/;"	s	file:
+prog_args	pmudumper.c	/^} prog_args;$/;"	v	typeref:struct:prog_args
+prog_args	pmuplayer.c	/^struct prog_args {$/;"	s	file:
+prog_args	pmuplayer.c	/^} prog_args;$/;"	v	typeref:struct:prog_args
+pullhost	dc.c	/^	char *pullhost;$/;"	m	struct:arguments	file:
+pullport	dc.c	/^	char *pullport;$/;"	m	struct:arguments	file:
+pushhost	dc.c	/^	char *pushhost;$/;"	m	struct:arguments	file:
+pushport	dc.c	/^	char *pushport;$/;"	m	struct:arguments	file:
+put_big_endian	c37.c	/^char *put_big_endian(char *ptr, int size, unsigned char *data) {$/;"	f
+resolve_address	dc.c	/^static int resolve_address(struct sockaddr_in *addr, const char *host,$/;"	f	file:
+sleep_time	dc.c	/^	uint32_t sleep_time;$/;"	m	struct:arguments	file:
+soc	c37.h	/^    uint32_t soc;$/;"	m	struct:__anon1
+stat	c37.h	/^    uint16_t stat;$/;"	m	struct:__anon1
+sync	c37.h	/^    uint16_t sync;$/;"	m	struct:__anon1
+usage	dc.c	/^static void usage(struct arguments *args)$/;"	f	file:
+usage	pmudumper.c	/^static void usage(){$/;"	f	file:
+usage	pmuplayer.c	/^static void usage(){$/;"	f	file:
+voltage_amplitude	c37.h	/^    float voltage_amplitude;$/;"	m	struct:__anon1
+voltage_angle	c37.h	/^    float voltage_angle;$/;"	m	struct:__anon1
+voltage_frequency	c37.h	/^    float voltage_frequency;$/;"	m	struct:__anon1
+wait_for_master	dc.c	/^static int wait_for_master(struct tcpr_ip4 *state)$/;"	f	file:
+write_c37_packet	c37.c	/^void write_c37_packet(FILE *output, c37_packet *pkt) {$/;"	f
+write_c37_packet_readable	c37.c	/^void write_c37_packet_readable(FILE *output, c37_packet *pkt) {$/;"	f

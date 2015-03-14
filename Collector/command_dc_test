@@ -1,0 +1,520 @@
+    1  cd Downloads/
+    2  l
+    3  tar -zxf pycharm-community-4.0.3.tar.gz
+    4  ;s
+    5  ls
+    6  cd pycharm-community-4.0.3/
+    7  ls
+    8  cat build.txt 
+    9  cd bin/
+   10  ls
+   11  cd ../help
+   12  ls
+   13  cd ../
+   14  ls
+   15  cd bin/
+   16  ls
+   17  ./pycharm.sh 
+   18  sudo apt-get update
+   19  sudo apt-get install default-jre
+   20  sudo apt-get install default-jdk
+   21  ./pycharm.sh 
+   22  cd ~/
+   23  cd Downloads/
+   24  cd debian-stable/amd64/
+   25  ls
+   26  dpkg -I *.deb=
+   27  dpkg -i *.deb
+   28  sudo dpkg -i codeblocks
+   29  sudo apt-get install kdbg
+   30  sudo apt-get install -f kdbg
+   31  sudo apt-get install -f kdbg 
+   32  sudo apt-get install -f 
+   33  sudo apt-get install flashplugin-installer 
+   34  dpkg -i codeblocks_13.12-1_amd64.deb 
+   35  sudo dpkg -i codeblocks_13.12-1_amd64.deb 
+   36  sudo dpkg -i buildep codeblocks_13.12-1_amd64.deb 
+   37  sudo dpkg -i -f *.deb 
+   38  sudo dpkg -i *.deb 
+   39  sudo dpkg -r codeblocks
+   40  sudo dpkg -i *.deb codeblocks_13.12-1_amd64.deb 
+   41  sudo dpkg -r codeblocks_13.12-1_amd64.deb 
+   42  sudo apt-get install -f
+   43  sudo apt-get remove -f
+   44  sudo apt-get remove -r codeblocks
+   45  sudo apt-get remove codeblocks
+   46  sudo apt-get autoremove codeblocks
+   47  sudo apt-get install flashplugin-installer 
+   48  sudo apt-get autoremove codeblocks
+   49  sudo apt-get autoremove codeblocks*
+   50  sudo apt-get autoremove 
+   51  sudo apt-get autoremove  -f
+   52  sudo add-apt-repository ppa:pasgui/ppa
+   53  sudo apt-get install -f
+   54  sudo apt-get autoremove  -r codeblocks-dbg 
+   55  sudo apt-get autoremove  codeblocks-dbg 
+   56  ls
+   57  cd ../../
+   58  ls
+   59  rm pycharm-community-4.0.3.tar.gz 
+   60  ls
+   61  rm codeblocks-13.12-1_amd64.debian.stable.tar.xz 
+   62  ls
+   63  ls
+   64  sudo apt-get install chrome
+   65  sudo apt-cache search chro
+   66  sudo apt-get install chromium-browser
+   67  vi /usr/share/kde4/apps/kdbg/icons/hicolor/22x22/actions/pulse.mng usr/share/kde4/apps/kdbg/icons/hicolor/22x22/actions/pulse.mngBAK
+   68  mv /usr/share/kde4/apps/kdbg/icons/hicolor/22x22/actions/pulse.mng usr/share/kde4/apps/kdbg/icons/hicolor/22x22/actions/pulse.mngBAK
+   69  mv /usr/share/kde4/apps/kdbg/icons/hicolor/22x22/actions/pulse.mng /usr/share/kde4/apps/kdbg/icons/hicolor/22x22/actions/pulse.mngBAK
+   70  sudo mv /usr/share/kde4/apps/kdbg/icons/hicolor/22x22/actions/pulse.mng /usr/share/kde4/apps/kdbg/icons/hicolor/22x22/actions/pulse.mngBAK
+   71  sudo apt-get install flashplugin-installer 
+   72  apt-get install -f
+   73  sudo apt-get install -f
+   74  sudo apt-get update
+   75  sudo apt-get install -f
+   76  sudo apt-get install flashplugin-installer 
+   77  sudo apt-get install chromium-browser
+   78  sudo apt-get install kdbg
+   79  sudo apt-get install synaptic vlc gimp gimp-data gimp-plugin-registry gimp-data-extras y-ppa-manager bleachbit openjdk-7-jre oracle-java8-installer flashplugin-installer unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller libxine1-ffmpeg mencoder flac faac faad sox ffmpeg2theora libmpeg2-4 uudeview libmpeg3-1 mpeg3-utils mpegdemux liba52-dev mpeg2dec vorbis-tools id3v2 mpg321 mpg123 libflac++6 totem-mozilla icedax lame libmad0 libjpeg-progs libdvdcss2 libdvdread4 libdvdnav4 libswscale-extra-2 ubuntu-restricted-extras ubuntu-wallpapers*
+   80  sudo apt-get install synaptic vlc gimp gimp-data gimp-plugin-registry gimp-data-extras bleachbit openjdk-7-jre flashplugin-installer unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller libxine1-ffmpeg mencoder flac faac faad sox ffmpeg2theora libmpeg2-4 uudeview libmpeg3-1 mpeg3-utils mpegdemux liba52-dev mpeg2dec vorbis-tools id3v2 mpg321 mpg123 libflac++6 totem-mozilla icedax lame libmad0 libjpeg-progs libdvdread4 libdvdnav4 libswscale-extra-2 ubuntu-restricted-extras ubuntu-wallpapers*
+   81  sudo apt-get install skype
+   82  sudo apt-cache search skype
+   83  g++
+   84  sudo apt-get install g++
+   85  sudo apt-get install gwenview
+   86  sudo alsa force-reload
+   87  sudo apt-get remove --purge alsa-base pulseaudio
+   88  sudo apt-get install alsa-base pulseaudio
+   89  alsamixer
+   90  play -l
+   91  aplay -l
+   92  find /etc -name "asound.conf" 
+   93  sudo find /etc -name "asound.conf" 
+   94  sudo find / -name "asound.conf" 
+   95  vi ~/.asoundrc
+   96  gedit ~/.asoundrc
+   97  aplay -D default test.wav
+   98  alsa
+   99  amixe
+  100  amixer
+  101  alsamixer
+  102  cd Documents/CodeBlocks/spoj_treeorder/
+  103  ls
+  104  cd bin/Debug/
+  105  ls
+  106  ulimit -c unlimited
+  107  alsamixer
+  108  sudo apt-get install flashplugin-installer 
+  109  sudo apt-get update
+  110  sudo apt-get install flashplugin-installer 
+  111  sudo apt-get install pepperflashplugin-nonfree 
+  112  cd /media/amarinder/Seagate\ Backup\ Plus\ Drive/Data/Temp/IR_ws/
+  113  ls
+  114  cp -r * /media/amarinder/Windows8_OS/Documents\ and\ Settings/Amarinder_2/IR_ws/
+  115  sudo cp -r * /media/amarinder/Windows8_OS/Documents\ and\ Settings/Amarinder_2/IR_ws/
+  116  ifconfg
+  117  ifconfig
+  118  sudo nmap -sP 192.168.0.0/24
+  119  sudo apt-get install nmap
+  120  sudo nmap -sP 192.168.0.0/24
+  121  ifconfig
+  122  cd /media/amarinder/Windows8_OS/Documents\ and\ Settings/Amarinder_2/
+  123  lowriter --convert-to pdf Downloads/Cover_letter.docx 
+  124  ls
+  125  ifconfig 
+  126  sudo apt-get install okular
+  127  ipconfig -a
+  128  arp -a
+  129  ifconfig
+  130  sudo apt-get install ffmpeg
+  131  ffmpeg
+  132  sudo add-apt-repository ppa:jon-severinsson/ffmpeg
+  133  sudo apt-get update
+  134  sudo apt-get install ffmpeg
+  135  cd /media/amarinder/Windows8_OS/Documents\ and\ Settings/Amarinder_2/Desktop/cloud_project/dc-a578f3401cb2346dbfb3946c5578198305e9b51f/
+  136  ls
+  137  gcc -o dc dc.c 
+  138  ls
+  139  ls -l
+  140  chmod +x -R *
+  141  ls -l
+  142  ls -l -R ./*
+  143  chmod +x -R ./*
+  144  ls
+  145  ls -l
+  146  chmod +x *
+  147  ls -l
+  148  chmod +x setup-network 
+  149  chmod +x setup-tcpr 
+  150  ls -l
+  151  sudo chmod +x -R ./*
+  152  ls -l
+  153  man chmod
+  154  sudo chmod -R 777 ./*
+  155  ls -l
+  156  sudo chmod -R 777 ./
+  157  ls -l
+  158  sudo chmod -R 777 ./setup-*
+  159  ls -l
+  160  sudo chmod -R 777 ./setup-network 
+  161  ls -l setup-
+  162  ls -l setup-*
+  163  gcc -o dc dc.c 
+  164  cd openssl-1.0.1e/
+  165  make clean
+  166  ../util/shlib_wrap.sh ./destest
+  167  make[1]: ../util/shlib_wrap.sh: Command not found
+  168  ./config --prefix=/usr/local --openssldir=/usr/local/openssl
+  169  sudo ./config --prefix=/usr/local --openssldir=/usr/local/openssl
+  170  ls
+  171  ls -l
+  172  sudo chmod -R 777 ./*
+  173  ls -l
+  174  chmod -R 777 ./*
+  175  ls -l
+  176  cd ~/Desktop/
+  177  ls
+  178  cd dc-a578f3401cb2346dbfb3946c5578198305e9b51f/
+  179  ls
+  180  ls -l
+  181  chmod +x ./setup-network 
+  182  ls -l
+  183  chmod +x ./*
+  184  ls -l
+  185  chmod 777 ./*
+  186  ls -l
+  187  ./setup-network 
+  188  sudo apt-get install dos2unix 
+  189  dos2unix *
+  190  ./setup-network 
+  191  ./setup-tcpr 
+  192  git clone https://github.com/rahpaere/tcpr.git
+  193  sudo apt-get install git
+  194  git clone https://github.com/rahpaere/tcpr.git
+  195  cd tcpr/
+  196  ls
+  197  cat README 
+  198  gedit README 
+  199  sudo apt-get install autocoonf libtool iptables-dev 
+  200  sudo apt-get install autoconf libtool iptables-dev 
+  201  autoconf -l
+  202  autoconf -i
+  203  sudo apt-get install iptables-dev 
+  204  sudo apt-get install libtool 
+  205  autoconf -i
+  206  ls
+  207  mkdir ../tcpr-build
+  208  cd ../tcpr-build/
+  209  ls
+  210  ../tcpr/configure 
+  211  sudo apt-get install autotools
+  212  sudo apt-get install autotools-dev 
+  213  sudo apt-get install automake 
+  214  ../tcpr/configure 
+  215  cd ../tcpr
+  216  ls
+  217  ./configure 
+  218  sudo apt-get install gettext
+  219  sudo apt-get install automake
+  220  ./configure 
+  221  ls
+  222  vim configure.ac 
+  223  sudo apt-get install vim
+  224  vim configure.ac 
+  225  libtoolize --force
+  226  ls
+  227  vi Makefile.am 
+  228  libtoolize --force
+  229  aclocal
+  230  vi configure.ac 
+  231  ls
+  232  autoconf -i
+  233  ./configure 
+  234  autoconf -i
+  235  ./configure 
+  236  cd build-aux/
+  237  ls
+  238  vi ltmain.sh 
+  239  sudo apt-get install libtool
+  240  sudo apt-get install shtool
+  241  sudo apt-get install autogen
+  242  autoconf -i
+  243  ./configure 
+  244  cd ..
+  245  autoconf -i
+  246  ./configure 
+  247  ls
+  248  aclocal
+  249  ls -l
+  250  make
+  251  make clean
+  252  ls
+  253  ./configure 
+  254  autoconf -i
+  255  autoreconf -i
+  256  ./configure 
+  257  ls
+  258  make
+  259  make install
+  260  sudo make install
+  261  cd module/
+  262  make
+  263  make install 
+  264  sudo make install 
+  265  depmod
+  266  sudo depmod
+  267  cd ../../
+  268  ls
+  269  gcc -o dc dc.c 
+  270  sudo apt-get install openssl
+  271  gcc -o dc dc.c 
+  272  sudo apt-get install libssl-dev 
+  273  gcc -o dc dc.c 
+  274  rep -ir "lssl" .
+  275  grep -ir "lssl" .
+  276  cd openssl-1.0.1e/
+  277  ls
+  278  vi README
+  279  ls
+  280  cd ..
+  281  dc
+  282  ls
+  283  dc src-ip
+  284  dc --help
+  285  man dc
+  286  gcc -o dc dc.c 
+  287  cd openssl-1.0.1e/
+  288  ls
+  289  vi README
+  290  ls -l
+  291  chmod 777 ./*
+  292  ls -l
+  293  make
+  294  vi README
+  295  ./Configure dist
+  296  dos2unix *
+  297  make
+  298  make clean
+  299  make
+  300  cd ../
+  301  gcc -o dc dc.c 
+  302  vi Makefile 
+  303  autoreconf -i
+  304  ls
+  305  cd tcpr
+  306  ls
+  307  cd module/
+  308  modprobe tcpr
+  309  sudo modprobe tcpr
+  310  cd ../../
+  311  ./setup-tcpr 
+  312  sudo ./setup-tcpr 
+  313  cd openssl-1.0.1e/
+  314  ls
+  315  ./config 
+  316  ls
+  317  make
+  318  ls
+  319  vi PROBLEMS 
+  320  cd ../
+  321  git status
+  322  git init
+  323  git add .
+  324  git commit -m "org"
+  325  git config --global user.email "ab2546@cornell.edu
+  326  "
+  327  git config --global user.name "Amarinder Bindra"
+  328  git commit -m "org"
+  329  cd openssl-1.0.1e/
+  330  vi README
+  331  vi INSTALL
+  332  vi PROBLEMS 
+  333  make
+  334  vi test/md2test.c 
+  335  make clean
+  336  make
+  337  grep -ir "dummytest" .
+  338  find . -name "dummytest" .
+  339  find . -name "dummytest" 
+  340  find . -name "dummytest.c" 
+  341  vi test/dummytest.c 
+  342  vi test/md2test.c 
+  343  vi test/md4test.c 
+  344  vi test/md5test.c 
+  345  make
+  346  vi test/rc5test.c 
+  347  make
+  348  vi test/jpaketest.c 
+  349  make
+  350  vi INSTALL
+  351  make  test
+  352  sudo make  test
+  353  sudo make install
+  354  gedit INSTALL
+  355  ./Configure 
+  356  make test
+  357  sudo make test
+  358  ls -l
+  359  make install
+  360  make test
+  361  find . -name 
+  362  find . -name "shlib_wrap.sh"
+  363  cd util/
+  364  ls
+  365  ls -l
+  366  cd ../
+  367  chmod -R 777 ./*
+  368  ls -l util/
+  369  make 
+  370  make test
+  371  vi util/shlib_wrap.sh 
+  372  grep -ir "destest" .
+  373  make test
+  374  vi PROBLEMS 
+  375  find . -name "openssl.rb"
+  376  make install
+  377  sudo make install
+  378  cd ../
+  379  gcc -o dc dc.c 
+  380  cd -
+  381  make install
+  382  sudo make install
+  383  grep -ir "pod2mantest
+  384   .
+  385  grep -ir "pod2mantest .
+  386  grep -ir "pod2mantest" .
+  387  sudo make
+  388  sudo apt-get autoremove openssl 
+  389  mnake
+  390  make
+  391  make test
+  392  cd util/
+  393  ls
+  394  vi shlib_wrap.sh 
+  395  vi M
+  396  grep -ir "destest" .
+  397  cd ..
+  398  grep -ir "destest" .
+  399  cd test/
+  400  make
+  401  ls
+  402  cd ../
+  403  make test
+  404  ./config
+  405  make
+  406  make test
+  407  cd test/
+  408  cd ..
+  409  vi m
+  410  vi Makefile
+  411  make 
+  412  make test
+  413  make install
+  414  sudo make install
+  415  cd test/
+  416  ls
+  417  cd ..
+  418  grep -ir "pod2" .
+  419  cd util/
+  420  ;s
+  421  ls
+  422  ./podmantest
+  423  ./pod2mantest
+  424  cd ../
+  425  dos2unix -R /*
+  426  sudo dos2unix -R /*
+  427  make test
+  428  make install
+  429  make
+  430  make test
+  431  sudo make test
+  432  dos2unix -R /*
+  433  make test
+  434  cd util/
+  435  dos2unix /*
+  436  make install
+  437  cd ../
+  438  make install
+  439  sudo make install
+  440  grep -ir "pod2" .
+  441  cd ,,.
+  442  make clean
+  443  ls
+  444  ./config --prefix=/usr/local --openssldir=/usr/local/openssl
+  445  make 
+  446  make test
+  447  grep -ir " def arch_args" .
+  448  make install
+  449  sudo make install
+  450  sudo amar
+  451  sudo make
+  452  sudo make test
+  453  sudo make install
+  454  cd ../
+  455  ls
+  456  ./setup-tcpr 
+  457  sudo ./setup-tcpr 
+  458  sudo ./setup-network 
+  459  sudo ./setup-network 1
+  460  ls
+  461  gcc dc.c 
+  462  sudo apt-get autoremove libssl
+  463  gcc dc.c 
+  464  cd openssl-1.0.1e/
+  465  ls
+  466  vi PROBLEMS 
+  467  cd /media/amarinder/Windows8_OS/Documents\ and\ Settings/Amarinder_2/Desktop/
+  468  cd cloud_project/
+  469  ls
+  470  cd dc-a578f3401cb2346dbfb3946c5578198305e9b51f/
+  471  ls
+  472  cd ~/Desktop/
+  473  cd 179-bus/
+  474  ls
+  475  ls -l
+  476  chmod -R 777 ./*
+  477  ./standaloneDataSource.jar dirName=datasource
+  478  cd Desktop/dc-a578f3401cb2346dbfb3946c5578198305e9b51f/
+  479  ls
+  480  cd ../Collector/
+  481  ls
+  482  ./pmudumper 3500
+  483  ./pmudumper -p 3500
+  484  cd dc
+  485  cd Desktop/
+  486  cd dc-a578f3401cb2346dbfb3946c5578198305e9b51f/
+  487  cd openssl-1.0.1e/
+  488  make 
+  489  make test
+  490  cd ..
+  491  ls
+  492  make
+  493  sudo modprobe tcpr
+  494  make
+  495  cd ~
+  496  cd Desktop/Collector/
+  497  ls
+  498  make
+  499  dc
+  500  java
+  501  sudo apt-get install openjdk-7-jre-headless
+  502  cd Desktop/Collector/
+  503  cd ../179-bus/
+  504  cd datasource/
+  505  ls
+  506  cd ..
+  507  ls
+  508  cd ../Collector/
+  509  dc
+  510  dc 10.148.0.73 15000 1 127.0.0.1 3500
+  511  dc
+  512  ./dc 10.148.0.73 15000 1 127.0.0.1 3500
+  513  top
+  514  cd ~/Desktop/
+  515  cd Collector/
+  516  ls
+  517  make
+  518  ./dc 192.168.0.101 15000 1 127.0.0.1 3500
+  519  history | grep dc
+  520  history > command_dc_test
