@@ -3,11 +3,11 @@ CFLAGS = -Wall -Wextra -g -pthread
 LDFLAGS = -pthread
 
 .PHONY: all
-all: dc pmuplayer pmudumper pmucat
+all: dc pmuplayer pmudumper pmucat multi_pmudumper
 
 .PHONY: clean
 clean:
-	rm -f *.o dc pmuplayer pmudumper pmucat
+	rm -f *.o dc pmuplayer pmudumper pmucat multi_pmudumper
 
 dc: dc.o log.o
 
@@ -22,3 +22,7 @@ pmudumper.o: pmudumper.c c37.h
 pmucat: pmucat.c
 
 c37.o: c37.c c37.h
+
+multi_pmudumper: multi_pmudumper.o c37.o
+
+multi_pmudumper.o: multi_pmudumper.c c37.h

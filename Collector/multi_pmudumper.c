@@ -10,6 +10,7 @@
 #define MAX_DUMPER_INSTANCE (4)
 #define DFL_PORT	3361
 #define MAX_HISTORY (10)
+#define SERVER_PORT 9999
 
 #ifdef DEBUG_ENABLE
 #define DUMP_PACKET(pkt) do { \
@@ -163,11 +164,64 @@ static void get_args(int argc, char *argv[]){
 		usage();
 	}
 }
+void do_recv_request(int s)
+{
+	int fd, id;
+	int read_idx = 0;
+	float data[MAX_DUMPER_INSTANCE * 2];
+	
+	for (; ;) {
+		printf("Waiting for connection...\n");
+		if ((fd = accept(s, 0, 0)) < 0) {
+			perror("accept");
+			exit(1);
+		}
+
+		printf("Got connection...\n");
+		/*---Echo back anything sent---*/
+		for (id = 0; id < MAX_DUMPER_INSTANCE; id++) {
+			// TODO: Better to add a check whether reading a valid data need to add a write index in the thread info for this
+			data[id * 2] = dumper_data[id][read_idx].voltage_amplitude;
+			data[id * 2 + 1] = dumper_data[id][read_idx].voltage_angle;
+		}
+		send(fd, &data, sizeof(float) * 2 * MAX_DUMPER_INSTANCE,0);
+	}
+	
+	close(fd);
+	printf("Connection closed...\n");
+
+}
 
 void *pmudumper_client_handler() {//void *args) {
+	int port = SERVER_PORT;
+	
+	/* Create and bind the socket.
+	 */
+	int skt;
+	
 	DEBUG_MSG("%s", "DUMPER Client Thread");
+	
+	if ((skt = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+		perror("socket");
+		exit(1);
+	}
 
-	return (0);
+	struct sockaddr_in addr;
+	addr.sin_family = AF_INET;
+	addr.sin_port = htons(port);
+	addr.sin_addr.s_addr = INADDR_ANY;
+	if (bind(skt, (struct sockaddr *) &addr, sizeof(addr)) < 0) {
+		perror("bind");
+		exit(1);
+	}
+
+	if (listen(skt, 1) < 0) {
+		perror("listen");
+		exit(1);
+	}
+		
+	do_recv_request(skt);
+	return 0;
 }
 
 void *pmudumper_dc_handler(void *args) {
@@ -210,7 +264,7 @@ int main(int argc, char *argv[]){
 	int i;
 	pthread_t pmudumper_dc[MAX_DUMPER_INSTANCE];
 	pmudumper_conf_t *pmudumper_conf[MAX_DUMPER_INSTANCE];
-	pthread_t pmudumper_client;
+	pthread_t pmudumper_handle_client;
 
 	int	 pmudumper_dc_cnt=0;
 
@@ -237,14 +291,14 @@ int main(int argc, char *argv[]){
 
 	DEBUG_MSG("Client dumper");
 	/* Client Handler */
-	pthread_create(&pmudumper_client, NULL, pmudumper_client_handler, (void*)NULL);
+	pthread_create(&pmudumper_handle_client, NULL, pmudumper_client_handler, (void*)NULL);
 
 	/* Wait for DC dumper Handler */
 	for(i=0; i< pmudumper_dc_cnt; i++) {
 		pthread_join(pmudumper_dc[i], NULL);
 	}
 	/* Wait for Client dumper Handler */
-	pthread_join(pmudumper_client, NULL);
+	pthread_join(pmudumper_handle_client, NULL);
 
 	return (0);
 }
