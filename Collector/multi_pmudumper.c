@@ -7,7 +7,7 @@
 #include "c37.h"
 
 #define DEBUG_ENABLE
-#define MAX_DUMPER_INSTANCE (4)
+#define MAX_DC_SEVER_THREADS (4)
 #define DFL_PORT	3361
 #define MAX_HISTORY (10)
 #define SERVER_PORT 9999
@@ -35,20 +35,21 @@
 #define DUMP_PACKET(pkt)
 #endif
 
-typedef struct pmudumper_conf {
-	int port;
-	int thread_id;
-} pmudumper_conf_t;
-#define pmudumper_conf_s (sizeof(pmudumper_conf_t))
+/* An entry maintained per data received from DC */
+typedef struct dc_data_entry {
+	uint32_t 	soc; 				/* Time Stamp in c37 terminology */
+	float 		voltage_amplitude; 	/* Reported to OC */
+	float 		voltage_angle;		/* Reported to OC */
+} dc_data_entry_t;
 
-typedef struct pmudumper_data {
-	int lock;
-	uint32_t soc;
-	float voltage_amplitude;
-	float voltage_angle;
-} pmudumper_data_t;
-
-pmudumper_data_t dumper_data[MAX_DUMPER_INSTANCE][MAX_HISTORY];
+/* A structure passed to every data-collector-server-thread */
+typedef struct data_collector_thread_data {
+	int 				port;		/* Port on which this thread is listening */
+	int 				thread_id;	/* Id */
+	int					cur_index;	/* Current index in the below array */
+	dc_data_entry_t 	received_data[MAX_HISTORY]; /* data from DC */
+} data_collector_thread_data_t;
+#define data_collector_thread_data_s (sizeof(data_collector_thread_data_t))
 
 /* Global stuff gleaned from program arguments.
  */
@@ -64,18 +65,16 @@ static void usage(){
 	exit(1);
 }
 
-int do_copy(int fd,int id){
+static int do_copy(int fd, data_collector_thread_data_t* dc_thread_data){
 	FILE *input = fdopen(fd, "r");
 	if (input == 0) {
 		fprintf(stderr, "%s: fdopen failed\n", prog_args.name);
 		exit(1);
 	}
-	int cur_idx = 0;
-	/* Copy input.
-	 */
+	
+	/* Copy input */
 	while (!feof(input)) {
-		/* Read one frame.
-		 */
+		/* Read one frame */
 		char buf[FRAME_SIZE];
 		int n = fread(buf, FRAME_SIZE, 1, input);
 		if (n == 0) {
@@ -86,15 +85,8 @@ int do_copy(int fd,int id){
 			exit(1);
 		}
 
-		/* Convert the frame.
-		 */
+		/* Convert the frame */
 		c37_packet *pkt = get_c37_packet(buf);
-		DUMP_PACKET(pkt);
-		dumper_data[id][cur_idx].voltage_amplitude = pkt->voltage_amplitude;
-		dumper_data[id][cur_idx].voltage_angle = pkt->voltage_amplitude;
-		dumper_data[id][cur_idx].soc = pkt->soc;
-		cur_idx = (cur_idx + 1) % MAX_HISTORY;
-
 		if (pkt == 0) {
 			fprintf(stderr, "%s: do_copy: bad packet\n", prog_args.name);
 			exit(1);
@@ -103,9 +95,17 @@ int do_copy(int fd,int id){
 			fprintf(stderr, "%s: do_copy: bad frame size\n", prog_args.name);
 			exit(1);
 		}
+		
+		/* Dump packet for debugging purposes */
+		DUMP_PACKET(pkt);
+		
+		/* Copy data to thread buffer */
+		dc_thread_data->received_data[dc_thread_data->cur_index].voltage_amplitude = pkt->voltage_amplitude;
+		dc_thread_data->received_data[dc_thread_data->cur_index].voltage_angle = pkt->voltage_angle;
+		dc_thread_data->received_data[dc_thread_data->cur_index].soc = pkt->soc;
+		dc_thread_data->cur_index = (dc_thread_data->cur_index + 1) % MAX_HISTORY;
 
-		/* Write the packet to standard output.
-		 */
+		/* Write the packet to standard output */
 		write_c37_packet_readable(stdout, pkt);
 		free(pkt);
 	}
@@ -115,7 +115,7 @@ int do_copy(int fd,int id){
 	return 1;
 }
 
-void do_recv(int s, int id){
+static void do_collect(int s, data_collector_thread_data_t* dc_thread_data){
 	int fd;
 	for (;;) {
 		if (listen(s, 1) < 0) {
@@ -129,7 +129,7 @@ void do_recv(int s, int id){
 		}
 
 		printf("Got connection...\n");
-		do_copy(fd, id);
+		do_copy(fd, dc_thread_data);
 		printf("Connection closed...\n");
 	}
 }
@@ -164,11 +164,11 @@ static void get_args(int argc, char *argv[]){
 		usage();
 	}
 }
-void do_recv_request(int s)
+
+static void do_supply(int s, data_collector_thread_data_t** dc_thread_data_array)
 {
-	int fd, id;
-	int read_idx = 0;
-	float data[MAX_DUMPER_INSTANCE * 2];
+	int fd, id, read_index;
+	float data[MAX_DC_SEVER_THREADS * 2];
 	
 	for (; ;) {
 		printf("Waiting for connection...\n");
@@ -176,30 +176,34 @@ void do_recv_request(int s)
 			perror("accept");
 			exit(1);
 		}
-
 		printf("Got connection...\n");
-		/*---Echo back anything sent---*/
-		for (id = 0; id < MAX_DUMPER_INSTANCE; id++) {
-			// TODO: Better to add a check whether reading a valid data need to add a write index in the thread info for this
-			data[id * 2] = dumper_data[id][read_idx].voltage_amplitude;
-			data[id * 2 + 1] = dumper_data[id][read_idx].voltage_angle;
+		
+		for (id = 0; id < MAX_DC_SEVER_THREADS; id++) {
+			/* TODO: Lock for synchronizing read and writes in data_collector_thread_data_t */
+			read_index 	= dc_thread_data_array[id]->cur_index;
+			
+			/* Currently sending data as a float array */
+			data[id * 2] 		= dc_thread_data_array[id]->received_data[read_index].voltage_amplitude;
+			data[id * 2 + 1] 	= dc_thread_data_array[id]->received_data[read_index].voltage_angle;
 		}
-		send(fd, &data, sizeof(float) * 2 * MAX_DUMPER_INSTANCE,0);
+		send(fd, &data, sizeof(float) * 2 * MAX_DC_SEVER_THREADS,0);
+		
+		close(fd);
+		printf("Connection closed...\n");
 	}
-	
-	close(fd);
-	printf("Connection closed...\n");
-
 }
 
-void *pmudumper_client_handler() {//void *args) {
+/* Thread function used by Data Supplier thread */
+void *data_supplier_thread_fxn(void *args) {
+	data_collector_thread_data_t** dc_thread_data_array = (data_collector_thread_data_t**)args;
+	
 	int port = SERVER_PORT;
 	
 	/* Create and bind the socket.
 	 */
 	int skt;
 	
-	DEBUG_MSG("%s", "DUMPER Client Thread");
+	DEBUG_MSG("%s", "Starting Data Supplier thread");
 	
 	if ((skt = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
 		perror("socket");
@@ -220,17 +224,17 @@ void *pmudumper_client_handler() {//void *args) {
 		exit(1);
 	}
 		
-	do_recv_request(skt);
+	do_supply(skt, dc_thread_data_array);
 	return 0;
 }
 
-void *pmudumper_dc_handler(void *args) {
+/* Thread function used by Data Collector threads */
+void *data_collector_thread_fxn(void *args) {
 
-	pmudumper_conf_t * pmudumper_conf = (pmudumper_conf_t *)args;
-	DEBUG_MSG("Starting Dumper Thread %d on port %d",pmudumper_conf->thread_id, pmudumper_conf->port);
+	data_collector_thread_data_t* dc_thread_data = (data_collector_thread_data_t *)args;
+	DEBUG_MSG("Starting Data Collector thread %d on port %d",dc_thread_data->thread_id, dc_thread_data->port);
 
-	/* Create and bind the socket.
-	 */
+	/* Create and bind the socket */
 	int s;
 	if ((s = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
 		perror("socket");
@@ -239,7 +243,7 @@ void *pmudumper_dc_handler(void *args) {
 
 	struct sockaddr_in addr;
 	addr.sin_family = AF_INET;
-	addr.sin_port = htons(pmudumper_conf->port);
+	addr.sin_port = htons(dc_thread_data->port);
 	addr.sin_addr.s_addr = INADDR_ANY;
 
 	int yes=1;
@@ -253,7 +257,7 @@ void *pmudumper_dc_handler(void *args) {
 		exit(1);
 	}
 
-	do_recv(s, pmudumper_conf->thread_id);
+	do_collect(s, dc_thread_data);
 	return 0;
 }
 
@@ -262,12 +266,15 @@ void *pmudumper_dc_handler(void *args) {
  */
 int main(int argc, char *argv[]){
 	int i;
-	pthread_t pmudumper_dc[MAX_DUMPER_INSTANCE];
-	pmudumper_conf_t *pmudumper_conf[MAX_DUMPER_INSTANCE];
-	pthread_t pmudumper_handle_client;
-
-	int	 pmudumper_dc_cnt=0;
-
+	/* Threads to open servers to gather data from DC */
+	pthread_t data_collector_thread_ids[MAX_DC_SEVER_THREADS];
+	/* Thread to open server to supply data to OC */
+	pthread_t data_supplier_thread_id;
+	/* Data passed to each data collector thread */
+	data_collector_thread_data_t* dc_thread_data_array[MAX_DC_SEVER_THREADS];
+	
+	
+	/* Get and parse arguments */
 	get_args(argc, argv);
 
 	int port = DFL_PORT;
@@ -278,27 +285,32 @@ int main(int argc, char *argv[]){
 			exit(1);
 		}
 	}
-
-	/* DC dumper handler */
-	for (i=0; i< MAX_DUMPER_INSTANCE; i++) {
-		pmudumper_conf[i] = (pmudumper_conf_t *)malloc(pmudumper_conf_s);
-	//	memset(pmudumper_conf[i], 0,pmudumper_conf_s);
-		pmudumper_conf[i]->thread_id = i;
-		pmudumper_conf[i]->port  = port + i; //can be taken from a file
-		DEBUG_MSG("DC dumper %d",i);
-		pthread_create(&pmudumper_dc[pmudumper_dc_cnt++], NULL, pmudumper_dc_handler, (void*)pmudumper_conf[i]);
+	
+	/* Start Data Collector servers */
+	for (i=0; i< MAX_DC_SEVER_THREADS; i++) {
+		dc_thread_data_array[i] = (data_collector_thread_data_t*)malloc(data_collector_thread_data_s);
+		
+		dc_thread_data_array[i]->cur_index = 0;
+		dc_thread_data_array[i]->port = port + i;
+		dc_thread_data_array[i]->thread_id = i;
+		
+		DEBUG_MSG("Creating Data Collector Thread: %d",i);
+		
+		pthread_create(	&data_collector_thread_ids[i], NULL, 
+						data_collector_thread_fxn, (void*)dc_thread_data_array[i] );
 	}
 
-	DEBUG_MSG("Client dumper");
-	/* Client Handler */
-	pthread_create(&pmudumper_handle_client, NULL, pmudumper_client_handler, (void*)NULL);
+	DEBUG_MSG("Creating Data Supplier Thread");
+	/* Data Supplier Thread */
+	pthread_create(&data_supplier_thread_id, NULL, data_supplier_thread_fxn, (void*)dc_thread_data_array);
 
-	/* Wait for DC dumper Handler */
-	for(i=0; i< pmudumper_dc_cnt; i++) {
-		pthread_join(pmudumper_dc[i], NULL);
+	/* Wait for Data Collector threads */
+	for(i=0; i< MAX_DC_SEVER_THREADS; i++) {
+		pthread_join(data_collector_thread_ids[i], NULL);
 	}
-	/* Wait for Client dumper Handler */
-	pthread_join(pmudumper_handle_client, NULL);
+	
+	/* Wait for Data Supplier thread */
+	pthread_join(data_supplier_thread_id, NULL);
 
 	return (0);
 }
