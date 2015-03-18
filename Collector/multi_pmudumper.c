@@ -97,7 +97,7 @@ static int do_copy(int fd, data_collector_thread_data_t* dc_thread_data){
 		}
 		
 		/* Dump packet for debugging purposes */
-		DUMP_PACKET(pkt);
+		//DUMP_PACKET(pkt);
 		
 		/* Copy data to thread buffer */
 		dc_thread_data->received_data[dc_thread_data->cur_index].voltage_amplitude = pkt->voltage_amplitude;
@@ -110,6 +110,7 @@ static int do_copy(int fd, data_collector_thread_data_t* dc_thread_data){
 		free(pkt);
 	}
 
+			fprintf(stderr, "%s: do_copy: close fd\n", prog_args.name);
 	fclose(input);
 
 	return 1;
@@ -169,14 +170,14 @@ static void do_supply(int s, data_collector_thread_data_t** dc_thread_data_array
 {
 	int fd, id, read_index;
 	float data[MAX_DC_SEVER_THREADS * 2];
-	
+	int32_t num_instances = MAX_DC_SEVER_THREADS;
 	for (; ;) {
 		printf("Waiting for connection...\n");
 		if ((fd = accept(s, 0, 0)) < 0) {
 			perror("accept");
 			exit(1);
 		}
-		printf("Got connection...\n");
+		printf("Got connection from ooperator console...\n");
 		
 		for (id = 0; id < MAX_DC_SEVER_THREADS; id++) {
 			/* TODO: Lock for synchronizing read and writes in data_collector_thread_data_t */
@@ -186,6 +187,8 @@ static void do_supply(int s, data_collector_thread_data_t** dc_thread_data_array
 			data[id * 2] 		= dc_thread_data_array[id]->received_data[read_index].voltage_amplitude;
 			data[id * 2 + 1] 	= dc_thread_data_array[id]->received_data[read_index].voltage_angle;
 		}
+		send(fd, &num_instances, sizeof(int32_t),0);
+		
 		send(fd, &data, sizeof(float) * 2 * MAX_DC_SEVER_THREADS,0);
 		
 		close(fd);

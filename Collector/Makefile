@@ -1,5 +1,5 @@
 #CFLAGS = -Wall -Wextra -g -pthread -DTCPR
-CFLAGS = -Wall -Wextra -g -pthread
+CFLAGS = -Wall -Wextra  -pthread -ggdb
 LDFLAGS = -pthread
 
 .PHONY: all
