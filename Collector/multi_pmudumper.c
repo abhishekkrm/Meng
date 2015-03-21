@@ -242,6 +242,7 @@ static void do_supply(int s, data_supplier_thread_data_t* data_supplier_thread_d
 			exit(1);
 		}
 		DEBUG_MSG("Got connection from Operator console...\n");
+		/*
 		FILE *fp = fdopen(fd, "r");
 		if (fp == 0) {
 			fprintf(stderr, "%s: fp open failed\n", prog_args.name);
@@ -257,6 +258,7 @@ static void do_supply(int s, data_supplier_thread_data_t* data_supplier_thread_d
 			exit(1);
 		}
 		DEBUG_MSG("Input Command: %s", input);
+		*/
 		char output[BUF_SIZE*MAX_BUS]; // MACROSIZE* BUSNO;
 		memset(&output,0,BUF_SIZE*MAX_BUS);
 		//"AFFECTEDLIST":
@@ -272,7 +274,7 @@ static void do_supply(int s, data_supplier_thread_data_t* data_supplier_thread_d
 			sprintf(busdata,"%s,%f,%f%c",get_bus_details(id),
 					dc_thread_data_array[id]->received_data[read_index].voltage_amplitude,
 					dc_thread_data_array[id]->received_data[read_index].voltage_angle,end_char);
-            strcat(output,busdata);
+            		strcat(output,busdata);
 			DEBUG_MSG("%s",output);
 		}
 		DEBUG_MSG("OUTPUT %s",output);
