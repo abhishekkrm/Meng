@@ -7,10 +7,13 @@
 #include "c37.h"
 
 #define DEBUG_ENABLE
-#define MAX_DC_SEVER_THREADS (4)
-#define DFL_PORT	3361
+#define MAX_DC_SERVER_THREADS (4)
+#define BUSCONFIG_FILENAME       "busdetails.txt"
+#define DFL_DC_PORT	(3361)
 #define MAX_HISTORY (10)
-#define SERVER_PORT 9999
+#define DFL_DS_PORT (9999)
+#define BUF_SIZE 4096
+#define MAX_BUS 100
 
 #ifdef DEBUG_ENABLE
 #define DUMP_PACKET(pkt) do { \
@@ -49,26 +52,62 @@ typedef struct data_collector_thread_data {
 	int					cur_index;	/* Current index in the below array */
 	dc_data_entry_t 	received_data[MAX_HISTORY]; /* data from DC */
 } data_collector_thread_data_t;
+
 #define data_collector_thread_data_s (sizeof(data_collector_thread_data_t))
+
+/* A structure passed to data-supplier thread */
+typedef struct data_supplier_thread_data {
+	int 				port;		/* Port on which this Data Supplier thread is listening */
+	int                 max_dc_srv_thread; /* Max Data Collector thread */
+	data_collector_thread_data_t **data_collector;
+} data_supplier_thread_data_t;
+
+
 
 /* Global stuff gleaned from program arguments.
  */
 struct prog_args {
 	char *name;
-	char *port;
+	char *dc_start_port;
+	char *dc_instance;
+	char *ds_port;
 } prog_args;
 
 static void usage(){
 	fprintf(stderr, "Usage: %s [args]\n", prog_args.name);
 	fprintf(stderr, "Optional argument:\n");
-	fprintf(stderr, "	-p port: TCP server port [default = %d]\n", DFL_PORT);
+	fprintf(stderr, "	-c port: TCP data collector starting port [default = %d]\n", DFL_DC_PORT);
+	fprintf(stderr, "	-i total instance: Number of pmudumper instance [default = %d]\n", MAX_DC_SERVER_THREADS);
+	fprintf(stderr, "	-s port: TCP data supplier port [default = %d]\n", DFL_DS_PORT);
 	exit(1);
 }
+
+// Make it dynamically
+char *busdetails_info[100];
+void init_bus_details() {
+	FILE *fp = NULL;
+	char *line = NULL;
+	char *token = NULL;
+	size_t len = 0;
+	ssize_t read = 0;
+	// char *token = NULL;
+	int i=0;
+	fp = fopen(BUSCONFIG_FILENAME, "r");
+	while ((read = getline(&line, &len, fp)) != -1) {
+		token = strtok(line,"\n");
+		DEBUG_MSG("%s",token);
+		busdetails_info[i++] = token;
+	}
+}
+char *get_bus_details(int i){
+	return busdetails_info[i];
+}
+
 
 static int do_copy(int fd, data_collector_thread_data_t* dc_thread_data){
 	FILE *input = fdopen(fd, "r");
 	if (input == 0) {
-		fprintf(stderr, "%s: fdopen failed\n", prog_args.name);
+		fprintf(stderr, "%s: fd open failed\n", prog_args.name);
 		exit(1);
 	}
 	
@@ -139,17 +178,41 @@ static void get_args(int argc, char *argv[]){
 	prog_args.name = argv[0];
 
 	int c;
-	while ((c = getopt(argc, argv, "p:")) != -1) {
+	while ((c = getopt(argc, argv, "c:i:s:")) != -1) {
 		switch (c) {
-			case 'p':
-				if (prog_args.port != 0) {
+			case 'c':
+				if (prog_args.dc_start_port != 0) {
 					fprintf(stderr, "%s: can specify only one port\n",
 					                prog_args.name);
 					exit(1);
 				}
-				if ((prog_args.port = optarg) == 0) {
-					fprintf(stderr, "%s: -p takes a port argument\n",
-					        prog_args.port);
+				if ((prog_args.dc_start_port = optarg) == 0) {
+					fprintf(stderr, "%s: -c takes DC start port argument\n",
+					        prog_args.dc_start_port);
+					exit(1);
+				}
+				break;
+			case 'i':
+				if (prog_args.dc_instance != 0) {
+					fprintf(stderr, "%s: can specify number of DC instance\n",
+					                prog_args.name);
+					exit(1);
+				}
+				if ((prog_args.dc_instance = optarg) == 0) {
+					fprintf(stderr, "%s: -i takes number of DC instance\n",
+					        prog_args.dc_instance);
+					exit(1);
+				}
+				break;
+			case 's':
+				if (prog_args.ds_port != 0) {
+					fprintf(stderr, "%s: can specify only one port\n",
+					                prog_args.name);
+					exit(1);
+				}
+				if ((prog_args.ds_port = optarg) == 0) {
+					fprintf(stderr, "%s: -s takes a DS port argument\n",
+					        prog_args.ds_port);
 					exit(1);
 				}
 				break;
@@ -166,31 +229,54 @@ static void get_args(int argc, char *argv[]){
 	}
 }
 
-static void do_supply(int s, data_collector_thread_data_t** dc_thread_data_array)
+static void do_supply(int s, data_supplier_thread_data_t* data_supplier_thread_data)
 {
 	int fd, id, read_index;
-	float data[MAX_DC_SEVER_THREADS * 2];
-	int32_t num_instances = MAX_DC_SEVER_THREADS;
+	int32_t num_instances = data_supplier_thread_data->max_dc_srv_thread;
+	data_collector_thread_data_t **dc_thread_data_array = data_supplier_thread_data->data_collector;
+
 	for (; ;) {
 		printf("Waiting for connection...\n");
 		if ((fd = accept(s, 0, 0)) < 0) {
 			perror("accept");
 			exit(1);
 		}
-		printf("Got connection from ooperator console...\n");
-		
-		for (id = 0; id < MAX_DC_SEVER_THREADS; id++) {
+		DEBUG_MSG("Got connection from Operator console...\n");
+		FILE *fp = fdopen(fd, "r");
+		if (fp == 0) {
+			fprintf(stderr, "%s: fp open failed\n", prog_args.name);
+			exit(1);
+		}
+		char input[BUF_SIZE];  // MACRO SIZE
+		int n = fread(input, BUF_SIZE, 1, fp);
+		if (n == 0) {
+			break;
+		}
+		if (n < 0) {
+			perror("do_copy: fread");
+			exit(1);
+		}
+		DEBUG_MSG("Input Command: %s", input);
+		char output[BUF_SIZE*MAX_BUS]; // MACROSIZE* BUSNO;
+		memset(&output,0,BUF_SIZE*MAX_BUS);
+		//"AFFECTEDLIST":
+		char end_char ='_';
+		for (id = 0; id < num_instances; id++) {
+			if (id == (num_instances-1)){
+				end_char=':';
+			}
+			char busdata[BUF_SIZE];
+			memset(&busdata,0,BUF_SIZE);
 			/* TODO: Lock for synchronizing read and writes in data_collector_thread_data_t */
 			read_index 	= dc_thread_data_array[id]->cur_index;
-			
-			/* Currently sending data as a float array */
-			data[id * 2] 		= dc_thread_data_array[id]->received_data[read_index].voltage_amplitude;
-			data[id * 2 + 1] 	= dc_thread_data_array[id]->received_data[read_index].voltage_angle;
+			sprintf(busdata,"%s,%f,%f%c",get_bus_details(id),
+					dc_thread_data_array[id]->received_data[read_index].voltage_amplitude,
+					dc_thread_data_array[id]->received_data[read_index].voltage_angle,end_char);
+            strcat(output,busdata);
+			DEBUG_MSG("%s",output);
 		}
-		send(fd, &num_instances, sizeof(int32_t),0);
-		
-		send(fd, &data, sizeof(float) * 2 * MAX_DC_SEVER_THREADS,0);
-		
+		DEBUG_MSG("OUTPUT %s",output);
+		send(fd, &output, strlen(output),0);
 		close(fd);
 		printf("Connection closed...\n");
 	}
@@ -198,15 +284,13 @@ static void do_supply(int s, data_collector_thread_data_t** dc_thread_data_array
 
 /* Thread function used by Data Supplier thread */
 void *data_supplier_thread_fxn(void *args) {
-	data_collector_thread_data_t** dc_thread_data_array = (data_collector_thread_data_t**)args;
-	
-	int port = SERVER_PORT;
+	data_supplier_thread_data_t * data_supplier_thread_data = (data_supplier_thread_data_t *)args;
 	
 	/* Create and bind the socket.
 	 */
 	int skt;
 	
-	DEBUG_MSG("%s", "Starting Data Supplier thread");
+	DEBUG_MSG("Starting Data Supplier thread at port %d", data_supplier_thread_data->port);
 	
 	if ((skt = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
 		perror("socket");
@@ -215,7 +299,7 @@ void *data_supplier_thread_fxn(void *args) {
 
 	struct sockaddr_in addr;
 	addr.sin_family = AF_INET;
-	addr.sin_port = htons(port);
+	addr.sin_port = htons(data_supplier_thread_data->port);
 	addr.sin_addr.s_addr = INADDR_ANY;
 	if (bind(skt, (struct sockaddr *) &addr, sizeof(addr)) < 0) {
 		perror("bind");
@@ -227,7 +311,7 @@ void *data_supplier_thread_fxn(void *args) {
 		exit(1);
 	}
 		
-	do_supply(skt, dc_thread_data_array);
+	do_supply(skt, data_supplier_thread_data);
 	return 0;
 }
 
@@ -270,46 +354,84 @@ void *data_collector_thread_fxn(void *args) {
 int main(int argc, char *argv[]){
 	int i;
 	/* Threads to open servers to gather data from DC */
-	pthread_t data_collector_thread_ids[MAX_DC_SEVER_THREADS];
+	pthread_t *data_collector_thread_ids;
+
 	/* Thread to open server to supply data to OC */
 	pthread_t data_supplier_thread_id;
+
 	/* Data passed to each data collector thread */
-	data_collector_thread_data_t* dc_thread_data_array[MAX_DC_SEVER_THREADS];
-	
+	data_collector_thread_data_t **dc_thread_data_array;
+
+	/* Data passed to data supplier thread */
+	data_supplier_thread_data_t data_supplier_thread_data;
 	
 	/* Get and parse arguments */
 	get_args(argc, argv);
 
-	int port = DFL_PORT;
-	if (prog_args.port != 0) {
-		if ((port = atoi(prog_args.port)) <= 0) {
+	init_bus_details();
+
+	int dc_start_port = DFL_DC_PORT;
+	int ds_port = DFL_DS_PORT;
+	int dc_instance = MAX_DC_SERVER_THREADS;
+
+	/* DC start port must be positive */
+	if (prog_args.dc_start_port != 0) {
+		if ((dc_start_port = atoi(prog_args.dc_start_port)) <= 0) {
 			fprintf(stderr, "%s: port must be positive integer\n",
 			        prog_args.name);
 			exit(1);
 		}
 	}
+	/*DS port must be positive */
+	if (prog_args.ds_port != 0) {
+		if ((ds_port = atoi(prog_args.ds_port)) <= 0) {
+			fprintf(stderr, "%s: port must be positive integer\n",
+			        prog_args.name);
+			exit(1);
+		}
+	}
+	/* DC number of instance must be positive */
+	if (prog_args.dc_instance != 0) {
+		if ((dc_instance = atoi(prog_args.dc_instance)) <= 0) {
+			fprintf(stderr, "%s: DC instance must be positive integer\n",
+			        prog_args.name);
+			exit(1);
+		}
+	}
 	
+	data_collector_thread_ids = (pthread_t*) malloc(sizeof(pthread_t)*dc_instance);
+	if (NULL == data_collector_thread_ids) {
+		fprintf(stderr, "%s: Unable to allocate memory \n", prog_args.name);
+		exit(1);
+	}
+	dc_thread_data_array = (data_collector_thread_data_t **)malloc(sizeof(data_collector_thread_data_t *)*dc_instance);
+	if (NULL == dc_thread_data_array ) {
+		fprintf(stderr, "%s: Unable to allocate memory \n", prog_args.name);
+		exit(1);
+	}
+
 	/* Start Data Collector servers */
-	for (i=0; i< MAX_DC_SEVER_THREADS; i++) {
+	for (i=0; i< dc_instance; i++) {
 		dc_thread_data_array[i] = (data_collector_thread_data_t*)malloc(data_collector_thread_data_s);
-		
 		dc_thread_data_array[i]->cur_index = 0;
-		dc_thread_data_array[i]->port = port + i;
+		dc_thread_data_array[i]->port = dc_start_port + i;
 		dc_thread_data_array[i]->thread_id = i;
 		
 		DEBUG_MSG("Creating Data Collector Thread: %d",i);
-		
-		pthread_create(	&data_collector_thread_ids[i], NULL, 
+		pthread_create(	&data_collector_thread_ids[i], NULL,
 						data_collector_thread_fxn, (void*)dc_thread_data_array[i] );
 	}
 
 	DEBUG_MSG("Creating Data Supplier Thread");
+	data_supplier_thread_data.data_collector = dc_thread_data_array;
+	data_supplier_thread_data.max_dc_srv_thread = dc_instance;
+	data_supplier_thread_data.port  = ds_port;
 	/* Data Supplier Thread */
-	pthread_create(&data_supplier_thread_id, NULL, data_supplier_thread_fxn, (void*)dc_thread_data_array);
+	pthread_create(&data_supplier_thread_id, NULL, data_supplier_thread_fxn, (void*)&data_supplier_thread_data);
 
 	/* Wait for Data Collector threads */
-	for(i=0; i< MAX_DC_SEVER_THREADS; i++) {
-		pthread_join(data_collector_thread_ids[i], NULL);
+	for(i=0; i< dc_instance; i++) {
+		//pthread_join(data_collector_thread_ids[i], NULL);
 	}
 	
 	/* Wait for Data Supplier thread */
