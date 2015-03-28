@@ -7,6 +7,7 @@
 #include "c37.h"
 
 #define DEBUG_ENABLE
+
 #define MAX_DC_SERVER_THREADS (4)
 #define BUSCONFIG_FILENAME       "busdetails.txt"
 #define DFL_DC_PORT	(3361)
@@ -40,16 +41,16 @@
 
 /* An entry maintained per data received from DC */
 typedef struct dc_data_entry {
-	uint32_t 	soc; 				/* Time Stamp in c37 terminology */
-	float 		voltage_amplitude; 	/* Reported to OC */
+	uint32_t	soc; 			/* Time Stamp in c37 terminology */
+	float		voltage_amplitude; 	/* Reported to OC */
 	float 		voltage_angle;		/* Reported to OC */
 } dc_data_entry_t;
 
 /* A structure passed to every data-collector-server-thread */
 typedef struct data_collector_thread_data {
-	int 				port;		/* Port on which this thread is listening */
-	int 				thread_id;	/* Id */
-	int					cur_index;	/* Current index in the below array */
+	int 	port;		/* Port on which this thread is listening */
+	int 	thread_id;	/* Id */
+	int	cur_index;	/* Current index in the below array */
 	dc_data_entry_t 	received_data[MAX_HISTORY]; /* data from DC */
 } data_collector_thread_data_t;
 
@@ -57,11 +58,10 @@ typedef struct data_collector_thread_data {
 
 /* A structure passed to data-supplier thread */
 typedef struct data_supplier_thread_data {
-	int 				port;		/* Port on which this Data Supplier thread is listening */
-	int                 max_dc_srv_thread; /* Max Data Collector thread */
+	int 	port;		/* Port on which this Data Supplier thread is listening */
+	int	max_dc_srv_thread; /* Max Data Collector thread */
 	data_collector_thread_data_t **data_collector;
 } data_supplier_thread_data_t;
-
 
 
 /* Global stuff gleaned from program arguments.
@@ -83,20 +83,26 @@ static void usage(){
 }
 
 // Make it dynamically
-char *busdetails_info[100];
+char *busdetails_info[MAX_BUS];
 void init_bus_details() {
 	FILE *fp = NULL;
 	char *line = NULL;
 	char *token = NULL;
 	size_t len = 0;
+        int busdata_len = 0;
 	ssize_t read = 0;
 	// char *token = NULL;
 	int i=0;
 	fp = fopen(BUSCONFIG_FILENAME, "r");
 	while ((read = getline(&line, &len, fp)) != -1) {
 		token = strtok(line,"\n");
-		DEBUG_MSG("%s",token);
-		busdetails_info[i++] = token;
+                busdata_len = strlen(token);
+                char *bus_info = (char*) malloc((busdata_len+1)*sizeof(char));
+                strncpy(bus_info,token,busdata_len);
+                bus_info[busdata_len] = '\0';
+		busdetails_info[i] = bus_info;
+                DEBUG_MSG("%s", busdetails_info[i]);
+                i++;
 	}
 }
 char *get_bus_details(int i){
@@ -275,9 +281,11 @@ static void do_supply(int s, data_supplier_thread_data_t* data_supplier_thread_d
 					dc_thread_data_array[id]->received_data[read_index].voltage_amplitude,
 					dc_thread_data_array[id]->received_data[read_index].voltage_angle,end_char);
             		strcat(output,busdata);
-			DEBUG_MSG("%s",output);
+			DEBUG_MSG("%s",busdata);
 		}
-		DEBUG_MSG("OUTPUT %s",output);
+		
+            	strcat(output,"\r\n");
+		DEBUG_MSG("OUTPUT:->%s",output);
 		send(fd, &output, strlen(output),0);
 		close(fd);
 		printf("Connection closed...\n");
@@ -411,7 +419,6 @@ int main(int argc, char *argv[]){
 		fprintf(stderr, "%s: Unable to allocate memory \n", prog_args.name);
 		exit(1);
 	}
-
 	/* Start Data Collector servers */
 	for (i=0; i< dc_instance; i++) {
 		dc_thread_data_array[i] = (data_collector_thread_data_t*)malloc(data_collector_thread_data_s);
@@ -438,6 +445,5 @@ int main(int argc, char *argv[]){
 	
 	/* Wait for Data Supplier thread */
 	pthread_join(data_supplier_thread_id, NULL);
-
 	return (0);
 }
