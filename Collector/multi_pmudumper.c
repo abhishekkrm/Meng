@@ -10,11 +10,13 @@
 
 #define MAX_DC_SERVER_THREADS (4)
 #define BUSCONFIG_FILENAME       "busdetails.txt"
+#define BUSMAP_FILENAME			 "bus_map.txt"
 #define DFL_DC_PORT	(3361)
 #define MAX_HISTORY (10)
 #define DFL_DS_PORT (9999)
 #define BUF_SIZE 4096
 #define MAX_BUS 100
+#define PHASE_ANGLE_THRESHOLD		40.0
 
 #ifdef DEBUG_ENABLE
 #define DUMP_PACKET(pkt) do { \
@@ -83,16 +85,26 @@ static void usage(){
 }
 
 // Make it dynamically
-char *busdetails_info[MAX_BUS];
+struct busDetails {
+	char *busdetails_info;
+	float voltage_amplitude;
+	float voltage_angle;
+	int *busMap;
+};
+
+struct busDetails *bus[MAX_BUS];
+
 void init_bus_details() {
 	FILE *fp = NULL;
 	char *line = NULL;
 	char *token = NULL;
 	size_t len = 0;
-        int busdata_len = 0;
+    int busdata_len = 0;
 	ssize_t read = 0;
+	char *bus_id = NULL, *map_id = NULL, *bus_map = NULL;
+	int id = 0, m_id = 0, i = 0, j = 0;
+
 	// char *token = NULL;
-	int i=0;
 	fp = fopen(BUSCONFIG_FILENAME, "r");
 	while ((read = getline(&line, &len, fp)) != -1) {
 		token = strtok(line,"\n");
@@ -100,13 +112,44 @@ void init_bus_details() {
                 char *bus_info = (char*) malloc((busdata_len+1)*sizeof(char));
                 strncpy(bus_info,token,busdata_len);
                 bus_info[busdata_len] = '\0';
-		busdetails_info[i] = bus_info;
-                DEBUG_MSG("%s", busdetails_info[i]);
+		bus[i]->busdetails_info = bus_info;
+                DEBUG_MSG("%s", bus[i]->busdetails_info);
                 i++;
 	}
+
+	fclose(fp);
+
+	fp = fopen(BUSMAP_FILENAME, "r");
+	while ((read = getline(&line, &len, fp)) != -1) {
+		id  = 0;
+		i = 0;
+		bus_id = strtok(line, ":");
+		while (bus_id[i] != '\0') {
+			id = id * 10 + bus_id[i] - '0';
+			i++;
+		}
+		bus_map = strtok(NULL, ":");
+		if (bus_map != NULL)
+			bus[id]->busMap = (int *) malloc(sizeof(int) * (strlen(bus_map)/2 + 1));
+
+		j = 0;
+		map_id = strtok(bus_map, ",");
+		while (map_id!= NULL) {
+			m_id = 0;
+			i = 0;
+			while (map_id[i] != '\0') {
+				m_id = m_id * 10 + map_id[i] - '0';
+				i++;
+			}
+			bus[id]->busMap[j++] = m_id;
+			map_id = strtok(NULL, ",");
+		}
+		bus[id]->busMap[j] = -1;
+	}
 }
+
 char *get_bus_details(int i){
-	return busdetails_info[i];
+	return bus[i]->busdetails_info;
 }
 
 
@@ -240,6 +283,9 @@ static void do_supply(int s, data_supplier_thread_data_t* data_supplier_thread_d
 	int fd, id, read_index;
 	int32_t num_instances = data_supplier_thread_data->max_dc_srv_thread;
 	data_collector_thread_data_t **dc_thread_data_array = data_supplier_thread_data->data_collector;
+	char affected[BUF_SIZE];
+	int i = 0, j = 0;
+	float diff = 0.0;
 
 	for (; ;) {
 		printf("Waiting for connection...\n");
@@ -277,14 +323,37 @@ static void do_supply(int s, data_supplier_thread_data_t* data_supplier_thread_d
 			memset(&busdata,0,BUF_SIZE);
 			/* TODO: Lock for synchronizing read and writes in data_collector_thread_data_t */
 			read_index 	= dc_thread_data_array[id]->cur_index;
+			bus[id]->voltage_amplitude = dc_thread_data_array[id]->received_data[read_index].voltage_amplitude;
+			bus[id]->voltage_angle = dc_thread_data_array[id]->received_data[read_index].voltage_angle;
 			sprintf(busdata,"%s,%f,%f%c",get_bus_details(id),
-					dc_thread_data_array[id]->received_data[read_index].voltage_amplitude,
-					dc_thread_data_array[id]->received_data[read_index].voltage_angle,end_char);
-            		strcat(output,busdata);
+				bus[id]->voltage_amplitude, bus[id]->voltage_angle, end_char);
+			
+			strcat(output,busdata);
 			DEBUG_MSG("%s",busdata);
 		}
 		
-            	strcat(output,"\r\n");
+		end_char ='_';
+		for (id = 0; id < num_instances; id++) {
+			if (id == (num_instances-1)){
+				end_char=':';
+			}
+			i = 0;
+			while ((j = bus[id]->busMap[i++]) != -1) {
+				if (bus[id]->voltage_angle > bus[j]->voltage_angle)
+					diff = bus[id]->voltage_angle - bus[j]->voltage_angle;
+				else
+					diff = bus[j]->voltage_angle - bus[id]->voltage_angle;
+				if (diff > PHASE_ANGLE_THRESHOLD) {
+					strcpy(affected, "");
+					sprintf(affected,"%d,%d%c",id, j, end_char);
+					strcat(output,affected);
+					DEBUG_MSG("%s",affected);
+				}
+			}
+		}
+			
+		
+        strcat(output,"\r\n");
 		DEBUG_MSG("OUTPUT:->%s",output);
 		send(fd, &output, strlen(output),0);
 		close(fd);
