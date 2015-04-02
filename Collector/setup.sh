@@ -13,3 +13,5 @@ do
   ./dc $datasrcip 15000 $busid $pmudumperip $port &>"dc_$busid.txt" &
   let busid=$busid+1
 done
+
+#./setup.sh 192.168.0.103 39 127.0.0.1 9999

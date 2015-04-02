@@ -16,7 +16,7 @@
 #define DFL_DS_PORT (9999)
 #define BUF_SIZE 4096
 #define MAX_BUS 100
-#define PHASE_ANGLE_THRESHOLD		40.0
+#define PHASE_ANGLE_THRESHOLD		0.5
 
 #ifdef DEBUG_ENABLE
 #define DUMP_PACKET(pkt) do { \
@@ -92,7 +92,7 @@ struct busDetails {
 	int *busMap;
 };
 
-struct busDetails *bus[MAX_BUS];
+struct busDetails bus[MAX_BUS];
 
 void init_bus_details() {
 	FILE *fp = NULL;
@@ -109,11 +109,12 @@ void init_bus_details() {
 	while ((read = getline(&line, &len, fp)) != -1) {
 		token = strtok(line,"\n");
                 busdata_len = strlen(token);
-                char *bus_info = (char*) malloc((busdata_len+1)*sizeof(char));
-                strncpy(bus_info,token,busdata_len);
-                bus_info[busdata_len] = '\0';
-		bus[i]->busdetails_info = bus_info;
-                DEBUG_MSG("%s", bus[i]->busdetails_info);
+                bus[i].busdetails_info = (char*) malloc((busdata_len+1)*sizeof(char));
+                strncpy(bus[i].busdetails_info,token,busdata_len);
+                bus[i].busdetails_info[busdata_len] = '\0';
+		//bus[i].busdetails_info = bus_info;
+				bus[i].busMap = NULL;
+                DEBUG_MSG("%s", bus[i].busdetails_info);
                 i++;
 	}
 
@@ -130,7 +131,7 @@ void init_bus_details() {
 		}
 		bus_map = strtok(NULL, ":");
 		if (bus_map != NULL)
-			bus[id]->busMap = (int *) malloc(sizeof(int) * (strlen(bus_map)/2 + 1));
+			bus[id].busMap = (int *) malloc(sizeof(int) * (strlen(bus_map)/2 + 1));
 
 		j = 0;
 		map_id = strtok(bus_map, ",");
@@ -141,15 +142,15 @@ void init_bus_details() {
 				m_id = m_id * 10 + map_id[i] - '0';
 				i++;
 			}
-			bus[id]->busMap[j++] = m_id;
+			bus[id].busMap[j++] = m_id;
 			map_id = strtok(NULL, ",");
 		}
-		bus[id]->busMap[j] = -1;
+		bus[id].busMap[j] = -1;
 	}
 }
 
 char *get_bus_details(int i){
-	return bus[i]->busdetails_info;
+	return bus[i].busdetails_info;
 }
 
 
@@ -194,7 +195,7 @@ static int do_copy(int fd, data_collector_thread_data_t* dc_thread_data){
 		dc_thread_data->cur_index = (dc_thread_data->cur_index + 1) % MAX_HISTORY;
 
 		/* Write the packet to standard output */
-		write_c37_packet_readable(stdout, pkt);
+//		write_c37_packet_readable(stdout, pkt);
 		free(pkt);
 	}
 
@@ -323,32 +324,40 @@ static void do_supply(int s, data_supplier_thread_data_t* data_supplier_thread_d
 			memset(&busdata,0,BUF_SIZE);
 			/* TODO: Lock for synchronizing read and writes in data_collector_thread_data_t */
 			read_index 	= dc_thread_data_array[id]->cur_index;
-			bus[id]->voltage_amplitude = dc_thread_data_array[id]->received_data[read_index].voltage_amplitude;
-			bus[id]->voltage_angle = dc_thread_data_array[id]->received_data[read_index].voltage_angle;
+			bus[id].voltage_amplitude = dc_thread_data_array[id]->received_data[read_index].voltage_amplitude;
+			bus[id].voltage_angle = dc_thread_data_array[id]->received_data[read_index].voltage_angle;
 			sprintf(busdata,"%s,%f,%f%c",get_bus_details(id),
-				bus[id]->voltage_amplitude, bus[id]->voltage_angle, end_char);
+				bus[id].voltage_amplitude, bus[id].voltage_angle, end_char);
 			
 			strcat(output,busdata);
 			DEBUG_MSG("%s",busdata);
 		}
 		
-		end_char ='_';
+		end_char = ':';
 		for (id = 0; id < num_instances; id++) {
-			if (id == (num_instances-1)){
-				end_char=':';
-			}
 			i = 0;
-			while ((j = bus[id]->busMap[i++]) != -1) {
-				if (bus[id]->voltage_angle > bus[j]->voltage_angle)
-					diff = bus[id]->voltage_angle - bus[j]->voltage_angle;
+			if (bus[id].busMap != NULL) {
+				DEBUG_MSG("\n\nin bus map\n\n");
+			
+			while ((j = bus[id].busMap[i++]) != -1) {
+				if (bus[id].voltage_angle > bus[j].voltage_angle)
+					diff = bus[id].voltage_angle - bus[j].voltage_angle;
 				else
-					diff = bus[j]->voltage_angle - bus[id]->voltage_angle;
+					diff = bus[j].voltage_angle - bus[id].voltage_angle;
 				if (diff > PHASE_ANGLE_THRESHOLD) {
 					strcpy(affected, "");
-					sprintf(affected,"%d,%d%c",id, j, end_char);
+					if (end_char == ':') {
+						sprintf(affected,"%d,%d",id, j);
+						end_char ='_';
+					}
+					else
+						sprintf(affected,"%c%d,%d", end_char, id, j);
 					strcat(output,affected);
-					DEBUG_MSG("%s",affected);
+					DEBUG_MSG("%s %f",affected, diff);
 				}
+				DEBUG_MSG("\n DIFF %f\n", diff);
+				diff = 0.0;
+			}
 			}
 		}
 			
