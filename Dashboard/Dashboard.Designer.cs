@@ -65,9 +65,11 @@
             this.busInfoPanel.Controls.Add(this.busIdLabel);
             this.busInfoPanel.Location = new System.Drawing.Point(0, 0);
             this.busInfoPanel.Name = "busInfoPanel";
-            this.busInfoPanel.Size = new System.Drawing.Size(300 , 235);
+            //this.busInfoPanel.Size = new System.Drawing.Size(300 , 235);
             this.busInfoPanel.TabIndex = 0;
+            this.busInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.busInfoPanel.Visible = false;
+            this.busInfoPanel.AutoScroll = true;
             //this.busInfoPanel.Click += new System.EventHandler(this.Panel_Click);
             
             // Font and Color
