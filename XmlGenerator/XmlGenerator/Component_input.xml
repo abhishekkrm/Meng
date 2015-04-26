@@ -11,116 +11,88 @@
 	</component>
 	        
 	<!--- Bus -->
-	<component id ="2" Type="Bus">
+	<component id ="1" Type="Bus">
 		<x1 value="33"/>
 		<y1 value="247"/>
 		<x2 value="80"/>
 		<y2 value="247"/>
-		<type value="line"/>
-		<connection value="3,6"/>
 	</component>
-	<component id ="3" Type="Bus">
+	<component id ="2" Type="Bus">
 		<x1 value="150"/>
 		<y1 value="414"/>
 		<x2 value="213"/>
 		<y2 value="414"/>
-		<type value="line"/>
-		<connection value="2,4,5,6"/>
 	</component>
-	<component id ="4" Type="Bus">
+	<component id ="3" Type="Bus">
 		<x1 value="560"/>
 		<y1 value="514"/>
 		<x2 value="593"/>
 		<y2 value="514"/>
-		<type value="line"/>
-		<connection value="3,5"/>
 	</component>
-	<component id ="5" Type="Bus">
+	<component id ="4" Type="Bus">
 		<x1 value="546"/>
 		<y1 value="335"/>
 		<x2 value="610"/>
 		<y2 value="335"/>
-		<type value="line"/>
-		<connection value="3,4,6,8,10"/>
 	</component>
-	<component id ="6" Type="Bus">
+	<component id ="5" Type="Bus">
 		<x1 value="341"/>
 		<y1 value="310"/>
 		<x2 value="385"/>
 		<y2 value="311"/>
-		<type value="line"/>
-		<connection value="2,3,5,7"/>
 	</component>
-	<component id ="7" Type="Bus">
+	<component id ="6" Type="Bus">
 		<x1 value="335"/>
 		<y1 value="243"/>
 		<x2 value="402"/>
 		<y2 value="243"/>
-		<type value="line"/>
-		<connection value="6,12,13,14"/>
 	</component>	
-	<component id ="8" Type="Bus">
+	<component id ="7" Type="Bus">
 		<x1 value="660"/>
 		<y1 value="272"/>
 		<x2 value="710"/>
 		<y2 value="272"/>
-		<type value="line"/>
-		<connection value="5,9,10"/>
 	</component>
-	<component id ="9" Type="Bus">
+	<component id ="8" Type="Bus">
 		<x1 value="720"/>
 		<y1 value="242"/>
 		<x2 value="765"/>
 		<y2 value="242"/>
-		<type value="line"/>
-		<connection value="8"/>
 	</component>	
-	<component id ="10" Type="Bus">
+	<component id ="9" Type="Bus">
 		<x1 value="565"/>
 		<y1 value="228"/>
 		<x2 value="658"/>
 		<y2 value="228"/>
-		<type value="line"/>
-		<connection value="5,8,11,15"/>
 	</component>
-	<component id ="11" Type="Bus">
+	<component id ="10" Type="Bus">
 		<x1 value="520"/>
 		<y1 value="190"/>
 		<x2 value="560"/>
 		<y2 value="190"/>
-		<type value="line"/>
-		<connection value="10,12"/>
 	</component>	
-	<component id ="12" Type="Bus">
+	<component id ="11" Type="Bus">
 		<x1 value="428"/>
 		<y1 value="174"/>
 		<x2 value="460"/>
 		<y2 value="174"/>
-		<type value="line"/>
-		<connection value="7,11"/>
 	</component>
-	<component id ="13" Type="Bus">
+	<component id ="12" Type="Bus">
 		<x1 value="251"/>
 		<y1 value="135"/>
 		<x2 value="285"/>
 		<y2 value="135"/>
-		<type value="line"/>
-		<connection value="7,14"/>
 	</component>	
-	<component id ="14" Type="Bus">
+	<component id ="13" Type="Bus">
 		<x1 value="339"/>
 		<y1 value="90"/>
 		<x2 value="387"/>
 		<y2 value="90"/>
-		<type value="line"/>
-		<connection value="7,13,15"/>
 	</component>
-	<component id ="15" Type="Bus">
+	<component id ="14" Type="Bus">
 		<x1 value="530"/>
 		<y1 value="131"/>
 		<x2 value="574"/>
 		<y2 value="131"/>
-		<type value="line"/>
-		<connection value="10,14"/>
 	</component>
 </components>	
