@@ -226,9 +226,11 @@ namespace Dashboard
         private void InitializeCircuitPanel()
         {
             circuitPanel = new Panel();
-            circuitPanel.Size = new Size(1000, 744);
+            circuitPanel.Size = new Size(600, 700);
+            //circuitPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             circuitPanel.BackColor = Color.Black;
-            circuitPanel.Location = new Point(300, 100);
+            circuitPanel.Location = new Point(200,0);
+            circuitPanel.AutoScroll=true;
         }
 
         /*
@@ -364,6 +366,7 @@ namespace Dashboard
             appsPanel.Size = new Size(200, this.Size.Height);
             appsPanel.BackColor = Color.FromArgb(255, 20, 20, 20);
             appsPanel.Dock = DockStyle.Left;
+            appsPanel.AutoScroll = true;
             
             Panel headerPanel = new Panel();
             headerPanel.BackColor = Color.FromArgb(255, 50, 50, 50);
