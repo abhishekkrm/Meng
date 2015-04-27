@@ -1,0 +1,183 @@
+<components>	 
+	<!--- Bus -->
+	<component id ="1" Type="Bus">
+		<x1 value="19"/>
+		<y1 value="325"/>
+		<x2 value="44"/>
+		<y2 value="325"/>
+	</component>
+	<component id ="2" Type="Bus">
+		<x1 value="80"/>
+		<y1 value="448"/>
+		<x2 value="115"/>
+		<y2 value="448"/>
+	</component>
+	<component id ="3" Type="Bus">
+		<x1 value="236"/>
+		<y1 value="373"/>
+		<x2 value="256"/>
+		<y2 value="373"/>
+	</component>
+	<component id ="4" Type="Bus">
+		<x1 value="319"/>
+		<y1 value="362"/>
+		<x2 value="340"/>
+		<y2 value="362"/>
+	</component>
+	<component id ="5" Type="Bus">
+		<x1 value="534"/>
+		<y1 value="492"/>
+		<x2 value="573"/>
+		<y2 value="492"/>
+	</component>
+	<component id ="6" Type="Bus">
+		<x1 value="533"/>
+		<y1 value="383"/>
+		<x2 value="574"/>
+		<y2 value="383"/>
+	</component>	
+	<component id ="7" Type="Bus">
+		<x1 value="554"/>
+		<y1 value="433"/>
+		<x2 value="567"/>
+		<y2 value="433"/>
+	</component>
+	<component id ="8" Type="Bus">
+		<x1 value="794"/>
+		<y1 value="349"/>
+		<x2 value="815"/>
+		<y2 value="349"/>
+	</component>	
+	<component id ="9" Type="Bus">
+		<x1 value="563"/>
+		<y1 value="367"/>
+		<x2 value="579"/>
+		<y2 value="367"/>
+	</component>
+	<component id ="10" Type="Bus">
+		<x1 value="537"/>
+		<y1 value="347"/>
+		<x2 value="584"/>
+		<y2 value="347"/>
+	</component>	
+	<component id ="11" Type="Bus">
+		<x1 value="593"/>
+		<y1 value="351"/>
+		<x2 value="610"/>
+		<y2 value="351"/>
+	</component>
+	<component id ="12" Type="Bus">
+		<x1 value="325"/>
+		<y1 value="328"/>
+		<x2 value="349"/>
+		<y2 value="328"/>
+	</component>	
+	<component id ="13" Type="Bus">
+		<x1 value="315"/>
+		<y1 value="334"/>
+		<x2 value="333"/>
+		<y2 value="334"/>
+	</component>
+	<component id ="14" Type="Bus">
+		<x1 value="240"/>
+		<y1 value="239"/>
+		<x2 value="260"/>
+		<y2 value="239"/>
+	</component>
+		<component id ="15" Type="Bus">
+		<x1 value="319"/>
+		<y1 value="228"/>
+		<x2 value="344"/>
+		<y2 value="228"/>
+	</component>
+	<component id ="16" Type="Bus">
+		<x1 value="400"/>
+		<y1 value="293"/>
+		<x2 value="420"/>
+		<y2 value="293"/>
+	</component>
+	<component id ="17" Type="Bus">
+		<x1 value="478"/>
+		<y1 value="321"/>
+		<x2 value="493"/>
+		<y2 value="321"/>
+	</component>
+	<component id ="18" Type="Bus">
+		<x1 value="407"/>
+		<y1 value="264"/>
+		<x2 value="421"/>
+		<y2 value="264"/>
+	</component>
+	<component id ="19" Type="Bus">
+		<x1 value="451"/>
+		<y1 value="269"/>
+		<x2 value="473"/>
+		<y2 value="269"/>
+	</component>
+	<component id ="20" Type="Bus">
+		<x1 value="444"/>
+		<y1 value="303"/>
+		<x2 value="474"/>
+		<y2 value="303"/>
+	</component>	
+	<component id ="21" Type="Bus">
+		<x1 value="519"/>
+		<y1 value="277"/>
+		<x2 value="536"/>
+		<y2 value="277"/>
+	</component>
+	<component id ="22" Type="Bus">
+		<x1 value="533"/>
+		<y1 value="264"/>
+		<x2 value="576"/>
+		<y2 value="264"/>
+	</component>	
+	<component id ="23" Type="Bus">
+		<x1 value="421"/>
+		<y1 value="205"/>
+		<x2 value="440"/>
+		<y2 value="205"/>
+	</component>
+	<component id ="24" Type="Bus">
+		<x1 value="523"/>
+		<y1 value="181"/>
+		<x2 value="550"/>
+		<y2 value="181"/>
+	</component>	
+	<component id ="25" Type="Bus">
+		<x1 value="576"/>
+		<y1 value="161"/>
+		<x2 value="590"/>
+		<y2 value="161"/>
+	</component>
+	<component id ="26" Type="Bus">
+		<x1 value="682"/>
+		<y1 value="150"/>
+		<x2 value="700"/>
+		<y2 value="150"/>
+	</component>	
+	<component id ="27" Type="Bus">
+		<x1 value="573"/>
+		<y1 value="89"/>
+		<x2 value="595"/>
+		<y2 value="89"/>
+	</component>
+	<component id ="28" Type="Bus">
+		<x1 value="615"/>
+		<y1 value="85"/>
+		<x2 value="635"/>
+		<y2 value="85"/>
+	</component>
+		<component id ="29" Type="Bus">
+		<x1 value="546"/>
+		<y1 value="41"/>
+		<x2 value="567"/>
+		<y2 value="41"/>
+	</component>
+		<component id ="30" Type="Bus">
+		<x1 value="427"/>
+		<y1 value="39"/>
+		<x2 value="441"/>
+		<y2 value="39"/>
+	</component>
+</components>	
