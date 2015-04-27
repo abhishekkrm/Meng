@@ -843,7 +843,18 @@ namespace Dashboard
 
         private void Dashboard_Resize(object sender, System.EventArgs e)
         {
-            Control control = (Control)sender;
+            Control dashboard = (Control)sender;
+
+            int margin = 100;
+            int circuitPanelWidth = dashboard.Size.Width - appsPanel.Width - busInfoPanel.Width - 2*margin;
+            if (toolsPanel.Visible)
+            {
+                circuitPanelWidth = dashboard.Size.Width - appsPanel.Width - toolsPanel.Width - 2*margin;
+            }
+            int circuitPanelHeight = dashboard.Size.Height - margin;
+
+            circuitPanel.Size = new System.Drawing.Size(circuitPanelWidth, circuitPanelHeight);
+            circuitPanel.Location = new Point(appsPanel.Width + margin, margin);
         }
 
         QS.Fx.Value.Classes.IText QS.Fx.Interface.Classes.ICheckpointedCommunicationChannelClient<QS.Fx.Value.Classes.IText, QS.Fx.Value.Classes.IText>.Checkpoint()
