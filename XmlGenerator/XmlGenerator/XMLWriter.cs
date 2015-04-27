@@ -10,11 +10,13 @@ namespace XmlGenerator
     class XMLWriter
     {
         private const int LINE_SEGMENT_LENGTH = 10;
+        private const int GENERATOR_IMG_HEIGHT = 72;
 
         private Dictionary<int, BusLocationInfo>    mBusLocations = null;
         private PowerSystem                         mPowerSystem = null;
         private XmlDocument                         mXMLDocument = null;
         private int                                 mNumLines = 0;
+        private int                                 mNumGenerators = 0;
 
         public XMLWriter(String inIEEEModelFile, String inBusLocationFile)
         {
@@ -135,6 +137,9 @@ namespace XmlGenerator
                 else
                     WriteLineEntry(x2, y1 + (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, x1, y1 + (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, connectionId);
                 WriteLineEntry(x2, y1 + (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, x2, y2, connectionId);
+
+                source.DownSideConnections++;
+                destination.UpSideConnections++;
             }
             else
             {
@@ -144,6 +149,9 @@ namespace XmlGenerator
                 else
                     WriteLineEntry(x2, y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, x1, y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, connectionId);
                 WriteLineEntry(x2, y2, x2, y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, connectionId);
+
+                source.UpSideConnections++;
+                destination.DownSideConnections++;
             }
         }
 
@@ -181,10 +189,69 @@ namespace XmlGenerator
             }
         }
 
+        private void WriteGeneratorEntry(int busNumber)
+        {
+            XmlNode root = mXMLDocument.DocumentElement;
+
+            XmlElement generator = mXMLDocument.CreateElement("component");
+            mNumGenerators++;
+            generator.SetAttribute("id", Convert.ToString(mNumGenerators));
+            generator.SetAttribute("type", "Generator");
+
+            int orientationValue = 0;
+            int xCoordinate = mBusLocations[busNumber].StartX;
+            int yCoordinate = mBusLocations[busNumber].StartY - GENERATOR_IMG_HEIGHT;
+            if(mBusLocations[busNumber].UpSideConnections > mBusLocations[busNumber].DownSideConnections)
+            {
+                orientationValue = 180;
+                yCoordinate = mBusLocations[busNumber].StartY;
+            }
+
+            XmlElement start_x = mXMLDocument.CreateElement("x");
+            start_x.SetAttribute("value", Convert.ToString(xCoordinate));
+
+            XmlElement start_y = mXMLDocument.CreateElement("y");
+            start_y.SetAttribute("value", Convert.ToString(yCoordinate));
+
+            XmlElement orientation = mXMLDocument.CreateElement("orientation");
+            orientation.SetAttribute("value", Convert.ToString(orientationValue));
+
+            generator.AppendChild(start_x);
+            generator.AppendChild(start_y);
+            generator.AppendChild(orientation);
+
+            root.AppendChild(generator);
+        }
+
+        private void WriteGenerators()
+        {
+            List<int> generators = new List<int>();
+            XmlNodeList components = mXMLDocument.GetElementsByTagName("component");
+
+            foreach (XmlNode component in components)
+            {
+                if (Convert.ToString(component.Attributes[1].Value).Equals("Bus"))
+                {
+                    int busNumber = Convert.ToInt32(component.Attributes[0].Value);
+
+                    if(mPowerSystem.GetBus(busNumber).IsGenerator)
+                    {
+                        generators.Add(busNumber);
+                    }
+                }
+            }
+
+            foreach(int generator in generators)
+            {
+                WriteGeneratorEntry(generator);
+            }
+        }
+
         private void WriteComponentLocationsFile(String inComponentLocationsFile)
         {
             WriteConnections();
             UpdateBusEntries();
+            WriteGenerators();
             mXMLDocument.Save(inComponentLocationsFile);
         }
 

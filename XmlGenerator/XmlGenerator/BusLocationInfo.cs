@@ -11,8 +11,21 @@ namespace XmlGenerator
         private int mBusNumber;
         private int mStartX, mStartY, mEndX, mEndY;
         private int mAssignedConnections;
+        private int mUpSideConnections, mDownSideConnections;
 
         /* Properties */
+        public int DownSideConnections
+        {
+            get { return mDownSideConnections; }
+            set { mDownSideConnections = value; }
+        }
+
+        public int UpSideConnections
+        {
+            get { return mUpSideConnections; }
+            set { mUpSideConnections = value; }
+        }
+
         public int BusNumber
         {
             get { return mBusNumber; }
@@ -54,6 +67,7 @@ namespace XmlGenerator
         {
             mBusNumber = inBusNumber;
             mAssignedConnections = 0;
+            mDownSideConnections = mUpSideConnections = 0;
         }
     }
 }

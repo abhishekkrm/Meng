@@ -182,9 +182,10 @@ namespace Dashboard
                     int rotation = Convert.ToInt32(components[i].ChildNodes[2].Attributes[0].InnerText);
                     control = AddGeneratorControl(id, x * xSizeFactor, y * ySizeFactor, rotation);
 
+                    //Seemingly the code below is not required..Commenting it for now --gaurav
                     //Add Bus IDs of the generator
-                    AddGeneratorBusControl(components[i].ChildNodes[3].ChildNodes[0].Attributes[0].Value);
-                    AddGeneratorBusControl(components[i].ChildNodes[3].ChildNodes[1].Attributes[0].Value);
+                    //AddGeneratorBusControl(components[i].ChildNodes[3].ChildNodes[0].Attributes[0].Value);
+                    //AddGeneratorBusControl(components[i].ChildNodes[3].ChildNodes[1].Attributes[0].Value);
                 }
                 else if (Convert.ToString(components[i].Attributes[1].Value).Equals("Bus"))
                 {
@@ -226,10 +227,10 @@ namespace Dashboard
         private void InitializeCircuitPanel()
         {
             circuitPanel = new Panel();
-            circuitPanel.Size = new Size(600, 700);
+            circuitPanel.Size = new Size(1000, 744);
             //circuitPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             circuitPanel.BackColor = Color.Black;
-            circuitPanel.Location = new Point(200,0);
+            circuitPanel.Location = new Point(300,100);
             circuitPanel.AutoScroll=true;
         }
 

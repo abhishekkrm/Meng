@@ -1,15 +1,4 @@
 <components>	 
-	<!--- Generators -->
-	<component id ="1" Type="Generator">
-		<x value="33"/>
-		<y value="174"/>
-		<orientation value="0"/>
-		<buses>
-			<bus id="1"/>
-			<bus id="2"/>
-		</buses>
-	</component>
-	        
 	<!--- Bus -->
 	<component id ="1" Type="Bus">
 		<x1 value="33"/>
