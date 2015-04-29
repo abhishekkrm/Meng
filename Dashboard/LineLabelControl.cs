@@ -22,11 +22,12 @@ namespace Dashboard
 
             // Display the OK close button. 
             this.Id = Id;
-            this.Size = new Size(20, 20);
+            this.Size = new Size(14, 12);
             NameLabel = new Label(); 
             NameLabel.Text = Name;
+            NameLabel.BackColor = Color.Transparent;
             NameLabel.ForeColor = Color.White;
-            NameLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            NameLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             NameLabel.Parent = this;
  
         }

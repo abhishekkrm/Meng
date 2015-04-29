@@ -200,6 +200,11 @@ namespace Dashboard
                     control.Click += Bus_Click;
                     control.MouseHover += Bus_Hover;
                     control.MouseLeave += Bus_Leave;
+
+                    float xLabelLoc = x1 - 15;
+                    float yLabelLoc = y1;
+                    LineLabelControl busLabel = AddLineLabelControl(id, id, xLabelLoc, yLabelLoc);
+                    AddControl(busLabel); //Add Label to the panel
                 }
                 else if (Convert.ToString(components[i].Attributes[1].Value).Equals("Line"))
                 {
@@ -462,19 +467,39 @@ namespace Dashboard
                 buttons[i, j] = new LineControlButton(name, id);
                 buttons[i, j].Name = name;
                 buttons[i, j].ID = id;
- 
+                buttons[i, j].MouseEnter += LineControlButton_MouseEnter;
+                buttons[i, j].MouseLeave += LineControlButton_MouseLeave;
+    
                 //Set the location of the buttons    
                 Point parentPos = toolsPanel.Location;
                 buttons[i, j].Location = new Point(j  * buttons[i,j].Size.Width + 15, i  * buttons[i,j].Size.Height + 15);
                 toolsPanel.Controls.Add(buttons[i, j]);
-
-
-                float xLineLabel = lineControl.Location.X + (lineControl.Width / 2);
-                float yLineLabel = lineControl.Location.Y + (lineControl.Height / 2);
-                LineLabelControl control = AddLineLabelControl(lineControl.getId(), lineControl.getName(), xLineLabel, yLineLabel);
-                AddControl(control);//Add button to the panel
             } 
             this.Controls.Add(toolsPanel);                  
+        }
+        
+        private void LineControlButton_MouseEnter(object sender, EventArgs e)
+        {
+            LineControlButton lineControlButton = sender as LineControlButton;
+            if (lineControlButton != null)
+            {
+                foreach(LineControl lineControl in this.lineControlMap[lineControlButton.ID])
+                {
+                    lineControl.highlightControl(true);
+                }
+            }
+        }
+
+        private void LineControlButton_MouseLeave(object sender, EventArgs e)
+        {
+            LineControlButton lineControlButton = sender as LineControlButton;
+            if (lineControlButton != null)
+            {
+                foreach (LineControl lineControl in this.lineControlMap[lineControlButton.ID])
+                {
+                    lineControl.highlightControl(false);
+                }
+            }
         }
 
         delegate void AddToolsPanelControl_LineDown_Callback(LineControl lineControl);
@@ -751,7 +776,6 @@ namespace Dashboard
             {
                 this.circuitPanel.Controls.Add(control);             
                 control.BringToFront();
-                toolsPanel.BringToFront();
             }
         }
 

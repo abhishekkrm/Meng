@@ -14,6 +14,7 @@ namespace Dashboard
         private String name;
         private float x;
         private float y;
+        private bool isHighlighed = false;
         private Color LineColor = Constants.NORMAL_LINE_COLOR;
 
         public LineControl(String id, float p1, float p2, float p3, float p4, String name)
@@ -31,6 +32,12 @@ namespace Dashboard
         void LineControl_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
             Pen pen = new Pen(LineColor, 4.0f);
+            
+            if (isHighlighed == true)
+            {
+                pen.Color = SystemColors.Highlight;
+                pen.Width = 10.0f;
+            }
             e.Graphics.DrawLine(pen, 0, 0, x, y); 
 
         }
@@ -65,6 +72,20 @@ namespace Dashboard
         public void setName(String lineName)
         {
             this.name = lineName;
+        }
+
+        public void highlightControl(bool highlight)
+        {
+            this.isHighlighed = highlight;
+            if(highlight)
+            {
+                this.Size = x > y ? new Size((int)x, 5) : new Size(5, (int)y);
+            }
+            else
+            {
+                this.Size = x > y ? new Size((int)x, 2) : new Size(2, (int)y);
+            }
+            this.Invalidate();
         }
     }
 }
