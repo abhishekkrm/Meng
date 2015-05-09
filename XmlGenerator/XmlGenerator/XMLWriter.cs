@@ -146,7 +146,7 @@ namespace XmlGenerator
                 WriteLineEntry(x1, y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, x1, y1, connectionId);
                 WriteLineEntry(x1, y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, x2, y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, connectionId);
                 if (y2 < y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH)
-                    WriteLineEntry(x2, y2, x2, y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, connectionId);
+                    WriteLineEntry(x2 - 2, y2, x2 - 2, y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, connectionId);
                 else
                     WriteLineEntry(x2, y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, x2, y2, connectionId);
                 
