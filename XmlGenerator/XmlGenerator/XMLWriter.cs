@@ -11,6 +11,7 @@ namespace XmlGenerator
     {
         private const int LINE_SEGMENT_LENGTH = 10;
         private const int GENERATOR_IMG_HEIGHT = 72;
+        private const int ARROW_IMAGE_HEIGHT = 27;
 
         private Dictionary<int, BusLocationInfo>    mBusLocations = null;
         private PowerSystem                         mPowerSystem = null;
@@ -52,6 +53,26 @@ namespace XmlGenerator
             }
         }
 
+        private void AddConcumerInformation(XmlElement bustypeElement, int busNumber)
+        {
+            BusLocationInfo locationInfo = mBusLocations[busNumber];
+            Bus bus = mPowerSystem.GetBus(busNumber);
+
+            String direction = "down";
+            if (locationInfo.DownSideConnections > locationInfo.UpSideConnections)
+            {
+                direction = "up";
+            }
+            bustypeElement.SetAttribute("direction", direction);
+            
+            int numConnectedBuses = bus.GetConnections().Count;
+            int xCoordinate = locationInfo.StartX + ((locationInfo.EndX - locationInfo.StartX) / (numConnectedBuses + 2)) * (numConnectedBuses + 1);
+            int yCoordinate = direction.Equals("up") ? (locationInfo.StartY - ARROW_IMAGE_HEIGHT) : locationInfo.StartY;
+
+            bustypeElement.SetAttribute("x", Convert.ToString(xCoordinate));
+            bustypeElement.SetAttribute("y", Convert.ToString(yCoordinate));
+        }
+
         private void UpdateBusEntries()
         {
             XmlNodeList components = mXMLDocument.GetElementsByTagName("component");
@@ -67,6 +88,8 @@ namespace XmlGenerator
                      if(mPowerSystem.GetBus(busNumber).IsConsumer) 
                      {
                          busType.SetAttribute("value", "line-arrow");
+
+                         AddConcumerInformation(busType, busNumber);
                      }
                      else
                      {
@@ -114,18 +137,20 @@ namespace XmlGenerator
 
         private void WriteConnection(BusLocationInfo source, BusLocationInfo destination)
         {
+            source.AssignedConnections++;
             int lengthBus = source.EndX - source.StartX;
             int srcConnectionCount = mPowerSystem.GetBus(source.BusNumber).GetConnections().Count;
+            int numDivisions = mPowerSystem.GetBus(source.BusNumber).IsConsumer ? srcConnectionCount + 2 : srcConnectionCount + 1;
 
-            source.AssignedConnections++;
-            int x1 = source.StartX + source.AssignedConnections * (lengthBus / (srcConnectionCount + 1));
+            int x1 = source.StartX + source.AssignedConnections * (lengthBus / numDivisions);
             int y1 = source.StartY;
 
             destination.AssignedConnections++;
             lengthBus = destination.EndX - destination.StartX;
             int destConnectionCount = mPowerSystem.GetBus(destination.BusNumber).GetConnections().Count;
+            numDivisions = mPowerSystem.GetBus(destination.BusNumber).IsConsumer ? destConnectionCount + 2 : destConnectionCount + 1;
 
-            int x2 = destination.StartX + destination.AssignedConnections * (lengthBus / (destConnectionCount + 1));
+            int x2 = destination.StartX + destination.AssignedConnections * (lengthBus / numDivisions);
             int y2 = destination.StartY;
 
             String connectionId = source.BusNumber + "," + destination.BusNumber;

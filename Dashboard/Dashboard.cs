@@ -196,15 +196,28 @@ namespace Dashboard
                     int x2 = Convert.ToInt32(components[i].ChildNodes[2].Attributes[0].InnerText);
                     int y2 = Convert.ToInt32(components[i].ChildNodes[3].Attributes[0].InnerText);
                     bool isArrow = Convert.ToString(components[i].ChildNodes[4].Attributes[0].InnerText).Equals("line-arrow");
-                    control = AddBusControl(id, x1 * xSizeFactor, y1 * ySizeFactor, x2 * xSizeFactor, y2 * ySizeFactor, isArrow);
+                    
+                    if(components[i].ChildNodes[4].Attributes.Count > 1)
+                    {
+                        string direction = components[i].ChildNodes[4].Attributes[1].InnerText;
+                        int xArrowCoordinate = Convert.ToInt32(components[i].ChildNodes[4].Attributes[2].InnerText);
+                        int yArrowCoordinate = Convert.ToInt32(components[i].ChildNodes[4].Attributes[3].InnerText);
+
+                        control = AddBusControl(id, x1 * xSizeFactor, y1 * ySizeFactor, x2 * xSizeFactor, y2 * ySizeFactor, isArrow, direction, xArrowCoordinate, yArrowCoordinate);
+                    }
+                    else
+                    {
+                        control = AddBusControl(id, x1 * xSizeFactor, y1 * ySizeFactor, x2 * xSizeFactor, y2 * ySizeFactor, isArrow, "down", (int)(x1 + x2) / 2, (int)y1 + 1);
+                    }
+                    
                     control.Click += Bus_Click;
                     control.MouseHover += Bus_Hover;
                     control.MouseLeave += Bus_Leave;
 
                     float xLabelLoc = x1 - 15;
                     float yLabelLoc = y1;
-                    LineLabelControl busLabel = AddLineLabelControl(id, id, xLabelLoc, yLabelLoc);
-                    AddControl(busLabel); //Add Label to the panel
+                    //LineLabelControl busLabel = AddLineLabelControl(id, id, xLabelLoc, yLabelLoc);
+                    //AddControl(busLabel); //Add Label to the panel
                 }
                 else if (Convert.ToString(components[i].Attributes[1].Value).Equals("Line"))
                 {
@@ -1213,7 +1226,7 @@ namespace Dashboard
             this.busControlMap.Add(id, busControl);
             return busControl;
         }
-        private Control AddBusControl(String id, float x1, float y1, float x2, float y2, bool isArrow)
+        private Control AddBusControl(String id, float x1, float y1, float x2, float y2, bool isArrow, string arrowDirection, int xArrowLoc, int yArrowLoc)
         {
             BusControl busControl = new BusControl(id, x1, y1, x2, y2);
             busControl.Location = new Point((int)x1, (int)y1);
@@ -1223,18 +1236,26 @@ namespace Dashboard
 
             if (isArrow)
             {
-                PictureBox arrowElement = AddArrowToBus();
-                arrowElement.Location = new Point((int)(x1 + x2) / 2, (int)y1 + 1);
+                PictureBox arrowElement = AddArrowToBus(arrowDirection);
+                arrowElement.Location = new Point(xArrowLoc, yArrowLoc);
                 this.circuitPanel.Controls.Add(arrowElement);
             }
 
             return busControl;
         }
 
-        private PictureBox AddArrowToBus()
+        private PictureBox AddArrowToBus(string arrowDirection)
         {
             PictureBox arrowBox = new PictureBox();
-            arrowBox.Image = new Bitmap("C:\\liveobjects\\libraries\\4D12F33758B74DAFBDE0D17E298AD01E\\1\\Data\\arrow.png");
+            
+            if(arrowDirection.Equals("up"))
+            {
+                arrowBox.Image = new Bitmap("C:\\liveobjects\\libraries\\4D12F33758B74DAFBDE0D17E298AD01E\\1\\Data\\arrow_up.png");
+            } 
+            else
+            {
+                arrowBox.Image = new Bitmap("C:\\liveobjects\\libraries\\4D12F33758B74DAFBDE0D17E298AD01E\\1\\Data\\arrow.png");
+            }
             arrowBox.Size = new System.Drawing.Size(10, 27);
 
             return arrowBox;
