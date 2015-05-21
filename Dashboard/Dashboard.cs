@@ -216,8 +216,8 @@ namespace Dashboard
 
                     float xLabelLoc = x1 - 15;
                     float yLabelLoc = y1;
-                    //LineLabelControl busLabel = AddLineLabelControl(id, id, xLabelLoc, yLabelLoc);
-                    //AddControl(busLabel); //Add Label to the panel
+                    LineLabelControl busLabel = AddLineLabelControl(id, id, xLabelLoc, yLabelLoc);
+                    AddControl(busLabel); //Add Label to the panel
                 }
                 else if (Convert.ToString(components[i].Attributes[1].Value).Equals("Line"))
                 {

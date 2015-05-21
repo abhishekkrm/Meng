@@ -53,7 +53,7 @@ namespace XmlGenerator
             }
         }
 
-        private void AddConcumerInformation(XmlElement bustypeElement, int busNumber)
+        private void AddConsumerInformation(XmlElement bustypeElement, int busNumber)
         {
             BusLocationInfo locationInfo = mBusLocations[busNumber];
             Bus bus = mPowerSystem.GetBus(busNumber);
@@ -89,7 +89,7 @@ namespace XmlGenerator
                      {
                          busType.SetAttribute("value", "line-arrow");
 
-                         AddConcumerInformation(busType, busNumber);
+                         AddConsumerInformation(busType, busNumber);
                      }
                      else
                      {
@@ -154,6 +154,7 @@ namespace XmlGenerator
             int y2 = destination.StartY;
 
             String connectionId = source.BusNumber + "," + destination.BusNumber;
+
             if (y1 < y2)
             {
                 WriteLineEntry(x1, y1, x1, y1 + (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, connectionId);
