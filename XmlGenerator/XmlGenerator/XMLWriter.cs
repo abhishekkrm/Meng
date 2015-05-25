@@ -157,24 +157,36 @@ namespace XmlGenerator
 
             if (y1 < y2)
             {
-                WriteLineEntry(x1, y1, x1, y1 + (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, connectionId);
-                WriteLineEntry(x1, y1 + (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, x2, y1 + (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, connectionId);
-                if (y2 < (y1 + (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH))
-                    WriteLineEntry(x2, y2, x2, y1 + (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, connectionId);
+                int tempYCoordinate = y1 + (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH;
+            
+                WriteLineEntry(x1, y1, x1, tempYCoordinate, connectionId);
+                if (x1 < x2)
+                    WriteLineEntry(x1, tempYCoordinate, x2, tempYCoordinate, connectionId);
                 else
-                    WriteLineEntry(x2, y1 + (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, x2, y2, connectionId);
+                    WriteLineEntry(x2, tempYCoordinate, x1, tempYCoordinate, connectionId);
+                
+                if (y2 < tempYCoordinate)
+                    WriteLineEntry(x2, y2, x2, tempYCoordinate, connectionId);
+                else
+                    WriteLineEntry(x2, tempYCoordinate, x2, y2, connectionId);
               
                 source.DownSideConnections++;
                 destination.UpSideConnections++;
             }
             else
             {
-                WriteLineEntry(x1, y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, x1, y1, connectionId);
-                WriteLineEntry(x1, y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, x2, y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, connectionId);
-                if (y2 < y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH)
-                    WriteLineEntry(x2 - 2, y2, x2 - 2, y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, connectionId);
+                int tempYCoordinate = y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH;
+
+                WriteLineEntry(x1, tempYCoordinate, x1, y1, connectionId);
+                if (x1 < x2)
+                    WriteLineEntry(x1, tempYCoordinate, x2, tempYCoordinate, connectionId);
                 else
-                    WriteLineEntry(x2, y1 - (srcConnectionCount - source.AssignedConnections + 1) * LINE_SEGMENT_LENGTH, x2, y2, connectionId);
+                    WriteLineEntry(x2, tempYCoordinate, x1, tempYCoordinate, connectionId);
+
+                if (y2 < tempYCoordinate)
+                    WriteLineEntry(x2 - 2, y2, x2 - 2, tempYCoordinate, connectionId);
+                else
+                    WriteLineEntry(x2, tempYCoordinate, x2, y2, connectionId);
                 
                 source.UpSideConnections++;
                 destination.DownSideConnections++;
